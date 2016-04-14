@@ -14,6 +14,12 @@ public class Zamestnanec {
     @Column(name = "id_zamestnanec")
     private long id;
 
+    @Column(nullable = false, length = 128, unique = true)
+    private String username;
+
+    @Column(nullable = false, length = 128)
+    private String password;
+
     @Column(nullable = false, length = 128)
     private String jmeno;
 
@@ -140,5 +146,21 @@ public class Zamestnanec {
 
     public void setPozice(List<Pozice> pozice) {
         this.pozice = pozice;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

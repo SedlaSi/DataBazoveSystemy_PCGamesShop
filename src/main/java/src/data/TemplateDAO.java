@@ -3,7 +3,6 @@ package src.data;
 import src.util.Resources;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 /**
  * Created by root on 31.3.16.
@@ -17,7 +16,7 @@ public class TemplateDAO<T> {
 
     private Resources res;
 
-    private EntityManager em;
+    protected EntityManager em;
 
     public void create(T t){
         

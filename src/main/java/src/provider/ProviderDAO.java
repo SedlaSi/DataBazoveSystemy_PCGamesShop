@@ -1,13 +1,12 @@
-package src.factory;
+package src.provider;
 
 import src.data.*;
-import src.model.Zakaznik;
 import src.util.Resources;
 
 /**
  * Created by root on 14.4.16.
  */
-public class FactoryDAO {
+public class ProviderDAO {
 
     private ExemplarDAO exemplarDAO;
     private HraDAO hraDAO;
@@ -21,8 +20,8 @@ public class FactoryDAO {
 
     private Resources res;
 
-    public FactoryDAO(Resources res){
-        this.res = res;
+    public ProviderDAO(){
+        res = new Resources();
         exemplarDAO = new ExemplarDAO(res);
         hraDAO = new HraDAO(res);
         platformaDAO = new PlatformaDAO(res);

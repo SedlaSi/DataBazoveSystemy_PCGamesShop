@@ -7,12 +7,19 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
+@Table(name = "ZAKAZNIK")
 public class Zakaznik {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_zakaznik")
     private long id;
+
+    @Column(nullable = false, length = 128, unique = true)
+    private String username;
+
+    @Column(nullable = false, length = 128)
+    private String password;
 
     @Column(nullable = false, length = 128)
     private String jmeno;
@@ -104,5 +111,21 @@ public class Zakaznik {
 
     public void setPujcky(List<Pujcka> pujcky) {
         this.pujcky = pujcky;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
