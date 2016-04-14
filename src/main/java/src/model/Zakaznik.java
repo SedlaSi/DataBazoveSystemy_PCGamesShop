@@ -1,6 +1,7 @@
 package src.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by root on 14.4.16.
@@ -33,6 +34,9 @@ public class Zakaznik {
 
     @Column(nullable = false, length = 255, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "zakaznik")
+    private List<Pujcka> pujcky;
 
     public long getId() {
         return id;
@@ -92,5 +96,13 @@ public class Zakaznik {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Pujcka> getPujcky() {
+        return pujcky;
+    }
+
+    public void setPujcky(List<Pujcka> pujcky) {
+        this.pujcky = pujcky;
     }
 }

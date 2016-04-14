@@ -1,6 +1,7 @@
 package src.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by root on 14.4.16.
@@ -39,6 +40,15 @@ public class Zamestnanec {
 
     @Column(nullable = false)
     private boolean aktivni = true;
+
+    @OneToMany(mappedBy = "zamestnanec")
+    private List<Pujcka> pujcky;
+
+    @ManyToMany
+    @JoinTable(name="ma_pozice",
+            joinColumns=@JoinColumn(name="id_zamestnanec"),
+            inverseJoinColumns=@JoinColumn(name="id_pozice"))
+    private List<Pozice> pozice;
 
     public long getId() {
         return id;
@@ -114,5 +124,21 @@ public class Zamestnanec {
 
     public void setAktivni(boolean aktivni) {
         this.aktivni = aktivni;
+    }
+
+    public List<Pujcka> getPujcky() {
+        return pujcky;
+    }
+
+    public void setPujcky(List<Pujcka> pujcky) {
+        this.pujcky = pujcky;
+    }
+
+    public List<Pozice> getPozice() {
+        return pozice;
+    }
+
+    public void setPozice(List<Pozice> pozice) {
+        this.pozice = pozice;
     }
 }

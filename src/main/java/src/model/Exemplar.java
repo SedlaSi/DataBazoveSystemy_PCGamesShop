@@ -2,6 +2,7 @@ package src.model;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by root on 14.4.16.
@@ -24,6 +25,15 @@ public class Exemplar {
 
     @Column(nullable = false)
     private boolean aktivni = true;
+
+    @ManyToOne
+    private Hra hra;
+
+    @ManyToOne
+    private Platforma platforma;
+
+    @OneToMany(mappedBy = "exemplar")
+    private List<Pujcka> pujcka;
 
     public long getId() {
         return id;
@@ -59,5 +69,29 @@ public class Exemplar {
 
     public void setAktivni(boolean aktivni) {
         this.aktivni = aktivni;
+    }
+
+    public Hra getHra() {
+        return hra;
+    }
+
+    public void setHra(Hra hra) {
+        this.hra = hra;
+    }
+
+    public Platforma getPlatforma() {
+        return platforma;
+    }
+
+    public void setPlatforma(Platforma platforma) {
+        this.platforma = platforma;
+    }
+
+    public List<Pujcka> getPujcka() {
+        return pujcka;
+    }
+
+    public void setPujcka(List<Pujcka> pujcka) {
+        this.pujcka = pujcka;
     }
 }

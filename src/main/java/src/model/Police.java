@@ -1,6 +1,7 @@
 package src.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by root on 14.4.16.
@@ -17,6 +18,9 @@ public class Police {
 
     @Column(length = 255)
     private String popis;
+
+    @OneToMany(mappedBy = "police")
+    private List<Hra> hry;
 
     public String getPopis() {
         return popis;
@@ -38,5 +42,12 @@ public class Police {
         this.nazev = nazev;
     }
 
+    public void setHry(List<Hra> hry){
+        this.hry = hry;
+    }
+
+    public List<Hra> getHry(){
+        return hry;
+    }
 
 }

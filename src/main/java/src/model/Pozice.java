@@ -1,6 +1,7 @@
 package src.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by root on 14.4.16.
@@ -16,6 +17,9 @@ public class Pozice {
     @Column(nullable = false,length = 128)
     private String nazev;
 
+    @ManyToMany(mappedBy = "pozice")
+    private List<Zamestnanec> zamestnancy;
+
     public long getId() {
         return id;
     }
@@ -26,5 +30,13 @@ public class Pozice {
 
     public void setNazev(String nazev) {
         this.nazev = nazev;
+    }
+
+    public List<Zamestnanec> getZamestnancy() {
+        return zamestnancy;
+    }
+
+    public void setZamestnancy(List<Zamestnanec> zamestnancy) {
+        this.zamestnancy = zamestnancy;
     }
 }
