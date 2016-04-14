@@ -7,6 +7,7 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
+@Table(name = "PLATFORMA")
 public class Platforma {
 
     @Id
