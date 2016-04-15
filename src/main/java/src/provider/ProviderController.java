@@ -9,9 +9,20 @@ import src.controller.ZamestnanecLoginController;
 public class ProviderController {
 
     private ZakaznikLoginController zakaznikLoginController;
+
     private ZamestnanecLoginController zamestnanecLoginController;
 
-    public ProviderController(){
+    public ProviderController(ZakaznikLoginController zakaznikLoginController, ZamestnanecLoginController zamestnanecLoginController){
+        this.zakaznikLoginController = zakaznikLoginController;
+        this.zamestnanecLoginController = zamestnanecLoginController;
 
+    }
+
+    public ZamestnanecLoginController getZamestnanecLoginController() {
+        return zamestnanecLoginController;
+    }
+
+    public ZakaznikLoginController getZakaznikLoginController() {
+        return zakaznikLoginController;
     }
 }
