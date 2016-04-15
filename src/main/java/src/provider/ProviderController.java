@@ -1,5 +1,6 @@
 package src.provider;
 
+import src.controller.AdminVytvoritZamestnanceController;
 import src.controller.ZakaznikLoginController;
 import src.controller.ZamestnanecLoginController;
 
@@ -8,11 +9,14 @@ import src.controller.ZamestnanecLoginController;
  */
 public class ProviderController {
 
+    private AdminVytvoritZamestnanceController adminVytvoritZamestnanceController;
     private ZakaznikLoginController zakaznikLoginController;
-
     private ZamestnanecLoginController zamestnanecLoginController;
 
-    public ProviderController(ZakaznikLoginController zakaznikLoginController, ZamestnanecLoginController zamestnanecLoginController){
+    public ProviderController(AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
+                              ZakaznikLoginController zakaznikLoginController,
+                              ZamestnanecLoginController zamestnanecLoginController){
+        this.adminVytvoritZamestnanceController = adminVytvoritZamestnanceController;
         this.zakaznikLoginController = zakaznikLoginController;
         this.zamestnanecLoginController = zamestnanecLoginController;
 
@@ -24,5 +28,9 @@ public class ProviderController {
 
     public ZakaznikLoginController getZakaznikLoginController() {
         return zakaznikLoginController;
+    }
+
+    public AdminVytvoritZamestnanceController getAdminVytvoritZamestnanceController() {
+        return adminVytvoritZamestnanceController;
     }
 }

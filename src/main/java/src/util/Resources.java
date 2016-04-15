@@ -7,13 +7,11 @@ import javax.persistence.PersistenceContext;
 
 public class Resources {
 
-    // use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
-    @SuppressWarnings("unused")
     @PersistenceContext
     private EntityManager em;
 
     private void init(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("java.src");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sedlasi_db");
         em = emf.createEntityManager();
     }
 

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3901350837">
+  <component name="DataSourceManagerImpl" format="xml" hash="4280989807">
     <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="889cd791-0115-4d7b-aaba-f70ee408df7c">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - sedlasi_db@localhost" uuid="a22c41a5-a96b-4a30-8f89-d8982ad6ca88">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/sedlasi_db</jdbc-url>
     </data-source>
   </component>
 </project>

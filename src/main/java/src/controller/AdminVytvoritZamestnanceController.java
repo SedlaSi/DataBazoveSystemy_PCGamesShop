@@ -23,13 +23,13 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
 
     private String ulice;
 
-    private int cisloPopisne;
+    private String cisloPopisne;
 
     private String telefon;
 
     private String email;
 
-    private int plat;
+    private String plat;
 
 
     public AdminVytvoritZamestnanceController(Provider provider) {
@@ -61,7 +61,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         this.ulice = ulice;
     }
 
-    public void setCisloPopisne(int cisloPopisne) {
+    public void setCisloPopisne(String cisloPopisne) {
         this.cisloPopisne = cisloPopisne;
     }
 
@@ -73,7 +73,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         this.email = email;
     }
 
-    public void setPlat(int plat) {
+    public void setPlat(String plat) {
         this.plat = plat;
     }
 
@@ -81,6 +81,9 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         if(!correctData()){
             return false;
         }
+        int cp = Integer.parseInt(cisloPopisne);
+        int pt = Integer.parseInt(plat);
+
         Zamestnanec z = new Zamestnanec();
         z.setUsername(username);
         z.setPassword(password);
@@ -88,10 +91,10 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setMesto(mesto);
         z.setPrijmeni(prijmeni);
         z.setUlice(ulice);
-        z.setCisloPopisne(cisloPopisne);
+        z.setCisloPopisne(cp);
         z.setTelefon(telefon);
         z.setEmail(email);
-        z.setPlat(plat);
+        z.setPlat(pt);
 
         zamestnanecDAO.create(z);
         return true;
