@@ -1,5 +1,6 @@
 package src.controller;
 
+import src.provider.Provider;
 import src.provider.ProviderDAO;
 
 /**
@@ -9,7 +10,7 @@ public class TemplateController {
 
     ProviderDAO providerDAO;
 
-    public TemplateController(ProviderDAO providerDAO){
-        this.providerDAO = providerDAO;
+    public TemplateController(Provider provider){
+        this.providerDAO = provider.getProviderDAO();
     }
 }

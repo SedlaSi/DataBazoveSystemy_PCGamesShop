@@ -3,82 +3,116 @@ package src.view.zakaznik;
 /**
  * Created by root on 14.4.16.
  */
+
+import src.provider.ProviderController;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ZakaznikLogin extends JFrame{
 
+    private ProviderController providerController;
+
     public static void main(String [] args){
-       /* javax.swing.SwingUtilities.invokeLater(new Runnable() {
+
+       final ZakaznikLogin zkl =  new ZakaznikLogin(null);
+       javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                zkl.startFrame();
             }
-        });*/
-        new ZakaznikLogin();
+        });
 
     }
 
-    public ZakaznikLogin(){
+    public ZakaznikLogin(ProviderController providerController){
+        this.providerController = providerController;
+    }
+
+    public void startFrame(){
         this.setSize(400,400);
-        Toolkit tk = Toolkit.getDefaultToolkit();
-        Dimension dim = tk.getScreenSize();
-        int xPos = (dim.width /2) - (this.getWidth()/2);
-        int yPos = (dim.height /2) - (this.getHeight()/2);
-        this.setLocation(xPos,yPos);
+        this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Login Screen");
+        this.setLayout(new GridLayout(8,1,3,3));
 
-        JPanel mainPanel = new JPanel();
+        JPanel title = new JPanel();
+        JPanel search = new JPanel();
+        JPanel gab1 = new JPanel();
+        JPanel subTitle = new JPanel();
+        JPanel userNamePanel = new JPanel();
+        JPanel passwordPanel = new JPanel();
+        JPanel loginButtonPanel = new JPanel();
 
-        JLabel labelA = new JLabel("Welcome");
-        labelA.setText("PRDEL");
-        labelA.setToolTipText("toto je prdel");
-        mainPanel.add(labelA);
+        title.setLayout(new FlowLayout());
+        search.setLayout(new FlowLayout());
+        subTitle.setLayout(new GridLayout(2,1,3,3));
+        userNamePanel.setLayout(new GridLayout(1,3,3,3));
+        passwordPanel.setLayout(new GridLayout(1,3,3,3));
+        loginButtonPanel.setLayout(new FlowLayout());
+
+        this.add(title);
+        this.add(search);
+        this.add(gab1);
+        this.add(subTitle);
+        this.add(userNamePanel);
+        this.add(passwordPanel);
+        this.add(loginButtonPanel);
+        //JPanel mainPanel = new JPanel();
+
+        JLabel titleLabel = new JLabel("Vítejte v GameShop půjčovně");
+        title.add(titleLabel);
+
+        JLabel  searchTitle = new JLabel("Pro vyhledání hry klikněte zde:");
+        JButton searchButton = new JButton("Vyhledat hru");
+        searchButton.addActionListener(new ButtonClickedListener());
+        search.add(searchTitle);
+        search.add(searchButton);
+
+        JLabel subTitleLabel1 = new JLabel("Přihlašte se!");
+        JLabel subTitleLabel2 = new JLabel("Pokud nemáte účet, registrujte se na pokladně.");
+
+        subTitle.add(subTitleLabel1);
+        subTitle.add(subTitleLabel2);
+
+
+        JLabel userNameLabel = new JLabel("Uživatelské jméno:");
+        JTextArea usernameField = new JTextArea();
+        usernameField.setColumns(10);
+        usernameField.setLineWrap(true);
+
+        userNamePanel.add(userNameLabel);
+        userNamePanel.add(usernameField);
+
+        JLabel passwordLabel = new JLabel("Heslo:");
+
+        JPasswordField passwordField = new JPasswordField();
+        passwordField.setColumns(10);
+
+        passwordPanel.add(passwordLabel);
+        passwordPanel.add(passwordField);
 
         JButton button = new JButton();
-        button.setText("TLACITKO");
-        mainPanel.add(button);
+        button.setText("Přihlásit se");
+        button.addActionListener(new ButtonClickedListener());
+        loginButtonPanel.add(button);
 
-        JTextField textField = new JTextField("default text");
-        textField.setColumns(20);
-        mainPanel.add(textField);
-
-        JTextArea textArea = new JTextArea();
-        textArea.setColumns(15);
-        textArea.setRows(10);
-        textArea.setText("ldflajfaldkjflakdjfbaljdfblaskjbflakjsbflaskjfbalksjfbalskdjfbalskfjbasldfkb");
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        mainPanel.add(textArea);
-
-        JScrollPane scrollPane = new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        mainPanel.add(scrollPane);
-
-        this.add(mainPanel);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        textField.requestFocus();
-
+        usernameField.requestFocus();
     }
 
-    private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("Login");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container container = frame.getContentPane();
+    private class ButtonClickedListener implements ActionListener{
 
-        //Add the ubiquitous "Hello World" label.
-       /* JLabel label = new JLabel("Hello World");
-        container.add(label);*/
+        public void actionPerformed(ActionEvent e) {
+            if(((JButton)e.getSource()).getText().equals("Vyhledat hru")){ // Vyhledani hry
 
+            } else { // Prihlaseni
 
-        JPasswordField passwordField = new JPasswordField();
-        container.add(passwordField);
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+            }
+        }
     }
 
 }
