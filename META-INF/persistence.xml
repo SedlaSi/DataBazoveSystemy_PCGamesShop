@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.0">
+<persistence version="2.0"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             xmlns:xsi="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="sedlasi_db" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>src.model.Zamestnanec</class>
@@ -17,7 +19,7 @@
                       value="jdbc:postgresql://localhost:5432/sedlasi_db"/>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
             <property name="javax.persistence.jdbc.user" value="postgres"/>
-            <property name="javax.persistence.jdbc.password" value="L85A1G36C"/>
+            <property name="javax.persistence.jdbc.password" value="postgres"/>
             <property name="eclipselink.ddl-generation" value="create-tables" />
             <property name="eclipselink.ddl-generation.output-mode" value="database" />
         </properties>
