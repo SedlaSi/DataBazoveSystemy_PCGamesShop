@@ -1,9 +1,6 @@
 package src;
 
-import src.controller.AdminVytvoritZamestnanceController;
-import src.controller.ZakaznikLoginController;
-import src.controller.ZamestnanecLoginController;
-import src.controller.ZamestnanecVytvoritZakaznikaController;
+import src.controller.*;
 import src.provider.Provider;
 import src.provider.ProviderController;
 import src.view.admin.AdminVytvoritZamestnance;
@@ -22,7 +19,8 @@ public class ApplicationAdminBuild {
         ZamestnanecVytvoritZakaznikaController zvzC = new ZamestnanecVytvoritZakaznikaController(provider);
         ZakaznikLoginController zkC = new ZakaznikLoginController(provider);
         ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
-        ProviderController providerController = new ProviderController(zvzC,admC,zkC,zlC);
+        ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
+        ProviderController providerController = new ProviderController(zvC,zvzC,admC,zkC,zlC);
 
         final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
