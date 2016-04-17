@@ -1,5 +1,6 @@
 package src.view.zamestnanec;
 
+import src.model.Vydavatel;
 import src.provider.ProviderController;
 
 import javax.swing.*;
@@ -12,7 +13,16 @@ import java.awt.event.ActionListener;
  */
 public class ZamestnanecPridatHru extends JFrame {
 
+    /***
+     *
+     * NOT FULLY IMPLEMENTED YET
+     *
+     * */
+
     private ProviderController providerController;
+    private int vydavatelSelected;
+    private int policeSelected;
+    private java.util.List<Integer> zanrySelected;
 
     public static void main(String [] args){
         final ZamestnanecPridatHru zkl =  new ZamestnanecPridatHru(null);
@@ -70,8 +80,16 @@ public class ZamestnanecPridatHru extends JFrame {
         notePanel.add(noteLabel);
         notePanel.add(noteField);
 
+        JLabel vydavatelLabel = new JLabel("Vydavatel:");
+
+        JComboBox<JLabel> vydavatelChooser = new JComboBox<>();
+        java.util.List<Vydavatel> vydavatelList = providerController.getZamestnanecVydavatelController().getVydavatele();
+        for(Vydavatel v : vydavatelList){
+            vydavatelChooser.addItem(new JLabel(v.getNazev()));
+        }
+
         JButton button = new JButton();
-        button.setText("Přihlásit se");
+        button.setText("Vytvořit");
         button.addActionListener(new ButtonClickedListener());
         loginButtonPanel.add(button);
 
@@ -81,10 +99,24 @@ public class ZamestnanecPridatHru extends JFrame {
         usernameField.requestFocus();
     }
 
+    private class ComboBoxItemListener implements ActionListener{
+        private java.util.List<Vydavatel> vydavatelList = providerController.getZamestnanecVydavatelController().getVydavatele();
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for(Vydavatel v : vydavatelList){
+                if(e.getSource().toString().equals(v.getNazev())){
+                    vydavatelSelected = vydavatelList.indexOf(v);
+                }
+            }
+        }
+    }
+
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            // pridat hru
+
         }
     }
 }

@@ -1,9 +1,6 @@
 package src.provider;
 
-import src.controller.AdminVytvoritZamestnanceController;
-import src.controller.ZakaznikLoginController;
-import src.controller.ZamestnanecLoginController;
-import src.controller.ZamestnanecVytvoritZakaznikaController;
+import src.controller.*;
 
 /**
  * Created by root on 15.4.16.
@@ -14,14 +11,16 @@ public class ProviderController {
     private ZakaznikLoginController zakaznikLoginController;
     private ZamestnanecLoginController zamestnanecLoginController;
     private ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController;
+    private ZamestnanecVydavatelController zamestnanecVydavatelController;
 
-    public ProviderController(ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
+    public ProviderController(ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
                               ZamestnanecLoginController zamestnanecLoginController){
         this.adminVytvoritZamestnanceController = adminVytvoritZamestnanceController;
         this.zakaznikLoginController = zakaznikLoginController;
         this.zamestnanecLoginController = zamestnanecLoginController;
         this.zamestnanecVytvoritZakaznikaController = zamestnanecVytvoritZakaznikaController;
+        this.zamestnanecVydavatelController = zamestnanecVydavatelController;
 
     }
 
@@ -39,5 +38,9 @@ public class ProviderController {
 
     public ZamestnanecVytvoritZakaznikaController getZamestnanecVytvoritZakaznikaController() {
         return zamestnanecVytvoritZakaznikaController;
+    }
+
+    public ZamestnanecVydavatelController getZamestnanecVydavatelController() {
+        return zamestnanecVydavatelController;
     }
 }
