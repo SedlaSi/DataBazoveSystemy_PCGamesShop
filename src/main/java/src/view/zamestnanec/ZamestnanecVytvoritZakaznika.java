@@ -1,6 +1,6 @@
-package src.view.admin;
+package src.view.zamestnanec;
 
-import src.controller.AdminVytvoritZamestnanceController;
+import src.controller.ZamestnanecVytvoritZakaznikaController;
 import src.provider.ProviderController;
 
 import javax.swing.*;
@@ -9,9 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by root on 15.4.16.
+ * Created by root on 17.4.16.
  */
-public class AdminVytvoritZamestnance extends JFrame {
+public class ZamestnanecVytvoritZakaznika extends JFrame{
 
     private JTextArea jmeno;
     private JTextArea prijmeni;
@@ -20,16 +20,19 @@ public class AdminVytvoritZamestnance extends JFrame {
     private JTextArea cisloPopisne;
     private JTextArea telefon;
     private JTextArea email;
-    private JTextArea plat;
     private JTextArea username;
     private JTextArea password;
 
 
     private ProviderController providerController;
 
+    public ZamestnanecVytvoritZakaznika(ProviderController providerController) {
+        this.providerController = providerController;
+    }
+
     public static void main(String [] args){
 
-        final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(null);
+        final ZamestnanecVytvoritZakaznika zkl =  new ZamestnanecVytvoritZakaznika(null);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -38,15 +41,11 @@ public class AdminVytvoritZamestnance extends JFrame {
 
     }
 
-    public AdminVytvoritZamestnance(ProviderController providerController){
-        this.providerController = providerController;
-    }
-
     public void startFrame(){
         this.setSize(500,500);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setTitle("Přidat Zaměstnance");
+        this.setTitle("Přidat Zákazníka");
         this.setLayout(new GridLayout(14,1,3,3));
 
         JPanel titlePanel  =  new JPanel();
@@ -76,7 +75,7 @@ public class AdminVytvoritZamestnance extends JFrame {
         passwordPanel.setLayout(new GridLayout(1,3,3,3));
         buttonPanel.setLayout(new FlowLayout());
 
-        JLabel title = new JLabel("Vytvořit nového zaměstnance:");
+        JLabel title = new JLabel("Přidat nového zákazníka:");
         titlePanel.add(title);
 
         JLabel jmenoLabel = new JLabel("Jméno:");
@@ -121,12 +120,6 @@ public class AdminVytvoritZamestnance extends JFrame {
         emailPanel.add(emailLabel);
         emailPanel.add(email);
 
-        JLabel platLabel = new JLabel("Plat:");
-        plat = new JTextArea();
-        plat.setColumns(20);
-        platPanel.add(platLabel);
-        platPanel.add(plat);
-
         JLabel usernameLabel = new JLabel("Uživatelské jméno:");
         username = new JTextArea();
         username.setColumns(20);
@@ -159,19 +152,18 @@ public class AdminVytvoritZamestnance extends JFrame {
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) { //  Zaregistrování uživatele
-            AdminVytvoritZamestnanceController adminCntrl = providerController.getAdminVytvoritZamestnanceController();
-            adminCntrl.setEmail(email.getText());
-            adminCntrl.setTelefon(telefon.getText());
-            adminCntrl.setCisloPopisne(cisloPopisne.getText());
-            adminCntrl.setJmeno(jmeno.getText());
-            adminCntrl.setPrijmeni(prijmeni.getText());
-            adminCntrl.setMesto(mesto.getText());
-            adminCntrl.setPassword(password.getText());
-            adminCntrl.setUsername(username.getText());
-            adminCntrl.setPlat(plat.getText());
-            adminCntrl.setUlice(ulice.getText());
+            ZamestnanecVytvoritZakaznikaController zamestnanecCntrl = providerController.getZamestnanecVytvoritZakaznikaController();
+            zamestnanecCntrl.setEmail(email.getText());
+            zamestnanecCntrl.setTelefon(telefon.getText());
+            zamestnanecCntrl.setCisloPopisne(cisloPopisne.getText());
+            zamestnanecCntrl.setJmeno(jmeno.getText());
+            zamestnanecCntrl.setPrijmeni(prijmeni.getText());
+            zamestnanecCntrl.setMesto(mesto.getText());
+            zamestnanecCntrl.setPassword(password.getText());
+            zamestnanecCntrl.setUsername(username.getText());
+            zamestnanecCntrl.setUlice(ulice.getText());
 
-            boolean succesfull = adminCntrl.createZamestnanec();
+            boolean succesfull = zamestnanecCntrl.createZakaznik();
             if(succesfull){
                 System.out.println("DONE");
             } else {
@@ -179,5 +171,4 @@ public class AdminVytvoritZamestnance extends JFrame {
             }
         }
     }
-
 }
