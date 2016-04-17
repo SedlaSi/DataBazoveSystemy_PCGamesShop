@@ -7,12 +7,12 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-@Table(name = "ZAKAZNIK")
+//@Table(name = "ZAKAZNIK")
 public class Zakaznik {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_zakaznik")
+    //@Column(name = "id_zakaznik")
     private long id;
 
     @Column(nullable = false, length = 128, unique = true)
@@ -33,7 +33,7 @@ public class Zakaznik {
     @Column(nullable = false, length = 128)
     private String ulice;
 
-    @Column(nullable = false,name = "cislo_popisne")
+    @Column(nullable = false/*,name = "cislo_popisne"*/)
     private int cisloPopisne;
 
     @Column(nullable = false, length = 16)

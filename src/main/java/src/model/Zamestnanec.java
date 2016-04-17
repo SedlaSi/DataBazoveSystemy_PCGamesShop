@@ -7,12 +7,12 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-@Table(name = "ZAMESTNANEC")
+//@Table(name = "ZAMESTNANEC")
 public class Zamestnanec {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_zamestnanec")
+    //@Column(name = "id_zamestnanec")
     private long id;
 
     @Column(nullable = false, length = 128, unique = true)
@@ -33,7 +33,7 @@ public class Zamestnanec {
     @Column(nullable = false, length = 128)
     private String ulice;
 
-    @Column(nullable = false,name = "cislo_popisne")
+    @Column(nullable = false/*,name = "cislo_popisne"*/)
     private int cisloPopisne;
 
     @Column(nullable = false, length = 16)
@@ -52,9 +52,9 @@ public class Zamestnanec {
     private List<Pujcka> pujcky;
 
     @ManyToMany
-    @JoinTable(name="ma_pozice",
+    /*@JoinTable(name="ma_pozice",
             joinColumns=@JoinColumn(name="id_zamestnanec"),
-            inverseJoinColumns=@JoinColumn(name="id_pozice"))
+            inverseJoinColumns=@JoinColumn(name="id_pozice"))*/
     private List<Pozice> pozice;
 
     public long getId() {

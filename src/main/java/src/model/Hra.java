@@ -7,12 +7,12 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-@Table(name = "HRA")
+//@Table(name = "HRA")
 public class Hra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_hra")
+    //@Column(name = "id_hra")
     private long id;
 
     @Column(nullable = false,unique = true,length = 128)
@@ -28,13 +28,13 @@ public class Hra {
     private Vydavatel vydavatel;
 
     @OneToMany(mappedBy = "hra")
-    @Column(name = "exemplar")
+    //@Column(name = "exemplar")
     private List<Exemplar> exemplare;
 
     @ManyToMany
-    @JoinTable(name="je_zarnu",
+    /*@JoinTable(name="je_zarnu",
             joinColumns=@JoinColumn(name="id_hra"),
-            inverseJoinColumns=@JoinColumn(name="id_zanr"))
+            inverseJoinColumns=@JoinColumn(name="id_zanr"))*/
     private List<Zanr> zanry;
 
     public long getId(){

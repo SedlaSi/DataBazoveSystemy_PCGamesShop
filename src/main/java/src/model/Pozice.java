@@ -7,12 +7,12 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-@Table(name = "POZICE")
+//@Table(name = "POZICE")
 public class Pozice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_pozice")
+    //@Column(name = "id_pozice")
     private long id;
 
     @Column(nullable = false,length = 128)
