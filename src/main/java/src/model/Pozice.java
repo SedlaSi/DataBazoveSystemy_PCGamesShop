@@ -1,25 +1,24 @@
 package src.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by root on 14.4.16.
  */
 @Entity
-//@Table(name = "POZICE")
+@Table(name = "pozice")
 public class Pozice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "id_pozice")
+    @Column(name = "id_pozice")
     private long id;
 
-    @Column(nullable = false,length = 128)
+    @Column(nullable = false,length = 128, name = "nazev")
     private String nazev;
 
-    @ManyToMany(mappedBy = "pozice")
-    private List<Zamestnanec> zamestnancy;
+    @ManyToOne
+    private Zamestnanec zamestnanec;
 
     public long getId() {
         return id;
@@ -33,11 +32,11 @@ public class Pozice {
         this.nazev = nazev;
     }
 
-    public List<Zamestnanec> getZamestnancy() {
-        return zamestnancy;
+    public Zamestnanec getZamestnanec() {
+        return zamestnanec;
     }
 
-    public void setZamestnancy(List<Zamestnanec> zamestnancy) {
-        this.zamestnancy = zamestnancy;
+    public void setZamestnanec(Zamestnanec zamestnanec) {
+        this.zamestnanec = zamestnanec;
     }
 }

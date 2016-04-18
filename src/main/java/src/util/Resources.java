@@ -3,15 +3,14 @@ package src.util;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 
 public class Resources {
 
-    @PersistenceContext
+    //@PersistenceContext
     private EntityManager em;
 
     private void init(){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sedlasi_db");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("gameshop");
         em = emf.createEntityManager();
     }
 

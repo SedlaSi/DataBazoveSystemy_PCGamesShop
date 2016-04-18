@@ -7,39 +7,39 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-//@Table(name = "ZAKAZNIK")
+@Table(name = "zakaznik")
 public class Zakaznik {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "id_zakaznik")
+    @Column(name = "id_zakaznik")
     private long id;
 
-    @Column(nullable = false, length = 128, unique = true)
+    @Column(nullable = false, length = 128, unique = true, name = "username")
     private String username;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "password")
     private String password;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "jmeno")
     private String jmeno;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "prijmeni")
     private String prijmeni;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "mesto")
     private String mesto;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "ulice")
     private String ulice;
 
-    @Column(nullable = false/*,name = "cislo_popisne"*/)
+    @Column(nullable = false,name = "cislo_popisne")
     private int cisloPopisne;
 
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 16, name = "telefon")
     private String telefon;
 
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255, unique = true, name = "email")
     private String email;
 
     @OneToMany(mappedBy = "zakaznik")

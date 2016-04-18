@@ -8,12 +8,12 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-//@Table(name = "EXEMPLAR")
+@Table(name = "exemplar")
 public class Exemplar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "id_exemplar")
+    @Column(name = "id_exemplar")
     private long id;
 
     private String stav;
@@ -21,7 +21,7 @@ public class Exemplar {
     @Column(nullable = false)
     private int cena;
 
-    @Column(nullable = false/*,name = "rok_vydani"*/)
+    @Column(nullable = false,name = "rok_vydani")
     private Date rokVydani;
 
     @Column(nullable = false)

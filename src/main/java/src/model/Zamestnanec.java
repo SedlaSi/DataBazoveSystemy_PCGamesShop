@@ -7,54 +7,51 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-//@Table(name = "ZAMESTNANEC")
+@Table(name = "zamestnanec")
 public class Zamestnanec {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "id_zamestnanec")
+    @Column(name = "id_zamestnanec")
     private long id;
 
-    @Column(nullable = false, length = 128, unique = true)
+    @Column(nullable = false, length = 128, unique = true, name = "username")
     private String username;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "password")
     private String password;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "jmeno")
     private String jmeno;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "prijmeni")
     private String prijmeni;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "mesto")
     private String mesto;
 
-    @Column(nullable = false, length = 128)
+    @Column(nullable = false, length = 128, name = "ulice")
     private String ulice;
 
-    @Column(nullable = false/*,name = "cislo_popisne"*/)
+    @Column(nullable = false,name = "cislo_popisne")
     private int cisloPopisne;
 
-    @Column(nullable = false, length = 16)
+    @Column(nullable = false, length = 16, name = "telefon")
     private String telefon;
 
-    @Column(nullable = false, length = 255, unique = true)
+    @Column(nullable = false, length = 255, unique = true, name = "email")
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "plat")
     private int plat;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "aktivni")
     private boolean aktivni = true;
 
     @OneToMany(mappedBy = "zamestnanec")
     private List<Pujcka> pujcky;
 
-    @ManyToMany
-    /*@JoinTable(name="ma_pozice",
-            joinColumns=@JoinColumn(name="id_zamestnanec"),
-            inverseJoinColumns=@JoinColumn(name="id_pozice"))*/
+    @OneToMany
     private List<Pozice> pozice;
 
     public long getId() {

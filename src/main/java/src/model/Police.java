@@ -7,17 +7,17 @@ import java.util.List;
  * Created by root on 14.4.16.
  */
 @Entity
-//@Table(name = "POLICE")
+@Table(name = "police")
 public class Police {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //@Column(name = "id_police")
+    @Column(name = "id_police")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128)
+    @Column(nullable = false,unique = true,length = 128, name = "nazev")
     private String nazev;
 
-    @Column(length = 255)
+    @Column(length = 255, name = "popis")
     private String popis;
 
     @OneToMany(mappedBy = "police")

@@ -6,20 +6,24 @@ import javax.persistence.*;
  * Created by root on 14.4.16.
  */
 @Entity
-//@Table(name = "BYL_PROPUJCEN")
+@Table(name = "byl_propujcen")
 public class Pujcka {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_byl_propujcen")
     private long id;
 
     @ManyToOne
+    @Column(name = "id_exemplar")
     private Exemplar exemplar;
 
     @ManyToOne
+    @Column(name = "id_zakaznik")
     private Zakaznik zakaznik;
 
     @ManyToOne
+    @Column(name = "id_zamestnanec")
     private Zamestnanec zamestnanec;
 
     public long getId() {
