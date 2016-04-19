@@ -1,5 +1,6 @@
 package src.controller;
 
+import org.apache.commons.validator.EmailValidator;
 import src.data.ZamestnanecDAO;
 import src.model.Zamestnanec;
 import src.provider.Provider;
@@ -97,7 +98,107 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
     }
 
     public boolean validData() {
-        return false;
+        boolean valid = true;
+        int ascii;
+        // Jmeno
+        if(jmeno.isEmpty()){
+            return false;
+        }
+        for(char c : jmeno.toCharArray()){
+            ascii = (int)c;
+            if(ascii < 65 || (ascii > 90 && ascii < 97) || ascii > 122){
+                return false;
+            }
+        }
+        // Prijmeni
+        if(prijmeni.isEmpty()){
+            return false;
+        }
+        for(char c : prijmeni.toCharArray()){
+            ascii = (int)c;
+            if(ascii < 65 || (ascii > 90 && ascii < 97) || ascii > 122){
+                return false;
+            }
+        }
+        // Username
+        if(username.isEmpty()){
+            return false;
+        }
+        for(char c : username.toCharArray()){
+            if(c == ' '){
+                return false;
+            }
+        }
+        // Password
+        if(password.isEmpty()){
+            return false;
+        }
+        for(char c : password.toCharArray()){
+            if(c == ' '){
+                return false;
+            }
+        }
+        // Mesto
+        if(mesto.isEmpty()){
+            return false;
+        }
+        for(char c : mesto.toCharArray()){
+            if(c == ' '){
+                return false;
+            }
+        }
+        // Ulice
+        if(ulice.isEmpty()){
+            return false;
+        }
+        for(char c : ulice.toCharArray()){
+            if(c == ' '){
+                return false;
+            }
+        }
+        // Telefon
+        if(telefon.isEmpty()){
+            return false;
+        }
+        for(char c : telefon.toCharArray()){
+            ascii = (int)c;
+            if(!(ascii > 47 && ascii < 58) && c != ' ' && c != '+'){
+                System.out.println("Telefon validation failed");
+                return false;
+            }
+        }
+        // Email
+        if(email.isEmpty()){
+            return false;
+        }
+        EmailValidator emailValidator = EmailValidator.getInstance();
+        if(!emailValidator.isValid(email)){
+            System.out.println("Email validation failed");
+         return false;
+        }
+        // Plat
+        if(plat.isEmpty()){
+            return false;
+        }
+        try{
+            Double.parseDouble(plat);
+        } catch (Exception e){
+            return false;
+        }
+
+        // Cislo Popisne
+        if(cisloPopisne.isEmpty()){
+            return false;
+        }
+        try{
+            if(Integer.parseInt(cisloPopisne) < 1){
+                return false;
+            }
+        } catch (Exception e){
+            return false;
+        }
+
+        return true;
     }
 
 }
