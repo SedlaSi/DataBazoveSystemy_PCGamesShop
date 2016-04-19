@@ -16,21 +16,24 @@ public class Exemplar {
     @Column(name = "id_exemplar")
     private long id;
 
+    @Column(name = "stav")
     private String stav;
 
-    @Column(nullable = false)
+    @Column(nullable = false,name = "cena")
     private int cena;
 
     @Column(nullable = false,name = "rok_vydani")
     private Date rokVydani;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "aktivni")
     private boolean aktivni = true;
 
     @ManyToOne
+    @Column(name = "id_hra")
     private Hra hra;
 
     @ManyToOne
+    @Column(name = "id_platforma")
     private Platforma platforma;
 
     @OneToMany(mappedBy = "exemplar")

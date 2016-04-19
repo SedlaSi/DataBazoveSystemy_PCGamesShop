@@ -15,16 +15,18 @@ public class Hra {
     @Column(name = "id_hra")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128)
+    @Column(nullable = false,unique = true,length = 128,name = "nazev")
     private String nazev;
 
-    @Column(length = 255)
+    @Column(length = 255, name = "popis")
     private String popis;
 
     @ManyToOne
+    @Column(name = "id_police")
     private Police police;
 
     @ManyToOne
+    @Column(name = "id_vydavatel")
     private Vydavatel vydavatel;
 
     @OneToMany(mappedBy = "hra")

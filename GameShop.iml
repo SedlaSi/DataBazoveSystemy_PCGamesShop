@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
-          <factory-entry name="sedlasi_db" value="ee25576f-964f-405d-a876-4dba7ccf0b81" />
+          <factory-entry name="gameshop" value="a22c41a5-a96b-4a30-8f89-d8982ad6ca88" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/META-INF/persistence.xml" />
       </configuration>
