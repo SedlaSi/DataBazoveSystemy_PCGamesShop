@@ -7,15 +7,17 @@ import src.controller.*;
  */
 public class ProviderController {
 
+    private final AdminSmazatZamestnanceController adminSmazatZamestnanceController;
     private AdminVytvoritZamestnanceController adminVytvoritZamestnanceController;
     private ZakaznikLoginController zakaznikLoginController;
     private ZamestnanecLoginController zamestnanecLoginController;
     private ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController;
     private ZamestnanecVydavatelController zamestnanecVydavatelController;
 
-    public ProviderController(ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
+    public ProviderController(AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
                               ZamestnanecLoginController zamestnanecLoginController){
+        this.adminSmazatZamestnanceController = adminSmazatZamestnanceController;
         this.adminVytvoritZamestnanceController = adminVytvoritZamestnanceController;
         this.zakaznikLoginController = zakaznikLoginController;
         this.zamestnanecLoginController = zamestnanecLoginController;
@@ -42,5 +44,9 @@ public class ProviderController {
 
     public ZamestnanecVydavatelController getZamestnanecVydavatelController() {
         return zamestnanecVydavatelController;
+    }
+
+    public AdminSmazatZamestnanceController getAdminSmazatZamestnanceController() {
+        return adminSmazatZamestnanceController;
     }
 }
