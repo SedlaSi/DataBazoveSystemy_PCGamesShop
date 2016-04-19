@@ -18,7 +18,7 @@ public class Pozice {
     private String nazev;
 
     @ManyToOne
-    @Column(name = "id_zamestnanec")
+    @JoinColumn(name = "id_zamestnanec")
     private Zamestnanec zamestnanec;
 
     public long getId() {

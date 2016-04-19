@@ -22,11 +22,11 @@ public class Hra {
     private String popis;
 
     @ManyToOne
-    @Column(name = "id_police")
+    @JoinColumn(name = "id_police")
     private Police police;
 
     @ManyToOne
-    @Column(name = "id_vydavatel")
+    @JoinColumn(name = "id_vydavatel")
     private Vydavatel vydavatel;
 
     @OneToMany(mappedBy = "hra")

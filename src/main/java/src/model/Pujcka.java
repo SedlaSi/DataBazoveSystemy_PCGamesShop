@@ -15,15 +15,15 @@ public class Pujcka {
     private long id;
 
     @ManyToOne
-    @Column(name = "id_exemplar")
+    @JoinColumn(name = "id_exemplar")
     private Exemplar exemplar;
 
     @ManyToOne
-    @Column(name = "id_zakaznik")
+    @JoinColumn(name = "id_zakaznik")
     private Zakaznik zakaznik;
 
     @ManyToOne
-    @Column(name = "id_zamestnanec")
+    @JoinColumn(name = "id_zamestnanec")
     private Zamestnanec zamestnanec;
 
     public long getId() {
