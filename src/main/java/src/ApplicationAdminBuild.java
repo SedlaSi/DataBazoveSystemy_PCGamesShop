@@ -24,8 +24,8 @@ public class ApplicationAdminBuild {
         ProviderController providerController = new ProviderController(admSC,zvC,zvzC,admC,zkC,zlC);
 
 
-        startAdminSmazatZamestnance(providerController);
-       // startAdminVytvoritZamestnance(providerController);
+       // startAdminSmazatZamestnance(providerController);
+        startAdminVytvoritZamestnance(providerController);
 
 
     }

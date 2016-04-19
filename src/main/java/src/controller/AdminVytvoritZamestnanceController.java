@@ -77,10 +77,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         this.plat = plat;
     }
 
-    public boolean createZamestnanec(){
-        if(!correctData()){
-            return false;
-        }
+    public void createZamestnanec(){
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
 
@@ -97,11 +94,10 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setPlat(pt);
 
         zamestnanecDAO.create(z);
-        return true;
     }
 
-    private boolean correctData() {
-        return true;
+    public boolean validData() {
+        return false;
     }
 
 }
