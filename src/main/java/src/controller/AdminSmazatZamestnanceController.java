@@ -30,7 +30,7 @@ public class AdminSmazatZamestnanceController extends TemplateController {
         prijmeni = s[1];
     }
 
-    public void smazat(){
+    public void smazat() throws Exception {
         Zamestnanec zamestnanec = zamestnanecDAO.getByJmenoPrijmeni(jmeno,prijmeni);
         zamestnanecDAO.remove(zamestnanec);
     }

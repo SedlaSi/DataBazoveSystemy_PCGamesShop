@@ -203,11 +203,16 @@ public class AdminVytvoritZamestnance extends JFrame {
             adminCntrl.setUsername(username.getText());
             adminCntrl.setPlat(plat.getText());
             adminCntrl.setUlice(ulice.getText());
-            if(adminCntrl.validData()){
+            try{
+                adminCntrl.createZamestnanec();
+            } catch (Exception ex){
+                showHint();
+            }
+            /*if(adminCntrl.validData()){
                 adminCntrl.createZamestnanec();
             } else {
                 showHint();
-            }
+            }*/
         }
     }
 

@@ -78,7 +78,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         this.plat = plat;
     }
 
-    public void createZamestnanec(){
+    public void createZamestnanec() throws Exception {
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
 

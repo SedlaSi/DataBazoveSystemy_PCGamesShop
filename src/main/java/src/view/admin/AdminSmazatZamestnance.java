@@ -108,10 +108,14 @@ public class AdminSmazatZamestnance extends JFrame {
             } else {
                 AdminSmazatZamestnanceController adminSmazatZamestnanceController = providerController.getAdminSmazatZamestnanceController();
                 adminSmazatZamestnanceController.setJmenoPrijmeni(jmenoPrijmeni);
-                adminSmazatZamestnanceController.smazat();
-                fillComboBox();
-                info.setText("Zaměstnanec smazán.");
-
+                try{
+                    adminSmazatZamestnanceController.smazat();
+                    info.setText("Zaměstnanec smazán.");
+                } catch (Exception ex){
+                    info.setText("Nastala chyba při mazání.");
+                } finally {
+                    fillComboBox();
+                }
             }
         }
     }

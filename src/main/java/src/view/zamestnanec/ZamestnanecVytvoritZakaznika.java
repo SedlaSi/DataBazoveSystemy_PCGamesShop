@@ -163,10 +163,9 @@ public class ZamestnanecVytvoritZakaznika extends JFrame{
             zamestnanecCntrl.setUsername(username.getText());
             zamestnanecCntrl.setUlice(ulice.getText());
 
-            boolean succesfull = zamestnanecCntrl.createZakaznik();
-            if(succesfull){
-                System.out.println("DONE");
-            } else {
+            try{
+                zamestnanecCntrl.createZakaznik();
+            } catch (Exception ex){
                 System.out.println("ERROR");
             }
         }

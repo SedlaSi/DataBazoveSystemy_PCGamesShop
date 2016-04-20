@@ -19,20 +19,20 @@ public class TemplateDAO<T> {
 
     protected EntityManager em;
 
-    public void create(T t){
+    public void create(T t) throws Exception{
         em.getTransaction().begin();
         em.persist(t);
         em.getTransaction().commit();
     }
 
-    public T update(T t){
+    public T update(T t) throws Exception{
         em.getTransaction().begin();
         T t2 = em.merge(t);
         em.getTransaction().commit();
         return t2;
     }
 
-    public void remove(T t){
+    public void remove(T t) throws Exception{
         em.getTransaction().begin();
         em.remove(t);
         em.getTransaction().commit();
@@ -41,7 +41,7 @@ public class TemplateDAO<T> {
     public T getById(int id){
         T t;
         em.getTransaction().begin();
-        Query q = em.createQuery("SELECT x FROM T WHERE x.id = :id");
+        Query q = em.createQuery("SELECT T FROM T x WHERE x.id = :id");
         q.setParameter("id",id);
         t =(T) q.getSingleResult();
         em.getTransaction().commit();

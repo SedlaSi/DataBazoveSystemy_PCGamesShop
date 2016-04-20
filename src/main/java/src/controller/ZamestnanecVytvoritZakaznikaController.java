@@ -77,7 +77,7 @@ public class ZamestnanecVytvoritZakaznikaController extends TemplateController{
         this.plat = plat;
     }
 
-    public boolean createZakaznik(){
+    public boolean createZakaznik() throws Exception {
         if(!correctData()){
             return false;
         }
