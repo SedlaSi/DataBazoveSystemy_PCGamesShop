@@ -1,6 +1,7 @@
 package src.model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 /**
  * Created by root on 14.4.16.
@@ -13,6 +14,12 @@ public class Pujcka {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_byl_propujcen")
     private long id;
+
+    @Column(name = "pujceno", nullable = false)
+    private Date pujceno;
+
+    @Column(name = "vraceno")
+    private Date vraceno;
 
     @ManyToOne
     @JoinColumn(name = "id_exemplar")
@@ -52,5 +59,21 @@ public class Pujcka {
 
     public void setZamestnanec(Zamestnanec zamestnanec) {
         this.zamestnanec = zamestnanec;
+    }
+
+    public Date getPujceno() {
+        return pujceno;
+    }
+
+    public void setPujceno(Date pujceno) {
+        this.pujceno = pujceno;
+    }
+
+    public Date getVraceno() {
+        return vraceno;
+    }
+
+    public void setVraceno(Date vraceno) {
+        this.vraceno = vraceno;
     }
 }

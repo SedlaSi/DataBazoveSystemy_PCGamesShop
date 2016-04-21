@@ -13,8 +13,9 @@ public class ProviderController {
     private ZamestnanecLoginController zamestnanecLoginController;
     private ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController;
     private ZamestnanecVydavatelController zamestnanecVydavatelController;
+    private ZakaznikPrihlasenController zakaznikPrihlasenController;
 
-    public ProviderController(AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
+    public ProviderController(ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
                               ZamestnanecLoginController zamestnanecLoginController){
         this.adminSmazatZamestnanceController = adminSmazatZamestnanceController;
@@ -23,6 +24,7 @@ public class ProviderController {
         this.zamestnanecLoginController = zamestnanecLoginController;
         this.zamestnanecVytvoritZakaznikaController = zamestnanecVytvoritZakaznikaController;
         this.zamestnanecVydavatelController = zamestnanecVydavatelController;
+        this.zakaznikPrihlasenController = zakaznikPrihlasenController;
 
     }
 
@@ -48,5 +50,9 @@ public class ProviderController {
 
     public AdminSmazatZamestnanceController getAdminSmazatZamestnanceController() {
         return adminSmazatZamestnanceController;
+    }
+
+    public ZakaznikPrihlasenController getZakaznikPrihlasenController() {
+        return zakaznikPrihlasenController;
     }
 }

@@ -2,6 +2,7 @@ package src.controller;
 
 import src.data.ZakaznikDAO;
 import src.login.Role;
+import src.login.Session;
 import src.model.Zakaznik;
 import src.provider.Provider;
 import src.provider.ProviderSession;
@@ -41,7 +42,11 @@ public class ZakaznikLoginController extends TemplateController {
         return false;
     }
 
+    public Session getCurrentSession(){
+        return providerSession.getSession();
+    }
 
-
-
+    public void performLogout() {
+        providerSession.endSession();
+    }
 }

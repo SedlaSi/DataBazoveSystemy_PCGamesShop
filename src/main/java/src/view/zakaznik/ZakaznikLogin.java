@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 public class ZakaznikLogin extends JFrame{
 
     private ProviderController providerController;
+    private JTextArea usernameField;
+    private JPasswordField passwordField;
+    private JLabel loginHint;
 
     public static void main(String [] args){
 
@@ -44,6 +47,7 @@ public class ZakaznikLogin extends JFrame{
         JPanel userNamePanel = new JPanel();
         JPanel passwordPanel = new JPanel();
         JPanel loginButtonPanel = new JPanel();
+        JPanel loginHintPanel = new JPanel();
 
         title.setLayout(new FlowLayout());
         search.setLayout(new FlowLayout());
@@ -51,6 +55,7 @@ public class ZakaznikLogin extends JFrame{
         userNamePanel.setLayout(new GridLayout(1,3,3,3));
         passwordPanel.setLayout(new GridLayout(1,3,3,3));
         loginButtonPanel.setLayout(new FlowLayout());
+        loginHintPanel.setLayout(new FlowLayout());
 
         this.add(title);
         this.add(search);
@@ -59,6 +64,7 @@ public class ZakaznikLogin extends JFrame{
         this.add(userNamePanel);
         this.add(passwordPanel);
         this.add(loginButtonPanel);
+        this.add(loginHintPanel);
         //JPanel mainPanel = new JPanel();
 
         JLabel titleLabel = new JLabel("Vítejte v GameShop půjčovně");
@@ -78,7 +84,7 @@ public class ZakaznikLogin extends JFrame{
 
 
         JLabel userNameLabel = new JLabel("Uživatelské jméno:");
-        JTextArea usernameField = new JTextArea();
+        usernameField = new JTextArea();
         usernameField.setColumns(10);
         usernameField.setLineWrap(true);
 
@@ -87,7 +93,7 @@ public class ZakaznikLogin extends JFrame{
 
         JLabel passwordLabel = new JLabel("Heslo:");
 
-        JPasswordField passwordField = new JPasswordField();
+        passwordField = new JPasswordField();
         passwordField.setColumns(10);
 
         passwordPanel.add(passwordLabel);
@@ -97,6 +103,9 @@ public class ZakaznikLogin extends JFrame{
         button.setText("Přihlásit se");
         button.addActionListener(new ButtonClickedListener());
         loginButtonPanel.add(button);
+
+        loginHint = new JLabel("");
+        loginHintPanel.add(loginHint);
 
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,9 +119,23 @@ public class ZakaznikLogin extends JFrame{
             if(((JButton)e.getSource()).getText().equals("Vyhledat hru")){ // Vyhledani hry
 
             } else { // Prihlaseni
-
+                providerController.getZakaznikLoginController().setUserName(usernameField.getText());
+                providerController.getZakaznikLoginController().setPassWord(passwordField.getPassword().toString());
+                if(providerController.getZakaznikLoginController().performLogin()){
+                    invokeZakaznikPrihlasen();
+                } else {
+                    showHint();
+                }
             }
         }
+    }
+
+    private void invokeZakaznikPrihlasen(){
+
+    }
+
+    private void showHint(){
+        loginHint.setText("Uživatelské jméno nebo heslo není správně.");
     }
 
 }
