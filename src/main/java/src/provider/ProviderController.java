@@ -14,8 +14,9 @@ public class ProviderController {
     private ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController;
     private ZamestnanecVydavatelController zamestnanecVydavatelController;
     private ZakaznikPrihlasenController zakaznikPrihlasenController;
+    private ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController;
 
-    public ProviderController(ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
+    public ProviderController(ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController, ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
                               ZamestnanecLoginController zamestnanecLoginController){
         this.adminSmazatZamestnanceController = adminSmazatZamestnanceController;
@@ -25,6 +26,7 @@ public class ProviderController {
         this.zamestnanecVytvoritZakaznikaController = zamestnanecVytvoritZakaznikaController;
         this.zamestnanecVydavatelController = zamestnanecVydavatelController;
         this.zakaznikPrihlasenController = zakaznikPrihlasenController;
+        this.zakaznikPrihlasenVyhledatHruController = zakaznikPrihlasenVyhledatHruController;
 
     }
 
@@ -54,5 +56,9 @@ public class ProviderController {
 
     public ZakaznikPrihlasenController getZakaznikPrihlasenController() {
         return zakaznikPrihlasenController;
+    }
+
+    public ZakaznikPrihlasenVyhledatHruController getZakaznikPrihlasenVyhledatHruController() {
+        return zakaznikPrihlasenVyhledatHruController;
     }
 }

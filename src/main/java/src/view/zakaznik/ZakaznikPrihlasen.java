@@ -97,10 +97,12 @@ public class ZakaznikPrihlasen extends JFrame {
     }
 
     private void fillPujceneHry() {
-        java.util.List<Exemplar> pujceneVraceneHryList = providerController
+        java.util.List<Exemplar> pujceneVraceneHryList = null;
+        java.util.List<Exemplar> pujceneNevraceneHryList = null;
+        pujceneVraceneHryList = providerController
                 .getZakaznikPrihlasenController()
                 .getVraceneHry();
-        java.util.List<Exemplar> pujceneNevraceneHryList = providerController
+        pujceneNevraceneHryList = providerController
                 .getZakaznikPrihlasenController()
                 .getNevraceneHry();
         if(pujceneVraceneHryList == null || pujceneVraceneHryList.isEmpty()){
@@ -116,7 +118,7 @@ public class ZakaznikPrihlasen extends JFrame {
 
         if(pujceneNevraceneHryList == null || pujceneNevraceneHryList.isEmpty()){
             // Show empty list message
-            downerForVraceneHry.add(new JLabel("Žádné nevrácené hry."));
+            upperForNevraceneHry.add(new JLabel("Žádné nevrácené hry."));
         } else {
             pujceneNevraceneHry = new JList<>();
             for(Exemplar e : pujceneNevraceneHryList){
