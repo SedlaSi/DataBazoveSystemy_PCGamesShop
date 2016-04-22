@@ -14,7 +14,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
     }
 
     public Pujcka getByExemplarId(int idExemplare) throws Exception{
-        Query q =  em.createQuery("SELECT p FROM Pujcka p where p.exemplar.id = :id AND p.vraceno = :NULL");
+        Query q =  em.createQuery("SELECT p FROM Pujcka p where p.exemplar.id = :id AND p.vraceno = NULL");
         q.setParameter("id",idExemplare);
 
         return (Pujcka)q.getSingleResult();
@@ -34,6 +34,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         em.getTransaction().begin();
         Pujcka pujcka = this.getByExemplarId(idExemplar);
         if(date.compareTo(pujcka.getPujceno()) == -1){
+            System.out.println("date compare fail");
             em.getTransaction().rollback();
             throw new Exception("Inserted date smaller than previous date.");
         }
@@ -41,4 +42,5 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         this.update(pujcka);
         em.getTransaction().commit();
     }
+
 }

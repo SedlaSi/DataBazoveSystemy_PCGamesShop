@@ -23,7 +23,8 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
 
     public List<Exemplar> getNevraceneHry(Zakaznik zakaznik) throws Exception {
         Zakaznik z = this.update(zakaznik);
-        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE EXISTS (SELECT p FROM Pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL)");
+        //Query k = em.createQuery("SELECT e From Exemplar e where Exists (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL) ");
+        Query q = em.createQuery("SELECT e From Exemplar e where Exists (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL) ");
         //Query k= em.createQuery("SELECT Pujcka FROM Pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL");
         q.setParameter("z",z);
         return (List<Exemplar>)q.getResultList();
@@ -32,7 +33,7 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
 
     public List<Exemplar> getVraceneHry(Zakaznik zakaznik) throws Exception {
         Zakaznik z = this.update(zakaznik);
-        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE EXISTS (SELECT p FROM Pujcka p WHERE p.zakaznik = :z AND p.vraceno != NULL)");
+        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE EXISTS (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno != NULL)");
         //Query k= em.createQuery("SELECT Pujcka FROM Pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL");
         q.setParameter("z",z);
         return (List<Exemplar>)q.getResultList();

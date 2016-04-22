@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 22.4.16.
  */
-public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
+public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
     private ProviderController providerController;
     private JTextArea kodExemplare;
     private JTextArea rok;
@@ -21,7 +21,7 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
 
     public static void main(String [] args){
 
-        final ZamestnanecPotrvditPrevzetiHry zkl =  new ZamestnanecPotrvditPrevzetiHry(null);
+        final ZamestnanecPotvrditPrevzetiHry zkl =  new ZamestnanecPotvrditPrevzetiHry(null);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -30,7 +30,7 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
 
     }
 
-    public ZamestnanecPotrvditPrevzetiHry(ProviderController providerController){
+    public ZamestnanecPotvrditPrevzetiHry(ProviderController providerController){
         this.providerController = providerController;
     }
 
@@ -50,6 +50,7 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
         JLabel denLabel = new JLabel("Den:");
         den = new JTextArea();
         potvrdit = new JButton("Potvrdit převzetí");
+        potvrdit.addActionListener(new ButtonClickedListener());
         hint = new JLabel("");
 
         JPanel kodExemplarePanel = new JPanel(new GridLayout(1,2,3,3));
@@ -90,6 +91,7 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
             } else {
                 showSuccess();
             }
+
         }
     }
 
@@ -99,9 +101,15 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
         mesic.setText("");
         den.setText("");
         hint.setText("Produkt byl úspěšně přijat.");
+        this.invalidate();
+        this.validate();
+        this.repaint();
     }
 
     private void showHint(){
         hint.setText("Chybně zadané informace.");
+        this.invalidate();
+        this.validate();
+        this.repaint();
     }
 }

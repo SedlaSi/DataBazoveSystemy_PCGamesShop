@@ -17,12 +17,13 @@ public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController
         pujckaDAO = providerDAO.getPujckaDAO();
     }
 
-    public boolean potvrdit(String kodExemplare, String rok, String mesic, String den){
+    public boolean potvrdit(String kodExemplare, String rok, String mesic, String den) {
         java.sql.Date date;
         try{
             date = new Date(Integer.parseInt(rok),Integer.parseInt(mesic),Integer.parseInt(den));
             pujckaDAO.updateDate(Integer.parseInt(kodExemplare),date);
         } catch (Exception e){
+            e.printStackTrace();
             return false;
         }
         return true;
