@@ -4,6 +4,7 @@ import src.login.Session;
 import src.model.Exemplar;
 import src.model.Zakaznik;
 import src.provider.Provider;
+import src.provider.ProviderSession;
 
 import java.util.List;
 
@@ -13,28 +14,39 @@ import java.util.List;
 public class ZakaznikPrihlasenController extends TemplateController {
 
     private Session session;
+    private ProviderSession providerSession;
 
     public ZakaznikPrihlasenController(Provider provider) {
         super(provider);
-        session = provider.getProviderSession().getSession();
+        providerSession = provider.getProviderSession();
     }
 
 
     public List<Exemplar> getVraceneHry(){
+        if(session == null){
+            session = providerSession.getSession();
+        }
         List<Exemplar> ret = null;
-        Zakaznik zakaznik = providerDAO.getZakaznikDAO().getByUserName(session.getUserName());
+        Zakaznik zakaznik = providerDAO
+                .getZakaznikDAO()
+                .getByUserName(session
+                        .getUserName());
         if(zakaznik == null){
             return ret;
         }
         try{
             ret = providerDAO.getZakaznikDAO().getVraceneHry(zakaznik);
         } catch (Exception e){
+            e.printStackTrace();
             System.out.println("Exeption in ZakaznikPrihlasenController.getVraceneHry");
         }
         return ret;
     }
 
     public List<Exemplar> getNevraceneHry(){
+        if(session == null){
+            session = providerSession.getSession();
+        }
         List<Exemplar> ret = null;
         Zakaznik zakaznik = providerDAO.getZakaznikDAO().getByUserName(session.getUserName());
         if(zakaznik == null){

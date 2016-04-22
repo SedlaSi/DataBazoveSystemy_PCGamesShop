@@ -15,7 +15,7 @@ public class Platforma {
     @Column(name = "id_platforma")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128, name = "nazev")
+    @Column(nullable = false,length = 128, name = "nazev")
     private String nazev;
 
     @OneToMany(mappedBy = "platforma")

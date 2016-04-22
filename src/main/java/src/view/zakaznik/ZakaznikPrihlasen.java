@@ -1,6 +1,5 @@
 package src.view.zakaznik;
 
-import src.login.Role;
 import src.login.Session;
 import src.model.Exemplar;
 import src.provider.ProviderController;
@@ -20,8 +19,8 @@ public class ZakaznikPrihlasen extends JFrame {
     private JPanel upperForNevraceneHry;
     private JPanel downerForVraceneHry;
 
-    private JList<String> pujceneNevraceneHry;
-    private JList<String> pujceneVraceneHry;
+    private JList pujceneNevraceneHry;
+    private JList pujceneVraceneHry;
 
     public static void main(String [] args){
 
@@ -37,8 +36,8 @@ public class ZakaznikPrihlasen extends JFrame {
 
     public ZakaznikPrihlasen(ProviderController providerController){
         this.providerController = providerController;
-        session = new Session("username", Role.ZAKAZNIK);
-        //session = providerController.getZakaznikLoginController().getCurrentSession();
+        //session = new Session("username", Role.ZAKAZNIK);
+        session = providerController.getZakaznikLoginController().getCurrentSession();
         if(session == null){
             System.out.println("Uživatel nepřihlášen!");
             return;
@@ -66,6 +65,9 @@ public class ZakaznikPrihlasen extends JFrame {
         downerForVraceneHry = new JPanel(new FlowLayout());
         JPanel downerDowner = new JPanel(new FlowLayout());
 
+        // Plneni seznamu
+        fillPujceneHry();
+
         downer.add(downerUp);
         downer.add(downerForVraceneHry);
         downer.add(downerDowner);
@@ -86,8 +88,6 @@ public class ZakaznikPrihlasen extends JFrame {
 
         downerDowner.add(odhlasitSeButton);
 
-        // Plneni seznamu
-        fillPujceneHry();
 
         this.add(upper);
         this.add(downer);
@@ -107,38 +107,66 @@ public class ZakaznikPrihlasen extends JFrame {
                 .getNevraceneHry();
         if(pujceneVraceneHryList == null || pujceneVraceneHryList.isEmpty()){
             // Show empty list message
-            downerForVraceneHry.add(new JLabel("Zatím neproběhli žádné půjčky."));
-        } else {
-            pujceneVraceneHry = new JList<>();
-            for(Exemplar e : pujceneVraceneHryList){
-                pujceneVraceneHry.add(new JLabel(e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", produkt číslo: " + e.getId()));
+            try{
+                downerForVraceneHry.remove(0);
+            } catch (Exception e){
+
             }
+            downerForVraceneHry.add(new JLabel("Neproběhli žádné půjčky."));
+        } else {
+            try{
+                downerForVraceneHry.remove(0);
+            } catch (Exception e){
+
+            }
+            String [] list = new String[pujceneVraceneHryList.size()];
+            for(int i = 0; i < pujceneVraceneHryList.size() ; i++){
+                Exemplar e = pujceneVraceneHryList.get(i);
+                list[i] = e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", produkt číslo: " + e.getId();
+            }
+            pujceneVraceneHry = new JList(list);
+            JScrollPane scrollPane = new JScrollPane(pujceneVraceneHry);
+            downerForVraceneHry.add(scrollPane);
             downerForVraceneHry.add(pujceneVraceneHry);
         }
 
         if(pujceneNevraceneHryList == null || pujceneNevraceneHryList.isEmpty()){
             // Show empty list message
+            try{
+                upperForNevraceneHry.remove(0);
+            } catch (Exception e){
+
+            }
             upperForNevraceneHry.add(new JLabel("Žádné nevrácené hry."));
         } else {
-            pujceneNevraceneHry = new JList<>();
-            for(Exemplar e : pujceneNevraceneHryList){
-                pujceneNevraceneHry.add(new JLabel(e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", produkt číslo: " + e.getId()));
+            try{
+                upperForNevraceneHry.remove(0);
+            } catch (Exception e){
+
             }
+
+            String [] list = new String[pujceneNevraceneHryList.size()];
+            for(int i = 0; i < pujceneNevraceneHryList.size() ; i++){
+                Exemplar e = pujceneNevraceneHryList.get(i);
+                list[i] = e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", produkt číslo: " + e.getId();
+            }
+
+            pujceneNevraceneHry = new JList(list);
+            JScrollPane scrollPane2 = new JScrollPane(pujceneNevraceneHry);
+            upperForNevraceneHry.add(scrollPane2);
             upperForNevraceneHry.add(pujceneNevraceneHry);
         }
-
-
     }
 
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
             if(((JButton)e.getSource()).getText().equals("Vyhledat Novou Hru")){ // Vyhledani hry
-                System.out.println("Vyhledat");
+                //System.out.println("Vyhledat");
                 invokeZakaznikPrihlasenVyhledatHru();
             } else { // Odhlaseni
                 invokeZakaznikLogin();
-                System.out.println("Logout");
+                //System.out.println("Logout");
             }
         }
     }
@@ -146,9 +174,22 @@ public class ZakaznikPrihlasen extends JFrame {
     private void invokeZakaznikLogin(){
         providerController.getZakaznikLoginController().performLogout();
         // invoke frame
+        final ZakaznikLogin zkl =  new ZakaznikLogin(providerController);
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                zkl.startFrame();
+            }
+        });
+        this.setState(JFrame.ABORT);
     }
 
     private void invokeZakaznikPrihlasenVyhledatHru(){
         // invoke frame
+        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController);
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                zkl.startFrame();
+            }
+        });
     }
 }

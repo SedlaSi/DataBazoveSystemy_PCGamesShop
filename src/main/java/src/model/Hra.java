@@ -26,14 +26,14 @@ public class Hra {
     private Police police;
 
     @ManyToOne
-    @JoinColumn(name = "id_vydavatel")
+    @JoinColumn(name = "id_vydavatel", nullable = false)
     private Vydavatel vydavatel;
 
     @OneToMany(mappedBy = "hra")
     private List<Exemplar> exemplare;
 
     @ManyToMany
-    @JoinTable(name="je_typu",
+    @JoinTable(name="je_zanru",
             joinColumns=@JoinColumn(name="id_hra"),
             inverseJoinColumns=@JoinColumn(name="id_zanr"))
     private List<Zanr> zanry;

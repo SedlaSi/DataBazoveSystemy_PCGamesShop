@@ -33,7 +33,12 @@ public class ZakaznikLoginController extends TemplateController {
     }
 
     public boolean performLogin(){
-        Zakaznik z = zakaznikDAO.getByUserName(userName);
+        Zakaznik z;
+        try{
+            z = zakaznikDAO.getByUserName(userName);
+        } catch (Exception e){
+            return false;
+        }
         if(password.equals(z.getPassword())){
             providerSession.initSession(userName, Role.ZAKAZNIK);
             return true;

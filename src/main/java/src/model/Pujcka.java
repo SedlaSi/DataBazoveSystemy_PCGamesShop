@@ -19,18 +19,18 @@ public class Pujcka {
     private Date pujceno;
 
     @Column(name = "vraceno")
-    private Date vraceno;
+    private Date vraceno = null;
 
     @ManyToOne
-    @JoinColumn(name = "id_exemplar")
+    @JoinColumn(name = "id_exemplar",nullable = false)
     private Exemplar exemplar;
 
     @ManyToOne
-    @JoinColumn(name = "id_zakaznik")
+    @JoinColumn(name = "id_zakaznik",nullable = false)
     private Zakaznik zakaznik;
 
     @ManyToOne
-    @JoinColumn(name = "id_zamestnanec")
+    @JoinColumn(name = "id_zamestnanec",nullable = false)
     private Zamestnanec zamestnanec;
 
     public long getId() {

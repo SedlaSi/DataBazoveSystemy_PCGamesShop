@@ -22,11 +22,12 @@ public class ApplicationAdminBuild {
         ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
         ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
-        ProviderController providerController = new ProviderController(zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
+        ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
+        ProviderController providerController = new ProviderController(zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
 
 
-        startAdminSmazatZamestnance(providerController);
-       // startAdminVytvoritZamestnance(providerController);
+        //startAdminSmazatZamestnance(providerController);
+        startAdminVytvoritZamestnance(providerController);
 
 
     }

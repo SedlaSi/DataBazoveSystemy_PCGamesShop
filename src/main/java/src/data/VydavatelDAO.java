@@ -15,7 +15,7 @@ public class VydavatelDAO extends TemplateDAO<Vydavatel> {
     }
 
     public List<Vydavatel> getVydavatelList(){
-        Query q = em.createQuery("SELECT Vydavatel FROM Vydavatel");
+        Query q = em.createQuery("SELECT v FROM Vydavatel v");
 
         return (List<Vydavatel>)q.getResultList();
     }

@@ -29,11 +29,11 @@ public class Exemplar {
     private boolean aktivni = true;
 
     @ManyToOne
-    @JoinColumn(name = "id_hra")
+    @JoinColumn(name = "id_hra", nullable = false)
     private Hra hra;
 
     @ManyToOne
-    @JoinColumn(name = "id_platforma")
+    @JoinColumn(name = "id_platforma", nullable = false)
     private Platforma platforma;
 
     @OneToMany(mappedBy = "exemplar")

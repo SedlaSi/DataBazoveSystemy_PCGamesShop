@@ -1,9 +1,13 @@
 package src.view.zakaznik;
 
+import src.model.Exemplar;
 import src.model.Vydavatel;
+import src.model.Zanr;
 import src.provider.ProviderController;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,13 +22,13 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private ProviderController providerController;
     private JTextArea nazev;
     private JTextArea rokVydani;
-    private JComboBox<String> vydavatel;
+    private JComboBox vydavatel;
     private JTextArea kodExemplare;
     private JPanel checkBoxPanel;
     private JButton vyhledat;
-    private JLabel searchHint;
-    private JButton vypujcit;
     private String selectedVydavatel;
+    private String selectedVyhledanaHra;
+    private JPanel vysledkyHledaniPanel;
 
 
     public static void main(String [] args){
@@ -46,7 +50,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         this.setSize(600,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        //this.setTitle("Přihlášen jako: "+providerController.getZakaznikLoginController().getCurrentSession().getUserName());
+        this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
         this.setLayout(new GridLayout(2,1,3,3));
         JPanel criteria = new JPanel();
         this.add(criteria);
@@ -74,8 +78,8 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         JLabel nazevLabel = new JLabel("Název:");
         nazev = new JTextArea();
         JLabel vydavatelLabel = new JLabel("Vydavatel:");
-        vydavatel = new JComboBox<>();
-        vydavatel.addItemListener(new VydavatelSelectedListener());
+        vydavatel = new JComboBox();
+        //vydavatel.addItemListener(new VydavatelSelectedListener());
         fillVydavatel();
         nazevNvydavatelPanel.add(nazevLabel);
         nazevNvydavatelPanel.add(nazev);
@@ -101,64 +105,85 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         zanrPanel.add(checkBoxPanel);
 
         vyhledat = new JButton("Vyhledat");
+        vyhledat.addActionListener(new ButtonClickedListener());
         JLabel vyhledatLabel = new JLabel("- prázdná pole budou ignorována");
         vyhledatButtonPanel.add(vyhledat);
         vyhledatButtonPanel.add(vyhledatLabel);
 
-
         JLabel vysledkyHledaniLabel = new JLabel("Výsledky hledání:");
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(1,2,3,3));
-        searchHint = new JLabel("");
-        vypujcit = new JButton("Vypůjčit");
-        bottomPanel.add(searchHint);
-        bottomPanel.add(vypujcit);
         results.add(vysledkyHledaniLabel);
-        results.add(new JLabel("Žádné výsledky k zobrazení"));
-        results.add(bottomPanel);
-
+        vysledkyHledaniPanel = new JPanel();
+        vysledkyHledaniPanel.add(new JLabel("Žádne výsledky k zobrazení"));
+        results.add(vysledkyHledaniPanel);
 
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
     private void fillVysledkyHledani() {
+        /*System.out.println(nazev.getText());
+        System.out.println(selectedVydavatel);
+        System.out.println(rokVydani.getText());
+        System.out.println(kodExemplare.getText());*/
+        java.util.List<Exemplar> vyhledaneHry = providerController
+                .getZakaznikPrihlasenVyhledatHruController()
+                .getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText());
 
+        if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
+            vysledkyHledaniPanel.remove(0);
+            JList<String> vysledkyHledani = new JList<>();
+            for(Exemplar e : vyhledaneHry){
+                vysledkyHledani.add(new JLabel(e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", police: +" + e.getHra().getPolice().getNazev() + ", číslo produktu: " + e.getId()));
+            }
+            vysledkyHledani.addListSelectionListener(new HraSelectedListener());
+            vysledkyHledaniPanel.add(vysledkyHledani);
+        }
     }
 
     private void fillCheckBoxPanel() {
-
+        java.util.List<Zanr> zanry = providerController.getZakaznikPrihlasenVyhledatHruController().getZanrList();
+        for(Zanr z : zanry){
+            checkBoxPanel.add(new JCheckBox(z.getNazev(),false));
+        }
     }
 
     private void fillVydavatel() {
         java.util.List<Vydavatel> vyd = providerController.getZakaznikPrihlasenVyhledatHruController().getVydavatelList();
         if(vyd == null || vyd.isEmpty()){
+            System.out.println("vydavatele prazdni");
             return;
         } else {
-            for(Vydavatel v : vyd){
-                vydavatel.add(new JLabel(v.getNazev()));
+            String [] vydav = new String[vyd.size()+1];
+            vydav[0] = "";
+            for(int i = 1; i < vyd.size()+1; i++){
+                vydav[i] = vyd.get(i-1).getNazev();
             }
+            vydavatel = new JComboBox(vydav);
         }
+        vydavatel.addItemListener(new VydavatelSelectedListener());
     }
 
     private class VydavatelSelectedListener implements ItemListener{
-
         @Override
         public void itemStateChanged(ItemEvent e) {
-            selectedVydavatel = e.getItem().toString();
+            //System.out.println((String)e.getItemSelectable().getSelectedObjects()[0]);
+            selectedVydavatel = (String)e.getItemSelectable().getSelectedObjects()[0];
+        }
+    }
+
+    private class HraSelectedListener implements ListSelectionListener{
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            selectedVyhledanaHra = e.getSource().toString();
         }
     }
 
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-
+            fillVysledkyHledani();
         }
     }
 
-
-    private void showHint(){
-
-    }
 }
