@@ -18,7 +18,7 @@ public class ZakaznikPrihlasenController extends TemplateController {
 
     public ZakaznikPrihlasenController(Provider provider) {
         super(provider);
-        providerSession = provider.getProviderSession();
+        providerSession = provider.getZakaznikProviderSession();
     }
 
 

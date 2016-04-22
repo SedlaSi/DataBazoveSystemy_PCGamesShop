@@ -20,7 +20,7 @@ public class ZamestnanecLoginController extends TemplateController {
     public ZamestnanecLoginController(Provider provider) {
         super(provider);
         zamestnanecDAO = providerDAO.getZamestnanecDAO();
-        providerSession = provider.getProviderSession();
+        providerSession = provider.getZakaznikProviderSession();
     }
 
     public void setPassWord(String passWord) {

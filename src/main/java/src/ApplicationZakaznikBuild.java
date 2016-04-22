@@ -1,6 +1,7 @@
 package src;
 
 import src.controller.*;
+import src.login.Role;
 import src.provider.Provider;
 import src.provider.ProviderController;
 import src.view.zakaznik.ZakaznikLogin;
@@ -24,7 +25,10 @@ public class ApplicationZakaznikBuild {
         ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
         ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
-        ProviderController providerController = new ProviderController(zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
+        ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
+        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
+
+        provider.getZamestnanecProviderSession().initSession("A", Role.ZAMESTNANEC);
 
         startZakaznikLogin(providerController);
         //startZakaznikPrihlasen(providerController);

@@ -21,7 +21,7 @@ public class ZakaznikLoginController extends TemplateController {
     public ZakaznikLoginController(Provider provider) {
         super(provider);
         zakaznikDAO = providerDAO.getZakaznikDAO();
-        providerSession = provider.getProviderSession();
+        providerSession = provider.getZakaznikProviderSession();
     }
 
     public void setPassWord(String passWord) {

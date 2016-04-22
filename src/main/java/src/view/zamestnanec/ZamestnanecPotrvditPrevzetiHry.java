@@ -83,7 +83,13 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-
+            if(!providerController.getZamestnanecPotrvditPrevzetiHryController().potvrdit(
+                    kodExemplare.getText(),rok.getText(),mesic.getText(),den.getText()
+            )){
+                showHint();
+            } else {
+                showSuccess();
+            }
         }
     }
 
@@ -96,6 +102,6 @@ public class ZamestnanecPotrvditPrevzetiHry extends JFrame {
     }
 
     private void showHint(){
-        hint.setText("Chybně zadané informace");
+        hint.setText("Chybně zadané informace.");
     }
 }

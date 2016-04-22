@@ -15,7 +15,7 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
     }
 
     public Zamestnanec getByUserName(String userName){
-        Query q =  em.createQuery("SELECT Zamestnanec FROM Zamestnanec z WHERE z.username = :us");
+        Query q =  em.createQuery("SELECT z FROM Zamestnanec z WHERE z.username = :us");
         q.setParameter("us", userName);
         return (Zamestnanec) q.getSingleResult();
     }

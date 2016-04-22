@@ -26,6 +26,8 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private JTextArea kodExemplare;
     private JPanel checkBoxPanel;
     private JButton vyhledat;
+    private JButton pujcit;
+    private JLabel hint;
     private String selectedVydavatel;
     private String selectedVyhledanaHra;
     private JPanel vysledkyHledaniPanel;
@@ -112,13 +114,19 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
         JLabel vysledkyHledaniLabel = new JLabel("Výsledky hledání:");
         JPanel bottomPanel = new JPanel();
+        bottomPanel.setLayout(new GridLayout(1,2,3,3));
         results.add(vysledkyHledaniLabel);
         vysledkyHledaniPanel = new JPanel();
         vysledkyHledaniPanel.add(new JLabel("Žádne výsledky k zobrazení"));
         results.add(vysledkyHledaniPanel);
+        pujcit = new JButton("Zapůjčit");
+        pujcit.addActionListener(new ButtonClickedListener());
+        hint = new JLabel("");
+        bottomPanel.add(hint);
+        bottomPanel.add(pujcit);
+        results.add(bottomPanel);
 
         this.setVisible(true);
-
     }
 
     private void fillVysledkyHledani() {
@@ -132,13 +140,23 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
         if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
             vysledkyHledaniPanel.remove(0);
-            JList<String> vysledkyHledani = new JList<>();
-            for(Exemplar e : vyhledaneHry){
-                vysledkyHledani.add(new JLabel(e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", police: +" + e.getHra().getPolice().getNazev() + ", číslo produktu: " + e.getId()));
+            JList vysledkyHledani;
+            String [] list = new String[vyhledaneHry.size()];
+            Exemplar e;
+            for(int i = 0; i < list.length ; i++){
+                e = vyhledaneHry.get(i);
+                list[i] = e.getHra().getNazev() + "     " + e.getPlatforma().getNazev() + ",    police: " + e.getHra().getPolice().getNazev() + ",      číslo produktu: " + e.getId();
             }
+            vysledkyHledani = new JList(list);
             vysledkyHledani.addListSelectionListener(new HraSelectedListener());
             vysledkyHledaniPanel.add(vysledkyHledani);
+        } else {
+            vysledkyHledaniPanel.remove(0);
+            vysledkyHledaniPanel.add(new JLabel("Žádné výsledky nenalezeny"));
         }
+        this.invalidate();
+        this.validate();
+        this.repaint();
     }
 
     private void fillCheckBoxPanel() {
@@ -175,15 +193,46 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private class HraSelectedListener implements ListSelectionListener{
         @Override
         public void valueChanged(ListSelectionEvent e) {
-            selectedVyhledanaHra = e.getSource().toString();
+            selectedVyhledanaHra = ((JList)e.getSource()).getSelectedValue().toString();
         }
     }
 
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            fillVysledkyHledani();
+            if(((JButton)e.getSource()).getText().equals("Vyhledat")){
+                fillVysledkyHledani();
+            } else {
+                zapujcitHru();
+            }
         }
+    }
+
+    private void zapujcitHru() {
+        String [] split = selectedVyhledanaHra.split(" ");
+        String kod = split[split.length-1];
+        int id;
+        try{
+            id = Integer.parseInt(kod);
+            if(!providerController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(id)){
+                throw new Exception();
+            }
+            showSucces();
+        } catch (Exception e){
+            System.out.println("ProviderController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(id) failure or");
+            System.out.println("parse exception occured in ZakaznikPrihlasenVyhledatHru.zapujcitHru()");
+            showHint();
+            return;
+        }
+
+    }
+
+    private void showSucces() {
+
+    }
+
+    private void showHint() {
+
     }
 
 }

@@ -14,29 +14,54 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         super(res);
     }
 
-    public List<Exemplar> getConcreteList(String nazev, String vydavatel, String rokVydani, String kodExemplare){
+    public List<Exemplar> getConcreteList(String zakaznikUserName,String nazev, String vydavatel, java.sql.Date rokVydani, int kodExemplare){
+
+        String nazevQuery = "e.hra.nazev = :nazev ";
+        String vydavatelQuery = "AND e.hra.vydavatel.nazev = :vydavatel ";
+        String rokVydaniQuery = "AND e.rokVydani = :rokVydani ";
+        String kodExemplareQuery = "AND e.id = :kodExemplare";
+
         if(nazev.isEmpty()){
-            nazev = "NOT_SET";
+            nazevQuery = " 1 = 1 ";
         }
-        if(vydavatel.isEmpty()){
-            vydavatel = "NOT_SET";
+        if(vydavatel == null || vydavatel.isEmpty()){
+            vydavatelQuery = "";
         }
-        if(rokVydani.isEmpty()){
-            rokVydani = "NOT_SET";
+        if(rokVydani == null){
+            rokVydaniQuery = "";
         }
-        if(kodExemplare.isEmpty()){
-            kodExemplare = "NOT_SET";
+        if(kodExemplare == -1){
+            kodExemplareQuery = "";
         }
-
-        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE (e.hra.nazev = :nazev OR :nazev = 'NOT_SET') " +
-                "AND (e.hra.vydavatel.nazev = :vydavatel OR :vydavatel = 'NOT_SET') " +
-                "AND (e.rokVydani = :rokVydani OR :rokVydani = 'NOT_SET') " +
-                "AND (e.id = :kodExemplare OR :id = 'NOT_SET')");
-        q.setParameter("nazev",nazev);
-        q.setParameter("vydavatel",vydavatel);
-        q.setParameter("rokVydani",rokVydani);
-        q.setParameter("kodExemplare",kodExemplare);
-
+        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE "
+                + nazevQuery
+                + vydavatelQuery
+                + rokVydaniQuery
+                + kodExemplareQuery
+                );
+        if(!nazev.isEmpty()){
+            q.setParameter("nazev",nazev);
+        }
+        if(vydavatel != null && !vydavatel.isEmpty()){
+            q.setParameter("vydavatel",vydavatel);
+        }
+        if(rokVydani != null){
+            q.setParameter("rokVydani",rokVydani);
+        }
+        if(kodExemplare != -1){
+            q.setParameter("kodExemplare",kodExemplare);
+        }
         return (List<Exemplar>)q.getResultList();
+    }
+
+    @Override
+    public Exemplar getById(int id){
+        Exemplar t;
+        em.getTransaction().begin();
+        Query q = em.createQuery("SELECT x FROM Exemplar x WHERE x.id = :id");
+        q.setParameter("id",id);
+        t =(Exemplar) q.getSingleResult();
+        em.getTransaction().commit();
+        return t;
     }
 }

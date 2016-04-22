@@ -41,7 +41,7 @@ public class TemplateDAO<T> {
     public T getById(int id){
         T t;
         em.getTransaction().begin();
-        Query q = em.createQuery("SELECT T FROM T x WHERE x.id = :id");
+        Query q = em.createQuery("SELECT x FROM T x WHERE x.id = :id");
         q.setParameter("id",id);
         t =(T) q.getSingleResult();
         em.getTransaction().commit();

@@ -23,7 +23,8 @@ public class ApplicationAdminBuild {
         ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
         ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
-        ProviderController providerController = new ProviderController(zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
+        ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
+        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
 
 
         //startAdminSmazatZamestnance(providerController);

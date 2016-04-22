@@ -7,19 +7,25 @@ public class Provider {
 
     private ProviderDAO providerDAO;
 
-    private ProviderSession providerSession;
+    private ProviderSession zakaznikProviderSession;
+
+    private ProviderSession zamestnanecProviderSession;
 
     public Provider(){
         providerDAO = new ProviderDAO();
-        providerSession = new ProviderSession();
+        zakaznikProviderSession = new ProviderSession();
+        zamestnanecProviderSession = new ProviderSession();
     }
 
-    public ProviderSession getProviderSession() {
-        return providerSession;
+    public ProviderSession getZakaznikProviderSession() {
+        return zakaznikProviderSession;
     }
 
     public ProviderDAO getProviderDAO() {
         return providerDAO;
     }
 
+    public ProviderSession getZamestnanecProviderSession() {
+        return zamestnanecProviderSession;
+    }
 }

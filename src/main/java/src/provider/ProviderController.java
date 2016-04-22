@@ -15,8 +15,9 @@ public class ProviderController {
     private ZamestnanecVydavatelController zamestnanecVydavatelController;
     private ZakaznikPrihlasenController zakaznikPrihlasenController;
     private ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController;
+    private ZamestnanecPotrvditPrevzetiHryController zamestnanecPotrvditPrevzetiHryController;
 
-    public ProviderController(ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController, ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
+    public ProviderController(ZamestnanecPotrvditPrevzetiHryController zamestnanecPotrvditPrevzetiHryController,ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController, ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
                               ZamestnanecLoginController zamestnanecLoginController){
         this.adminSmazatZamestnanceController = adminSmazatZamestnanceController;
@@ -27,6 +28,7 @@ public class ProviderController {
         this.zamestnanecVydavatelController = zamestnanecVydavatelController;
         this.zakaznikPrihlasenController = zakaznikPrihlasenController;
         this.zakaznikPrihlasenVyhledatHruController = zakaznikPrihlasenVyhledatHruController;
+        this.zamestnanecPotrvditPrevzetiHryController = zamestnanecPotrvditPrevzetiHryController;
 
     }
 
@@ -60,5 +62,9 @@ public class ProviderController {
 
     public ZakaznikPrihlasenVyhledatHruController getZakaznikPrihlasenVyhledatHruController() {
         return zakaznikPrihlasenVyhledatHruController;
+    }
+
+    public ZamestnanecPotrvditPrevzetiHryController getZamestnanecPotrvditPrevzetiHryController() {
+        return zamestnanecPotrvditPrevzetiHryController;
     }
 }

@@ -17,6 +17,7 @@ public class ProviderDAO {
     private ZamestnanecDAO zamestnanecDAO;
     private ZanrDAO zanrDAO;
     private PoziceDAO poziceDAO;
+    private PujckaDAO pujckaDAO;
 
     private Resources res;
 
@@ -31,6 +32,7 @@ public class ProviderDAO {
         zamestnanecDAO = new ZamestnanecDAO(res);
         zanrDAO = new ZanrDAO(res);
         poziceDAO = new PoziceDAO(res);
+        pujckaDAO = new PujckaDAO(res);
     }
 
     public PoziceDAO getPoziceDAO() {
@@ -67,5 +69,9 @@ public class ProviderDAO {
 
     public ZanrDAO getZanrDAO() {
         return zanrDAO;
+    }
+
+    public PujckaDAO getPujckaDAO() {
+        return pujckaDAO;
     }
 }
