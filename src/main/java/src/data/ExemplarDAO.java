@@ -83,7 +83,6 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
             }
             query.append(")");
         }
-        //System.out.println("Platformy: "+query);
         return query.toString();
     }
 
@@ -97,7 +96,6 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
             }
             query.append(")");
         }
-        //System.out.println("Žánry: "+query);
         return query.toString();
     }
 

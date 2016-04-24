@@ -55,14 +55,14 @@ public class ZakaznikPrihlasen extends JFrame {
         JPanel downer = new JPanel(new GridLayout(3,1,3,3));
 
         JPanel upperUp = new JPanel(new FlowLayout());
-        upperForNevraceneHry = new JPanel(new FlowLayout());
+        upperForNevraceneHry = new JPanel();
         JPanel upperDowner = new JPanel(new FlowLayout());
         upper.add(upperUp);
         upper.add(upperForNevraceneHry);
         upper.add(upperDowner);
 
         JPanel downerUp = new JPanel(new FlowLayout());
-        downerForVraceneHry = new JPanel(new FlowLayout());
+        downerForVraceneHry = new JPanel();
         JPanel downerDowner = new JPanel(new FlowLayout());
 
         // Plneni seznamu
@@ -126,8 +126,10 @@ public class ZakaznikPrihlasen extends JFrame {
             }
             pujceneVraceneHry = new JList(list);
             JScrollPane scrollPane = new JScrollPane(pujceneVraceneHry);
-            downerForVraceneHry.add(scrollPane);
-            downerForVraceneHry.add(pujceneVraceneHry);
+            scrollPane.setSize(150,10);
+            scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+            downerForVraceneHry.add(scrollPane,BorderLayout.CENTER);
+            //downerForVraceneHry.add(pujceneVraceneHry);
         }
 
         if(pujceneNevraceneHryList == null || pujceneNevraceneHryList.isEmpty()){
@@ -153,8 +155,9 @@ public class ZakaznikPrihlasen extends JFrame {
 
             pujceneNevraceneHry = new JList(list);
             JScrollPane scrollPane2 = new JScrollPane(pujceneNevraceneHry);
-            upperForNevraceneHry.add(scrollPane2);
-            upperForNevraceneHry.add(pujceneNevraceneHry);
+            scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+            upperForNevraceneHry.add(scrollPane2,BorderLayout.CENTER);
+            //upperForNevraceneHry.add(pujceneNevraceneHry);
         }
     }
 

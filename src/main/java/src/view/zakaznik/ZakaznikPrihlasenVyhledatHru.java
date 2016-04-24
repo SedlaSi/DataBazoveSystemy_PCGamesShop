@@ -192,7 +192,10 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
             }
             vysledkyHledani = new JList(list);
             vysledkyHledani.addListSelectionListener(new HraSelectedListener());
-            vysledkyHledaniPanel.add(vysledkyHledani);
+            JScrollPane scrollPane = new JScrollPane(vysledkyHledani);
+            scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+            vysledkyHledaniPanel.add(scrollPane,BorderLayout.CENTER);
+            //vysledkyHledaniPanel.add(vysledkyHledani);
         } else {
             vysledkyHledaniPanel.remove(0);
             vysledkyHledaniPanel.add(new JLabel("Žádné výsledky nenalezeny"));

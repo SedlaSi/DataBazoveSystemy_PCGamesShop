@@ -6,6 +6,9 @@ import src.provider.Provider;
 import src.provider.ProviderController;
 import src.view.zamestnanec.ZamestnanecPotvrditPrevzetiHry;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Created by root on 15.4.16.
  */
@@ -38,5 +41,21 @@ public class ApplicationZamestnanecBuild {
                 zkl.startFrame();
             }
         });
+    }
+
+    public static void mainTest(String args[]) {
+        String labels[] = { "A", "B", "C", "D","E", "F", "G", "H","I", "J","A", "B", "C", "D","E", "F", "G", "H","I", "J" };
+
+        String title = "JList Sample";
+        JFrame f = new JFrame(title);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JList list = new JList(labels);
+        JScrollPane scrollPane = new JScrollPane(list);
+
+        Container contentPane = f.getContentPane();
+        contentPane.add(scrollPane, BorderLayout.CENTER);
+
+        f.setSize(200, 200);
+        f.setVisible(true);
     }
 }
