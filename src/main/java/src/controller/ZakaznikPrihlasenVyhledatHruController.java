@@ -4,7 +4,6 @@ import src.model.*;
 import src.provider.Provider;
 import src.provider.ProviderSession;
 
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -30,15 +29,21 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
         return providerDAO.getZanrDAO().getList();
     }
 
-    public List<Exemplar> getHryDleParametru(String nazev, String vydavatel, String rokVydani, String kodExemplare){
+    public List<Platforma> getPlatformaList(){
+        return providerDAO.getPlatformaDAO().getList();
+    }
 
+    public List<Exemplar> getHryDleParametru(String nazev, String vydavatel, String rokVydani,
+                                             String kodExemplare, List<String> zanry, List<String> platformy){
 
         try{
-            java.sql.Date date;
+            java.sql.Date date = null;
             try{
-                date = new Date(Integer.parseInt(rokVydani),2,3);
+                if(rokVydani != null && !rokVydani.isEmpty()){
+                    date = java.sql.Date.valueOf(rokVydani+"-02-03");
+                }
             } catch (Exception e){
-                date = null;
+                date = java.sql.Date.valueOf("1215-02-03");
             }
 
             int id;
@@ -49,8 +54,9 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             }
             return providerDAO
                     .getExemplarDAO()
-                    .getConcreteList(zakaznikProviderSession.getSession().getUserName(),nazev, vydavatel, date, id);
+                    .getConcreteList(zakaznikProviderSession.getSession().getUserName(),nazev, vydavatel, date, id, zanry, platformy);
         } catch (Exception e){
+            e.printStackTrace();
             System.out.println("exeption in ZakaznikPrihlasenVyhledatHruController.getHryDleParametru()");
             return null;
         }
