@@ -23,7 +23,7 @@ public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController
             date = new Date(Integer.parseInt(rok),Integer.parseInt(mesic),Integer.parseInt(den));
             pujckaDAO.updateDate(Integer.parseInt(kodExemplare),date);
         } catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
         return true;

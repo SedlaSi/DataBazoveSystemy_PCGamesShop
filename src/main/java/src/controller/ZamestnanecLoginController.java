@@ -15,12 +15,12 @@ public class ZamestnanecLoginController extends TemplateController {
     private String password;
 
     private ZamestnanecDAO zamestnanecDAO;
-    private ProviderSession providerSession;
+    private ProviderSession providerZamestnanecSession;
 
     public ZamestnanecLoginController(Provider provider) {
         super(provider);
         zamestnanecDAO = providerDAO.getZamestnanecDAO();
-        providerSession = provider.getZakaznikProviderSession();
+        providerZamestnanecSession = provider.getZamestnanecProviderSession();
     }
 
     public void setPassWord(String passWord) {
@@ -32,12 +32,22 @@ public class ZamestnanecLoginController extends TemplateController {
     }
 
     public boolean performLogin(){
-        Zamestnanec z = zamestnanecDAO.getByUserName(userName);
+        Zamestnanec z;
+        try{
+            z = zamestnanecDAO.getByUserName(userName);
+        } catch (Exception e){
+            return false;
+        }
         if(password.equals(z.getPassword())){
-            providerSession.initSession(userName, Role.ZAMESTNANEC);
+
+            providerZamestnanecSession.initSession(userName, Role.ZAMESTNANEC);
             return true;
         }
-        providerSession.endSession();
+        providerZamestnanecSession.endSession();
         return false;
+    }
+
+    public void performLogout(){
+        providerZamestnanecSession.endSession();
     }
 }
