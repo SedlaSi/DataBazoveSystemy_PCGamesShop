@@ -1,9 +1,7 @@
 package src.controller;
 
 import src.data.ZamestnanecDAO;
-import src.login.Session;
 import src.provider.Provider;
-import src.provider.ProviderSession;
 
 /**
  * Created by root on 15.4.16.
@@ -14,12 +12,10 @@ public class ZamestnanecLoginController extends TemplateController {
     private String password;
 
     private ZamestnanecDAO zamestnanecDAO;
-    private ProviderSession providerZamestnanecSession;
 
     public ZamestnanecLoginController(Provider provider) {
         super(provider);
         zamestnanecDAO = providerDAO.getZamestnanecDAO();
-        providerZamestnanecSession = provider.getZamestnanecProviderSession();
     }
 
     public void setPassWord(String passWord) {
@@ -60,9 +56,5 @@ public class ZamestnanecLoginController extends TemplateController {
             e.printStackTrace();
         }
         //providerZamestnanecSession.endSession();
-    }
-
-    public Session getCurrentSession(){
-        return providerZamestnanecSession.getSession();
     }
 }

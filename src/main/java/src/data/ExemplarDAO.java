@@ -133,14 +133,23 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         Exemplar exemplar;
         Pujcka pujcka = new Pujcka();
         em.getTransaction().begin();
-        exemplar = getByIdTransactionFree(idExemplar);
-        zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
-        zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
-        pujcka.setZakaznik(zakaznik);
-        pujcka.setZamestnanec(zamestnanec);
-        pujcka.setExemplar(exemplar);
-        pujcka.setPujceno(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-        providerDAO.getPujckaDAO().createTransactionFree(pujcka);
+        try{
+            exemplar = getByIdTransactionFree(idExemplar);
+            zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
+            zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
+            if(zamestnanec == null){
+                throw new Exception("noone logged in");
+            }
+            pujcka.setZakaznik(zakaznik);
+            pujcka.setZamestnanec(zamestnanec);
+            pujcka.setExemplar(exemplar);
+            pujcka.setPujceno(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+            providerDAO.getPujckaDAO().createTransactionFree(pujcka);
+
+        }catch (Exception e){
+            em.getTransaction().rollback();
+            throw new Exception("rollback invoked");
+        }
         em.getTransaction().commit();
     }
 }

@@ -102,6 +102,12 @@ public class KasaDAO extends TemplateDAO<Kasa> {
     }
 
     public Zamestnanec getLoggedZamestnanec(){
-        return (Zamestnanec)em.createQuery("SELECT z FROM Zamestnanec z WHERE EXISTS (SELECT k FROM z.kasa k WHERE k.odhlaseni = NULL) ").getSingleResult();
+        Zamestnanec z;
+        try{
+            z = (Zamestnanec)em.createQuery("SELECT z FROM Zamestnanec z WHERE EXISTS (SELECT k FROM z.kasa k WHERE k.odhlaseni = NULL) ").getSingleResult();
+        } catch (Exception e){
+            z = null;
+        }
+        return z;
     }
 }

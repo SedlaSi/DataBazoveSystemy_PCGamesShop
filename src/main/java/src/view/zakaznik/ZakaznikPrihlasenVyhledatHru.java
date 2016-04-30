@@ -299,7 +299,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     }
 
     private void showHint() {
-        hint.setText("Prosím vyberte hru ze seznamu.");
+        hint.setText("Počkejte až někdo příjde na kasu, poté vyberte hru ze seznamu.");
     }
 
 }

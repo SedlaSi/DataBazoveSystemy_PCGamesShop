@@ -15,12 +15,10 @@ import java.util.List;
 public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
 
     ProviderSession zakaznikProviderSession;
-    ProviderSession zamestnanecProviderSession;
 
     public ZakaznikPrihlasenVyhledatHruController(Provider provider) {
         super(provider);
         zakaznikProviderSession = provider.getZakaznikProviderSession();
-        zamestnanecProviderSession = provider.getZamestnanecProviderSession();
     }
 
     public List<Vydavatel> getVydavatelList(){
@@ -69,7 +67,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
         try{
             providerDAO.getExemplarDAO().zapujcitHru(idExemplar,zakaznikProviderSession.getSession().getUserName());
         } catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
         return true;
