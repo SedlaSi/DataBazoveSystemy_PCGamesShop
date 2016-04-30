@@ -38,7 +38,7 @@ public class ZakaznikVyhledatHru extends JFrame {
 
     public static void main(String [] args){
 
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(null);
+        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(null,null);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -242,7 +242,6 @@ public class ZakaznikVyhledatHru extends JFrame {
     }
 
     private class ButtonClickedListener implements ActionListener {
-
         public void actionPerformed(ActionEvent e) {
             fillVysledkyHledani();
         }

@@ -29,7 +29,6 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
 
     }
 
-
     public ZamestnanecPotvrditPrevzetiHry(ProviderController providerController){
         this.providerController = providerController;
     }
@@ -65,7 +64,6 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
         buttonPanel.add(potvrdit);
         hintPanel.add(hint);
         odhlasitSeButtonPanel.add(odhlasitSeButton);
-
 
         this.add(kodExemplarePanel);
         this.add(datumPanel);

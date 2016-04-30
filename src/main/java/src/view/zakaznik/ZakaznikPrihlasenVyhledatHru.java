@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
     private ProviderController providerController;
+    private ZakaznikPrihlasen zakaznikPrihlasenFrame;
     private JTextArea nazev;
     private JTextArea rokVydani;
     private JComboBox vydavatel;
@@ -40,7 +41,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
     public static void main(String [] args){
 
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(null);
+        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(null,null);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -49,8 +50,9 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
     }
 
-    public ZakaznikPrihlasenVyhledatHru(ProviderController providerController){
+    public ZakaznikPrihlasenVyhledatHru(ProviderController providerController,ZakaznikPrihlasen zakaznikPrihlasenFrame){
         this.providerController = providerController;
+        this.zakaznikPrihlasenFrame = zakaznikPrihlasenFrame;
     }
 
     public void startFrame(){
@@ -287,6 +289,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
             showHint();
             return;
         }
+        updateMainFrame();
     }
 
     private void showNoZamestnanecHint() {
@@ -299,6 +302,10 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
     private void showHint() {
         hint.setText("Počkejte až někdo příjde na kasu, poté vyberte hru ze seznamu.");
+    }
+
+    private void updateMainFrame(){
+        zakaznikPrihlasenFrame.update();
     }
 
 }

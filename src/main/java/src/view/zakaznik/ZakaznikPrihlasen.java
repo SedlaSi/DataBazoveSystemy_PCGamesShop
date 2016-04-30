@@ -188,11 +188,18 @@ public class ZakaznikPrihlasen extends JFrame {
 
     private void invokeZakaznikPrihlasenVyhledatHru(){
         // invoke frame
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController);
+        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController,this);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
             }
         });
+    }
+
+    public void update(){
+        fillPujceneHry();
+        this.invalidate();
+        this.validate();
+        this.repaint();
     }
 }
