@@ -251,6 +251,9 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
+            if(providerController.getZakaznikLoginController().getCurrentSession() == null){
+                quitFrame();
+            }
             if(((JButton)e.getSource()).getText().equals("Vyhledat")){
                 fillVysledkyHledani();
             } else {
@@ -259,9 +262,17 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         }
     }
 
+    private void quitFrame() {
+        this.dispose();
+    }
+
     private void zapujcitHru() {
         if(selectedVyhledanaHra == null){
             showHint();
+            return;
+        }
+        if(providerController.getZamestnanecLoginController().getCurrentSession() == null){
+            showNoZamestnanecHint();
             return;
         }
         String [] split = selectedVyhledanaHra.split(" ");
@@ -281,6 +292,10 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
             return;
         }
 
+    }
+
+    private void showNoZamestnanecHint() {
+        hint.setText("Prosím počkejte než někdo příjde na pokladnu.");
     }
 
     private void showSucces() {

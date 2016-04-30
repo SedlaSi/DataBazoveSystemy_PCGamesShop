@@ -140,7 +140,7 @@ public class ZakaznikLogin extends JFrame{
                 zkl.startFrame();
             }
         });
-        this.setVisible(false);
+        this.dispose();
 
     }
 

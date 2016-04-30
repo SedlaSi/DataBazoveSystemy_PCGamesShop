@@ -2,6 +2,7 @@ package src.controller;
 
 import src.data.ZamestnanecDAO;
 import src.login.Role;
+import src.login.Session;
 import src.model.Zamestnanec;
 import src.provider.Provider;
 import src.provider.ProviderSession;
@@ -49,5 +50,9 @@ public class ZamestnanecLoginController extends TemplateController {
 
     public void performLogout(){
         providerZamestnanecSession.endSession();
+    }
+
+    public Session getCurrentSession(){
+        return providerZamestnanecSession.getSession();
     }
 }

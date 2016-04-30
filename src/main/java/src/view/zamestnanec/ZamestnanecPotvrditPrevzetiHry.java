@@ -113,6 +113,8 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
                 zkl.startFrame();
             }
         });
+        this.dispose();
+
     }
 
     private void showSuccess(){

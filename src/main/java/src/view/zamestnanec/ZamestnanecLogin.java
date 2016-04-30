@@ -118,8 +118,7 @@ public class ZamestnanecLogin extends JFrame{
                 zkl.startFrame();
             }
         });
-        this.setVisible(false);
-
+        this.dispose();
     }
 
 

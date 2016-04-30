@@ -183,7 +183,7 @@ public class ZakaznikPrihlasen extends JFrame {
                 zkl.startFrame();
             }
         });
-        this.setState(JFrame.ABORT);
+        this.dispose();
     }
 
     private void invokeZakaznikPrihlasenVyhledatHru(){
