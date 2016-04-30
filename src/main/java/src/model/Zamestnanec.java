@@ -54,6 +54,9 @@ public class Zamestnanec {
     @OneToMany
     private List<Pozice> pozice;
 
+    @OneToMany(mappedBy = "zamestnanec")
+    private List<Kasa> kasa;
+
     public long getId() {
         return id;
     }
@@ -160,5 +163,13 @@ public class Zamestnanec {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Kasa> getKasa() {
+        return kasa;
+    }
+
+    public void setKasa(List<Kasa> kasa) {
+        this.kasa = kasa;
     }
 }

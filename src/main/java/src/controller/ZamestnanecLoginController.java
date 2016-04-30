@@ -1,9 +1,7 @@
 package src.controller;
 
 import src.data.ZamestnanecDAO;
-import src.login.Role;
 import src.login.Session;
-import src.model.Zamestnanec;
 import src.provider.Provider;
 import src.provider.ProviderSession;
 
@@ -33,7 +31,14 @@ public class ZamestnanecLoginController extends TemplateController {
     }
 
     public boolean performLogin(){
-        Zamestnanec z;
+        try{
+            providerDAO.getKasaDAO().loginKasa(userName,password);
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+        /*Zamestnanec z;
         try{
             z = zamestnanecDAO.getByUserName(userName);
         } catch (Exception e){
@@ -45,11 +50,16 @@ public class ZamestnanecLoginController extends TemplateController {
             return true;
         }
         providerZamestnanecSession.endSession();
-        return false;
+        return false;*/
     }
 
     public void performLogout(){
-        providerZamestnanecSession.endSession();
+        try{
+            providerDAO.getKasaDAO().logoutKasa();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        //providerZamestnanecSession.endSession();
     }
 
     public Session getCurrentSession(){

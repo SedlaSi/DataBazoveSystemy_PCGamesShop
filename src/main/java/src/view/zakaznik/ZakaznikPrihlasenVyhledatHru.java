@@ -271,10 +271,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
             showHint();
             return;
         }
-        if(providerController.getZamestnanecLoginController().getCurrentSession() == null){
-            showNoZamestnanecHint();
-            return;
-        }
+
         String [] split = selectedVyhledanaHra.split(" ");
         String kod = split[split.length-1];
         int id;
@@ -291,7 +288,6 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
             showHint();
             return;
         }
-
     }
 
     private void showNoZamestnanecHint() {

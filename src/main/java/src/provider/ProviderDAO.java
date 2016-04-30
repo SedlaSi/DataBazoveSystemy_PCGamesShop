@@ -18,12 +18,12 @@ public class ProviderDAO {
     private ZanrDAO zanrDAO;
     private PoziceDAO poziceDAO;
     private PujckaDAO pujckaDAO;
+    private KasaDAO kasaDAO;
 
     private Resources res;
 
     public ProviderDAO(){
         res = new Resources();
-        exemplarDAO = new ExemplarDAO(res);
         hraDAO = new HraDAO(res);
         platformaDAO = new PlatformaDAO(res);
         policeDAO = new PoliceDAO(res);
@@ -33,6 +33,8 @@ public class ProviderDAO {
         zanrDAO = new ZanrDAO(res);
         poziceDAO = new PoziceDAO(res);
         pujckaDAO = new PujckaDAO(res);
+        kasaDAO = new KasaDAO(res,zamestnanecDAO);
+        exemplarDAO = new ExemplarDAO(res,this);
     }
 
     public PoziceDAO getPoziceDAO() {
@@ -73,5 +75,9 @@ public class ProviderDAO {
 
     public PujckaDAO getPujckaDAO() {
         return pujckaDAO;
+    }
+
+    public KasaDAO getKasaDAO() {
+        return kasaDAO;
     }
 }

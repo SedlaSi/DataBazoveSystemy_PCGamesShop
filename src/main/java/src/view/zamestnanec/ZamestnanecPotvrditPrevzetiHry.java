@@ -30,6 +30,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
 
     }
 
+
     public ZamestnanecPotvrditPrevzetiHry(ProviderController providerController){
         this.providerController = providerController;
     }
@@ -107,7 +108,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
 
     private void invokeLogoutTask() {
         providerController.getZamestnanecLoginController().performLogout();
-        final ZamestnanecLogin zkl =  new ZamestnanecLogin(null);
+        final ZamestnanecLogin zkl =  new ZamestnanecLogin(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();

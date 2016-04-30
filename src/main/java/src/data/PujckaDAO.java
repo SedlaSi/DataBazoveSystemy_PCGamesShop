@@ -30,6 +30,10 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         return p2;
     }
 
+    public void createTransactionFree(Pujcka p){
+        em.persist(p);
+    }
+
     public void updateDate(int idExemplar, java.sql.Date date) throws Exception {
         em.getTransaction().begin();
         Pujcka pujcka = this.getByExemplarId(idExemplar);

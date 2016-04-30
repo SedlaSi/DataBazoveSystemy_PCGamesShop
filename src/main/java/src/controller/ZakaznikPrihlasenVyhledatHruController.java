@@ -1,10 +1,12 @@
 package src.controller;
 
-import src.model.*;
+import src.model.Exemplar;
+import src.model.Platforma;
+import src.model.Vydavatel;
+import src.model.Zanr;
 import src.provider.Provider;
 import src.provider.ProviderSession;
 
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -63,24 +65,14 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
     }
 
     public boolean zapujcitHru(int idExemplar){
-        String zamestnanecUserName = zamestnanecProviderSession.getSession().getUserName();
-        String zakaznikUserName = zakaznikProviderSession.getSession().getUserName();
-        Zakaznik zakaznik;
-        Zamestnanec zamestnanec;
-        Exemplar exemplar;
-        Pujcka pujcka = new Pujcka();
+
         try{
-            exemplar = providerDAO.getExemplarDAO().getById(idExemplar);
-            zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
-            zamestnanec = providerDAO.getZamestnanecDAO().getByUserName(zamestnanecUserName);
-            pujcka.setZakaznik(zakaznik);
-            pujcka.setZamestnanec(zamestnanec);
-            pujcka.setExemplar(exemplar);
-            pujcka.setPujceno(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
-            providerDAO.getPujckaDAO().create(pujcka);
+            providerDAO.getExemplarDAO().zapujcitHru(idExemplar,zakaznikProviderSession.getSession().getUserName());
         } catch (Exception e){
+            e.printStackTrace();
             return false;
         }
         return true;
     }
+
 }

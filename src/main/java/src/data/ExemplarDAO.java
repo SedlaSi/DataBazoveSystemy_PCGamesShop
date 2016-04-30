@@ -1,17 +1,26 @@
 package src.data;
 
 import src.model.Exemplar;
+import src.model.Pujcka;
+import src.model.Zakaznik;
+import src.model.Zamestnanec;
+import src.provider.ProviderDAO;
 import src.util.Resources;
 
 import javax.persistence.Query;
+import java.util.Calendar;
 import java.util.List;
 
 /**
  * Created by root on 14.4.16.
  */
 public class ExemplarDAO extends TemplateDAO<Exemplar> {
-    public ExemplarDAO(Resources res) {
+
+    private ProviderDAO providerDAO;
+
+    public ExemplarDAO(Resources res, ProviderDAO providerDAO) {
         super(res);
+        this.providerDAO = providerDAO;
     }
 
     public List<Exemplar> getConcreteList(String zakaznikUserName,String nazev, String vydavatel,
@@ -108,5 +117,30 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         t =(Exemplar) q.getSingleResult();
         em.getTransaction().commit();
         return t;
+    }
+
+    public Exemplar getByIdTransactionFree(int id){
+        Exemplar t;
+        Query q = em.createQuery("SELECT x FROM Exemplar x WHERE x.id = :id");
+        q.setParameter("id",id);
+        t =(Exemplar) q.getSingleResult();
+        return t;
+    }
+
+    public void zapujcitHru(int idExemplar, String zakaznikUserName) throws Exception{
+        Zakaznik zakaznik;
+        Zamestnanec zamestnanec;
+        Exemplar exemplar;
+        Pujcka pujcka = new Pujcka();
+        em.getTransaction().begin();
+        exemplar = getByIdTransactionFree(idExemplar);
+        zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
+        zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
+        pujcka.setZakaznik(zakaznik);
+        pujcka.setZamestnanec(zamestnanec);
+        pujcka.setExemplar(exemplar);
+        pujcka.setPujceno(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+        providerDAO.getPujckaDAO().createTransactionFree(pujcka);
+        em.getTransaction().commit();
     }
 }

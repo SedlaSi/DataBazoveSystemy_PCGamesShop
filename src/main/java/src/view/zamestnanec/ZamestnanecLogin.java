@@ -96,13 +96,19 @@ public class ZamestnanecLogin extends JFrame{
             // prihlaseni zamestnance
             System.out.println(usernameField.getText());
             System.out.println(passwordField.getText());
-            providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
-            providerController.getZamestnanecLoginController().setPassWord(passwordField.getText());
-            if(providerController.getZamestnanecLoginController().performLogin()){
-                invokeZamestnanecPotvrditPrevzetiHry();
-            } else {
+            try{
+                providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
+                providerController.getZamestnanecLoginController().setPassWord(passwordField.getText());
+                if(providerController.getZamestnanecLoginController().performLogin()){
+                    invokeZamestnanecPotvrditPrevzetiHry();
+                } else {
+                    showHint();
+                }
+            } catch (Exception exc){
+                exc.printStackTrace();
                 showHint();
             }
+
         }
     }
 
