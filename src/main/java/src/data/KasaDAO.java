@@ -44,7 +44,12 @@ public class KasaDAO extends TemplateDAO<Kasa> {
     public void loginKasa(String username, String password) throws Exception{
         boolean failure = false;
         em.getTransaction().begin();
-        Zamestnanec  z = zamestnanecDAO.getByUserName(username);
+        Zamestnanec z;
+        try{
+            z = zamestnanecDAO.getByUserName(username);
+        } catch (Exception e){
+            z = null;
+        }
         if(z != null && z.getPassword().equals(password)){
             if(isNotLoged(z)){
                 try{
@@ -66,10 +71,11 @@ public class KasaDAO extends TemplateDAO<Kasa> {
             System.out.println("fail in zakaznik");
             failure = true;
         }
-        em.getTransaction().commit();
         if(failure){
+            em.getTransaction().rollback();
             throw new Exception("User is still logged in the system or wrong username / password.");
         }
+        em.getTransaction().commit();
     }
 
     public void logoutKasa() throws Exception {

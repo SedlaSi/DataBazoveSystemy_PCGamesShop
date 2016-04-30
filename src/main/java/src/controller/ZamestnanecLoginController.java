@@ -30,7 +30,7 @@ public class ZamestnanecLoginController extends TemplateController {
         try{
             providerDAO.getKasaDAO().loginKasa(userName,password);
         } catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
         return true;
