@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 /**
  * Created by root on 22.4.16.
@@ -13,9 +14,7 @@ import java.awt.event.ActionListener;
 public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
     private ProviderController providerController;
     private JTextArea kodExemplare;
-    private JTextArea rok;
-    private JTextArea mesic;
-    private JTextArea den;
+    private JTextArea datum;
     private JButton potvrdit;
     private JLabel hint;
 
@@ -44,12 +43,10 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
 
         JLabel kodExemplareLabel = new JLabel("Kód exempláře:");
         kodExemplare = new JTextArea();
-        JLabel rokLabel = new JLabel("Rok:");
-        rok = new JTextArea();
-        JLabel mesicLabel = new JLabel("Měsíc:");
-        mesic = new JTextArea();
-        JLabel denLabel = new JLabel("Den:");
-        den = new JTextArea();
+        JLabel datumLabel = new JLabel("Datum převzetí:");
+        datum = new JTextArea();
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTimeInMillis());
+        datum.setText(date.toString());
         potvrdit = new JButton("Potvrdit převzetí");
         potvrdit.addActionListener(new ButtonClickedListener());
         hint = new JLabel("");
@@ -57,29 +54,21 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
         odhlasitSeButton.addActionListener(new ButtonClickedListener());
 
         JPanel kodExemplarePanel = new JPanel(new GridLayout(1,2,3,3));
-        JPanel rokPanel = new JPanel(new GridLayout(1,2,3,3));
-        JPanel mesicPanel = new JPanel(new GridLayout(1,2,3,3));
-        JPanel denPanel = new JPanel(new GridLayout(1,2,3,3));
+        JPanel datumPanel = new JPanel(new GridLayout(1,2,3,3));
         JPanel buttonPanel = new JPanel(new FlowLayout());
         JPanel hintPanel = new JPanel(new FlowLayout());
         JPanel odhlasitSeButtonPanel = new JPanel(new FlowLayout());
         kodExemplarePanel.add(kodExemplareLabel);
         kodExemplarePanel.add(kodExemplare);
-        rokPanel.add(rokLabel);
-        rokPanel.add(rok);
-        mesicPanel.add(mesicLabel);
-        mesicPanel.add(mesic);
-        denPanel.add(denLabel);
-        denPanel.add(den);
+        datumPanel.add(datumLabel);
+        datumPanel.add(datum);
         buttonPanel.add(potvrdit);
         hintPanel.add(hint);
         odhlasitSeButtonPanel.add(odhlasitSeButton);
 
 
         this.add(kodExemplarePanel);
-        this.add(rokPanel);
-        this.add(mesicPanel);
-        this.add(denPanel);
+        this.add(datumPanel);
         this.add(buttonPanel);
         this.add(hintPanel);
         this.add(odhlasitSeButtonPanel);
@@ -95,7 +84,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
                 invokeLogoutTask();
             } else {
                 if(!providerController.getZamestnanecPotrvditPrevzetiHryController().potvrdit(
-                        kodExemplare.getText(),rok.getText(),mesic.getText(),den.getText()
+                        kodExemplare.getText(),datum.getText()
                 )){
                     showHint();
                 } else {
@@ -120,9 +109,8 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
 
     private void showSuccess(){
         kodExemplare.setText("");
-        rok.setText("");
-        mesic.setText("");
-        den.setText("");
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTimeInMillis());
+        datum.setText(date.toString());
         hint.setText("Produkt byl úspěšně přijat.");
         this.invalidate();
         this.validate();
