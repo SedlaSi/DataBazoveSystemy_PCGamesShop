@@ -30,7 +30,11 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         String vydavatelQuery = "AND e.hra.vydavatel.nazev = :vydavatel ";
         String rokVydaniQuery = "AND e.rokVydani = :rokVydani ";
         String kodExemplareQuery = "AND e.id = :kodExemplare";
+        String zakaznikQuery = "";
 
+        if(zakaznikUserName == null || zakaznikUserName.equals("")){
+            zakaznikQuery = "1 = 1";
+        }
         if(nazev.isEmpty()){
             nazevQuery = " 1 = 1 ";
         }

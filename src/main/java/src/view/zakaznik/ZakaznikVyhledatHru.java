@@ -17,9 +17,9 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 /**
- * Created by root on 20.4.16.
+ * Created by root on 15.4.16.
  */
-public class ZakaznikPrihlasenVyhledatHru extends JFrame {
+public class ZakaznikVyhledatHru extends JFrame {
 
     private ProviderController providerController;
     private JTextArea nazev;
@@ -29,8 +29,6 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private JPanel zanrCheckBoxPanel;
     private JPanel platformaCheckBoxPanel;
     private JButton vyhledat;
-    private JButton pujcit;
-    private JLabel hint;
     private String selectedVydavatel;
     private String selectedVyhledanaHra;
     private JPanel vysledkyHledaniPanel;
@@ -49,7 +47,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
     }
 
-    public ZakaznikPrihlasenVyhledatHru(ProviderController providerController){
+    public ZakaznikVyhledatHru(ProviderController providerController){
         this.providerController = providerController;
     }
 
@@ -57,7 +55,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         this.setSize(600,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
+        //this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
         this.setLayout(new GridLayout(2,1,3,3));
         JPanel criteria = new JPanel();
         this.add(criteria);
@@ -136,11 +134,6 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         vysledkyHledaniPanel = new JPanel();
         vysledkyHledaniPanel.add(new JLabel("Žádne výsledky k zobrazení"));
         results.add(vysledkyHledaniPanel);
-        pujcit = new JButton("Zapůjčit");
-        pujcit.addActionListener(new ButtonClickedListener());
-        hint = new JLabel("");
-        bottomPanel.add(hint);
-        bottomPanel.add(pujcit);
         results.add(bottomPanel);
 
         this.setVisible(true);
@@ -155,8 +148,8 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
                 JCheckBox pBox = new JCheckBox(p.getNazev(),false);
                 platformaList.add(pBox);
                 platformaCheckBoxPanel.add(pBox);
-           }
-         } catch (Exception e){
+            }
+        } catch (Exception e){
             System.out.println("Žádné platformy nenalezeny.");
         }
     }
@@ -179,7 +172,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
 
         java.util.List<Exemplar> vyhledaneHry = providerController
                 .getZakaznikPrihlasenVyhledatHruController()
-                .getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy);
+                .getHryDleParametruNoUser(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy);
 
         if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
             vysledkyHledaniPanel.remove(0);
@@ -234,14 +227,14 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         vydavatel.addItemListener(new VydavatelSelectedListener());
     }
 
-    private class VydavatelSelectedListener implements ItemListener{
+    private class VydavatelSelectedListener implements ItemListener {
         @Override
         public void itemStateChanged(ItemEvent e) {
             selectedVydavatel = (String)e.getItemSelectable().getSelectedObjects()[0];
         }
     }
 
-    private class HraSelectedListener implements ListSelectionListener{
+    private class HraSelectedListener implements ListSelectionListener {
         @Override
         public void valueChanged(ListSelectionEvent e) {
             selectedVyhledanaHra = ((JList)e.getSource()).getSelectedValue().toString();
@@ -251,54 +244,8 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            if(((JButton)e.getSource()).getText().equals("Vyhledat")){
-                fillVysledkyHledani();
-            } else {
-                if(providerController.getZakaznikLoginController().getCurrentSession() == null){
-                    quitFrame();
-                }
-                zapujcitHru();
-            }
+            fillVysledkyHledani();
         }
-    }
-
-    private void quitFrame() {
-        this.dispose();
-    }
-
-    private void zapujcitHru() {
-        if(selectedVyhledanaHra == null){
-            showHint();
-            return;
-        }
-        String [] split = selectedVyhledanaHra.split(" ");
-        String kod = split[split.length-1];
-        int id;
-        try{
-            id = Integer.parseInt(kod);
-            if(!providerController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(id)){
-                throw new Exception();
-            }
-            showSucces();
-            selectedVyhledanaHra = null;
-        } catch (Exception e){
-            System.out.println("ProviderController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(id) failure or");
-            System.out.println("parse exception occured in ZakaznikPrihlasenVyhledatHru.zapujcitHru()");
-            showHint();
-            return;
-        }
-    }
-
-    private void showNoZamestnanecHint() {
-        hint.setText("Prosím počkejte než někdo příjde na pokladnu.");
-    }
-
-    private void showSucces() {
-        hint.setText("Hra zapůjčena!");
-    }
-
-    private void showHint() {
-        hint.setText("Počkejte až někdo příjde na kasu, poté vyberte hru ze seznamu.");
     }
 
 }

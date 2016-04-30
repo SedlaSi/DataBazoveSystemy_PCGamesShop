@@ -73,4 +73,32 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
         return true;
     }
 
+    public List<Exemplar> getHryDleParametruNoUser(String nazev, String vydavatel, String rokVydani,
+                                                   String kodExemplare, List<String> zanry, List<String> platformy) {
+        try{
+            java.sql.Date date = null;
+            try{
+                if(rokVydani != null && !rokVydani.isEmpty()){
+                    date = java.sql.Date.valueOf(rokVydani+"-02-03");
+                }
+            } catch (Exception e){
+                date = java.sql.Date.valueOf("1215-02-03");
+            }
+
+            int id;
+            try{
+                id = Integer.parseInt(kodExemplare);
+            } catch (Exception e){
+                id = -1;
+            }
+            return providerDAO
+                    .getExemplarDAO()
+                    .getConcreteList(null,nazev, vydavatel, date, id, zanry, platformy);
+        } catch (Exception e){
+            e.printStackTrace();
+            System.out.println("exeption in ZakaznikPrihlasenVyhledatHruController.getHryDleParametru()");
+            return null;
+        }
+
+    }
 }

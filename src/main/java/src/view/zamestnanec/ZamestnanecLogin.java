@@ -93,21 +93,22 @@ public class ZamestnanecLogin extends JFrame{
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            // prihlaseni zamestnance
-            System.out.println(usernameField.getText());
-            System.out.println(passwordField.getText());
-            try{
-                providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
-                providerController.getZamestnanecLoginController().setPassWord(passwordField.getText());
-                if(providerController.getZamestnanecLoginController().performLogin()){
-                    invokeZamestnanecPotvrditPrevzetiHry();
-                } else {
-                    showHint();
-                }
-            } catch (Exception exc){
-                exc.printStackTrace();
-                showHint();
-            }
+
+           System.out.println(usernameField.getText());
+           System.out.println(passwordField.getText());
+           try{
+               providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
+               providerController.getZamestnanecLoginController().setPassWord(passwordField.getText());
+               if(providerController.getZamestnanecLoginController().performLogin()){
+                   invokeZamestnanecPotvrditPrevzetiHry();
+               } else {
+                   showHint();
+               }
+           } catch (Exception exc){
+               exc.printStackTrace();
+               showHint();
+           }
+
 
         }
     }

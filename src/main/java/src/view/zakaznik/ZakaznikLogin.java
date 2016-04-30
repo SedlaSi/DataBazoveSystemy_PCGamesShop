@@ -117,7 +117,7 @@ public class ZakaznikLogin extends JFrame{
 
         public void actionPerformed(ActionEvent e) {
             if(((JButton)e.getSource()).getText().equals("Vyhledat hru")){ // Vyhledani hry
-
+                invokeZakaznikVyhledatHru();
             } else { // Prihlaseni
                 System.out.println(usernameField.getText());
                 System.out.println(passwordField.getText());
@@ -130,6 +130,17 @@ public class ZakaznikLogin extends JFrame{
                 }
             }
         }
+    }
+
+    private void invokeZakaznikVyhledatHru() {
+        final ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
+
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                zkl.startFrame();
+            }
+        });
+
     }
 
     private void invokeZakaznikPrihlasen(){
