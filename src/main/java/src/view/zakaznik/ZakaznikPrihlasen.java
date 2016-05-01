@@ -25,7 +25,7 @@ public class ZakaznikPrihlasen extends JFrame {
     public static void main(String [] args){
 
         final ZakaznikPrihlasen zkl =  new ZakaznikPrihlasen(null);
-        //zkl.session = new Session("user", Role.ZAKAZNIK);
+        //zkl.session = new Session("B", Role.ZAKAZNIK);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -45,21 +45,23 @@ public class ZakaznikPrihlasen extends JFrame {
     }
 
     public void startFrame(){
-        this.setSize(400,400);
+        this.setSize(400,450);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Přihlášen jako: " + session.getUserName());
-        this.setLayout(new GridLayout(2,1,3,3));
+        //this.setLayout(new GridLayout(2,1,3,3));
+        //Box boxLayout = Box.createVerticalBox();
+        this.setLayout(new BorderLayout());
 
-        JPanel upper = new JPanel(new GridLayout(3,1,3,3));
-        JPanel downer = new JPanel(new GridLayout(3,1,3,3));
+        JPanel upper = new JPanel(new BorderLayout());  //new GridLayout(3,1,2,2)
+        JPanel downer = new JPanel(new BorderLayout());
 
         JPanel upperUp = new JPanel(new FlowLayout());
         upperForNevraceneHry = new JPanel();
         JPanel upperDowner = new JPanel(new FlowLayout());
-        upper.add(upperUp);
-        upper.add(upperForNevraceneHry);
-        upper.add(upperDowner);
+        upper.add(upperUp,BorderLayout.NORTH);
+        upper.add(upperForNevraceneHry,BorderLayout.CENTER);
+        upper.add(upperDowner,BorderLayout.SOUTH);
 
         JPanel downerUp = new JPanel(new FlowLayout());
         downerForVraceneHry = new JPanel();
@@ -68,9 +70,9 @@ public class ZakaznikPrihlasen extends JFrame {
         // Plneni seznamu
         fillPujceneHry();
 
-        downer.add(downerUp);
-        downer.add(downerForVraceneHry);
-        downer.add(downerDowner);
+        downer.add(downerUp,BorderLayout.NORTH);
+        downer.add(downerForVraceneHry,BorderLayout.CENTER);
+        downer.add(downerDowner,BorderLayout.SOUTH);
 
         JLabel pujceneHryLabel = new JLabel("Půjčené hry:");
 
@@ -89,8 +91,10 @@ public class ZakaznikPrihlasen extends JFrame {
         downerDowner.add(odhlasitSeButton);
 
 
-        this.add(upper);
-        this.add(downer);
+        //this.add(upper);
+        //this.add(downer);
+        this.add(upper,BorderLayout.NORTH);
+        this.add(downer,BorderLayout.SOUTH);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
