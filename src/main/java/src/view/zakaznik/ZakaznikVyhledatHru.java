@@ -52,32 +52,39 @@ public class ZakaznikVyhledatHru extends JFrame {
     }
 
     public void startFrame(){
-        this.setSize(600,600);
+        this.setSize(600,360);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         //this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
-        this.setLayout(new GridLayout(2,1,3,3));
+        this.setLayout(new BorderLayout());
         JPanel criteria = new JPanel();
-        this.add(criteria);
+        this.add(criteria,BorderLayout.NORTH);
         JPanel results = new JPanel();
-        this.add(results);
+        this.add(results,BorderLayout.SOUTH);
 
         platformaList = new ArrayList<>();
         zanrList = new ArrayList<>();
 
-        criteria.setLayout(new GridLayout(5,1,3,3));
+        criteria.setLayout(new BorderLayout(2,2)); //new GridLayout(5,1,3,3)
         results.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
-        results.setLayout(new GridLayout(3,1,3,3));
+        results.setLayout(new BorderLayout(2,2)); //new GridLayout(3,1,3,3)
         JPanel nazevNvydavatelPanel = new JPanel();
         JPanel rokVydaniNkodExemplarePanel = new JPanel();
         JPanel zanrPanel = new JPanel();
         JPanel platformaPanel = new JPanel();
         JPanel vyhledatButtonPanel = new JPanel();
-        criteria.add(nazevNvydavatelPanel);
-        criteria.add(rokVydaniNkodExemplarePanel);
-        criteria.add(zanrPanel);
-        criteria.add(platformaPanel);
-        criteria.add(vyhledatButtonPanel);
+        JPanel criteriaUp = new JPanel();
+        criteriaUp.setLayout(new BorderLayout(2,2));
+        JPanel criteriaDown = new JPanel();
+        criteriaDown.setLayout(new BorderLayout(2,2));
+        criteria.add(criteriaUp,BorderLayout.NORTH);
+        criteria.add(criteriaDown,BorderLayout.SOUTH);
+
+        criteriaUp.add(nazevNvydavatelPanel,BorderLayout.NORTH);
+        criteriaUp.add(rokVydaniNkodExemplarePanel,BorderLayout.SOUTH);
+        criteriaDown.add(zanrPanel,BorderLayout.NORTH);
+        criteriaDown.add(platformaPanel,BorderLayout.CENTER);
+        criteriaDown.add(vyhledatButtonPanel,BorderLayout.SOUTH);
 
         nazevNvydavatelPanel.setLayout(new GridLayout(1,4,3,3));
         rokVydaniNkodExemplarePanel.setLayout(new GridLayout(1,4,3,3));
@@ -127,14 +134,16 @@ public class ZakaznikVyhledatHru extends JFrame {
         vyhledatButtonPanel.add(vyhledat);
         vyhledatButtonPanel.add(vyhledatLabel);
 
+
+
         JLabel vysledkyHledaniLabel = new JLabel("Výsledky hledání:");
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(1,2,3,3));
-        results.add(vysledkyHledaniLabel);
+        bottomPanel.setLayout(new BorderLayout()); //new GridLayout(1,2,3,3)
+        results.add(vysledkyHledaniLabel,BorderLayout.NORTH);
         vysledkyHledaniPanel = new JPanel();
         vysledkyHledaniPanel.add(new JLabel("Žádne výsledky k zobrazení"));
-        results.add(vysledkyHledaniPanel);
-        results.add(bottomPanel);
+        results.add(vysledkyHledaniPanel,BorderLayout.CENTER);
+        results.add(bottomPanel,BorderLayout.SOUTH);
 
         this.setVisible(true);
     }

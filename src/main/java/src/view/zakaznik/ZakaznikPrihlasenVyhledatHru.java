@@ -56,7 +56,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     }
 
     public void startFrame(){
-        this.setSize(600,450);
+        this.setSize(600,385);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
@@ -69,19 +69,31 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         platformaList = new ArrayList<>();
         zanrList = new ArrayList<>();
 
-        criteria.setLayout(new GridLayout(5,1,3,3));
+        criteria.setLayout(new BorderLayout(2,2)); //new GridLayout(5,1,3,3)
         results.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
-        results.setLayout(new BorderLayout()); //new GridLayout(3,1,3,3)
+        results.setLayout(new BorderLayout(2,2)); //new GridLayout(3,1,3,3)
         JPanel nazevNvydavatelPanel = new JPanel();
         JPanel rokVydaniNkodExemplarePanel = new JPanel();
         JPanel zanrPanel = new JPanel();
         JPanel platformaPanel = new JPanel();
         JPanel vyhledatButtonPanel = new JPanel();
-        criteria.add(nazevNvydavatelPanel);
+        JPanel criteriaUp = new JPanel();
+        criteriaUp.setLayout(new BorderLayout(2,2));
+        JPanel criteriaDown = new JPanel();
+        criteriaDown.setLayout(new BorderLayout(2,2));
+        criteria.add(criteriaUp,BorderLayout.NORTH);
+        criteria.add(criteriaDown,BorderLayout.SOUTH);
+
+        criteriaUp.add(nazevNvydavatelPanel,BorderLayout.NORTH);
+        criteriaUp.add(rokVydaniNkodExemplarePanel,BorderLayout.SOUTH);
+        criteriaDown.add(zanrPanel,BorderLayout.NORTH);
+        criteriaDown.add(platformaPanel,BorderLayout.CENTER);
+        criteriaDown.add(vyhledatButtonPanel,BorderLayout.SOUTH);
+        /*criteria.add(nazevNvydavatelPanel);
         criteria.add(rokVydaniNkodExemplarePanel);
         criteria.add(zanrPanel);
         criteria.add(platformaPanel);
-        criteria.add(vyhledatButtonPanel);
+        criteria.add(vyhledatButtonPanel);*/
 
         nazevNvydavatelPanel.setLayout(new GridLayout(1,4,3,3));
         rokVydaniNkodExemplarePanel.setLayout(new GridLayout(1,4,3,3));
