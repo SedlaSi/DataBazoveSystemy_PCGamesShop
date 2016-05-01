@@ -21,7 +21,7 @@ public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController
             date = java.sql.Date.valueOf(datum);
             pujckaDAO.updateDate(Integer.parseInt(kodExemplare),date);
         } catch (Exception e){
-            //e.printStackTrace();
+            e.printStackTrace();
             return false;
         }
         return true;

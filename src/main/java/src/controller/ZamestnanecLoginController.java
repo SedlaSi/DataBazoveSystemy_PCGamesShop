@@ -1,6 +1,7 @@
 package src.controller;
 
 import src.data.ZamestnanecDAO;
+import src.model.Zamestnanec;
 import src.provider.Provider;
 
 /**
@@ -56,5 +57,39 @@ public class ZamestnanecLoginController extends TemplateController {
             e.printStackTrace();
         }
         //providerZamestnanecSession.endSession();
+    }
+
+    public String getUserNameOfLoggedZamestnanec(){
+        String username = "";
+        try{
+            username = providerDAO.getKasaDAO().getLoggedZamestnanec().getUsername();
+        } catch (Exception e){
+            e.printStackTrace();
+            username = "";
+        }
+
+        return username;
+    }
+
+    public boolean someoneIsLoggedInKasa(){
+        if(providerDAO.getKasaDAO().getLoggedZamestnanec() != null){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean performCrashRecoveryLogout(String password){
+        try {
+            Zamestnanec z = providerDAO.getKasaDAO().getLoggedZamestnanec();
+            if(z.getPassword().equals(password)){
+                this.performLogout();
+            } else {
+                return false;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

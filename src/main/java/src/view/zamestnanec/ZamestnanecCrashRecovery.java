@@ -8,9 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by root on 14.4.16.
+ * Created by root on 1.5.16.
  */
-public class ZamestnanecLogin extends JFrame{
+public class ZamestnanecCrashRecovery extends JFrame {
 
     private ProviderController providerController;
     private JTextArea usernameField;
@@ -19,7 +19,7 @@ public class ZamestnanecLogin extends JFrame{
 
     public static void main(String [] args){
 
-        final ZamestnanecLogin zkl =  new ZamestnanecLogin(null);
+        final ZamestnanecCrashRecovery zkl =  new ZamestnanecCrashRecovery(null);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -28,21 +28,15 @@ public class ZamestnanecLogin extends JFrame{
 
     }
 
-    public ZamestnanecLogin(ProviderController providerController){
+    public ZamestnanecCrashRecovery(ProviderController providerController){
         this.providerController = providerController;
     }
 
     public void startFrame(){
-
-        if(providerController.getZamestnanecLoginController().someoneIsLoggedInKasa()){
-            invokeZamestnanecCrashRecovery();
-            return;
-        }
-
         this.setSize(400,200);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.setTitle("Login Screen");
+        this.setTitle("Crash Recovery Screen");
         this.setLayout(new GridLayout(5,1,3,3));
 
         JPanel subTitle = new JPanel();
@@ -52,7 +46,7 @@ public class ZamestnanecLogin extends JFrame{
         JPanel hintPanel = new JPanel();
 
         subTitle.setLayout(new FlowLayout());
-        userNamePanel.setLayout(new GridLayout(1,3,3,3));
+        userNamePanel.setLayout(new GridLayout(3,1,3,3));
         passwordPanel.setLayout(new GridLayout(1,3,3,3));
         loginButtonPanel.setLayout(new FlowLayout());
         hintPanel.setLayout(new FlowLayout());
@@ -66,13 +60,15 @@ public class ZamestnanecLogin extends JFrame{
         JLabel subTitleLabel1 = new JLabel("Přihlašte se:");
         subTitle.add(subTitleLabel1);
 
-        JLabel userNameLabel = new JLabel("Uživatelské jméno:");
-        usernameField = new JTextArea();
-        usernameField.setColumns(10);
-        usernameField.setLineWrap(true);
+        JLabel userNameLabel = new JLabel("Systém detekoval kolizi v přihlašování.");
+
+        JLabel label2 = new JLabel(
+                "Zaměstnanec "+ providerController.getZamestnanecLoginController().getUserNameOfLoggedZamestnanec() + " je přihlášen na kase.");
+        JLabel label3 = new JLabel("Zadejte heslo k přihlášenému zaměstnanci pro jeho odhlášení:");
 
         userNamePanel.add(userNameLabel);
-        userNamePanel.add(usernameField);
+        userNamePanel.add(label2);
+        userNamePanel.add(label3);
 
         JLabel passwordLabel = new JLabel("Heslo:");
 
@@ -83,7 +79,7 @@ public class ZamestnanecLogin extends JFrame{
         passwordPanel.add(passwordField);
 
         JButton button = new JButton();
-        button.setText("Přihlásit se");
+        button.setText("Odhlásit zaměstnance");
         button.addActionListener(new ButtonClickedListener());
         loginButtonPanel.add(button);
 
@@ -93,38 +89,34 @@ public class ZamestnanecLogin extends JFrame{
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        usernameField.requestFocus();
+        //usernameField.requestFocus();
     }
 
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
 
-           System.out.println(usernameField.getText());
-           System.out.println(passwordField.getText());
-           try{
-               providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
-               providerController.getZamestnanecLoginController().setPassWord(passwordField.getText());
-               if(providerController.getZamestnanecLoginController().performLogin()){
-                   invokeZamestnanecPotvrditPrevzetiHry();
-               } else {
-                   showHint();
-               }
-           } catch (Exception exc){
-               exc.printStackTrace();
-               showHint();
-           }
-
-
+            //System.out.println(usernameField.getText());
+            System.out.println(passwordField.getText());
+            try{
+                if(providerController.getZamestnanecLoginController().performCrashRecoveryLogout(passwordField.getText())){
+                    invokeZamestnanecLogin();
+                } else {
+                    showHint();
+                }
+            } catch (Exception exc){
+                exc.printStackTrace();
+                showHint();
+            }
         }
     }
 
     private void showHint() {
-        hint.setText("Špatné uživatelské jméno nebo heslo.");
+        hint.setText("Špatné heslo.");
     }
 
-    private void invokeZamestnanecPotvrditPrevzetiHry(){
-        final ZamestnanecPotvrditPrevzetiHry zkl =  new ZamestnanecPotvrditPrevzetiHry(providerController);
+    private void invokeZamestnanecLogin(){
+        final ZamestnanecLogin zkl =  new ZamestnanecLogin(providerController);
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -133,17 +125,5 @@ public class ZamestnanecLogin extends JFrame{
         });
         this.dispose();
     }
-
-    private void invokeZamestnanecCrashRecovery(){
-        final ZamestnanecCrashRecovery zkl =  new ZamestnanecCrashRecovery(providerController);
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-        this.dispose();
-    }
-
 
 }
