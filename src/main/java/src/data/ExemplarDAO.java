@@ -51,6 +51,8 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         String platformyQuery = getPlatformyQuery(platformy);
 
         Query q = em.createQuery("SELECT e FROM Exemplar e WHERE "
+                + " "
+                + " e.aktivni = TRUE AND "
                 + nazevQuery
                 + vydavatelQuery
                 + rokVydaniQuery
