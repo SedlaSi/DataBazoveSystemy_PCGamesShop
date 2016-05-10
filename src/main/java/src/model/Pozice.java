@@ -18,7 +18,7 @@ public class Pozice {
     @Column(nullable = false,length = 128, name = "nazev")
     private String nazev;
 
-    @OneToMany(mappedBy = "id_pozice")
+    @OneToMany(mappedBy = "pozice")
     private List<Zamestnanec> zamestnanci;
 
     public long getId() {

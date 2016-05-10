@@ -52,7 +52,7 @@ public class Zamestnanec {
     private List<Pujcka> pujcky;
 
     @ManyToOne
-    @JoinColumn(name = "pozice", nullable = false)
+    @JoinColumn(name = "id_pozice", nullable = false)
     private Pozice pozice;
 
     @OneToMany(mappedBy = "zamestnanec")
