@@ -1,6 +1,7 @@
 package src.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by root on 14.4.16.
@@ -17,9 +18,8 @@ public class Pozice {
     @Column(nullable = false,length = 128, name = "nazev")
     private String nazev;
 
-    @ManyToOne
-    @JoinColumn(name = "id_zamestnanec", nullable = false)
-    private Zamestnanec zamestnanec;
+    @OneToMany(mappedBy = "id_pozice")
+    private List<Zamestnanec> zamestnanci;
 
     public long getId() {
         return id;
@@ -33,11 +33,11 @@ public class Pozice {
         this.nazev = nazev;
     }
 
-    public Zamestnanec getZamestnanec() {
-        return zamestnanec;
+    public List<Zamestnanec> getZamestnanci() {
+        return zamestnanci;
     }
 
-    public void setZamestnanec(Zamestnanec zamestnanec) {
-        this.zamestnanec = zamestnanec;
+    public void setZamestnanci(List<Zamestnanec> zamestnaneci) {
+        this.zamestnanci = zamestnaneci;
     }
 }
