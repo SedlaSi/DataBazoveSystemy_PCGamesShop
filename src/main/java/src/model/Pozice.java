@@ -15,7 +15,7 @@ public class Pozice {
     @Column(name = "id_pozice")
     private long id;
 
-    @Column(nullable = false,length = 128, name = "nazev")
+    @Column(nullable = false,length = 128, name = "nazev", unique = true)
     private String nazev;
 
     @OneToMany(mappedBy = "pozice")

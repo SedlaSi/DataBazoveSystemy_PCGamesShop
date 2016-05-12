@@ -39,4 +39,9 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
         return (List<Exemplar>)q.getResultList();
 
     }
+
+    public List<Zakaznik> getList() {
+        return (List<Zakaznik>)em.createQuery("SELECT z FROM Zakaznik z").getResultList();
+    }
+
 }

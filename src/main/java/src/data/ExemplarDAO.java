@@ -8,6 +8,7 @@ import src.provider.ProviderDAO;
 import src.util.Resources;
 
 import javax.persistence.Query;
+import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -157,5 +158,9 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
             throw new Exception("rollback invoked");
         }
         em.getTransaction().commit();
+    }
+
+    public List<Exemplar> getList() {
+        return (List<Exemplar>)em.createQuery("SELECT e FROM Exemplar e").getResultList();
     }
 }
