@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="sedlasi_db" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>src.model.Zamestnanec</class>
+        <class>src.model.Exemplar</class>
+        <class>src.model.Hra</class>
+        <class>src.model.Platforma</class>
+        <class>src.model.Police</class>
+        <class>src.model.Pozice</class>
+        <class>src.model.Pujcka</class>
+        <class>src.model.Vydavatel</class>
+        <class>src.model.Zakaznik</class>
+        <class>src.model.Zanr</class>
+        <class>src.model.Kasa</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:postgresql://localhost:5432/sedlasi_db"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="postgres"/>
+            <property name="eclipselink.ddl-generation" value="create-tables" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+        </properties>
+    </persistence-unit>
+
+</persistence>

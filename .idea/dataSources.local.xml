@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - postgres@localhost" uuid="889cd791-0115-4d7b-aaba-f70ee408df7c">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+    </data-source>
+    <data-source name="PostgreSQL - sedlasi_db@localhost" uuid="a22c41a5-a96b-4a30-8f89-d8982ad6ca88">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>sedlasi_db.pg_catalog sedlasi_db.public</schema-pattern>
+      <default-schemas>sedlasi_db.public</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - gameshop@localhost" uuid="ee25576f-964f-405d-a876-4dba7ccf0b81">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>gameshop.pg_catalog gameshop.public</schema-pattern>
+      <default-schemas>gameshop.public</default-schemas>
+    </data-source>
+  </component>
+</project>
