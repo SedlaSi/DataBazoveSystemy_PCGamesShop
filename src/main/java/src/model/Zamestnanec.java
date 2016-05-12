@@ -51,8 +51,9 @@ public class Zamestnanec {
     @OneToMany(mappedBy = "zamestnanec")
     private List<Pujcka> pujcky;
 
-    @OneToMany
-    private List<Pozice> pozice;
+    @ManyToOne
+    @JoinColumn(name = "id_pozice", nullable = false)
+    private Pozice pozice;
 
     @OneToMany(mappedBy = "zamestnanec")
     private List<Kasa> kasa;
@@ -141,11 +142,11 @@ public class Zamestnanec {
         this.pujcky = pujcky;
     }
 
-    public List<Pozice> getPozice() {
+    public Pozice getPozice() {
         return pozice;
     }
 
-    public void setPozice(List<Pozice> pozice) {
+    public void setPozice(Pozice pozice) {
         this.pozice = pozice;
     }
 
