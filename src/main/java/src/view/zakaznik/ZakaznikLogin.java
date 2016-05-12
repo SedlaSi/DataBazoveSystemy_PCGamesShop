@@ -119,10 +119,8 @@ public class ZakaznikLogin extends JFrame{
             if(((JButton)e.getSource()).getText().equals("Vyhledat hru")){ // Vyhledani hry
                 invokeZakaznikVyhledatHru();
             } else { // Prihlaseni
-                System.out.println(usernameField.getText());
-                System.out.println(passwordField.getText());
                 providerController.getZakaznikLoginController().setUserName(usernameField.getText());
-                providerController.getZakaznikLoginController().setPassWord(passwordField.getText());
+                providerController.getZakaznikLoginController().setPassWord(new String(passwordField.getPassword()));
                 if(providerController.getZakaznikLoginController().performLogin()){
                     invokeZakaznikPrihlasen();
                 } else {

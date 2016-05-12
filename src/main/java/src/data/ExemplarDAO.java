@@ -23,18 +23,14 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         this.providerDAO = providerDAO;
     }
 
-    public List<Exemplar> getConcreteList(String zakaznikUserName,String nazev, String vydavatel,
+    public List<Exemplar> getConcreteList(String nazev, String vydavatel,
                                           java.sql.Date rokVydani, int kodExemplare,
                                           List<String> zanry, List<String> platformy){
         String nazevQuery = "e.hra.nazev = :nazev ";
         String vydavatelQuery = "AND e.hra.vydavatel.nazev = :vydavatel ";
         String rokVydaniQuery = "AND e.rokVydani = :rokVydani ";
         String kodExemplareQuery = "AND e.id = :kodExemplare";
-        String zakaznikQuery = "";
 
-        if(zakaznikUserName == null || zakaznikUserName.equals("")){
-            zakaznikQuery = "1 = 1";
-        }
         if(nazev.isEmpty()){
             nazevQuery = " 1 = 1 ";
         }

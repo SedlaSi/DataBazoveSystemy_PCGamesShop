@@ -101,10 +101,10 @@ public class ZamestnanecLogin extends JFrame{
         public void actionPerformed(ActionEvent e) {
 
            System.out.println(usernameField.getText());
-           System.out.println(passwordField.getText());
+           System.out.println(new String(passwordField.getPassword()));
            try{
                providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
-               providerController.getZamestnanecLoginController().setPassWord(passwordField.getText());
+               providerController.getZamestnanecLoginController().setPassWord(new String(passwordField.getPassword()));
                if(providerController.getZamestnanecLoginController().performLogin()){
                    invokeZamestnanecPotvrditPrevzetiHry();
                } else {

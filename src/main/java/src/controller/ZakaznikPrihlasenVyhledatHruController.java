@@ -54,7 +54,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             }
             return providerDAO
                     .getExemplarDAO()
-                    .getConcreteList(zakaznikProviderSession.getSession().getUserName(),nazev, vydavatel, date, id, zanry, platformy);
+                    .getConcreteList(nazev, vydavatel, date, id, zanry, platformy);
         } catch (Exception e){
             e.printStackTrace();
             System.out.println("exeption in ZakaznikPrihlasenVyhledatHruController.getHryDleParametru()");
@@ -93,7 +93,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             }
             return providerDAO
                     .getExemplarDAO()
-                    .getConcreteList(null,nazev, vydavatel, date, id, zanry, platformy);
+                    .getConcreteList(nazev, vydavatel, date, id, zanry, platformy);
         } catch (Exception e){
             e.printStackTrace();
             System.out.println("exeption in ZakaznikPrihlasenVyhledatHruController.getHryDleParametru()");
