@@ -21,6 +21,9 @@ public class Pujcka {
     @Column(name = "vraceno")
     private Date vraceno = null;
 
+    @Column(nullable = false, name = "cena")
+    private int cena;
+
     @ManyToOne
     @JoinColumn(name = "id_exemplar",nullable = false)
     private Exemplar exemplar;
@@ -75,5 +78,13 @@ public class Pujcka {
 
     public void setVraceno(Date vraceno) {
         this.vraceno = vraceno;
+    }
+
+    public int getCena() {
+        return cena;
+    }
+
+    public void setCena(int cena) {
+        this.cena = cena;
     }
 }

@@ -139,6 +139,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
             pujcka.setZamestnanec(zamestnanec);
             pujcka.setExemplar(exemplar);
             pujcka.setPujceno(new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+            pujcka.setCena(exemplar.getCena());
             providerDAO.getPujckaDAO().createTransactionFree(pujcka);
 
         }catch (Exception e){
