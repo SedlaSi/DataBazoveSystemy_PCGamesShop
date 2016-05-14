@@ -298,14 +298,16 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
         } catch (Exception e){
             System.out.println("ProviderController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(id) failure or");
             System.out.println("parse exception occured in ZakaznikPrihlasenVyhledatHru.zapujcitHru()");
-            showHint();
+            showNoZamestnanecHint();
             return;
         }
+
+        fillVysledkyHledani();
         updateMainFrame();
     }
 
     private void showNoZamestnanecHint() {
-        hint.setText("Prosím počkejte než někdo příjde na pokladnu.");
+        hint.setText("Počkejte až někdo příjde na kasu, poté vyberte hru ze seznamu.");
     }
 
     private void showSucces() {
@@ -313,7 +315,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     }
 
     private void showHint() {
-        hint.setText("Počkejte až někdo příjde na kasu, poté vyberte hru ze seznamu.");
+        hint.setText("Nevybral jste si hru, nebo vámi vybraná hra již není dostupná.");
     }
 
     private void updateMainFrame(){

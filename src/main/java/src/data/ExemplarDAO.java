@@ -128,6 +128,11 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         Pujcka pujcka = new Pujcka();
         em.getTransaction().begin();
         try{
+            if(providerDAO.getPujckaDAO().getByExemplarId(idExemplar) != null) {
+                //em.getTransaction().rollback();
+                throw new Exception("rollback invoked, exemplar has been loaned");
+            }
+
             exemplar = getByIdTransactionFree(idExemplar);
             zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
 //            zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
