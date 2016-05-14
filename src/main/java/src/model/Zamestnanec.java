@@ -55,8 +55,8 @@ public class Zamestnanec {
     @JoinColumn(name = "id_pozice", nullable = false)
     private Pozice pozice;
 
-    @OneToMany(mappedBy = "zamestnanec")
-    private List<Kasa> kasa;
+//    @OneToMany(mappedBy = "zamestnanec")
+//    private List<Kasa> kasa;
 
     public long getId() {
         return id;
@@ -166,11 +166,11 @@ public class Zamestnanec {
         this.password = password;
     }
 
-    public List<Kasa> getKasa() {
-        return kasa;
-    }
+//    public List<Kasa> getKasa() {
+//        return kasa;
+//    }
 
-    public void setKasa(List<Kasa> kasa) {
-        this.kasa = kasa;
-    }
+//    public void setKasa(List<Kasa> kasa) {
+//        this.kasa = kasa;
+//    }
 }

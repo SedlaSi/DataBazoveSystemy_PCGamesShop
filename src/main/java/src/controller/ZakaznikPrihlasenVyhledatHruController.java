@@ -15,10 +15,12 @@ import java.util.List;
 public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
 
     ProviderSession zakaznikProviderSession;
+    ProviderSession zamestnanecProviderSession;
 
     public ZakaznikPrihlasenVyhledatHruController(Provider provider) {
         super(provider);
         zakaznikProviderSession = provider.getZakaznikProviderSession();
+        zamestnanecProviderSession = provider.getZamestnanecProviderSession();
     }
 
     public List<Vydavatel> getVydavatelList(){
@@ -63,13 +65,28 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
     }
 
     public boolean zapujcitHru(int idExemplar){
+        String zamestnanecUsername = null;
+        String zakaznikUsername = null;
 
-        try{
-            providerDAO.getExemplarDAO().zapujcitHru(idExemplar,zakaznikProviderSession.getSession().getUserName());
-        } catch (Exception e){
-            //e.printStackTrace();
+        if(zakaznikProviderSession != null && zakaznikProviderSession.getSession() != null) {
+            zakaznikUsername = zakaznikProviderSession.getSession().getUserName();
+        }
+
+        if(zamestnanecProviderSession != null && zamestnanecProviderSession.getSession() != null) {
+            zamestnanecUsername = zamestnanecProviderSession.getSession().getUserName();
+        }
+
+        if(zakaznikUsername == null || zakaznikUsername == null) {
             return false;
         }
+
+        try{
+            providerDAO.getExemplarDAO().zapujcitHru(idExemplar, zakaznikUsername, zamestnanecUsername);
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
         return true;
     }
 

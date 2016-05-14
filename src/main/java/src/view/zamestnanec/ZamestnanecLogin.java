@@ -1,5 +1,6 @@
 package src.view.zamestnanec;
 
+import src.login.Session;
 import src.provider.ProviderController;
 
 import javax.swing.*;
@@ -34,10 +35,10 @@ public class ZamestnanecLogin extends JFrame{
 
     public void startFrame(){
 
-        if(providerController.getZamestnanecLoginController().someoneIsLoggedInKasa()){
-            invokeZamestnanecCrashRecovery();
-            return;
-        }
+//        if(providerController.getZamestnanecLoginController().someoneIsLoggedInKasa()){
+//            invokeZamestnanecCrashRecovery();
+//            return;
+//        }
 
         this.setSize(400,200);
         this.setLocationRelativeTo(null);
@@ -96,9 +97,15 @@ public class ZamestnanecLogin extends JFrame{
         usernameField.requestFocus();
     }
 
+    public synchronized Session getLogged() {
+        Session session = providerController.getZamestnanecLoginController().getCurrentSession();
+
+        return session;
+    }
+
     private class ButtonClickedListener implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
+        public synchronized void actionPerformed(ActionEvent e) {
 
            System.out.println(usernameField.getText());
            System.out.println(new String(passwordField.getPassword()));
@@ -134,16 +141,16 @@ public class ZamestnanecLogin extends JFrame{
         this.dispose();
     }
 
-    private void invokeZamestnanecCrashRecovery(){
-        final ZamestnanecCrashRecovery zkl =  new ZamestnanecCrashRecovery(providerController);
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-        this.dispose();
-    }
+//    private void invokeZamestnanecCrashRecovery(){
+//        final ZamestnanecCrashRecovery zkl =  new ZamestnanecCrashRecovery(providerController);
+//
+//        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                zkl.startFrame();
+//            }
+//        });
+//        this.dispose();
+//    }
 
 
 }

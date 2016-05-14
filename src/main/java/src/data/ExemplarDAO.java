@@ -8,7 +8,6 @@ import src.provider.ProviderDAO;
 import src.util.Resources;
 
 import javax.persistence.Query;
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 
@@ -130,7 +129,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         return t;
     }
 
-    public void zapujcitHru(int idExemplar, String zakaznikUserName) throws Exception{
+    public void zapujcitHru(int idExemplar, String zakaznikUserName, String zamestnanecUserName) throws Exception{
         Zakaznik zakaznik;
         Zamestnanec zamestnanec;
         Exemplar exemplar;
@@ -139,10 +138,11 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         try{
             exemplar = getByIdTransactionFree(idExemplar);
             zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
-            zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
-            if(zamestnanec == null){
-                throw new Exception("noone logged in");
-            }
+//            zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
+//            if(zamestnanec == null){
+//                throw new Exception("noone logged in");
+//            }
+            zamestnanec = providerDAO.getZamestnanecDAO().getByUserName(zamestnanecUserName);
             pujcka.setZakaznik(zakaznik);
             pujcka.setZamestnanec(zamestnanec);
             pujcka.setExemplar(exemplar);
@@ -151,6 +151,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
 
         }catch (Exception e){
             em.getTransaction().rollback();
+            e.printStackTrace();
             throw new Exception("rollback invoked");
         }
         em.getTransaction().commit();

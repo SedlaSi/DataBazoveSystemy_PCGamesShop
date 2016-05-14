@@ -8,7 +8,7 @@ import src.provider.ProviderDAO;
  */
 public class TemplateController {
 
-    ProviderDAO providerDAO;
+    protected ProviderDAO providerDAO;
 
     public TemplateController(Provider provider){
         this.providerDAO = provider.getProviderDAO();
