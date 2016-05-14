@@ -1,10 +1,13 @@
 package src;
 
 import src.controller.*;
+import src.model.Pozice;
 import src.provider.Provider;
 import src.provider.ProviderController;
 import src.view.admin.AdminSmazatZamestnance;
 import src.view.admin.AdminVytvoritZamestnance;
+
+import java.util.List;
 
 /**
  * Created by root on 15.4.16.
@@ -28,7 +31,7 @@ public class ApplicationAdminBuild {
 
 
         //startAdminSmazatZamestnance(providerController);
-        startAdminVytvoritZamestnance(providerController);
+        startAdminVytvoritZamestnance(providerController, provider);
 
 
     }
@@ -42,13 +45,20 @@ public class ApplicationAdminBuild {
         });
     }
 
-    public static void startAdminVytvoritZamestnance(ProviderController providerController){
-        final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(providerController);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
+    public static void startAdminVytvoritZamestnance(ProviderController providerController, Provider provider){
+        List<Pozice> pozice = provider.getProviderDAO().getPoziceDAO().getList();
+
+        if(pozice != null) {
+            final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(providerController, pozice);
+            javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    zkl.startFrame();
+                }
+            });
+        } else {
+            System.err.println("Databáze neobsahuje žádné pracovní pozice");
+        }
+
     }
 
 }

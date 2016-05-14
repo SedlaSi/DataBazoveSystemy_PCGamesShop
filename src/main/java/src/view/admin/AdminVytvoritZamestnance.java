@@ -1,46 +1,40 @@
 package src.view.admin;
 
+import org.apache.commons.validator.EmailValidator;
 import src.controller.AdminVytvoritZamestnanceController;
+import src.model.Pozice;
 import src.provider.ProviderController;
+import src.renderer.ZamestnanecPoziceRenderer;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-/**
- * Created by root on 15.4.16.
- */
-public class AdminVytvoritZamestnance extends JFrame {
-
-    private JTextArea jmeno;
-    private JTextArea prijmeni;
-    private JTextArea mesto;
-    private JTextArea ulice;
-    private JTextArea cisloPopisne;
-    private JTextArea telefon;
-    private JTextArea email;
-    private JTextArea plat;
-    private JTextArea username;
-    private JTextArea password;
-
-    private JLabel infoJmeno;
-    private JLabel infoPrijmeni;
-    private JLabel infoMesto;
-    private JLabel infoUlice;
-    private JLabel infoCisloPopisne;
-    private JLabel infoTelefon;
-    private JLabel infoEmail;
-    private JLabel infoPlat;
-    private JLabel infoUsername;
-    private JLabel infoPassword;
+import java.util.Collections;
+import java.util.List;
 
 
+public class AdminVytvoritZamestnance extends JFrame implements ActionListener {
     private ProviderController providerController;
+    private List<Pozice> poziceList;
+
+    private JTextField jmeno;
+    private JTextField prijmeni;
+    private JTextField mesto;
+    private JTextField ulice;
+
+    private JTextField telefon;
+    private JTextField email;
+    private JTextField username;
+    private JTextField password;
+    private JSpinner cisloPopisne;
+    private JSpinner plat;
+    private JComboBox pozice;
 
     public static void main(String [] args){
 
-        final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(null);
+        final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(null, Collections.EMPTY_LIST);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
@@ -49,184 +43,171 @@ public class AdminVytvoritZamestnance extends JFrame {
 
     }
 
-    public AdminVytvoritZamestnance(ProviderController providerController){
+    public AdminVytvoritZamestnance(ProviderController providerController, List<Pozice> poziceList){
         this.providerController = providerController;
+        this.poziceList = poziceList;
     }
 
     public void startFrame(){
-        this.setSize(700,500);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        this.setTitle("Přidat Zaměstnance");
-        this.setLayout(new GridLayout(14,1,3,3));
+        setLayout(new FlowLayout());
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Přidat Zaměstnance");
 
-        JPanel titlePanel  =  new JPanel();
-        JPanel jmenoPanel = new JPanel();
-        JPanel prijmeniPanel = new JPanel();
-        JPanel mestoPanel = new JPanel();
-        JPanel ulicePanel = new JPanel();
-        JPanel cisloPopisnePanel = new JPanel();
-        JPanel telefonPanel = new JPanel();
-        JPanel emailPanel = new JPanel();
-        JPanel platPanel = new JPanel();
-        JPanel gab = new JPanel();
-        JPanel usernamePanel = new JPanel();
-        JPanel passwordPanel = new JPanel();
-        JPanel buttonPanel = new JPanel();
+        JPanel jPanel = new JPanel();
+        jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
 
-        titlePanel.setLayout(new FlowLayout());
-        jmenoPanel.setLayout(new GridLayout(1,3,3,3));
-        prijmeniPanel.setLayout(new GridLayout(1,3,3,3));
-        mestoPanel.setLayout(new GridLayout(1,3,3,3));
-        ulicePanel.setLayout(new GridLayout(1,3,3,3));
-        cisloPopisnePanel.setLayout(new GridLayout(1,3,3,3));
-        telefonPanel.setLayout(new GridLayout(1,3,3,3));
-        emailPanel.setLayout(new GridLayout(1,3,3,3));
-        platPanel.setLayout(new GridLayout(1,3,3,3));
-        usernamePanel.setLayout(new GridLayout(1,3,3,3));
-        passwordPanel.setLayout(new GridLayout(1,3,3,3));
-        buttonPanel.setLayout(new FlowLayout());
+        JPanel zamestnanecInfo = new JPanel(new GridLayout(9, 2));
+        JPanel zamestnanecLogin = new JPanel(new GridLayout(2, 2));
+        JPanel savePanel = new JPanel(new BorderLayout());
 
-        JLabel title = new JLabel("Vytvořit nového zaměstnance:");
-        titlePanel.add(title);
-
-        infoJmeno = new JLabel("");
-        infoPrijmeni = new JLabel("");
-        infoMesto = new JLabel("");
-        infoUlice = new JLabel("");
-        infoCisloPopisne = new JLabel("");
-        infoTelefon = new JLabel("");
-        infoEmail = new JLabel("");
-        infoPlat = new JLabel("");
-        infoUsername = new JLabel("");
-        infoPassword = new JLabel("");
+        zamestnanecInfo.setBorder(new TitledBorder("Osobní údaje"));
+        zamestnanecLogin.setBorder(new TitledBorder("Přihlašovací údaje"));
 
 
         JLabel jmenoLabel = new JLabel("Jméno:");
-        jmeno = new JTextArea();
-        jmeno.setColumns(20);
-        jmenoPanel.add(jmenoLabel);
-        jmenoPanel.add(jmeno);
-        jmenoPanel.add(infoJmeno);
-
         JLabel prijmeniLabel = new JLabel("Příjmení:");
-        prijmeni = new JTextArea();
-        prijmeni.setColumns(20);
-        prijmeniPanel.add(prijmeniLabel);
-        prijmeniPanel.add(prijmeni);
-        prijmeniPanel.add(infoPrijmeni);
-
         JLabel mestoLabel = new JLabel("Město:");
-        mesto = new JTextArea();
-        mesto.setColumns(20);
-        mestoPanel.add(mestoLabel);
-        mestoPanel.add(mesto);
-        mestoPanel.add(infoMesto);
-
         JLabel uliceLabel = new JLabel("Ulice:");
-        ulice = new JTextArea();
-        ulice.setColumns(20);
-        ulicePanel.add(uliceLabel);
-        ulicePanel.add(ulice);
-        ulicePanel.add(infoUlice);
-
         JLabel cisloPopisneLabel = new JLabel("Číslo popisné:");
-        cisloPopisne = new JTextArea();
-        cisloPopisne.setColumns(20);
-        cisloPopisnePanel.add(cisloPopisneLabel);
-        cisloPopisnePanel.add(cisloPopisne);
-        cisloPopisnePanel.add(infoCisloPopisne);
-
         JLabel telefonLabel = new JLabel("Telefon:");
-        telefon = new JTextArea();
-        telefon.setColumns(20);
-        telefonPanel.add(telefonLabel);
-        telefonPanel.add(telefon);
-        telefonPanel.add(infoTelefon);
-
         JLabel emailLabel = new JLabel("Email:");
-        email = new JTextArea();
-        email.setColumns(20);
-        emailPanel.add(emailLabel);
-        emailPanel.add(email);
-        emailPanel.add(infoEmail);
-
         JLabel platLabel = new JLabel("Plat:");
-        plat = new JTextArea();
-        plat.setColumns(20);
-        platPanel.add(platLabel);
-        platPanel.add(plat);
-        platPanel.add(infoPlat);
-
         JLabel usernameLabel = new JLabel("Uživatelské jméno:");
-        username = new JTextArea();
-        username.setColumns(20);
-        usernamePanel.add(usernameLabel);
-        usernamePanel.add(username);
-        usernamePanel.add(infoUsername);
-
         JLabel passwordLabel = new JLabel("Heslo:");
-        password = new JTextArea();
+        JLabel poziceLabel = new JLabel("Pozice:");
+
+        jmeno = new JTextField();
+        jmeno.setColumns(20);
+
+        prijmeni = new JTextField();
+        prijmeni.setColumns(20);
+
+        mesto = new JTextField();
+        mesto.setColumns(20);
+
+        ulice = new JTextField();
+        ulice.setColumns(20);
+
+        telefon = new JTextField();
+        telefon.setColumns(20);
+
+        email = new JTextField();
+        email.setColumns(20);
+
+        username = new JTextField();
+        username.setColumns(20);
+
+        password = new JTextField();
         password.setColumns(20);
-        passwordPanel.add(passwordLabel);
-        passwordPanel.add(password);
-        passwordPanel.add(infoPassword);
 
-        JLabel buttonGabLabel = new JLabel("");
-        JButton button = new JButton("Zaregistrovat");
-        button.addActionListener(new ButtonClickedListener());
-        buttonPanel.add(buttonGabLabel);
-        buttonPanel.add(button);
+        cisloPopisne = new JSpinner(new SpinnerNumberModel(1, 1, 9999, 1));
+        plat = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
 
+        pozice = new JComboBox(poziceList.toArray());
+        pozice.setRenderer(new ZamestnanecPoziceRenderer());
 
+        zamestnanecInfo.add(jmenoLabel);
+        zamestnanecInfo.add(jmeno);
+        zamestnanecInfo.add(prijmeniLabel);
+        zamestnanecInfo.add(prijmeni);
+        zamestnanecInfo.add(mestoLabel);
+        zamestnanecInfo.add(mesto);
+        zamestnanecInfo.add(uliceLabel);
+        zamestnanecInfo.add(ulice);
+        zamestnanecInfo.add(cisloPopisneLabel);
+        zamestnanecInfo.add(cisloPopisne);
+        zamestnanecInfo.add(telefonLabel);
+        zamestnanecInfo.add(telefon);
+        zamestnanecInfo.add(emailLabel);
+        zamestnanecInfo.add(email);
+        zamestnanecInfo.add(platLabel);
+        zamestnanecInfo.add(plat);
+        zamestnanecInfo.add(poziceLabel);
+        zamestnanecInfo.add(pozice);
 
-        this.add(titlePanel); this.add(jmenoPanel); this.add(prijmeniPanel); this.add(mestoPanel); this.add(ulicePanel);
-        this.add(cisloPopisnePanel); this.add(telefonPanel); this.add(emailPanel); this.add(platPanel); this.add(gab);
-        this.add(usernamePanel); this.add(passwordPanel); this.add(buttonPanel);
+        zamestnanecLogin.add(usernameLabel);
+        zamestnanecLogin.add(username);
 
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        zamestnanecLogin.add(passwordLabel);
+        zamestnanecLogin.add(password);
 
+        JButton save = new JButton("Zaregistrovat");
+        save.addActionListener(this);
+
+        savePanel.add(save, BorderLayout.EAST);
+
+        jPanel.add(zamestnanecInfo);
+        jPanel.add(zamestnanecLogin);
+        jPanel.add(savePanel);
+
+        add(jPanel);
+
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        pack();
     }
 
-    private class ButtonClickedListener implements ActionListener {
-
-        public void actionPerformed(ActionEvent e) { //  Zaregistrování uživatele
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(validation()){
             AdminVytvoritZamestnanceController adminCntrl = providerController.getAdminVytvoritZamestnanceController();
             adminCntrl.setEmail(email.getText());
             adminCntrl.setTelefon(telefon.getText());
-            adminCntrl.setCisloPopisne(cisloPopisne.getText());
+            adminCntrl.setCisloPopisne((cisloPopisne.getValue()).toString());
             adminCntrl.setJmeno(jmeno.getText());
             adminCntrl.setPrijmeni(prijmeni.getText());
             adminCntrl.setMesto(mesto.getText());
             adminCntrl.setPassword(password.getText());
             adminCntrl.setUsername(username.getText());
-            adminCntrl.setPlat(plat.getText());
+            adminCntrl.setPlat((plat.getValue()).toString());
             adminCntrl.setUlice(ulice.getText());
+            adminCntrl.setPozice((Pozice) pozice.getSelectedItem());
+
             try{
                 adminCntrl.createZamestnanec();
+                JOptionPane.showMessageDialog(this, "Zaměstnanec úspěšně vytvořen", "Zaměstnanec", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex){
-                showHint();
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Zaměstnance se nepodařilo vytvořit, chyba databáze, nebo už je použité stejné uživatelské jméno nebo email", "Zaměstnanec", JOptionPane.ERROR_MESSAGE);
             }
-            /*if(adminCntrl.validData()){
-                adminCntrl.createZamestnanec();
-            } else {
-                showHint();
-            }*/
         }
     }
 
-    private void showHint(){
-        infoJmeno.setText("zadejte jméno ve formátu 'Abcdef'");
-        infoPrijmeni.setText("zadejte příjmení ve formátu 'Abcdef'");
-        infoMesto.setText("zadejte město ve formátu 'abcdef'");
-        infoUlice.setText("zadejte ulici ve formátu 'abcdef'");
-        infoCisloPopisne.setText("zadejte číslo od 1 do 999");
-        infoTelefon.setText("zadejte telefoní číslo");
-        infoEmail.setText("zadejte email ve formátu 'nazev@adresa.pripona'");
-        infoPlat.setText("zadejte číslo větší rovno nule");
-        infoUsername.setText("zadejte libovolné neprázdné uživatelské jméno");
-        infoPassword.setText("zadejte libovolné neprázdné heslo");
-    }
+    private boolean validation() {
+        boolean valid = true;
+        EmailValidator emailValidator = EmailValidator.getInstance();
 
+        if(jmeno.getText().equals("") || jmeno.getText().length() > 128) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Jméno nemůže být prázdné nebo delší než 128 znaků", "Jméno", JOptionPane.ERROR_MESSAGE);
+        } else if (prijmeni.getText().equals("") || prijmeni.getText().length() > 128) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Příjmení nemůže být prázdné nebo delší než 128 znaků", "Příjmení", JOptionPane.ERROR_MESSAGE);
+        } else if (mesto.getText().equals("") || mesto.getText().length() > 128) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Město nemůže být prázdné nebo delší než 128 znaků", "Město", JOptionPane.ERROR_MESSAGE);
+        } else if (ulice.getText().equals("") || ulice.getText().length() > 128) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Ulice nemůže být prázdná nebo delší než 128 znaků", "Ulice", JOptionPane.ERROR_MESSAGE);
+        } else if (username.getText().equals("") || username.getText().length() > 128) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Uživatelské jméno nemůže být prázdná nebo delší než 128 znaků", "Uživatelské jméno", JOptionPane.ERROR_MESSAGE);
+        } else if (password.getText().length() < 6 || password.getText().length() > 128) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Heslo musí obsahovat minimálně 6 znaků a nesmí být delší než 128 znaků", "Heslo", JOptionPane.ERROR_MESSAGE);
+        } else if(!emailValidator.isValid(email.getText())) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Nevalidní email", "email", JOptionPane.ERROR_MESSAGE);
+        } else if(telefon.getText().length() < 9 || telefon.getText().length() > 16 || !telefon.getText().matches("[0-9+]*")) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Nevalidní telefonní číslo", "Telefon", JOptionPane.ERROR_MESSAGE);
+        } else if(pozice.getSelectedItem() == null) {
+            valid = false;
+            JOptionPane.showMessageDialog(this, "Musí být vybraná pracovní pozice", "Pozice", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return valid;
+    }
 }

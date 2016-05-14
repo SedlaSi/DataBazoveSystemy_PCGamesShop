@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class ZamestnanecLogin extends JFrame{
 
     private ProviderController providerController;
-    private JTextArea usernameField;
+    private JTextField usernameField;
     private JPasswordField passwordField;
     private JLabel hint;
 
@@ -40,7 +40,7 @@ public class ZamestnanecLogin extends JFrame{
 //            return;
 //        }
 
-        this.setSize(400,200);
+        this.setSize(400, 200);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Login Screen");
@@ -68,9 +68,8 @@ public class ZamestnanecLogin extends JFrame{
         subTitle.add(subTitleLabel1);
 
         JLabel userNameLabel = new JLabel("Uživatelské jméno:");
-        usernameField = new JTextArea();
+        usernameField = new JTextField();
         usernameField.setColumns(10);
-        usernameField.setLineWrap(true);
 
         userNamePanel.add(userNameLabel);
         userNamePanel.add(usernameField);

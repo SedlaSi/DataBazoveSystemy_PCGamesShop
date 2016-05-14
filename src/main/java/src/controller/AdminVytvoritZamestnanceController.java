@@ -2,6 +2,7 @@ package src.controller;
 
 import org.apache.commons.validator.EmailValidator;
 import src.data.ZamestnanecDAO;
+import src.model.Pozice;
 import src.model.Zamestnanec;
 import src.provider.Provider;
 
@@ -31,6 +32,8 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
     private String email;
 
     private String plat;
+
+    private Pozice pozice;
 
 
     public AdminVytvoritZamestnanceController(Provider provider) {
@@ -78,6 +81,10 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         this.plat = plat;
     }
 
+    public void setPozice(Pozice pozice) {
+        this.pozice = pozice;
+    }
+
     public void createZamestnanec() throws Exception {
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
@@ -93,6 +100,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setTelefon(telefon);
         z.setEmail(email);
         z.setPlat(pt);
+        z.setPozice(pozice);
 
         zamestnanecDAO.create(z);
     }

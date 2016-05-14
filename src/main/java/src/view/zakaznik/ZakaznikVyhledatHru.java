@@ -22,10 +22,10 @@ import java.util.ArrayList;
 public class ZakaznikVyhledatHru extends JFrame {
 
     private ProviderController providerController;
-    private JTextArea nazev;
-    private JTextArea rokVydani;
+    private JTextField nazev;
+    private JTextField rokVydani;
     private JComboBox vydavatel;
-    private JTextArea kodExemplare;
+    private JTextField kodExemplare;
     private JPanel zanrCheckBoxPanel;
     private JPanel platformaCheckBoxPanel;
     private JButton vyhledat;
@@ -94,7 +94,7 @@ public class ZakaznikVyhledatHru extends JFrame {
 
         //=============================================
         JLabel nazevLabel = new JLabel("Název:");
-        nazev = new JTextArea();
+        nazev = new JTextField();
         JLabel vydavatelLabel = new JLabel("Vydavatel:");
         vydavatel = new JComboBox();
         //vydavatel.addItemListener(new VydavatelSelectedListener());
@@ -106,9 +106,9 @@ public class ZakaznikVyhledatHru extends JFrame {
 
         //=============================================
         JLabel rokVydaniLabel = new JLabel("Rok Vydání:");
-        rokVydani = new JTextArea();
+        rokVydani = new JTextField();
         JLabel  kodExemplareLabel = new JLabel("Kód Exempláře:");
-        kodExemplare = new JTextArea();
+        kodExemplare = new JTextField();
 
         rokVydaniNkodExemplarePanel.add(rokVydaniLabel);
         rokVydaniNkodExemplarePanel.add(rokVydani);
