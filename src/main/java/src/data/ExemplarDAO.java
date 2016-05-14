@@ -1,13 +1,14 @@
 package src.data;
 
-import src.model.Exemplar;
-import src.model.Pujcka;
-import src.model.Zakaznik;
-import src.model.Zamestnanec;
+import src.model.*;
 import src.provider.ProviderDAO;
 import src.util.Resources;
 
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -23,91 +24,72 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         this.providerDAO = providerDAO;
     }
 
-    public List<Exemplar> getConcreteList(String nazev, String vydavatel,
-                                          java.sql.Date rokVydani, int kodExemplare,
-                                          List<String> zanry, List<String> platformy){
-        String nazevQuery = "e.hra.nazev = :nazev ";
-        String vydavatelQuery = "AND e.hra.vydavatel.nazev = :vydavatel ";
-        String rokVydaniQuery = "AND e.rokVydani = :rokVydani ";
-        String kodExemplareQuery = "AND e.id = :kodExemplare";
+    public List<Exemplar> getConcreteList(String nazev, String vydavatel, Date rokVydani, long kodExemplare, List<String> zanry, List<String> platformy){
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Exemplar> criteriaQuery = criteriaBuilder.createQuery(Exemplar.class);
+        Root<Exemplar> exemplarRoot = criteriaQuery.from(Exemplar.class);
+        Join<Exemplar, Hra> hraJoin = exemplarRoot.join("hra", JoinType.INNER);
+        Join<Exemplar, Platforma> platformaJoin = exemplarRoot.join("platforma", JoinType.INNER);
+        Join<Hra, Vydavatel> vydavatelJoin = hraJoin.join("vydavatel", JoinType.INNER);
+        Join<Hra, Zanr> zanrJoin = hraJoin.join("zanry", JoinType.INNER);
+        criteriaQuery.select(exemplarRoot).distinct(true);
 
-        if(nazev.isEmpty()){
-            nazevQuery = " 1 = 1 ";
-        }
-        if(vydavatel == null || vydavatel.isEmpty()){
-            vydavatelQuery = "";
-        }
-        if(rokVydani == null){
-            rokVydaniQuery = "";
-        }
-        if(kodExemplare == -1){
-            kodExemplareQuery = "";
-        }
-        String zanryQuery = getZanryQuery(zanry);
-        String platformyQuery = getPlatformyQuery(platformy);
+        ParameterExpression<String> hraNazev = null;
+        ParameterExpression<String> hraVydavatel = null;
+        ParameterExpression<Date> exemplarRokVydani = null;
+        ParameterExpression<Long> exemplarKod = null;
 
-        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE "
-                + " "
-                + " e.aktivni = TRUE AND "
-                + nazevQuery
-                + vydavatelQuery
-                + rokVydaniQuery
-                + kodExemplareQuery
-                + zanryQuery
-                + platformyQuery
-                );
-        if(!nazev.isEmpty()){
-            q.setParameter("nazev",nazev);
+        List<Predicate> predicates = new ArrayList<>();
+
+        if(nazev != null && !nazev.isEmpty()){
+            hraNazev = criteriaBuilder.parameter(String.class);
+            predicates.add(criteriaBuilder.equal(hraJoin.get("nazev"), hraNazev));
         }
+
         if(vydavatel != null && !vydavatel.isEmpty()){
-            q.setParameter("vydavatel",vydavatel);
+            hraVydavatel = criteriaBuilder.parameter(String.class);
+            predicates.add(criteriaBuilder.equal(vydavatelJoin.get("nazev"), hraVydavatel));
         }
+
         if(rokVydani != null){
-            q.setParameter("rokVydani",rokVydani);
+            exemplarRokVydani = criteriaBuilder.parameter(Date.class);
+            predicates.add(criteriaBuilder.equal(exemplarRoot.get("rokVydani"), exemplarRokVydani));
         }
+
         if(kodExemplare != -1){
-            q.setParameter("kodExemplare",kodExemplare);
-        }
-        if(zanry != null){
-            for(int i = 0; i < zanry.size(); i++){
-                System.out.println(zanry.get(i));
-                q.setParameter("z"+i,zanry.get(i));
-            }
-        }
-        if(platformy != null){
-            for(int i = 0; i < platformy.size(); i++){
-                System.out.println(platformy.get(i));
-                q.setParameter("p"+i,platformy.get(i));
-            }
+            exemplarKod = criteriaBuilder.parameter(Long.class);
+            predicates.add(criteriaBuilder.equal(exemplarRoot.get("id"), exemplarKod));
         }
 
-        return (List<Exemplar>)q.getResultList();
-    }
-
-    private String getPlatformyQuery(List<String> platformy) {
-        StringBuilder query = new StringBuilder("");
-        if(!platformy.isEmpty()){
-            query.append(" AND (");
-            query.append("e.platforma.nazev = :p"+0+" ");
-            for(int i = 1; i < platformy.size() ; i++){
-                query.append("OR e.platforma.nazev = :p"+i+" ");
-            }
-            query.append(")");
+        if(zanry != null && !zanry.isEmpty()) {
+            predicates.add(zanrJoin.get("nazev").in(zanry));
         }
-        return query.toString();
-    }
 
-    private String getZanryQuery(List<String> zanry) {
-        StringBuilder query = new StringBuilder("");
-        if(!zanry.isEmpty()){
-            query.append(" AND (");
-            query.append("e.zanr.nazev = :z"+0+" ");
-            for(int i = 1; i < zanry.size() ; i++){
-                query.append("OR e.zanr.nazev = :z"+i+" ");
-            }
-            query.append(")");
+        if(platformy != null && !platformy.isEmpty()) {
+            predicates.add(platformaJoin.get("nazev").in(platformy));
         }
-        return query.toString();
+
+        criteriaQuery.where(criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()])));
+
+        TypedQuery<Exemplar> query = em.createQuery(criteriaQuery);
+
+        if(nazev != null && !nazev.isEmpty()){
+            query.setParameter(hraNazev, nazev);
+        }
+
+        if(vydavatel != null && !vydavatel.isEmpty()){
+            query.setParameter(hraVydavatel, vydavatel);
+        }
+
+        if(rokVydani != null){
+           query.setParameter(exemplarRokVydani, rokVydani);
+        }
+
+        if(kodExemplare != -1){
+            query.setParameter(exemplarKod, kodExemplare);
+        }
+
+        return query.getResultList();
     }
 
     @Override

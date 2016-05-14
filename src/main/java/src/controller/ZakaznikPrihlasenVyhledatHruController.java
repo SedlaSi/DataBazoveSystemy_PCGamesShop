@@ -42,7 +42,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             java.sql.Date date = null;
             try{
                 if(rokVydani != null && !rokVydani.isEmpty()){
-                    date = java.sql.Date.valueOf(rokVydani+"-02-03");
+                    date = java.sql.Date.valueOf(rokVydani+"-01-01");
                 }
             } catch (Exception e){
                 date = java.sql.Date.valueOf("1215-02-03");
@@ -96,7 +96,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             java.sql.Date date = null;
             try{
                 if(rokVydani != null && !rokVydani.isEmpty()){
-                    date = java.sql.Date.valueOf(rokVydani+"-02-03");
+                    date = java.sql.Date.valueOf(rokVydani+"-01-01");
                 }
             } catch (Exception e){
                 date = java.sql.Date.valueOf("1215-02-03");
