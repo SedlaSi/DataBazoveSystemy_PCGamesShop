@@ -32,6 +32,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         Join<Exemplar, Platforma> platformaJoin = exemplarRoot.join("platforma", JoinType.INNER);
         Join<Hra, Vydavatel> vydavatelJoin = hraJoin.join("vydavatel", JoinType.INNER);
         Join<Hra, Zanr> zanrJoin = hraJoin.join("zanry", JoinType.INNER);
+
         criteriaQuery.select(exemplarRoot).distinct(true);
 
         ParameterExpression<String> hraNazev = null;
@@ -40,6 +41,15 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         ParameterExpression<Long> exemplarKod = null;
 
         List<Predicate> predicates = new ArrayList<>();
+
+        Subquery<Pujcka> subquery = criteriaQuery.subquery(Pujcka.class);
+        Root<Pujcka> fromProject = subquery.from(Pujcka.class);
+        Join<Pujcka, Exemplar> joinEx = fromProject.join("exemplar");
+        subquery.select(joinEx.get("id"));
+        subquery.where(criteriaBuilder.and(criteriaBuilder.isNotNull(fromProject.get("pujceno")), criteriaBuilder.isNull(fromProject.get("vraceno"))));
+
+        predicates.add(criteriaBuilder.not(criteriaBuilder.in(exemplarRoot.get("id")).value(subquery)));
+        predicates.add(criteriaBuilder.equal(exemplarRoot.get("aktivni"), true));
 
         if(nazev != null && !nazev.isEmpty()){
             hraNazev = criteriaBuilder.parameter(String.class);
@@ -69,7 +79,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
             predicates.add(platformaJoin.get("nazev").in(platformy));
         }
 
-        criteriaQuery.where(criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()])));
+        criteriaQuery.where(criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]))).orderBy(criteriaBuilder.asc(hraJoin.get("nazev")));
 
         TypedQuery<Exemplar> query = em.createQuery(criteriaQuery);
 
