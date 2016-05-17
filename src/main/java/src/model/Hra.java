@@ -10,6 +10,16 @@ import java.util.List;
 @Table(name = "hra")
 public class Hra {
 
+    public Hra() {
+    }
+
+    public Hra(String nazev, String popis, Police police, Vydavatel vydavatel) {
+        this.nazev = nazev;
+        this.popis = popis;
+        this.police = police;
+        this.vydavatel = vydavatel;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_hra")

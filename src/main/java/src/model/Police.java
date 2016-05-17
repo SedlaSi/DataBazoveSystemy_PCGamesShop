@@ -9,6 +9,15 @@ import java.util.List;
 @Entity
 @Table(name = "police")
 public class Police {
+
+    public Police() {
+    }
+
+    public Police(String nazev, String popis) {
+        this.nazev = nazev;
+        this.popis = popis;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_police")

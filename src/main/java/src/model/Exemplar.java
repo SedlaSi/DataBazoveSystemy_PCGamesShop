@@ -11,6 +11,17 @@ import java.util.List;
 @Table(name = "exemplar")
 public class Exemplar {
 
+    public Exemplar() {
+    }
+
+    public Exemplar(String stav, int cena, Date rokVydani, Hra hra, Platforma platforma) {
+        this.stav = stav;
+        this.cena = cena;
+        this.rokVydani = rokVydani;
+        this.hra = hra;
+        this.platforma = platforma;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_exemplar")

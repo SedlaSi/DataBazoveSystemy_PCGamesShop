@@ -10,6 +10,23 @@ import java.util.List;
 @Table(name = "zamestnanec")
 public class Zamestnanec {
 
+    public Zamestnanec() {
+    }
+
+    public Zamestnanec(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, String password, int plat, Pozice pozice) {
+        this.username = username;
+        this.password = password;
+        this.jmeno = jmeno;
+        this.prijmeni = prijmeni;
+        this.mesto = mesto;
+        this.ulice = ulice;
+        this.cisloPopisne = cisloPopisne;
+        this.telefon = telefon;
+        this.email = email;
+        this.plat = plat;
+        this.pozice = pozice;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_zamestnanec")

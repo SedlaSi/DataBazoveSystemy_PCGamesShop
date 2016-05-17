@@ -10,6 +10,13 @@ import java.util.List;
 @Table(name = "platforma")
 public class Platforma {
 
+    public Platforma() {
+    }
+
+    public Platforma(String nazev) {
+        this.nazev = nazev;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_platforma")

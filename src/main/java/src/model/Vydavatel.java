@@ -9,6 +9,14 @@ import java.util.List;
 @Entity
 @Table(name = "vydavatel")
 public class Vydavatel {
+
+    public Vydavatel() {
+    }
+
+    public Vydavatel(String nazev) {
+        this.nazev = nazev;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_vydavatel")

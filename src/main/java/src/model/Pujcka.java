@@ -10,6 +10,18 @@ import java.sql.Date;
 @Table(name = "byl_propujcen")
 public class Pujcka {
 
+    public Pujcka() {
+    }
+
+    public Pujcka(Date pujceno, Date vraceno, int cena, Exemplar exemplar, Zakaznik zakaznik, Zamestnanec zamestnanec) {
+        this.pujceno = pujceno;
+        this.vraceno = vraceno;
+        this.cena = cena;
+        this.exemplar = exemplar;
+        this.zakaznik = zakaznik;
+        this.zamestnanec = zamestnanec;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_byl_propujcen")
