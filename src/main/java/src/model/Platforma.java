@@ -8,6 +8,10 @@ import java.util.List;
  */
 @Entity
 @Table(name = "platforma")
+@NamedQueries({
+        @NamedQuery(name = "Platforma.getList", query = "SELECT p FROM Platforma p"),
+        @NamedQuery(name = "Platforma.getByNazev", query = "SELECT p FROM Platforma p WHERE p.nazev = ?1")
+})
 public class Platforma {
 
     public Platforma() {

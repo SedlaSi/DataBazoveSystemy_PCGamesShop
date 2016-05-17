@@ -1,7 +1,6 @@
 package src.data;
 
 import src.model.Hra;
-import src.model.Pozice;
 import src.util.Resources;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class HraDAO extends TemplateDAO<Hra> {
     }
 
     public List<Hra> getList() {
-        return (List<Hra>)em.createQuery("SELECT h FROM Hra h").getResultList();
+        return (List<Hra>)em.createNamedQuery("Hra.getList").getResultList();
     }
 
 }

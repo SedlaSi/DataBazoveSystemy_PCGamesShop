@@ -8,6 +8,12 @@ import java.util.List;
  */
 @Entity
 @Table(name = "zamestnanec")
+@NamedQueries({
+        @NamedQuery(name = "Zamestnanec.getList", query = "SELECT z FROM Zamestnanec z"),
+        @NamedQuery(name = "Zamestnanec.getByJmenoPrijmeni", query = "SELECT z FROM Zamestnanec z WHERE z.jmeno = :j" +
+                " AND z.prijmeni = :p"),
+        @NamedQuery(name = "Zamestnanec.getByUserName", query = "SELECT z FROM Zamestnanec z WHERE z.username = :us")
+})
 public class Zamestnanec {
 
     public Zamestnanec() {

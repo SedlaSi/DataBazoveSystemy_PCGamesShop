@@ -8,6 +8,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "hra")
+@NamedQueries({
+        @NamedQuery(name = "Hra.getList", query = "SELECT h FROM Hra h")
+})
 public class Hra {
 
     public Hra() {

@@ -15,10 +15,10 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
     }
 
     public Pujcka getByExemplarId(int idExemplare) throws Exception{
-        Query q =  em.createQuery("SELECT p FROM Pujcka p where p.exemplar.id = :id AND p.vraceno = NULL");
+        Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
         q.setParameter("id",idExemplare);
 
-        List<Pujcka> pujckaList = q.getResultList();
+        List<Pujcka> pujckaList =(List<Pujcka>) q.getResultList();
 
         if(pujckaList.size() == 0) {
             return null;

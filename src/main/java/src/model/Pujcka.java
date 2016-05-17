@@ -8,6 +8,9 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "byl_propujcen")
+@NamedQueries({
+        @NamedQuery(name = "Pujcka.getByExemplarId", query = "SELECT p FROM Pujcka p where p.exemplar.id = :id AND p.vraceno = NULL")
+})
 public class Pujcka {
 
     public Pujcka() {

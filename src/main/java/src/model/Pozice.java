@@ -8,6 +8,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "pozice")
+@NamedQueries({
+        @NamedQuery(name = "Pozice.getList", query = "SELECT p FROM Pozice p")
+})
 public class Pozice {
 
     public Pozice() {

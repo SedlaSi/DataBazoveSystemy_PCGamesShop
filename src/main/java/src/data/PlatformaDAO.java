@@ -14,12 +14,12 @@ public class PlatformaDAO extends TemplateDAO<Platforma> {
     }
 
     public List<Platforma> getList() {
-        return (List<Platforma>)em.createQuery("SELECT p FROM Platforma p").getResultList();
+        return (List<Platforma>)em.createNamedQuery("Platforma.getList").getResultList();
     }
 
     public Platforma getByNazev(String nazev) {
         em.getTransaction().begin();
-        List<Platforma> list = em.createQuery("SELECT p FROM Platforma p WHERE p.nazev = ?1").setParameter(1, nazev).getResultList();
+        List<Platforma> list = (List<Platforma>) em.createNamedQuery("Platforma.getByNazev").setParameter(1, nazev).getResultList();
         em.getTransaction().commit();
 
         if (list.size() == 0) {
