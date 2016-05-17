@@ -14,7 +14,7 @@
         <class>src.model.Vydavatel</class>
         <class>src.model.Zakaznik</class>
         <class>src.model.Zanr</class>
-        <class>src.model.Kasa</class>
+        <!--<class>src.model.Kasa</class>-->
         <properties>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/sedlasi_db"/>

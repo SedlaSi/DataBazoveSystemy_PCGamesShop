@@ -1,6 +1,5 @@
 package src.data;
 
-import src.model.Exemplar;
 import src.model.Vydavatel;
 import src.util.Resources;
 
@@ -16,14 +15,13 @@ public class VydavatelDAO extends TemplateDAO<Vydavatel> {
     }
 
     public List<Vydavatel> getVydavatelList(){
-        Query q = em.createQuery("SELECT v FROM Vydavatel v");
-
+        Query q = em.createNamedQuery("Vydavatel.getVydavatelList");
         return (List<Vydavatel>)q.getResultList();
     }
 
     public Vydavatel getByNazev(String nazev) {
         em.getTransaction().begin();
-        List<Vydavatel> list = em.createQuery("SELECT v FROM Vydavatel v WHERE v.nazev = ?1").setParameter(1, nazev).getResultList();
+        List<Vydavatel> list = em.createNamedQuery("Vydavatel.getByNazev").setParameter(1, nazev).getResultList();
         em.getTransaction().commit();
 
         if (list.size() == 0) {

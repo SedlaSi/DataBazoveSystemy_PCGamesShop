@@ -104,18 +104,21 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
 
     @Override
     public Exemplar getById(int id){
-        Exemplar t;
+        Exemplar t = null;
         em.getTransaction().begin();
-        Query q = em.createQuery("SELECT x FROM Exemplar x WHERE x.id = :id");
+        Query q = em.createNamedQuery("Exemplar.getById");
         q.setParameter("id",id);
-        t =(Exemplar) q.getSingleResult();
+        List<Exemplar> list =(List<Exemplar>) q.getResultList();
+        if(list.size() == 1){
+            t =(Exemplar) list.get(0);
+        }
         em.getTransaction().commit();
         return t;
     }
 
     public Exemplar getByIdTransactionFree(int id){
         Exemplar t;
-        Query q = em.createQuery("SELECT x FROM Exemplar x WHERE x.id = :id");
+        Query q = em.createNamedQuery("Exemplar.getById");
         q.setParameter("id",id);
         t =(Exemplar) q.getSingleResult();
         return t;
@@ -156,6 +159,6 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
     }
 
     public List<Exemplar> getList() {
-        return (List<Exemplar>)em.createQuery("SELECT e FROM Exemplar e").getResultList();
+        return (List<Exemplar>)em.createNamedQuery("Exemplar.getList").getResultList();
     }
 }

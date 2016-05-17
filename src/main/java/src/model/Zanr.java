@@ -8,6 +8,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "zanr")
+@NamedQueries({
+        @NamedQuery(name = "Zanr.getList", query = "SELECT z FROM Zanr z")
+})
 public class Zanr {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

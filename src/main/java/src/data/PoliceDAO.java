@@ -1,6 +1,5 @@
 package src.data;
 
-import src.model.Platforma;
 import src.model.Police;
 import src.util.Resources;
 
@@ -15,6 +14,6 @@ public class PoliceDAO extends TemplateDAO<Police> {
     }
 
     public List<Police> getList() {
-        return (List<Police>)em.createQuery("SELECT p FROM Police p").getResultList();
+        return (List<Police>)em.createNamedQuery("Police.getList").getResultList();
     }
 }

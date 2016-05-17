@@ -8,6 +8,10 @@ import java.util.List;
  */
 @Entity
 @Table(name = "vydavatel")
+@NamedQueries({
+        @NamedQuery(name = "Vydavatel.getVydavatelList", query = "SELECT v FROM Vydavatel v"),
+        @NamedQuery(name = "Vydavatel.getByNazev", query = "SELECT v FROM Vydavatel v WHERE v.nazev = ?1")
+})
 public class Vydavatel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

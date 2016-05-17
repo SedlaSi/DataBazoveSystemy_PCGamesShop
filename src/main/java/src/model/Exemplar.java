@@ -9,6 +9,12 @@ import java.util.List;
  */
 @Entity
 @Table(name = "exemplar")
+@NamedQueries(
+        {
+                @NamedQuery(name = "Exemplar.getList", query = "SELECT e FROM Exemplar e"),
+                @NamedQuery(name = "Exemplar.getById", query = "SELECT x FROM Exemplar x WHERE x.id = :id")
+        }
+)
 public class Exemplar {
 
     @Id

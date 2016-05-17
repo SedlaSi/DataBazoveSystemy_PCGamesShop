@@ -16,16 +16,14 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
     }
 
     public Zakaznik getByUserName(String userName){
-        Query q =  em.createQuery("SELECT z FROM Zakaznik z WHERE z.username = :us");
+        Query q =  em.createNamedQuery("Zakaznik.getByUserName");
         q.setParameter("us", userName);
         return (Zakaznik) q.getSingleResult();
     }
 
     public List<Exemplar> getNevraceneHry(Zakaznik zakaznik) throws Exception {
         Zakaznik z = this.update(zakaznik);
-        //Query k = em.createQuery("SELECT e From Exemplar e where Exists (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL) ");
-        Query q = em.createQuery("SELECT e From Exemplar e where Exists (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL) ");
-        //Query k= em.createQuery("SELECT Pujcka FROM Pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL");
+        Query q = em.createNamedQuery("Zakaznik.getNevraceneHry");
         q.setParameter("z",z);
         return (List<Exemplar>)q.getResultList();
 
@@ -33,15 +31,14 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
 
     public List<Exemplar> getVraceneHry(Zakaznik zakaznik) throws Exception {
         Zakaznik z = this.update(zakaznik);
-        Query q = em.createQuery("SELECT e FROM Exemplar e WHERE EXISTS (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno != NULL)");
-        //Query k= em.createQuery("SELECT Pujcka FROM Pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL");
+        Query q = em.createNamedQuery("Zakaznik.getVraceneHry");
         q.setParameter("z",z);
         return (List<Exemplar>)q.getResultList();
 
     }
 
     public List<Zakaznik> getList() {
-        return (List<Zakaznik>)em.createQuery("SELECT z FROM Zakaznik z").getResultList();
+        return (List<Zakaznik>)em.createNamedQuery("Zakaznik.getList").getResultList();
     }
 
 }
