@@ -17,14 +17,22 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
     public Zamestnanec getByUserName(String userName){
         Query q =  em.createNamedQuery("Zamestnanec.getByUserName");
         q.setParameter("us", userName);
-        return (Zamestnanec) q.getSingleResult();
+        List<Zamestnanec> list = q.getResultList();
+        if(list.size() == 1){
+            return list.get(0);
+        }
+        return null;
     }
 
     public Zamestnanec getByJmenoPrijmeni(String jmeno, String prijmeni){
         Query q = em.createNamedQuery("Zamestnanec.getByJmenoPrijmeni", Zamestnanec.class);
         q.setParameter("j",jmeno);
         q.setParameter("p",prijmeni);
-        return (Zamestnanec) q.getSingleResult();
+        List<Zamestnanec> list = q.getResultList();
+        if(list.size() == 1){
+            return list.get(0);
+        }
+        return null;
     }
 
     public List<Zamestnanec> getList() {

@@ -117,10 +117,13 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
     }
 
     public Exemplar getByIdTransactionFree(int id){
-        Exemplar t;
+        Exemplar t = null;
         Query q = em.createNamedQuery("Exemplar.getById");
         q.setParameter("id",id);
-        t =(Exemplar) q.getSingleResult();
+        List<Exemplar> list =(List<Exemplar>) q.getResultList();
+        if(list.size() == 1){
+            t =(Exemplar) list.get(0);
+        }
         return t;
     }
 
