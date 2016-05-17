@@ -59,6 +59,12 @@ public class ApplicationKlient {
         List<Zakaznik> zakazniciList = provider.getProviderDAO().getZakaznikDAO().getList();
         List<Exemplar> exemplareList = provider.getProviderDAO().getExemplarDAO().getList();
 
+        if(zamestnanciList.size() == 0 || zakazniciList.size() == 0 || exemplareList.size() == 0) {
+            System.err.println("V databazi nejsou zadni zamestnanci nebo zakaznici nabo exemplare.");
+            return;
+        }
+
+
         long dayInMs = 86400000L;
         long startDate = 1420110000000L;
 
@@ -143,6 +149,11 @@ public class ApplicationKlient {
 
         List<Police> policeList = provider.getProviderDAO().getPoliceDAO().getList();
         List<Zanr> zanryList = provider.getProviderDAO().getZanrDAO().getList();
+
+        if(policeList.size() == 0 || zanryList.size() == 0) {
+            System.err.println("V databazi nejsou zadne polize nebo zanry.");
+            return;
+        }
 
         for (String game : gameList) {
             Matcher gameMatcher = gamePattern.matcher(game);
@@ -267,6 +278,11 @@ public class ApplicationKlient {
 
     void generujZamestnance(int count) {
         List<Pozice> poziceList = provider.getProviderDAO().getPoziceDAO().getList();
+
+        if(poziceList.size() == 0) {
+            System.err.println("V databazi nejsou zadne pozice.");
+            return;
+        }
 
         for (int i = 0; i < count; i++) {
             Osoba osoba = generujOsobu();
