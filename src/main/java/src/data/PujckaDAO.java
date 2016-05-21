@@ -14,7 +14,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         super(res);
     }
 
-    public Pujcka getByExemplarId(int idExemplare) throws Exception{
+    Pujcka getByExemplarId(int idExemplare) throws Exception{
         Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
         q.setParameter("id",idExemplare);
 
@@ -27,6 +27,17 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         return pujckaList.get(0);
     }
 
+    public String getUserNameOfPujckaByExemplarId(int idExemplare){
+        Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
+        q.setParameter("id",idExemplare);
+        List<Pujcka> pujckaList =(List<Pujcka>) q.getResultList();
+        if(pujckaList == null || pujckaList.size() == 0) {
+            return null;
+        }
+        Pujcka pujcka = pujckaList.get(0);
+        return pujcka.getZakaznik().getUsername();
+    }
+
     /**
     *    WARNING:
     *          update without transaction
@@ -37,7 +48,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         return p2;
     }
 
-    public void createTransactionFree(Pujcka p){
+    void createTransactionFree(Pujcka p){
         em.persist(p);
     }
 

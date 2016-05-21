@@ -24,6 +24,9 @@ public class Refresher {
     }
 
     public void refreshTarget(String username){
+        if(username == null){
+            return;
+        }
         Refreshable refreshable = refreshables.get(username);
         if(refreshable != null) {
             refreshable.refresh();

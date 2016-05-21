@@ -26,4 +26,13 @@ public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController
         }
         return true;
     }
+
+    public String usernameZakaznikaPujckyExemplare(String idExemplare){
+        try {
+            int id = Integer.parseInt(idExemplare);
+            return pujckaDAO.getUserNameOfPujckaByExemplarId(id);
+        } catch (Exception e){
+            return null;
+        }
+    }
 }

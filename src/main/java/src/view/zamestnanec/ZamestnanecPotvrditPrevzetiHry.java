@@ -81,15 +81,18 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
+
             if(((JButton)e.getSource()).getText().equals("Odhlásit se")){
                 invokeLogoutTask();
             } else {
+                String username;
+                username = providerController.getZamestnanecPotrvditPrevzetiHryController().usernameZakaznikaPujckyExemplare(kodExemplare.getText());
                 if(!providerController.getZamestnanecPotrvditPrevzetiHryController().potvrdit(
                         kodExemplare.getText(),datum.getText()
                 )){
                     showHint();
                 } else {
-                    refresher.refreshTarget(providerController.getZakaznikLoginController().getCurrentSession().getUserName());
+                    refresher.refreshTarget(username);
                     showSuccess();
                 }
 
