@@ -5,6 +5,7 @@ import src.model.Platforma;
 import src.model.Vydavatel;
 import src.model.Zanr;
 import src.provider.ProviderController;
+import src.view.refresher.Refresher;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -37,6 +38,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     private JPanel vysledkyHledaniPanel;
     private java.util.List<JCheckBox> platformaList;
     private java.util.List<JCheckBox> zanrList;
+    private Refresher refresher;
 
 
     public static void main(String [] args){
@@ -53,12 +55,13 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     public ZakaznikPrihlasenVyhledatHru(ProviderController providerController,ZakaznikPrihlasen zakaznikPrihlasenFrame){
         this.providerController = providerController;
         this.zakaznikPrihlasenFrame = zakaznikPrihlasenFrame;
+        refresher = providerController.getRefresher();
     }
 
     public void startFrame(){
-        this.setSize(600,385);
+        this.setSize(800,385);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
         this.setLayout(new BorderLayout());
         JPanel criteria = new JPanel();
@@ -301,9 +304,9 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
             showNoZamestnanecHint();
             return;
         }
-
         fillVysledkyHledani();
-        updateMainFrame();
+        refresher.refreshTarget(providerController.getZakaznikLoginController().getCurrentSession().getUserName());
+        //updateMainFrame();
     }
 
     private void showNoZamestnanecHint() {
@@ -319,7 +322,6 @@ public class ZakaznikPrihlasenVyhledatHru extends JFrame {
     }
 
     private void updateMainFrame(){
-        zakaznikPrihlasenFrame.update();
+        zakaznikPrihlasenFrame.refresh();
     }
-
 }

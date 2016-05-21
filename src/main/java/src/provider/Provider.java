@@ -6,7 +6,6 @@ package src.provider;
 public class Provider {
 
     private ProviderDAO providerDAO;
-
     private ProviderSession zakaznikProviderSession;
     private ProviderSession zamestnanecProviderSession;
 

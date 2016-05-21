@@ -83,7 +83,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
         try{
             providerDAO.getExemplarDAO().zapujcitHru(idExemplar, zakaznikUsername, zamestnanecUsername);
         } catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             return false;
         }
 

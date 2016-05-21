@@ -1,6 +1,7 @@
 package src.provider;
 
 import src.controller.*;
+import src.view.refresher.Refresher;
 
 /**
  * Created by root on 15.4.16.
@@ -16,6 +17,7 @@ public class ProviderController {
     private ZakaznikPrihlasenController zakaznikPrihlasenController;
     private ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController;
     private ZamestnanecPotrvditPrevzetiHryController zamestnanecPotrvditPrevzetiHryController;
+    private Refresher refresher;
 
     public ProviderController(ZamestnanecPotrvditPrevzetiHryController zamestnanecPotrvditPrevzetiHryController,ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController, ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
@@ -29,7 +31,7 @@ public class ProviderController {
         this.zakaznikPrihlasenController = zakaznikPrihlasenController;
         this.zakaznikPrihlasenVyhledatHruController = zakaznikPrihlasenVyhledatHruController;
         this.zamestnanecPotrvditPrevzetiHryController = zamestnanecPotrvditPrevzetiHryController;
-
+        refresher = new Refresher();
     }
 
     public ZamestnanecLoginController getZamestnanecLoginController() {
@@ -66,5 +68,9 @@ public class ProviderController {
 
     public ZamestnanecPotrvditPrevzetiHryController getZamestnanecPotrvditPrevzetiHryController() {
         return zamestnanecPotrvditPrevzetiHryController;
+    }
+
+    public Refresher getRefresher() {
+        return refresher;
     }
 }

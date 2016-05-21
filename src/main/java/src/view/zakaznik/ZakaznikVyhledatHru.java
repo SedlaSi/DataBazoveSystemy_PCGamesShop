@@ -52,9 +52,9 @@ public class ZakaznikVyhledatHru extends JFrame {
     }
 
     public void startFrame(){
-        this.setSize(600,360);
+        this.setSize(750,360);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        //this.setResizable(false);
         //this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
         this.setLayout(new BorderLayout());
         JPanel criteria = new JPanel();
@@ -152,11 +152,13 @@ public class ZakaznikVyhledatHru extends JFrame {
         java.util.List<Platforma> platformy = providerController
                 .getZakaznikPrihlasenVyhledatHruController()
                 .getPlatformaList();
+        JMenu platformaMenu = new JMenu();
+        platformaCheckBoxPanel.add(platformaMenu);
         try{
             for(Platforma p : platformy){
                 JCheckBox pBox = new JCheckBox(p.getNazev(),false);
                 platformaList.add(pBox);
-                platformaCheckBoxPanel.add(pBox);
+                platformaMenu.add(pBox);
             }
         } catch (Exception e){
             System.out.println("Žádné platformy nenalezeny.");

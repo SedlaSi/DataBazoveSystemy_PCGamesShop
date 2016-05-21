@@ -3,6 +3,8 @@ package src.view.zakaznik;
 import src.login.Session;
 import src.model.Exemplar;
 import src.provider.ProviderController;
+import src.view.Refreshable;
+import src.view.refresher.Refresher;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,15 +14,15 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 20.4.16.
  */
-public class ZakaznikPrihlasen extends JFrame {
+public class ZakaznikPrihlasen extends JFrame implements Refreshable {
 
     private ProviderController providerController;
     private Session session;
     private JPanel upperForNevraceneHry;
     private JPanel downerForVraceneHry;
-
     private JList pujceneNevraceneHry;
     private JList pujceneVraceneHry;
+    private Refresher refresher;
 
     public static void main(String [] args){
 
@@ -42,6 +44,8 @@ public class ZakaznikPrihlasen extends JFrame {
             System.out.println("Uživatel nepřihlášen!");
             return;
         }
+        refresher = providerController.getRefresher();
+        refresher.addRefreshable(providerController.getZakaznikLoginController().getCurrentSession().getUserName(),this);
     }
 
     public void startFrame(){
@@ -179,6 +183,7 @@ public class ZakaznikPrihlasen extends JFrame {
     }
 
     private void invokeZakaznikLogin(){
+        refresher.removeRefreshable(providerController.getZakaznikLoginController().getCurrentSession().getUserName());
         providerController.getZakaznikLoginController().performLogout();
         // invoke frame
         final ZakaznikLogin zkl =  new ZakaznikLogin(providerController);
@@ -200,7 +205,8 @@ public class ZakaznikPrihlasen extends JFrame {
         });
     }
 
-    public void update(){
+    @Override
+    public void refresh() {
         fillPujceneHry();
         this.invalidate();
         this.validate();

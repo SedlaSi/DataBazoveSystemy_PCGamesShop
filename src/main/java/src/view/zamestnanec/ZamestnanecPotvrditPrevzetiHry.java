@@ -1,6 +1,7 @@
 package src.view.zamestnanec;
 
 import src.provider.ProviderController;
+import src.view.refresher.Refresher;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
     private JTextArea datum;
     private JButton potvrdit;
     private JLabel hint;
+    private Refresher refresher;
 
     public static void main(String [] args){
 
@@ -31,6 +33,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
 
     public ZamestnanecPotvrditPrevzetiHry(ProviderController providerController){
         this.providerController = providerController;
+        refresher = providerController.getRefresher();
     }
 
     public void startFrame(){
@@ -86,6 +89,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JFrame {
                 )){
                     showHint();
                 } else {
+                    refresher.refreshTarget(providerController.getZakaznikLoginController().getCurrentSession().getUserName());
                     showSuccess();
                 }
 
