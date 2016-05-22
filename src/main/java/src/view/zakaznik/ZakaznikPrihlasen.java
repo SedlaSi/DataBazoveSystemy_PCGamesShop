@@ -3,6 +3,8 @@ package src.view.zakaznik;
 import src.login.Session;
 import src.model.Exemplar;
 import src.provider.ProviderController;
+import src.view.Refreshable;
+import src.view.refresher.Refresher;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +14,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 20.4.16.
  */
-public class ZakaznikPrihlasen extends JDialog {
+public class ZakaznikPrihlasen extends JDialog implements Refreshable {
 
     private ProviderController providerController;
     private Session session;
@@ -21,6 +23,7 @@ public class ZakaznikPrihlasen extends JDialog {
 
     private JList pujceneNevraceneHry;
     private JList pujceneVraceneHry;
+    private Refresher refresher;
 
     public static void main(String [] args){
 
@@ -176,7 +179,8 @@ public class ZakaznikPrihlasen extends JDialog {
         }
     }
 
-    public void update(){
+    @Override
+    public void refresh() {
         fillPujceneHry();
         this.invalidate();
         this.validate();

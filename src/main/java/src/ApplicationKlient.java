@@ -1,23 +1,11 @@
 package src;
 
 
-import src.model.*;
 import src.provider.Provider;
-
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static src.util.Util.getSubList;
-import static src.util.Util.stripAccents;
 
 public class ApplicationKlient {
     private static Provider provider;
-
+/*
     private String[] zanry = {"Adeventura", "Arkády", "RPG", "Simuátor", "Horor", "Tahová strategie", "Závodní", "Sport", "FPS"};
     private String[] pozice = {"Prodejce"};
     private String[] jmena = {"Adam", "Antonín", "Petr", "Pavel", "Jan", "Evžen", "Denis", "Kamil"};
@@ -422,4 +410,5 @@ public class ApplicationKlient {
             this.cisloPopisne = cisloPopisne;
         }
     }
+    */
 }

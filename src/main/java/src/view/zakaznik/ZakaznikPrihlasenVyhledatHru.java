@@ -6,6 +6,7 @@ import src.provider.Provider;
 import src.provider.ProviderController;
 import src.renderer.ExemplarRenderer;
 import src.renderer.ZakaznikRenderer;
+import src.view.refresher.Refresher;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
