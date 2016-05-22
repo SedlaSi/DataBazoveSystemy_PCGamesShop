@@ -1,6 +1,7 @@
 package src.controller;
 
 import src.data.ZakaznikDAO;
+import src.login.Decoder;
 import src.model.Zakaznik;
 import src.provider.Provider;
 
@@ -82,10 +83,13 @@ public class ZamestnanecVytvoritZakaznikaController extends TemplateController{
             return false;
         }
         int cp = Integer.parseInt(cisloPopisne);
-
+        byte [] hash = Decoder.hashPassword(password);
+        if(hash == null) {
+            return false;
+        }
         Zakaznik z = new Zakaznik();
         z.setUsername(username);
-        z.setPassword(password);
+        z.setPassword(hash);
         z.setJmeno(jmeno);
         z.setMesto(mesto);
         z.setPrijmeni(prijmeni);

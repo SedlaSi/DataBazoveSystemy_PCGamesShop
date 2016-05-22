@@ -1,11 +1,22 @@
 package src;
 
 
+import src.model.*;
 import src.provider.Provider;
+import src.util.Util;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ApplicationKlient {
     private static Provider provider;
-/*
+
     private String[] zanry = {"Adeventura", "Arkády", "RPG", "Simuátor", "Horor", "Tahová strategie", "Závodní", "Sport", "FPS"};
     private String[] pozice = {"Prodejce"};
     private String[] jmena = {"Adam", "Antonín", "Petr", "Pavel", "Jan", "Evžen", "Denis", "Kamil"};
@@ -14,6 +25,7 @@ public class ApplicationKlient {
     private String[] ulice = {"Malá", "Široká", "Krátká", "Dlouhá", "Pražská", "Pařížská", "Karlovo Náměstí", "Dejvická", "Ostrovní"};
     private String[] stavExemplare = {"Nepoškozená", "Lehké škrábance"};
 
+    private MessageDigest md;
     private List<String> gameList;
     private int idCounter = 1;
     private Random random = new Random(2291252016L);
@@ -288,7 +300,7 @@ public class ApplicationKlient {
         Osoba osoba = new Osoba(jmena[random.nextInt(jmena.length)], prijemeni[random.nextInt(prijemeni.length)], mesta[random.nextInt(mesta.length)], ulice[random.nextInt(ulice.length)], idCounter, new Integer(random.nextInt(99999999) + 700000000));
         osoba.setUsername(Util.stripAccents(osoba.getPrijmeni()).toLowerCase() + Util.stripAccents(osoba.getJmeno()).toLowerCase() + idCounter);
         osoba.setEmail(osoba.getUsername() + "@gmail.com");
-        osoba.setPassword("Heslo");
+        osoba.setPassword(md.digest("Heslo".getBytes()));
         idCounter++;
 
         return osoba;
@@ -300,7 +312,12 @@ public class ApplicationKlient {
 
     public void start() {
         provider = new Provider();
-
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return;
+        }
         initGameList();
 
         System.out.println("Generuji provozni data.");
@@ -325,7 +342,7 @@ public class ApplicationKlient {
         private String ulice;
         private int telefon;
         private String username;
-        private String password;
+        private byte [] password;
         private String email;
         private int cisloPopisne;
 
@@ -362,7 +379,7 @@ public class ApplicationKlient {
             return username;
         }
 
-        public String getPassword() {
+        public byte [] getPassword() {
             return password;
         }
 
@@ -398,7 +415,7 @@ public class ApplicationKlient {
             this.username = username;
         }
 
-        public void setPassword(String password) {
+        public void setPassword(byte [] password) {
             this.password = password;
         }
 
@@ -410,5 +427,5 @@ public class ApplicationKlient {
             this.cisloPopisne = cisloPopisne;
         }
     }
-    */
+
 }

@@ -1,6 +1,7 @@
 package src.controller;
 
 import src.data.ZamestnanecDAO;
+import src.login.Decoder;
 import src.login.Role;
 import src.login.Session;
 import src.model.Zamestnanec;
@@ -39,7 +40,8 @@ public class ZamestnanecLoginController extends TemplateController {
         } catch (Exception e){
             return false;
         }
-        if(password.equals(zamestnanec.getPassword())){
+        //if(password.equals(zamestnanec.getPassword())){
+        if(Decoder.isValid(password,zamestnanec.getPassword())){
             providerSession.initSession(userName, Role.ZAMESTNANEC);
             return true;
         }

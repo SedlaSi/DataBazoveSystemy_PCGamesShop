@@ -119,7 +119,7 @@ public class ZakaznikLogin extends JDialog{
                 ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
                 zkl.createFrame();
             } else { // Prihlaseni
-                providerController.getZakaznikLoginController().setUserName(usernameField.getText());
+                providerController.getZakaznikLoginController().setUsername(usernameField.getText());
                 providerController.getZakaznikLoginController().setPassWord(new String(passwordField.getPassword()));
 
                 if(providerController.getZakaznikLoginController().performLogin()){

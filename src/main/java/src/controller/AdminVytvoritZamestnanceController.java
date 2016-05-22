@@ -2,6 +2,7 @@ package src.controller;
 
 import org.apache.commons.validator.EmailValidator;
 import src.data.ZamestnanecDAO;
+import src.login.Decoder;
 import src.model.Pozice;
 import src.model.Zamestnanec;
 import src.provider.Provider;
@@ -88,10 +89,13 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
     public void createZamestnanec() throws Exception {
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
-
+        byte [] hash = Decoder.hashPassword(password);
+        if(hash == null) {
+            return;
+        }
         Zamestnanec z = new Zamestnanec();
         z.setUsername(username);
-        z.setPassword(password);
+        z.setPassword(hash);
         z.setJmeno(jmeno);
         z.setMesto(mesto);
         z.setPrijmeni(prijmeni);

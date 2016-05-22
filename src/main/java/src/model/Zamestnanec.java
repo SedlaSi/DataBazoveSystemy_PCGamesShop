@@ -19,7 +19,7 @@ public class Zamestnanec {
     public Zamestnanec() {
     }
 
-    public Zamestnanec(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, String password, int plat, Pozice pozice) {
+    public Zamestnanec(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, byte [] password, int plat, Pozice pozice) {
         this.username = username;
         this.password = password;
         this.jmeno = jmeno;
@@ -42,7 +42,7 @@ public class Zamestnanec {
     private String username;
 
     @Column(nullable = false, length = 128, name = "password")
-    private String password;
+    private byte [] password;
 
     @Column(nullable = false, length = 128, name = "jmeno")
     private String jmeno;
@@ -181,15 +181,15 @@ public class Zamestnanec {
         this.username = username;
     }
 
-    public String getPassword() {
+    public byte[] getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(byte[] password) {
         this.password = password;
     }
 
-//    public List<Kasa> getKasa() {
+    //    public List<Kasa> getKasa() {
 //        return kasa;
 //    }
 

@@ -1,6 +1,7 @@
 package src.controller;
 
 import src.data.ZakaznikDAO;
+import src.login.Decoder;
 import src.login.Role;
 import src.login.Session;
 import src.model.Zakaznik;
@@ -12,7 +13,7 @@ import src.provider.ProviderSession;
  */
 public class ZakaznikLoginController extends TemplateController {
 
-    private String userName;
+    private String username;
     private String password;
 
     private ZakaznikDAO zakaznikDAO;
@@ -24,23 +25,24 @@ public class ZakaznikLoginController extends TemplateController {
         providerSession = provider.getZakaznikProviderSession();
     }
 
-    public void setPassWord(String passWord) {
-        this.password = passWord;
+    public void setPassWord(String password) {
+        this.password = password;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public boolean performLogin(){
         Zakaznik z;
         try{
-            z = zakaznikDAO.getByUserName(userName);
+            z = zakaznikDAO.getByUserName(username);
         } catch (Exception e){
             return false;
         }
-        if(password.equals(z.getPassword())){
-            providerSession.initSession(userName, Role.ZAKAZNIK);
+        if(Decoder.isValid(password,z.getPassword())){
+        //if(password.equals(z.getPassword())){
+            providerSession.initSession(username, Role.ZAKAZNIK);
             return true;
         }
         providerSession.endSession();
