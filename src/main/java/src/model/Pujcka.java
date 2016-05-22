@@ -30,10 +30,12 @@ public class Pujcka {
     @Column(name = "id_byl_propujcen")
     private long id;
 
-    @Column(name = "pujceno", nullable = false)
+    @Column(name = "pujceno", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date pujceno;
 
     @Column(name = "vraceno")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date vraceno = null;
 
     @Column(nullable = false, name = "cena")
