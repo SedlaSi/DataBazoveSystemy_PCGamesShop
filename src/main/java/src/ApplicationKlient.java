@@ -156,7 +156,7 @@ public class ApplicationKlient {
 
                 Hra hra = new Hra(gameMatcher.group(1).trim(), "Hra", policeList.get(random.nextInt(policeList.size())), vydavatel);
 
-                hra.setZanry(getSubList(zanryList, random.nextInt(2) + 1, random));
+                hra.setZanry(Util.getSubList(zanryList, random.nextInt(2) + 1, random));
 
                 try {
                     provider.getProviderDAO().getHraDAO().create(hra);
@@ -286,7 +286,7 @@ public class ApplicationKlient {
 
     Osoba generujOsobu() {
         Osoba osoba = new Osoba(jmena[random.nextInt(jmena.length)], prijemeni[random.nextInt(prijemeni.length)], mesta[random.nextInt(mesta.length)], ulice[random.nextInt(ulice.length)], idCounter, new Integer(random.nextInt(99999999) + 700000000));
-        osoba.setUsername(stripAccents(osoba.getPrijmeni()).toLowerCase() + stripAccents(osoba.getJmeno()).toLowerCase() + idCounter);
+        osoba.setUsername(Util.stripAccents(osoba.getPrijmeni()).toLowerCase() + Util.stripAccents(osoba.getJmeno()).toLowerCase() + idCounter);
         osoba.setEmail(osoba.getUsername() + "@gmail.com");
         osoba.setPassword("Heslo");
         idCounter++;
