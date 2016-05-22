@@ -49,9 +49,9 @@ public class ZakaznikPrihlasen extends JDialog implements Refreshable {
 
     public void startFrame(){
         setModalityType(ModalityType.APPLICATION_MODAL);
-        this.setSize(400,450);
+        this.setSize(500,450);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.setTitle("Přihlášen jako: " + session.getUserName());
         //this.setLayout(new GridLayout(2,1,3,3));
         //Box boxLayout = Box.createVerticalBox();
