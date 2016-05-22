@@ -39,18 +39,18 @@ public class Exemplar {
     @Column(nullable = false,name = "cena")
     private int cena;
 
-    @Column(nullable = false,name = "rok_vydani")
+    @Column(nullable = false,name = "rok_vydani", updatable = false)
     private Date rokVydani;
 
     @Column(nullable = false, name = "aktivni")
     private boolean aktivni = true;
 
     @ManyToOne
-    @JoinColumn(name = "id_hra", nullable = false)
+    @JoinColumn(name = "id_hra", nullable = false, updatable = false)
     private Hra hra;
 
     @ManyToOne
-    @JoinColumn(name = "id_platforma", nullable = false)
+    @JoinColumn(name = "id_platforma", nullable = false, updatable = false)
     private Platforma platforma;
 
     @OneToMany(mappedBy = "exemplar")

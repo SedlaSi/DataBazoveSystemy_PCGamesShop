@@ -28,10 +28,10 @@ public class Hra {
     @Column(name = "id_hra")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128,name = "nazev")
+    @Column(nullable = false,unique = true,length = 128,name = "nazev", updatable = false)
     private String nazev;
 
-    @Column(length = 255, name = "popis")
+    @Column(name = "popis")
     private String popis;
 
     @ManyToOne
@@ -39,7 +39,7 @@ public class Hra {
     private Police police;
 
     @ManyToOne
-    @JoinColumn(name = "id_vydavatel", nullable = false)
+    @JoinColumn(name = "id_vydavatel", nullable = false, updatable = false)
     private Vydavatel vydavatel;
 
     @OneToMany(mappedBy = "hra")
