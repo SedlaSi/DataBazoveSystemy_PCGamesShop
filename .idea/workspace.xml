@@ -2,39 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51d1c3a-cd12-4c3d-b2af-4a91333472e8" name="Default" comment="layout ZakaznikPrihlasen resize">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/src/login/Decoder.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_persistence_eclipselink_2_5_0.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZakaznikLoginController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/ZakaznikLoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecLoginController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecLoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecVytvoritZakaznikaController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecVytvoritZakaznikaController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/data/KasaDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/data/KasaDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/data/PujckaDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/data/PujckaDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Exemplar.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Exemplar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Hra.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Hra.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Platforma.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Platforma.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Police.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Police.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Pozice.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Pozice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Vydavatel.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Vydavatel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zakaznik.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zakaznik.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zanr.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zanr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin$ButtonClickedListener.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin$ButtonClickedListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/refresh.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$1.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$ButtonClickedListener.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$ButtonClickedListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry$1.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameShop.iml" afterPath="$PROJECT_DIR$/GameShop.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java" afterPath="$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Exemplar.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Exemplar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikLogin.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" />
     </list>
     <ignored path="GameShop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,31 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ApplicationHlavniNabidka.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationHlavniNabidka.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationAdminBuild.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ApplicationKlient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3603">
-              <caret line="110" column="34" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
+            <state relative-caret-position="159">
+              <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
@@ -104,7 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminVytvoritZamestnanceController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZakaznikPrihlasen.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+              <folding>
+                <element signature="e#7351#7352#0" expanded="true" />
+                <element signature="e#7384#7385#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminVytvoritZamestnanceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -117,9 +83,33 @@
       <file leaf-file-name="ZamestnanecVytvoritZakaznikaController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="1116">
               <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="88" selection-end-column="9" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#798#799#0" expanded="false" />
+                <element signature="e#838#839#0" expanded="false" />
+                <element signature="e#886#887#0" expanded="false" />
+                <element signature="e#926#927#0" expanded="false" />
+                <element signature="e#968#969#0" expanded="false" />
+                <element signature="e#1002#1003#0" expanded="false" />
+                <element signature="e#1044#1045#0" expanded="false" />
+                <element signature="e#1078#1079#0" expanded="false" />
+                <element signature="e#1126#1127#0" expanded="false" />
+                <element signature="e#1166#1167#0" expanded="false" />
+                <element signature="e#1208#1209#0" expanded="false" />
+                <element signature="e#1242#1243#0" expanded="false" />
+                <element signature="e#1298#1299#0" expanded="false" />
+                <element signature="e#1346#1347#0" expanded="false" />
+                <element signature="e#1392#1393#0" expanded="false" />
+                <element signature="e#1430#1431#0" expanded="false" />
+                <element signature="e#1472#1473#0" expanded="false" />
+                <element signature="e#1506#1507#0" expanded="false" />
+                <element signature="e#1546#1547#0" expanded="false" />
+                <element signature="e#1578#1579#0" expanded="false" />
+                <element signature="e#2263#2264#0" expanded="false" />
+                <element signature="e#2290#2291#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,9 +117,15 @@
       <file leaf-file-name="ApplicationMainBuild.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
+            <state relative-caret-position="648">
               <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1789#1790#0" expanded="false" />
+                <element signature="e#1837#1838#0" expanded="false" />
+                <element signature="e#2117#2118#0" expanded="false" />
+                <element signature="e#2165#2166#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,7 +143,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="576">
               <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding />
             </state>
@@ -157,11 +153,9 @@
       <file leaf-file-name="Decoder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Decoder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
+            <state relative-caret-position="432">
               <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,9 +166,34 @@
             <state relative-caret-position="864">
               <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1790#1791#0" expanded="true" />
-                <element signature="e#1832#1833#0" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="false" />
+                <element signature="e#1422#1423#0" expanded="false" />
+                <element signature="e#1453#1454#0" expanded="false" />
+                <element signature="e#1480#1481#0" expanded="false" />
+                <element signature="e#1520#1521#0" expanded="false" />
+                <element signature="e#1552#1553#0" expanded="false" />
+                <element signature="e#1580#1581#0" expanded="false" />
+                <element signature="e#1607#1608#0" expanded="false" />
+                <element signature="e#1644#1645#0" expanded="false" />
+                <element signature="e#1676#1677#0" expanded="false" />
+                <element signature="e#1710#1711#0" expanded="false" />
+                <element signature="e#1742#1743#0" expanded="false" />
+                <element signature="e#1866#1867#0" expanded="false" />
+                <element signature="e#1896#1897#0" expanded="false" />
+                <element signature="e#1943#1944#0" expanded="false" />
+                <element signature="e#1981#1982#0" expanded="false" />
+                <element signature="e#2008#2009#0" expanded="false" />
+                <element signature="e#2034#2035#0" expanded="false" />
+                <element signature="e#2069#2070#0" expanded="false" />
+                <element signature="e#2099#2100#0" expanded="false" />
+                <element signature="e#2138#2139#0" expanded="false" />
+                <element signature="e#2170#2171#0" expanded="false" />
+                <element signature="e#2223#2224#0" expanded="false" />
+                <element signature="e#2265#2266#0" expanded="false" />
+                <element signature="e#2304#2305#0" expanded="false" />
+                <element signature="e#2333#2334#0" expanded="false" />
+                <element signature="e#2383#2384#0" expanded="false" />
+                <element signature="e#2419#2420#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -244,7 +263,6 @@
         <option value="$PROJECT_DIR$/src/main/java/src/view/refresher/Refresher.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/PujckaDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Pujcka.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" />
@@ -255,6 +273,7 @@
         <option value="$PROJECT_DIR$/src/main/java/src/login/Decoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" />
       </list>
     </option>
   </component>
@@ -300,6 +319,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,6 +354,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -660,8 +703,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1202,8 +1243,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.ApplicationMainBuild" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ApplicationKlient" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ApplicationHlavniNabidka" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ApplicationHlavniNabidka" />
+        <item index="2" class="java.lang.String" itemvalue="Application.ApplicationKlient" />
         <item index="3" class="java.lang.String" itemvalue="Application.ApplicationAdminBuild" />
         <item index="4" class="java.lang.String" itemvalue="Application.ApplicationZamestnanecBuild" />
       </list>
@@ -1260,6 +1301,7 @@
       <workItem from="1463860322600" duration="4937000" />
       <workItem from="1463914014929" duration="4352000" />
       <workItem from="1463924893769" duration="503000" />
+      <workItem from="1463926250069" duration="3300000" />
     </task>
     <task id="LOCAL-00001" summary="zaklady">
       <created>1460640525673</created>
@@ -1601,11 +1643,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150995000" />
+    <option name="totallyTimeSpent" value="154295000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1617,13 +1659,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.086119555" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3353846" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4076923" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29010418" sideWeight="0.15343915" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27452415" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3272328" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06661786" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1691,13 +1733,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Kasa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Platforma.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1943,13 +1978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/util/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1978,10 +2006,10 @@
         <state relative-caret-position="234">
           <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
           <folding>
-            <element signature="e#3696#3697#0" expanded="true" />
-            <element signature="e#3727#3728#0" expanded="true" />
-            <element signature="e#3775#3776#0" expanded="true" />
-            <element signature="e#3815#3816#0" expanded="true" />
+            <element signature="e#3696#3697#0" expanded="false" />
+            <element signature="e#3727#3728#0" expanded="false" />
+            <element signature="e#3775#3776#0" expanded="false" />
+            <element signature="e#3815#3816#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1991,10 +2019,10 @@
         <state relative-caret-position="954">
           <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding>
-            <element signature="e#4317#4318#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-            <element signature="e#4396#4397#0" expanded="true" />
-            <element signature="e#4436#4437#0" expanded="true" />
+            <element signature="e#4317#4318#0" expanded="false" />
+            <element signature="e#4348#4349#0" expanded="false" />
+            <element signature="e#4396#4397#0" expanded="false" />
+            <element signature="e#4436#4437#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2011,7 +2039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2031,7 +2058,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2039,7 +2068,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1817#1818#0" expanded="false" />
+            <element signature="e#1865#1866#0" expanded="false" />
+            <element signature="e#2320#2321#0" expanded="false" />
+            <element signature="e#2377#2378#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2048,9 +2083,34 @@
         <state relative-caret-position="864">
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1790#1791#0" expanded="true" />
-            <element signature="e#1832#1833#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="false" />
+            <element signature="e#1422#1423#0" expanded="false" />
+            <element signature="e#1453#1454#0" expanded="false" />
+            <element signature="e#1480#1481#0" expanded="false" />
+            <element signature="e#1520#1521#0" expanded="false" />
+            <element signature="e#1552#1553#0" expanded="false" />
+            <element signature="e#1580#1581#0" expanded="false" />
+            <element signature="e#1607#1608#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1676#1677#0" expanded="false" />
+            <element signature="e#1710#1711#0" expanded="false" />
+            <element signature="e#1742#1743#0" expanded="false" />
+            <element signature="e#1866#1867#0" expanded="false" />
+            <element signature="e#1896#1897#0" expanded="false" />
+            <element signature="e#1943#1944#0" expanded="false" />
+            <element signature="e#1981#1982#0" expanded="false" />
+            <element signature="e#2008#2009#0" expanded="false" />
+            <element signature="e#2034#2035#0" expanded="false" />
+            <element signature="e#2069#2070#0" expanded="false" />
+            <element signature="e#2099#2100#0" expanded="false" />
+            <element signature="e#2138#2139#0" expanded="false" />
+            <element signature="e#2170#2171#0" expanded="false" />
+            <element signature="e#2223#2224#0" expanded="false" />
+            <element signature="e#2265#2266#0" expanded="false" />
+            <element signature="e#2304#2305#0" expanded="false" />
+            <element signature="e#2333#2334#0" expanded="false" />
+            <element signature="e#2383#2384#0" expanded="false" />
+            <element signature="e#2419#2420#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2065,7 +2125,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="576">
           <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
@@ -2073,38 +2133,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="648">
           <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3603">
-          <caret line="110" column="34" selection-start-line="110" selection-start-column="34" selection-end-line="110" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1789#1790#0" expanded="false" />
+            <element signature="e#1837#1838#0" expanded="false" />
+            <element signature="e#2117#2118#0" expanded="false" />
+            <element signature="e#2165#2166#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Decoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
+        <state relative-caret-position="432">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
+        <state relative-caret-position="1116">
           <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="88" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#798#799#0" expanded="false" />
+            <element signature="e#838#839#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#926#927#0" expanded="false" />
+            <element signature="e#968#969#0" expanded="false" />
+            <element signature="e#1002#1003#0" expanded="false" />
+            <element signature="e#1044#1045#0" expanded="false" />
+            <element signature="e#1078#1079#0" expanded="false" />
+            <element signature="e#1126#1127#0" expanded="false" />
+            <element signature="e#1166#1167#0" expanded="false" />
+            <element signature="e#1208#1209#0" expanded="false" />
+            <element signature="e#1242#1243#0" expanded="false" />
+            <element signature="e#1298#1299#0" expanded="false" />
+            <element signature="e#1346#1347#0" expanded="false" />
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1430#1431#0" expanded="false" />
+            <element signature="e#1472#1473#0" expanded="false" />
+            <element signature="e#1506#1507#0" expanded="false" />
+            <element signature="e#1546#1547#0" expanded="false" />
+            <element signature="e#1578#1579#0" expanded="false" />
+            <element signature="e#2263#2264#0" expanded="false" />
+            <element signature="e#2290#2291#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2113,6 +2190,33 @@
         <state relative-caret-position="190">
           <caret line="106" column="28" selection-start-line="106" selection-start-column="28" selection-end-line="106" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/refresh.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="117" column="17" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
+          <folding>
+            <element signature="e#7351#7352#0" expanded="true" />
+            <element signature="e#7384#7385#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

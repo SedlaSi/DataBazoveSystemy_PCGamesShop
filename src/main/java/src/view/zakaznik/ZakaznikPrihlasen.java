@@ -3,9 +3,8 @@ package src.view.zakaznik;
 import src.login.Session;
 import src.model.Exemplar;
 import src.provider.ProviderController;
-import src.view.Refreshable;
-import src.view.refresher.Refresher;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +13,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 20.4.16.
  */
-public class ZakaznikPrihlasen extends JDialog implements Refreshable {
+public class ZakaznikPrihlasen extends JDialog{
 
     private ProviderController providerController;
     private Session session;
@@ -23,7 +22,7 @@ public class ZakaznikPrihlasen extends JDialog implements Refreshable {
 
     private JList pujceneNevraceneHry;
     private JList pujceneVraceneHry;
-    private Refresher refresher;
+    private JButton refresh;
 
     public static void main(String [] args){
 
@@ -60,7 +59,7 @@ public class ZakaznikPrihlasen extends JDialog implements Refreshable {
         JPanel upper = new JPanel(new BorderLayout());  //new GridLayout(3,1,2,2)
         JPanel downer = new JPanel(new BorderLayout());
 
-        JPanel upperUp = new JPanel(new FlowLayout());
+        JPanel upperUp = new JPanel(new BorderLayout());
         upperForNevraceneHry = new JPanel();
         JPanel upperDowner = new JPanel(new FlowLayout());
         upper.add(upperUp,BorderLayout.NORTH);
@@ -79,10 +78,20 @@ public class ZakaznikPrihlasen extends JDialog implements Refreshable {
         downer.add(downerDowner,BorderLayout.SOUTH);
 
         JLabel pujceneHryLabel = new JLabel("Půjčené hry:");
-
+        refresh = new JButton();
+        try {
+            Image img = ImageIO.read(getClass().getResource("/refresh.png"));
+            Image newimg = img.getScaledInstance( 30, 30,  java.awt.Image.SCALE_SMOOTH ) ;
+            refresh.setIcon(new ImageIcon(newimg));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("Refresh icon cannot be loaded");
+        }
+        refresh.addActionListener(new RefreshButtonListener());
         JButton vyhledatNovouHru = new JButton("Vyhledat Novou Hru");
         vyhledatNovouHru.addActionListener(new ButtonClickedListener());
-        upperUp.add(pujceneHryLabel);
+        upperUp.add(pujceneHryLabel,BorderLayout.CENTER);
+        upperUp.add(refresh, BorderLayout.EAST);
 
         upperDowner.add(vyhledatNovouHru);
 
@@ -179,7 +188,12 @@ public class ZakaznikPrihlasen extends JDialog implements Refreshable {
         }
     }
 
-    @Override
+    private class RefreshButtonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            refresh();
+        }
+    }
+
     public void refresh() {
         fillPujceneHry();
         this.invalidate();
