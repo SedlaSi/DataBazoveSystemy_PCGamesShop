@@ -106,7 +106,8 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setPlat(pt);
         z.setPozice(pozice);
 
-        zamestnanecDAO.create(z);
+        //zamestnanecDAO.create(z);
+        zamestnanecDAO.createProdejce(z);
     }
 
     public boolean validData() {

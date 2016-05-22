@@ -4,6 +4,7 @@ import src.model.Zamestnanec;
 import src.util.Resources;
 
 import javax.persistence.Query;
+import javax.persistence.StoredProcedureQuery;
 import java.util.List;
 
 /**
@@ -38,5 +39,20 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
     public List<Zamestnanec> getList() {
         Query q = em.createNamedQuery("Zamestnanec.getList",Zamestnanec.class);
         return (List<Zamestnanec>) q.getResultList();
+    }
+
+    public void createProdejce(Zamestnanec zamestnanec){
+        StoredProcedureQuery query = em.createNamedStoredProcedureQuery("create_active_prodejce");
+        query.setParameter("jmeno", zamestnanec.getJmeno());
+        query.setParameter("prijmeni", zamestnanec.getPrijmeni());
+        query.setParameter("username", zamestnanec.getUsername());
+        query.setParameter("password", zamestnanec.getPassword());
+        query.setParameter("mesto", zamestnanec.getMesto());
+        query.setParameter("ulice", zamestnanec.getUlice());
+        query.setParameter("cislo_popisne", zamestnanec.getCisloPopisne());
+        query.setParameter("plat", zamestnanec.getPlat());
+        query.setParameter("email", zamestnanec.getEmail());
+        query.setParameter("telefon", zamestnanec.getTelefon());
+        query.execute();
     }
 }

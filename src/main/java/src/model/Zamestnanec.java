@@ -14,6 +14,22 @@ import java.util.List;
                 " AND z.prijmeni = :p"),
         @NamedQuery(name = "Zamestnanec.getByUserName", query = "SELECT z FROM Zamestnanec z WHERE z.username = :us")
 })
+@NamedStoredProcedureQuery(
+        name = "create_active_prodejce",
+        procedureName = "create_active_prodejce",
+        parameters = {
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "username"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = byte [].class, name = "password"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "jmeno"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "prijmeni"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "mesto"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "ulice"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = int.class, name = "cislo_popisne"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "telefon"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "email"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = int.class, name = "plat"),
+        }
+)
 public class Zamestnanec {
 
     public Zamestnanec() {
@@ -41,7 +57,7 @@ public class Zamestnanec {
     @Column(nullable = false, length = 128, unique = true, name = "username")
     private String username;
 
-    @Column(nullable = false, length = 128, name = "password")
+    @Column(nullable = false, length = 256, name = "password")
     private byte [] password;
 
     @Column(nullable = false, length = 128, name = "jmeno")
@@ -62,7 +78,7 @@ public class Zamestnanec {
     @Column(nullable = false, length = 16, name = "telefon")
     private String telefon;
 
-    @Column(nullable = false, length = 255, unique = true, name = "email")
+    @Column(nullable = false, unique = true, name = "email")
     private String email;
 
     @Column(nullable = false, name = "plat")

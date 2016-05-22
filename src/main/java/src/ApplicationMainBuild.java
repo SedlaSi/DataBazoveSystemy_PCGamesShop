@@ -42,8 +42,8 @@ public class ApplicationMainBuild {
         });
     }
 
-    public static void startZamestnanecLogin(ProviderController providerController){
-        final ZamestnanecLogin zkl =  new ZamestnanecLogin(providerController);
+    public static void startZamestnanecLogin(ProviderController providerController) {
+        final ZamestnanecLogin zkl = new ZamestnanecLogin(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.startFrame();
