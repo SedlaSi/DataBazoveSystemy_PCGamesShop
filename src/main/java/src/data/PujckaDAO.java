@@ -61,7 +61,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
             throw new Exception("Invalid exemplar id.");
         }
 
-        if(date.compareTo(pujcka.getPujceno()) == -1){
+        if(date.before(pujcka.getPujceno())){
             System.out.println("date compare fail");
             em.getTransaction().rollback();
             throw new Exception("Inserted date smaller than previous date.");

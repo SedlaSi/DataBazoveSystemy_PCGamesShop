@@ -11,7 +11,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -151,8 +150,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionLis
 
     private void showSuccess(){
         kodExemplare.setText("");
-        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTimeInMillis());
-        datum.setText(date.toString());
+        datum.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH).format(new Date()));
         hint.setText("Produkt byl úspěšně přijat.");
         this.invalidate();
         this.validate();
