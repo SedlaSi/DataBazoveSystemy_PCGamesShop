@@ -18,11 +18,9 @@ public class PlatformaDAO extends TemplateDAO<Platforma> {
     }
 
     public Platforma getByNazev(String nazev) {
-        em.getTransaction().begin();
         List<Platforma> list = (List<Platforma>) em.createNamedQuery("Platforma.getByNazev").setParameter(1, nazev).getResultList();
-        em.getTransaction().commit();
 
-        if (list.size() == 0) {
+        if (list == null || list.size() == 0) {
             return null;
         }
 

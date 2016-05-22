@@ -20,14 +20,10 @@ public class VydavatelDAO extends TemplateDAO<Vydavatel> {
     }
 
     public Vydavatel getByNazev(String nazev) {
-        em.getTransaction().begin();
         List<Vydavatel> list = em.createNamedQuery("Vydavatel.getByNazev").setParameter(1, nazev).getResultList();
-        em.getTransaction().commit();
-
-        if (list.size() == 0) {
+        if (list == null || list.size() == 0) {
             return null;
         }
-
         return list.get(0);
     }
 }

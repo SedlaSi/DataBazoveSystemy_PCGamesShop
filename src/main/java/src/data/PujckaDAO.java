@@ -14,13 +14,13 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         super(res);
     }
 
-    Pujcka getByExemplarId(long idExemplare) throws Exception{
+    Pujcka getByExemplarId(long idExemplare) {
         Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
         q.setParameter("id",idExemplare);
 
         List<Pujcka> pujckaList =(List<Pujcka>) q.getResultList();
 
-        if(pujckaList.size() == 0) {
+        if(pujckaList == null || pujckaList.size() == 0) {
             return null;
         }
 
@@ -38,14 +38,12 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         return pujcka.getZakaznik().getUsername();
     }
 
-    /**
-    *    WARNING:
-    *          update without transaction
-    */
     @Override
     public Pujcka update(Pujcka p){
-        Pujcka p2 = em.merge(p);
-        return p2;
+        em.getTransaction().begin();
+        p = em.merge(p);
+        em.getTransaction().commit();
+        return p;
     }
 
     void createTransactionFree(Pujcka p){
@@ -67,7 +65,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
             throw new Exception("Inserted date smaller than previous date.");
         }
         pujcka.setVraceno(date);
-        this.update(pujcka);
+        em.merge(pujcka);
         em.getTransaction().commit();
     }
 

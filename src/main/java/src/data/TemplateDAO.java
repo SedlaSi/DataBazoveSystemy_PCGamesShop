@@ -27,7 +27,13 @@ public class TemplateDAO<T> {
 
     public T update(T t) throws Exception{
         em.getTransaction().begin();
-        T t2 = em.merge(t);
+        T t2;
+        try{
+            t2 = em.merge(t);
+        } catch (Exception e){
+            em.getTransaction().rollback();
+            throw e;
+        }
         em.getTransaction().commit();
         return t2;
     }

@@ -18,7 +18,7 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
         Query q =  em.createNamedQuery("Zamestnanec.getByUserName");
         q.setParameter("us", userName);
         List<Zamestnanec> list = q.getResultList();
-        if(list.size() == 1){
+        if(list != null && list.size() == 1){
             return list.get(0);
         }
         return null;
@@ -29,7 +29,7 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
         q.setParameter("j",jmeno);
         q.setParameter("p",prijmeni);
         List<Zamestnanec> list = q.getResultList();
-        if(list.size() == 1){
+        if(list != null && list.size() == 1){
             return list.get(0);
         }
         return null;

@@ -105,24 +105,22 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
     @Override
     public Exemplar getById(int id){
         Exemplar t = null;
-        em.getTransaction().begin();
         Query q = em.createNamedQuery("Exemplar.getById");
         q.setParameter("id",id);
         List<Exemplar> list =(List<Exemplar>) q.getResultList();
-        if(list.size() == 1){
-            t =(Exemplar) list.get(0);
+        if(list != null && list.size() == 1){
+            t = list.get(0);
         }
-        em.getTransaction().commit();
         return t;
     }
 
-    public Exemplar getByIdTransactionFree(long id){
+    private Exemplar getByIdTransactionFree(long id){
         Exemplar t = null;
         Query q = em.createNamedQuery("Exemplar.getById");
         q.setParameter("id",id);
         List<Exemplar> list =(List<Exemplar>) q.getResultList();
-        if(list.size() == 1){
-            t =(Exemplar) list.get(0);
+        if( list != null && list.size() == 1){
+            t = list.get(0);
         }
         return t;
     }
