@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "zakaznik")
 @NamedQueries({
         @NamedQuery(name = "Zakaznik.getByUserName", query = "SELECT z FROM Zakaznik z WHERE z.username = :us"),
-        @NamedQuery(name = "Zakaznik.getList", query = "SELECT z FROM Zakaznik z"),
+        @NamedQuery(name = "Zakaznik.getList", query = "SELECT z FROM Zakaznik z ORDER BY z.prijmeni, z.jmeno, z.username"),
         @NamedQuery(name = "Zakaznik.getVraceneHry", query = "SELECT e FROM Exemplar e WHERE EXISTS (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno != NULL)"),
         @NamedQuery(name = "Zakaznik.getNevraceneHry", query = "SELECT e FROM Exemplar e WHERE EXISTS (SELECT p FROM e.pujcka p WHERE p.zakaznik = :z AND p.vraceno = NULL) ")
 })

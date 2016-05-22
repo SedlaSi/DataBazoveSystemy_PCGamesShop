@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 20.4.16.
  */
-public class ZakaznikPrihlasen extends JFrame {
+public class ZakaznikPrihlasen extends JDialog {
 
     private ProviderController providerController;
     private Session session;
@@ -45,6 +45,7 @@ public class ZakaznikPrihlasen extends JFrame {
     }
 
     public void startFrame(){
+        setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(400,450);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -96,8 +97,6 @@ public class ZakaznikPrihlasen extends JFrame {
         this.add(upper,BorderLayout.NORTH);
         this.add(downer,BorderLayout.SOUTH);
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     private void fillPujceneHry() {
@@ -169,35 +168,12 @@ public class ZakaznikPrihlasen extends JFrame {
 
         public void actionPerformed(ActionEvent e) {
             if(((JButton)e.getSource()).getText().equals("Vyhledat Novou Hru")){ // Vyhledani hry
-                //System.out.println("Vyhledat");
-                invokeZakaznikPrihlasenVyhledatHru();
+                ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
+                zkl.createFrame();
             } else { // Odhlaseni
-                invokeZakaznikLogin();
-                //System.out.println("Logout");
+                dispose();
             }
         }
-    }
-
-    private void invokeZakaznikLogin(){
-        providerController.getZakaznikLoginController().performLogout();
-        // invoke frame
-        final ZakaznikLogin zkl =  new ZakaznikLogin(providerController);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-        this.dispose();
-    }
-
-    private void invokeZakaznikPrihlasenVyhledatHru(){
-        // invoke frame
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController,this);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
     }
 
     public void update(){

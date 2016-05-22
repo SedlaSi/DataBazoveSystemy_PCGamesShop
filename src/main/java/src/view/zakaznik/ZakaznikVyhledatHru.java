@@ -1,47 +1,56 @@
 package src.view.zakaznik;
 
+import src.controller.*;
 import src.model.Exemplar;
 import src.model.Platforma;
 import src.model.Vydavatel;
 import src.model.Zanr;
+import src.provider.Provider;
 import src.provider.ProviderController;
+import src.renderer.ExemplarRenderer;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
-/**
- * Created by root on 15.4.16.
- */
-public class ZakaznikVyhledatHru extends JFrame {
-
+public class ZakaznikVyhledatHru extends JDialog implements ActionListener  {
     private ProviderController providerController;
+
     private JTextField nazev;
     private JTextField rokVydani;
     private JComboBox vydavatel;
     private JTextField kodExemplare;
-    private JPanel zanrCheckBoxPanel;
-    private JPanel platformaCheckBoxPanel;
-    private JButton vyhledat;
-    private String selectedVydavatel;
-    private String selectedVyhledanaHra;
-    private JPanel vysledkyHledaniPanel;
-    private java.util.List<JCheckBox> platformaList;
-    private java.util.List<JCheckBox> zanrList;
 
+    private JButton vyhledat;
+
+    private JPanel zanrPanel;
+    private JPanel platformaPanel;
+    private JList vysledkyHledani;
+
+    private java.util.List<JCheckBox> platformaListCheckBox;
+    private java.util.List<JCheckBox> zanrListCheckBox;
 
     public static void main(String [] args){
+        Provider provider = new Provider();
+        AdminSmazatZamestnanceController admSC = new AdminSmazatZamestnanceController(provider);
+        AdminVytvoritZamestnanceController admC = new AdminVytvoritZamestnanceController(provider);
+        ZamestnanecVytvoritZakaznikaController zvzC = new ZamestnanecVytvoritZakaznikaController(provider);
+        ZakaznikLoginController zkC = new ZakaznikLoginController(provider);
+        ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
+        ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
+        ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
+        ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
+        ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
+        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
 
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(null,null);
+
+        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                zkl.startFrame();
+                zkl.createFrame();
             }
         });
 
@@ -51,157 +60,170 @@ public class ZakaznikVyhledatHru extends JFrame {
         this.providerController = providerController;
     }
 
-    public void startFrame(){
-        this.setSize(600,360);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        //this.setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName());
-        this.setLayout(new BorderLayout());
-        JPanel criteria = new JPanel();
-        this.add(criteria,BorderLayout.NORTH);
-        JPanel results = new JPanel();
-        this.add(results,BorderLayout.SOUTH);
+    public void createFrame(){
+        setModalityType(ModalityType.APPLICATION_MODAL);
+        setLayout(new FlowLayout());
 
-        platformaList = new ArrayList<>();
-        zanrList = new ArrayList<>();
+        if(providerController.getZakaznikLoginController().getCurrentSession() == null) {
+            setTitle("Vyhledat hru");
+        } else {
+            setTitle("Přihlášen jako: " + providerController.getZakaznikLoginController().getCurrentSession().getUserName() + " - Vyhledat hru");
+        }
 
-        criteria.setLayout(new BorderLayout(2,2)); //new GridLayout(5,1,3,3)
-        results.setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
-        results.setLayout(new BorderLayout(2,2)); //new GridLayout(3,1,3,3)
-        JPanel nazevNvydavatelPanel = new JPanel();
-        JPanel rokVydaniNkodExemplarePanel = new JPanel();
-        JPanel zanrPanel = new JPanel();
-        JPanel platformaPanel = new JPanel();
-        JPanel vyhledatButtonPanel = new JPanel();
-        JPanel criteriaUp = new JPanel();
-        criteriaUp.setLayout(new BorderLayout(2,2));
-        JPanel criteriaDown = new JPanel();
-        criteriaDown.setLayout(new BorderLayout(2,2));
-        criteria.add(criteriaUp,BorderLayout.NORTH);
-        criteria.add(criteriaDown,BorderLayout.SOUTH);
+        JPanel jPanel = new JPanel();
+        jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
+        JPanel hraInfo = new JPanel();
+        hraInfo.setLayout(new BoxLayout(hraInfo, BoxLayout.Y_AXIS));
 
-        criteriaUp.add(nazevNvydavatelPanel,BorderLayout.NORTH);
-        criteriaUp.add(rokVydaniNkodExemplarePanel,BorderLayout.SOUTH);
-        criteriaDown.add(zanrPanel,BorderLayout.NORTH);
-        criteriaDown.add(platformaPanel,BorderLayout.CENTER);
-        criteriaDown.add(vyhledatButtonPanel,BorderLayout.SOUTH);
+        JPanel hraInfoFirst = new JPanel(new BorderLayout());
+        JPanel hraInfoFirstLeft = new JPanel(new GridLayout(2, 2));
+        JPanel hraInfoFirstRight = new JPanel(new GridLayout(2, 2));
+        JPanel hraInfoSecond = new JPanel(new GridLayout(1, 2));
+        JPanel vyhledavaniPanel = new JPanel(new BorderLayout());
+        JPanel vyhledatPanel = new JPanel();
+        JPanel vyhledatButtonPanel = new JPanel(new BorderLayout());
 
-        nazevNvydavatelPanel.setLayout(new GridLayout(1,4,3,3));
-        rokVydaniNkodExemplarePanel.setLayout(new GridLayout(1,4,3,3));
-        zanrPanel.setLayout(new FlowLayout());
-        platformaPanel.setLayout(new FlowLayout());
-        vyhledatButtonPanel.setLayout(new GridLayout(1,2,3,3));
+        vyhledatPanel.setLayout(new BoxLayout(vyhledatPanel, BoxLayout.Y_AXIS));
 
-        //=============================================
-        JLabel nazevLabel = new JLabel("Název:");
-        nazev = new JTextField();
+        zanrPanel = new JPanel();
+        zanrPanel.setLayout(new BoxLayout(zanrPanel, BoxLayout.Y_AXIS));
+
+        JScrollPane scrollZanrPane = new JScrollPane(zanrPanel);
+        scrollZanrPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollZanrPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollZanrPane.setPreferredSize(new Dimension(160, 160));
+
+        platformaPanel = new JPanel();
+        platformaPanel.setLayout(new BoxLayout(platformaPanel, BoxLayout.Y_AXIS));
+
+        JScrollPane scrollPlatformaPane = new JScrollPane(platformaPanel);
+        scrollPlatformaPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPlatformaPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPlatformaPane.setPreferredSize(new Dimension(160, 160));
+
+        JScrollPane scrollvyhledavaniPane = new JScrollPane(vyhledavaniPanel);
+        scrollvyhledavaniPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollvyhledavaniPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollvyhledavaniPane.setPreferredSize(new Dimension(160, 160));
+
+        hraInfo.setBorder(new TitledBorder("Informace o hře"));
+        vyhledatPanel.setBorder(new TitledBorder("Výsledky vyhledávání"));
+        scrollPlatformaPane.setBorder(new TitledBorder("Platformy"));
+        scrollZanrPane.setBorder(new TitledBorder("Žánry"));
+
+        JLabel nazevHryLabel = new JLabel("Název hry:");
         JLabel vydavatelLabel = new JLabel("Vydavatel:");
-        vydavatel = new JComboBox();
-        //vydavatel.addItemListener(new VydavatelSelectedListener());
-        fillVydavatel();
-        nazevNvydavatelPanel.add(nazevLabel);
-        nazevNvydavatelPanel.add(nazev);
-        nazevNvydavatelPanel.add(vydavatelLabel);
-        nazevNvydavatelPanel.add(vydavatel);
+        JLabel rokVydaniLabel = new JLabel("Rok vydání:");
+        JLabel kodExemplareLabel = new JLabel("Kód exempláře:");
 
-        //=============================================
-        JLabel rokVydaniLabel = new JLabel("Rok Vydání:");
+        nazev = new JTextField();
         rokVydani = new JTextField();
-        JLabel  kodExemplareLabel = new JLabel("Kód Exempláře:");
+        vydavatel = new JComboBox();
         kodExemplare = new JTextField();
 
-        rokVydaniNkodExemplarePanel.add(rokVydaniLabel);
-        rokVydaniNkodExemplarePanel.add(rokVydani);
-        rokVydaniNkodExemplarePanel.add(kodExemplareLabel);
-        rokVydaniNkodExemplarePanel.add(kodExemplare);
-        //==============================================
-
-        JLabel zanrLabel = new JLabel("Žánr:");
-        zanrCheckBoxPanel = new JPanel();
-        fillZanrCheckBoxPanel();
-        zanrPanel.add(zanrLabel);
-        zanrPanel.add(zanrCheckBoxPanel);
-
-        JLabel platformaLabel = new JLabel("Platforma:");
-        platformaCheckBoxPanel = new JPanel();
-        fillPlatformaCheckBoxPanel();
-        platformaPanel.add(platformaLabel);
-        platformaPanel.add(platformaCheckBoxPanel);
+        vysledkyHledani = new JList(new String[]{null});
+        vysledkyHledani.setCellRenderer(new ExemplarRenderer());
 
         vyhledat = new JButton("Vyhledat");
-        vyhledat.addActionListener(new ButtonClickedListener());
-        JLabel vyhledatLabel = new JLabel("- prázdná pole budou ignorována");
-        vyhledatButtonPanel.add(vyhledat);
-        vyhledatButtonPanel.add(vyhledatLabel);
+
+        nazev.setColumns(15);
+
+        vyhledavaniPanel.add(vysledkyHledani, BorderLayout.CENTER);
+
+        hraInfoFirstLeft.add(nazevHryLabel);
+        hraInfoFirstLeft.add(nazev);
+
+        hraInfoFirstLeft.add(vydavatelLabel);
+        hraInfoFirstLeft.add(vydavatel);
+
+        hraInfoFirstRight.add(rokVydaniLabel);
+        hraInfoFirstRight.add(rokVydani);
+
+        hraInfoFirstRight.add(kodExemplareLabel);
+        hraInfoFirstRight.add(kodExemplare);
+
+        hraInfoFirst.add(hraInfoFirstLeft, BorderLayout.WEST);
+        hraInfoFirst.add(hraInfoFirstRight, BorderLayout.EAST);
+
+        hraInfoSecond.add(scrollZanrPane, BorderLayout.WEST);
+        hraInfoSecond.add(scrollPlatformaPane, BorderLayout.EAST);
+
+        vyhledatPanel.add(scrollvyhledavaniPane);
+
+        vyhledatButtonPanel.add(vyhledat, BorderLayout.EAST);
+
+        vyhledatPanel.add(vyhledatButtonPanel);
+
+        hraInfo.add(hraInfoFirst);
+        hraInfo.add(hraInfoSecond);
+        jPanel.add(hraInfo);
+        jPanel.add(vyhledatPanel);
+
+        add(jPanel);
+
+        zanrListCheckBox = new ArrayList<>();
+        platformaListCheckBox = new ArrayList<>();
+
+        vyhledat.addActionListener(this);
+
+        fillPlatformaCheckBoxPanel();
+        fillVydavatel();
+        fillZanrCheckBoxPanel();
+        fillVysledkyHledani();
+
+        // vydavatel.add();
 
 
-
-        JLabel vysledkyHledaniLabel = new JLabel("Výsledky hledání:");
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setLayout(new BorderLayout()); //new GridLayout(1,2,3,3)
-        results.add(vysledkyHledaniLabel,BorderLayout.NORTH);
-        vysledkyHledaniPanel = new JPanel();
-        vysledkyHledaniPanel.add(new JLabel("Žádne výsledky k zobrazení"));
-        results.add(vysledkyHledaniPanel,BorderLayout.CENTER);
-        results.add(bottomPanel,BorderLayout.SOUTH);
-
-        this.setVisible(true);
+        pack();
+        setResizable(false);
+        setVisible(true);
     }
 
     private void fillPlatformaCheckBoxPanel() {
-        java.util.List<Platforma> platformy = providerController
-                .getZakaznikPrihlasenVyhledatHruController()
-                .getPlatformaList();
+        java.util.List<Platforma> platformy = providerController.getZakaznikPrihlasenVyhledatHruController().getPlatformaList();
+        if(platformy == null || platformy.isEmpty()){
+            System.err.println("Nenalezeny žádné platformy.");
+            return;
+        }
+
         try{
             for(Platforma p : platformy){
                 JCheckBox pBox = new JCheckBox(p.getNazev(),false);
-                platformaList.add(pBox);
-                platformaCheckBoxPanel.add(pBox);
+                platformaPanel.add(pBox);
+                platformaListCheckBox.add(pBox);
             }
         } catch (Exception e){
-            System.out.println("Žádné platformy nenalezeny.");
+            e.printStackTrace();
+            System.err.println("Nenalezeny žádné platformy.");
         }
     }
 
     private void fillVysledkyHledani() {
-
         java.util.List<String> platformy = new ArrayList<>();
         java.util.List<String> zanry = new ArrayList<>();
 
-        for(JCheckBox c : platformaList){
+        for(JCheckBox c : platformaListCheckBox){
             if(c.isSelected()){
                 platformy.add(c.getText());
             }
         }
-        for(JCheckBox c : zanrList){
+
+        for(JCheckBox c : zanrListCheckBox){
             if(c.isSelected()){
                 zanry.add(c.getText());
             }
         }
 
-        java.util.List<Exemplar> vyhledaneHry = providerController
-                .getZakaznikPrihlasenVyhledatHruController()
-                .getHryDleParametruNoUser(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy);
+        String selectedVydavatel = (String)vydavatel.getSelectedItem();
+
+        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy);
 
         if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
-            vysledkyHledaniPanel.remove(0);
-            JList vysledkyHledani;
-            String [] list = new String[vyhledaneHry.size()];
-            Exemplar e;
-            for(int i = 0; i < list.length ; i++){
-                e = vyhledaneHry.get(i);
-                list[i] = e.getHra().getNazev() + "     " + e.getPlatforma().getNazev() + ", cena:  "+ e.getCena() + " Kč" +",    police: " + e.getHra().getPolice().getNazev() + ",      číslo produktu: " + e.getId();
-            }
-            vysledkyHledani = new JList(list);
-            vysledkyHledani.addListSelectionListener(new HraSelectedListener());
-            JScrollPane scrollPane = new JScrollPane(vysledkyHledani);
-            scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            vysledkyHledaniPanel.add(scrollPane,BorderLayout.CENTER);
-            //vysledkyHledaniPanel.add(vysledkyHledani);
+            vysledkyHledani.setListData(vyhledaneHry.toArray());
         } else {
-            vysledkyHledaniPanel.remove(0);
-            vysledkyHledaniPanel.add(new JLabel("Žádné výsledky nenalezeny"));
+            vysledkyHledani.setListData(new Exemplar[] {null});
         }
+
         this.invalidate();
         this.validate();
         this.repaint();
@@ -209,51 +231,46 @@ public class ZakaznikVyhledatHru extends JFrame {
 
     private void fillZanrCheckBoxPanel() {
         java.util.List<Zanr> zanry = providerController.getZakaznikPrihlasenVyhledatHruController().getZanrList();
+
+        if(zanry == null || zanry.isEmpty()){
+            System.err.println("Nenalezeny žádné žánry.");
+            return;
+        }
+
         try{
             for(Zanr z : zanry){
                 JCheckBox zBox = new JCheckBox(z.getNazev(),false);
-                zanrList.add(zBox);
-                zanrCheckBoxPanel.add(zBox);
+                zanrPanel.add(zBox);
+                zanrListCheckBox.add(zBox);
             }
         } catch (Exception e){
-            System.out.println("Žádné žárny nenalezeny.");
+            System.out.println("Nenalezeny žádné žánry.");
         }
     }
 
     private void fillVydavatel() {
         java.util.List<Vydavatel> vyd = providerController.getZakaznikPrihlasenVyhledatHruController().getVydavatelList();
         if(vyd == null || vyd.isEmpty()){
-            System.out.println("vydavatele prazdni");
+            System.err.println("Nenalezeni žádní vydavatelé.");
             return;
         } else {
-            String [] vydav = new String[vyd.size()+1];
-            vydav[0] = "";
-            for(int i = 1; i < vyd.size()+1; i++){
-                vydav[i] = vyd.get(i-1).getNazev();
+            vydavatel.removeAllItems();
+            vydavatel.addItem("");
+            for (Vydavatel vydav : vyd) {
+                vydavatel.addItem(vydav.getNazev());
             }
-            vydavatel = new JComboBox(vydav);
-        }
-        vydavatel.addItemListener(new VydavatelSelectedListener());
-    }
-
-    private class VydavatelSelectedListener implements ItemListener {
-        @Override
-        public void itemStateChanged(ItemEvent e) {
-            selectedVydavatel = (String)e.getItemSelectable().getSelectedObjects()[0];
         }
     }
 
-    private class HraSelectedListener implements ListSelectionListener {
-        @Override
-        public void valueChanged(ListSelectionEvent e) {
-            selectedVyhledanaHra = ((JList)e.getSource()).getSelectedValue().toString();
-        }
-    }
-
-    private class ButtonClickedListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+        if (source == vyhledat) {
             fillVysledkyHledani();
         }
     }
 
+    private void quitFrame() {
+        this.dispose();
+    }
 }

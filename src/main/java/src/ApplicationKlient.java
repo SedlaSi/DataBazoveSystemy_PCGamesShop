@@ -48,7 +48,7 @@ public class ApplicationKlient {
         gameList.add("Grand Theft Auto: Vice City (2002, Rockstar Games) (Macintosh, PlayStation 2, PlayStation 3, Windows)");
         gameList.add("The Last of Us (2013, Sony Computer Entertainment) (PlayStation 3)");
         gameList.add("The Last of Us Remastered (2014, Sony Computer Entertainment) (PlayStation 4)");
-        gameList.add("Uncharted 2: Among Thieves (Fortune Hunter Edition) (2009, Sony Computer Entertainment) (PlayStation 3)");
+        gameList.add("Uncharted 2: Among Thieves (2009, Sony Computer Entertainment) (PlayStation 3)");
         gameList.add("Uncharted 3: Drake's Deception (2011, Sony Computer Entertainment) (PlayStation 3)");
         gameList.add("Uncharted: Drake's Fortune (2007, Sony Computer Entertainment) (PlayStation 3)");
         gameList.add("Uncharted: Golden Abyss (2011, Sony Computer Entertainment) (PS Vita)");
@@ -168,7 +168,7 @@ public class ApplicationKlient {
 
                 Hra hra = new Hra(gameMatcher.group(1).trim(), "Hra", policeList.get(random.nextInt(policeList.size())), vydavatel);
 
-                hra.setZanry(getSubList(zanryList, random.nextInt(zanryList.size() - 1) + 1, random));
+                hra.setZanry(getSubList(zanryList, random.nextInt(2) + 1, random));
 
                 try {
                     provider.getProviderDAO().getHraDAO().create(hra);

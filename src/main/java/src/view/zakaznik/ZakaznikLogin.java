@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ZakaznikLogin extends JFrame{
+public class ZakaznikLogin extends JDialog{
 
     private ProviderController providerController;
     private JTextField usernameField;
@@ -34,6 +34,7 @@ public class ZakaznikLogin extends JFrame{
     }
 
     public void startFrame(){
+        setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(400, 300);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -107,7 +108,6 @@ public class ZakaznikLogin extends JFrame{
         loginHintPanel.add(loginHint);
 
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         usernameField.requestFocus();
     }
@@ -116,40 +116,25 @@ public class ZakaznikLogin extends JFrame{
 
         public void actionPerformed(ActionEvent e) {
             if(((JButton)e.getSource()).getText().equals("Vyhledat hru")){ // Vyhledani hry
-                invokeZakaznikVyhledatHru();
+                ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
+                zkl.createFrame();
             } else { // Prihlaseni
                 providerController.getZakaznikLoginController().setUserName(usernameField.getText());
                 providerController.getZakaznikLoginController().setPassWord(new String(passwordField.getPassword()));
+
                 if(providerController.getZakaznikLoginController().performLogin()){
-                    invokeZakaznikPrihlasen();
+                    dispose();
+                    ZakaznikPrihlasen zkl =  new ZakaznikPrihlasen(providerController);
+                    zkl.startFrame();
+                    usernameField.setText("");
+                    passwordField.setText("");
+                    setVisible(true);
+                    repaint();
                 } else {
                     showHint();
                 }
             }
         }
-    }
-
-    private void invokeZakaznikVyhledatHru() {
-        final ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-
-    }
-
-    private void invokeZakaznikPrihlasen(){
-        final ZakaznikPrihlasen zkl =  new ZakaznikPrihlasen(providerController);
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-        this.dispose();
-
     }
 
     private void showHint(){

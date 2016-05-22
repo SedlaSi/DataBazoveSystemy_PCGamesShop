@@ -52,7 +52,7 @@ public class ApplicationAdminBuild {
             final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(providerController, pozice);
             javax.swing.SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
-                    zkl.startFrame();
+                    zkl.createFrame();
                 }
             });
         } else {

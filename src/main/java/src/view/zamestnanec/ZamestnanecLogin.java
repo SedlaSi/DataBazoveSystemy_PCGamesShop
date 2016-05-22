@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 14.4.16.
  */
-public class ZamestnanecLogin extends JFrame{
+public class ZamestnanecLogin extends JDialog{
 
     private ProviderController providerController;
     private JTextField usernameField;
@@ -34,7 +34,7 @@ public class ZamestnanecLogin extends JFrame{
     }
 
     public void startFrame(){
-
+        setModalityType(ModalityType.APPLICATION_MODAL);
 //        if(providerController.getZamestnanecLoginController().someoneIsLoggedInKasa()){
 //            invokeZamestnanecCrashRecovery();
 //            return;
@@ -91,7 +91,6 @@ public class ZamestnanecLogin extends JFrame{
         hintPanel.add(hint);
 
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         usernameField.requestFocus();
     }
@@ -112,7 +111,14 @@ public class ZamestnanecLogin extends JFrame{
                providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
                providerController.getZamestnanecLoginController().setPassWord(new String(passwordField.getPassword()));
                if(providerController.getZamestnanecLoginController().performLogin()){
-                   invokeZamestnanecPotvrditPrevzetiHry();
+
+                   dispose();
+                   ZamestnanecPotvrditPrevzetiHry zkl =  new ZamestnanecPotvrditPrevzetiHry(providerController);
+                   zkl.startFrame();
+                   usernameField.setText("");
+                   passwordField.setText("");
+                   setVisible(true);
+                   repaint();
                } else {
                    showHint();
                }
@@ -128,28 +134,5 @@ public class ZamestnanecLogin extends JFrame{
     private void showHint() {
         hint.setText("Špatné uživatelské jméno nebo heslo.");
     }
-
-    private void invokeZamestnanecPotvrditPrevzetiHry(){
-        final ZamestnanecPotvrditPrevzetiHry zkl =  new ZamestnanecPotvrditPrevzetiHry(providerController);
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-        this.dispose();
-    }
-
-//    private void invokeZamestnanecCrashRecovery(){
-//        final ZamestnanecCrashRecovery zkl =  new ZamestnanecCrashRecovery(providerController);
-//
-//        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                zkl.startFrame();
-//            }
-//        });
-//        this.dispose();
-//    }
-
 
 }

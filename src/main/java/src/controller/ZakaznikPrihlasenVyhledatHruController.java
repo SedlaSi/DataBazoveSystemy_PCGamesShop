@@ -1,9 +1,6 @@
 package src.controller;
 
-import src.model.Exemplar;
-import src.model.Platforma;
-import src.model.Vydavatel;
-import src.model.Zanr;
+import src.model.*;
 import src.provider.Provider;
 import src.provider.ProviderSession;
 
@@ -35,6 +32,10 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
         return providerDAO.getPlatformaDAO().getList();
     }
 
+    public List<Zakaznik> getZakaznikList(){
+        return providerDAO.getZakaznikDAO().getList();
+    }
+
     public List<Exemplar> getHryDleParametru(String nazev, String vydavatel, String rokVydani,
                                              String kodExemplare, List<String> zanry, List<String> platformy){
 
@@ -64,24 +65,19 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
         }
     }
 
-    public boolean zapujcitHru(int idExemplar){
+    public boolean zapujcitHru(long idExemplar, Zakaznik zakaznik){
         String zamestnanecUsername = null;
-        String zakaznikUsername = null;
-
-        if(zakaznikProviderSession != null && zakaznikProviderSession.getSession() != null) {
-            zakaznikUsername = zakaznikProviderSession.getSession().getUserName();
-        }
 
         if(zamestnanecProviderSession != null && zamestnanecProviderSession.getSession() != null) {
             zamestnanecUsername = zamestnanecProviderSession.getSession().getUserName();
         }
 
-        if(zakaznikUsername == null || zakaznikUsername == null) {
+        if(zakaznik == null || zakaznik == null) {
             return false;
         }
 
         try{
-            providerDAO.getExemplarDAO().zapujcitHru(idExemplar, zakaznikUsername, zamestnanecUsername);
+            providerDAO.getExemplarDAO().zapujcitHru(idExemplar, zakaznik.getUsername(), zamestnanecUsername);
         } catch (Exception e){
             e.printStackTrace();
             return false;

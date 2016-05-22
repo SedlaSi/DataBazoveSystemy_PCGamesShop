@@ -14,7 +14,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         super(res);
     }
 
-    public Pujcka getByExemplarId(int idExemplare) throws Exception{
+    public Pujcka getByExemplarId(long idExemplare) throws Exception{
         Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
         q.setParameter("id",idExemplare);
 
@@ -41,7 +41,7 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         em.persist(p);
     }
 
-    public void updateDate(int idExemplar, java.sql.Date date) throws Exception {
+    public void updateDate(int idExemplar, java.util.Date date) throws Exception {
         em.getTransaction().begin();
         Pujcka pujcka = this.getByExemplarId(idExemplar);
 

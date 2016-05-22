@@ -116,7 +116,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         return t;
     }
 
-    public Exemplar getByIdTransactionFree(int id){
+    public Exemplar getByIdTransactionFree(long id){
         Exemplar t = null;
         Query q = em.createNamedQuery("Exemplar.getById");
         q.setParameter("id",id);
@@ -127,7 +127,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         return t;
     }
 
-    public void zapujcitHru(int idExemplar, String zakaznikUserName, String zamestnanecUserName) throws Exception{
+    public void zapujcitHru(long idExemplar, String zakaznikUserName, String zamestnanecUserName) throws Exception{
         Zakaznik zakaznik;
         Zamestnanec zamestnanec;
         Exemplar exemplar;

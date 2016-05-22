@@ -37,7 +37,7 @@ public class AdminVytvoritZamestnance extends JFrame implements ActionListener {
         final AdminVytvoritZamestnance zkl =  new AdminVytvoritZamestnance(null, Collections.EMPTY_LIST);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                zkl.startFrame();
+                zkl.createFrame();
             }
         });
 
@@ -48,7 +48,7 @@ public class AdminVytvoritZamestnance extends JFrame implements ActionListener {
         this.poziceList = poziceList;
     }
 
-    public void startFrame(){
+    public void createFrame(){
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
         setResizable(false);
