@@ -16,8 +16,4 @@ public class Session {
     public String getUserName(){
         return userName;
     }
-
-    public Role getRole(){
-        return role;
-    }
 }
