@@ -89,7 +89,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
     public void createZamestnanec() throws Exception {
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
-        byte [] hash = Decoder.hashPassword(password);
+        char [] hash = Decoder.hashPassword(password);
         if(hash == null) {
             return;
         }
@@ -112,7 +112,7 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
     public void createProjdejce() throws Exception{
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
-        byte [] hash = Decoder.hashPassword(password);
+        char [] hash = Decoder.hashPassword(password);
         if(hash == null) {
             return;
         }

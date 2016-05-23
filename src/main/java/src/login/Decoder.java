@@ -1,5 +1,6 @@
 package src.login;
 
+import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import java.util.Arrays;
  */
 public final class Decoder {
 
-    public static boolean isValid(String pass, byte [] original){
+    public static boolean isValid(String pass, char [] original){
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-256");
@@ -17,12 +18,12 @@ public final class Decoder {
             e.printStackTrace();
             return false;
         }
-        byte [] password = md.digest(pass.getBytes());
+        char [] password = new HexBinaryAdapter().marshal(md.digest(pass.getBytes())).toCharArray();
         return Arrays.equals(password, original);
     }
 
 
-    public static byte [] hashPassword(String password){
+    public static char [] hashPassword(String password){
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-256");
@@ -30,6 +31,7 @@ public final class Decoder {
             e.printStackTrace();
             return null;
         }
-        return md.digest(password.getBytes());
+
+        return new HexBinaryAdapter().marshal(md.digest(password.getBytes())).toCharArray();
     }
 }
