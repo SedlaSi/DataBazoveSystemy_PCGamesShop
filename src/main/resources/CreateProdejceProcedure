@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION create_active_prodejce(IN username VARCHAR(128),IN  password BYTEA, IN jmeno VARCHAR(128),IN prijmeni VARCHAR(128),IN mesto VARCHAR(128), IN ulice VARCHAR(128), IN cislo_popisne INTEGER, IN telefon VARCHAR(16), IN email VARCHAR(256), IN plat INTEGER)
+RETURNS BOOLEAN LANGUAGE plpgsql SECURITY DEFINER AS $$
+BEGIN
+	IF username = '' OR jmeno = '' OR prijmeni = '' OR mesto = '' OR ulice = '' OR email = '' OR telefon = '' OR plat < 0 THEN
+		RETURN FALSE;
+	ELSE
+      		INSERT INTO zamestnanec VALUES ((SELECT nextval('id_zamestnanec_seq')), TRUE, cislo_popisne, email, jmeno, mesto, password, plat,
+				      		     prijmeni, telefon, ulice, username, 30);
+      		RETURN TRUE;
+	END IF;
+END;
+$$;
+					      

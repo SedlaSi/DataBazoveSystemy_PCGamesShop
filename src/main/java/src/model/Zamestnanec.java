@@ -30,6 +30,7 @@ import java.util.List;
                 @StoredProcedureParameter(mode = ParameterMode.IN, type = int.class, name = "plat"),
         }
 )
+
 public class Zamestnanec {
 
     public Zamestnanec() {
@@ -50,7 +51,8 @@ public class Zamestnanec {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator="id_zamestnanec_seq")
+    @SequenceGenerator(name="id_zamestnanec_seq",sequenceName="id_zamestnanec_seq", allocationSize=1)
     @Column(name = "id_zamestnanec")
     private long id;
 

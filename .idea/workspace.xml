@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c51d1c3a-cd12-4c3d-b2af-4a91333472e8" name="Default" comment="triggry v Platforme">
+    <list default="true" id="c51d1c3a-cd12-4c3d-b2af-4a91333472e8" name="Default" comment="jeste nehotova procedura">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/data/ZamestnanecDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/data/ZamestnanecDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java" afterPath="$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
     </list>
     <ignored path="GameShop.iws" />
@@ -46,18 +47,8 @@
       <file leaf-file-name="ApplicationAdminBuild.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
+            <state relative-caret-position="126">
               <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Platforma.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Platforma.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,7 +57,7 @@
       <file leaf-file-name="AdminVytvoritZamestnanceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="1458">
               <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
               <folding>
                 <element signature="method#validData#0;class#AdminVytvoritZamestnanceController#0" expanded="false" />
@@ -75,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZamestnanecDAO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZamestnanecDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+            <state relative-caret-position="227">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,8 +79,45 @@
       <file leaf-file-name="Zamestnanec.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1836">
-              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+            <state relative-caret-position="198">
+              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationSestava.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationSestava.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding>
+                <marker date="1463856113681" expanded="true" signature="880:1397" placeholder="SELECT hra.i... hra" />
+                <marker date="1463856113681" expanded="true" signature="1819:2156" placeholder="SELECT zakaz... zakaznik" />
+                <marker date="1463856113681" expanded="true" signature="2600:2909" placeholder="SELECT zakaz... zakaznik" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationKlient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="336" column="0" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateProdejceProcedure" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -98,7 +126,7 @@
       <file leaf-file-name="Zakaznik.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
+            <state relative-caret-position="396">
               <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
               <folding />
             </state>
@@ -108,7 +136,7 @@
       <file leaf-file-name="ApplicationMainBuild.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
+            <state relative-caret-position="774">
               <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
               <folding />
             </state>
@@ -118,28 +146,8 @@
       <file leaf-file-name="AdminVytvoritZamestnance.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="2520">
               <caret line="154" column="93" selection-start-line="154" selection-start-column="93" selection-end-line="154" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exemplar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Exemplar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="52" column="74" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pujcka.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Pujcka.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -169,7 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/login/KasaSession.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Kasa.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/ApplicationZakaznikBuild.java" />
@@ -218,8 +225,9 @@
         <option value="$PROJECT_DIR$/src/main/java/src/model/Hra.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure" />
       </list>
     </option>
   </component>
@@ -236,9 +244,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
     <option name="y" value="25" />
-    <option name="width" value="1366" />
-    <option name="height" value="743" />
+    <option name="width" value="1368" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -265,8 +274,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -582,6 +589,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1121,9 +1130,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.ApplicationAdminBuild" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ApplicationMainBuild" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ApplicationHlavniNabidka" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ApplicationKlient" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ApplicationKlient" />
+        <item index="2" class="java.lang.String" itemvalue="Application.ApplicationMainBuild" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ApplicationHlavniNabidka" />
         <item index="4" class="java.lang.String" itemvalue="Application.ApplicationZamestnanecBuild" />
       </list>
     </recent_temporary>
@@ -1179,14 +1188,8 @@
       <workItem from="1463860322600" duration="4937000" />
       <workItem from="1463914014929" duration="4352000" />
       <workItem from="1463924893769" duration="503000" />
-      <workItem from="1463926250069" duration="10926000" />
-    </task>
-    <task id="LOCAL-00003" summary="pridany vazby OtM MtO MtM">
-      <created>1460653669931</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1460653669931</updated>
+      <workItem from="1463926250069" duration="10981000" />
+      <workItem from="1463990873307" duration="3487000" />
     </task>
     <task id="LOCAL-00004" summary="TemplateController, zkousky s GUI">
       <created>1460672652264</created>
@@ -1524,14 +1527,21 @@
       <option name="project" value="LOCAL" />
       <updated>1463946589766</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="jeste nehotova procedura">
+      <created>1463953690346</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1463953690346</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161921000" />
+    <option name="totallyTimeSpent" value="165463000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
+    <frame x="-1" y="25" width="1368" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1544,12 +1554,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.086119555" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41692308" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25846153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29010418" sideWeight="0.15343915" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3806735" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43704244" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06661786" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1579,7 +1589,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="potvrzeni prevzeti pridano" />
     <MESSAGE value="uz funguje pujcovani a hledani her" />
     <MESSAGE value="Vsechny zaklady fungujou az na vyhledavani her, to zobrazuje i hry ktere si uz uzivatel pujcil - musi se opravit" />
     <MESSAGE value="Vsechny zaklady fungujou az na vyhledavani her, to zobrazuje i hry ktere si uz uzivatel pujcil - musi se opravit...a jeste nefungujou zanry ale platformy uz jo" />
@@ -1604,7 +1613,8 @@
     <MESSAGE value="refresh button pridan" />
     <MESSAGE value="transakce opraveny" />
     <MESSAGE value="triggry v Platforme" />
-    <option name="LAST_COMMIT_MESSAGE" value="triggry v Platforme" />
+    <MESSAGE value="jeste nehotova procedura" />
+    <option name="LAST_COMMIT_MESSAGE" value="jeste nehotova procedura" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1618,7 +1628,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/ProviderRefresher.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/Provider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1710,7 +1719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1718,19 +1726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationSestava.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <marker date="1463856113681" expanded="true" signature="880:1397" placeholder="SELECT hra.i... hra" />
-            <marker date="1463856113681" expanded="true" signature="1819:2156" placeholder="SELECT zakaz... zakaznik" />
-            <marker date="1463856113681" expanded="true" signature="2600:2909" placeholder="SELECT zakaz... zakaznik" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1738,9 +1733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1764,7 +1756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1800,30 +1791,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="238" column="0" selection-start-line="238" selection-start-column="0" selection-end-line="238" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/refresh.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/refresh.ico" />
     <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
-          <folding>
-            <element signature="e#7223#7224#0" expanded="false" />
-            <element signature="e#7256#7257#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1843,10 +1815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding>
-            <element signature="e#273#274#0" expanded="true" />
-            <element signature="e#357#358#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1892,7 +1860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-400">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1935,7 +1902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1981,7 +1947,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Exemplar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="900">
           <caret line="52" column="74" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
           <folding />
         </state>
@@ -1989,7 +1955,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Platforma.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
+        <state relative-caret-position="486">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
@@ -1997,7 +1963,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Pujcka.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="1152">
           <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
           <folding />
         </state>
@@ -2005,7 +1971,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="2520">
           <caret line="154" column="93" selection-start-line="154" selection-start-column="93" selection-end-line="154" selection-end-column="93" />
           <folding />
         </state>
@@ -2013,7 +1979,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="1458">
           <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
           <folding>
             <element signature="method#validData#0;class#AdminVytvoritZamestnanceController#0" expanded="false" />
@@ -2023,7 +1989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
+        <state relative-caret-position="774">
           <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
           <folding />
         </state>
@@ -2031,7 +1997,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
+        <state relative-caret-position="126">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
@@ -2039,24 +2005,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
+        <state relative-caret-position="396">
           <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+        <state relative-caret-position="227">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationSestava.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <marker date="1463856113681" expanded="true" signature="880:1397" placeholder="SELECT hra.i... hra" />
+            <marker date="1463856113681" expanded="true" signature="1819:2156" placeholder="SELECT zakaz... zakaznik" />
+            <marker date="1463856113681" expanded="true" signature="2600:2909" placeholder="SELECT zakaz... zakaznik" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="336" column="0" selection-start-line="336" selection-start-column="0" selection-end-line="336" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding />
         </state>
       </provider>
