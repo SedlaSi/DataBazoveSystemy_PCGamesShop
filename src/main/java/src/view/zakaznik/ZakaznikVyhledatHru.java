@@ -8,6 +8,7 @@ import src.model.Zanr;
 import src.provider.Provider;
 import src.provider.ProviderController;
 import src.renderer.ExemplarRenderer;
+import src.view.zamestnanec.ZamestnanecPrihlasenVyhledatHru;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -47,7 +48,7 @@ public class ZakaznikVyhledatHru extends JDialog implements ActionListener  {
         ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
 
 
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController);
+        final ZamestnanecPrihlasenVyhledatHru zkl =  new ZamestnanecPrihlasenVyhledatHru(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.createFrame();
@@ -216,7 +217,7 @@ public class ZakaznikVyhledatHru extends JDialog implements ActionListener  {
 
         String selectedVydavatel = (String)vydavatel.getSelectedItem();
 
-        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy);
+        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy, false);
 
         if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
             vysledkyHledani.setListData(vyhledaneHry.toArray());

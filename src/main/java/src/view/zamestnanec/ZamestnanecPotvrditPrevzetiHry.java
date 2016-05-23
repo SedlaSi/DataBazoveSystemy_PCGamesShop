@@ -3,7 +3,6 @@ package src.view.zamestnanec;
 import src.controller.*;
 import src.provider.Provider;
 import src.provider.ProviderController;
-import src.view.zakaznik.ZakaznikPrihlasenVyhledatHru;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -142,7 +141,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionLis
                 showSuccess();
             }
         } else if(source == pujcit) {
-            ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController);
+            ZamestnanecPrihlasenVyhledatHru zkl =  new ZamestnanecPrihlasenVyhledatHru(providerController);
             zkl.createFrame();
             datum.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH).format(new Date()));
         }
