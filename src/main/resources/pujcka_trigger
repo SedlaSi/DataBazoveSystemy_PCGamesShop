@@ -1,0 +1,17 @@
+CREATE OR REPLACE FUNCTION valid_pujcka()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER AS $$
+BEGIN
+	IF (SELECT COUNT(id_byl_propujcen) FROM byl_propujcen WHERE vraceno IS NULL AND id_exemplar = NEW.id_exemplar) > 0 THEN
+		RAISE EXCEPTION 'Exemplar jeste nebyl vracen, nemuze byt pujcen';
+	ELSE
+		RETURN NEW;
+	END IF;
+END;
+$$;
+
+DROP TRIGGER IF EXISTS pujcka_trigger ON byl_propujcen;
+
+CREATE TRIGGER pujcka_trigger
+        BEFORE INSERT ON byl_propujcen
+        FOR EACH ROW
+        EXECUTE PROCEDURE valid_pujcka();
