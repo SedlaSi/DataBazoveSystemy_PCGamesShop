@@ -42,17 +42,24 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
     }
 
     public void createProdejce(Zamestnanec zamestnanec){
-        StoredProcedureQuery query = em.createNamedStoredProcedureQuery("create_active_prodejce");
-        query.setParameter("jmeno", zamestnanec.getJmeno());
-        query.setParameter("prijmeni", zamestnanec.getPrijmeni());
-        query.setParameter("username", zamestnanec.getUsername());
-        query.setParameter("password", zamestnanec.getPassword());
-        query.setParameter("mesto", zamestnanec.getMesto());
-        query.setParameter("ulice", zamestnanec.getUlice());
-        query.setParameter("cislo_popisne", zamestnanec.getCisloPopisne());
-        query.setParameter("plat", zamestnanec.getPlat());
-        query.setParameter("email", zamestnanec.getEmail());
-        query.setParameter("telefon", zamestnanec.getTelefon());
-        query.execute();
+        em.getTransaction().begin();
+        try {
+            StoredProcedureQuery query = em.createNamedStoredProcedureQuery("create_active_prodejce");
+            query.setParameter("jmeno", zamestnanec.getJmeno());
+            query.setParameter("prijmeni", zamestnanec.getPrijmeni());
+            query.setParameter("username", zamestnanec.getUsername());
+            query.setParameter("password", zamestnanec.getPassword());
+            query.setParameter("mesto", zamestnanec.getMesto());
+            query.setParameter("ulice", zamestnanec.getUlice());
+            query.setParameter("cislo_popisne", zamestnanec.getCisloPopisne());
+            query.setParameter("plat", zamestnanec.getPlat());
+            query.setParameter("email", zamestnanec.getEmail());
+            query.setParameter("telefon", zamestnanec.getTelefon());
+            query.execute();
+        } catch (Exception e){
+            em.getTransaction().rollback();
+            throw e;
+        }
+        em.getTransaction().commit();
     }
 }

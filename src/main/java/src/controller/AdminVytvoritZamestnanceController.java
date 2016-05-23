@@ -107,7 +107,6 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setPozice(pozice);
 
         zamestnanecDAO.create(z);
-        zamestnanecDAO.createProdejce(z);
     }
 
     public void createProjdejce() throws Exception{
@@ -128,7 +127,6 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setTelefon(telefon);
         z.setEmail(email);
         z.setPlat(pt);
-
         zamestnanecDAO.createProdejce(z);
     }
 

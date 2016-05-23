@@ -160,7 +160,7 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
                 adminCntrl.createProjdejce();
                 JOptionPane.showMessageDialog(this, "Prodejce úspěšně vytvořen", "Zaměstnanec", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex){
-                ex.printStackTrace();
+                //ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Prodejce se nepodařilo vytvořit, chyba databáze, nebo už je použité stejné uživatelské jméno nebo email", "Zaměstnanec", JOptionPane.ERROR_MESSAGE);
             }
         }
