@@ -21,7 +21,15 @@ public class TemplateDAO<T> {
 
     public void create(T t) throws Exception{
         em.getTransaction().begin();
-        em.persist(t);
+        try{
+            em.persist(t);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            em.getTransaction().rollback();
+
+            throw new Exception("rollback invoked");
+        }
+
         em.getTransaction().commit();
     }
 

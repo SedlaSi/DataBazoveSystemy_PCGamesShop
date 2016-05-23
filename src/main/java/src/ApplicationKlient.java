@@ -88,11 +88,8 @@ public class ApplicationKlient {
                 try {
                     provider.getProviderDAO().getPujckaDAO().create(pujcka);
                 } catch (Exception e) {
-                    /**
-                     * SUPPRESSED EXCEPTION WARNING
-                     * */
                     System.out.println("Nepodarilo se vytvorit vypujcku.");
-                    //e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
