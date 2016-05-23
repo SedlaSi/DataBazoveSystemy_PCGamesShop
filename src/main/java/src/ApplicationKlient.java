@@ -1,6 +1,7 @@
 package src;
 
 
+import src.login.Decoder;
 import src.model.*;
 import src.provider.Provider;
 import src.util.Util;
@@ -303,7 +304,7 @@ public class ApplicationKlient {
         Osoba osoba = new Osoba(jmena[random.nextInt(jmena.length)], prijemeni[random.nextInt(prijemeni.length)], mesta[random.nextInt(mesta.length)], ulice[random.nextInt(ulice.length)], idCounter, new Integer(random.nextInt(99999999) + 700000000));
         osoba.setUsername(Util.stripAccents(osoba.getPrijmeni()).toLowerCase() + Util.stripAccents(osoba.getJmeno()).toLowerCase() + idCounter);
         osoba.setEmail(osoba.getUsername() + "@gmail.com");
-        osoba.setPassword(md.digest("Heslo".getBytes()));
+        osoba.setPassword(Decoder.hashPassword("Heslo"));
         idCounter++;
 
         return osoba;
@@ -345,7 +346,7 @@ public class ApplicationKlient {
         private String ulice;
         private int telefon;
         private String username;
-        private byte [] password;
+        private char [] password;
         private String email;
         private int cisloPopisne;
 
@@ -382,7 +383,7 @@ public class ApplicationKlient {
             return username;
         }
 
-        public byte [] getPassword() {
+        public char [] getPassword() {
             return password;
         }
 
@@ -418,7 +419,7 @@ public class ApplicationKlient {
             this.username = username;
         }
 
-        public void setPassword(byte [] password) {
+        public void setPassword(char [] password) {
             this.password = password;
         }
 

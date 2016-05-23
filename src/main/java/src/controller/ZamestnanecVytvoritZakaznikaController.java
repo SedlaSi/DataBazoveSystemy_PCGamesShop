@@ -83,7 +83,7 @@ public class ZamestnanecVytvoritZakaznikaController extends TemplateController{
             return false;
         }
         int cp = Integer.parseInt(cisloPopisne);
-        byte [] hash = Decoder.hashPassword(password);
+        char [] hash = Decoder.hashPassword(password);
         if(hash == null) {
             return false;
         }
