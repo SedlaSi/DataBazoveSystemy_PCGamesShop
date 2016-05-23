@@ -45,7 +45,8 @@ public class ZakaznikVyhledatHru extends JDialog implements ActionListener  {
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
         ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
         ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
-        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
+        HlavniNabidkaController hnC = new HlavniNabidkaController(provider);
+        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC,hnC);
 
 
         final ZamestnanecPrihlasenVyhledatHru zkl =  new ZamestnanecPrihlasenVyhledatHru(providerController);

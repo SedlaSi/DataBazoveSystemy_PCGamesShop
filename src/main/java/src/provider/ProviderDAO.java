@@ -77,7 +77,11 @@ public class ProviderDAO {
         return pujckaDAO;
     }
 
-//    public KasaDAO getKasaDAO() {
+    public Resources getRes() {
+        return res;
+    }
+
+    //    public KasaDAO getKasaDAO() {
 //        return kasaDAO;
 //    }
 }

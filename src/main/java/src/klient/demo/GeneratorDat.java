@@ -1,13 +1,12 @@
-package src;
+package src.klient.demo;
 
 
 import src.login.Decoder;
 import src.model.*;
-import src.provider.Provider;
+import src.provider.ProviderDAO;
 import src.util.Util;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,8 +14,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ApplicationKlient {
-    private static Provider provider;
+public class GeneratorDat {
+    private ProviderDAO providerDAO;
 
     private String[] zanry = {"Adeventura", "Arkády", "RPG", "Simuátor", "Horor", "Tahová strategie", "Závodní", "Sport", "FPS"};
     private String[] pozice = {"Prodejce"};
@@ -56,9 +55,9 @@ public class ApplicationKlient {
     }
 
     void generujVypujcky() {
-        List<Zamestnanec> zamestnanciList = provider.getProviderDAO().getZamestnanecDAO().getList();
-        List<Zakaznik> zakazniciList = provider.getProviderDAO().getZakaznikDAO().getList();
-        List<Exemplar> exemplareList = provider.getProviderDAO().getExemplarDAO().getList();
+        List<Zamestnanec> zamestnanciList = providerDAO.getZamestnanecDAO().getList();
+        List<Zakaznik> zakazniciList = providerDAO.getZakaznikDAO().getList();
+        List<Exemplar> exemplareList = providerDAO.getExemplarDAO().getList();
 
         if(zamestnanciList.size() == 0 || zakazniciList.size() == 0 || exemplareList.size() == 0) {
             System.err.println("V databazi nejsou zadni zamestnanci nebo zakaznici nabo exemplare.");
@@ -86,7 +85,7 @@ public class ApplicationKlient {
                 lastData = new Date(vraceno.getTime() + dayInMs);
 
                 try {
-                    provider.getProviderDAO().getPujckaDAO().create(pujcka);
+                    providerDAO.getPujckaDAO().create(pujcka);
                 } catch (Exception e) {
                     System.out.println("Nepodarilo se vytvorit vypujcku.");
                     e.printStackTrace();
@@ -112,7 +111,7 @@ public class ApplicationKlient {
             Platforma platforma = new Platforma(platformaNazev);
 
             try {
-                provider.getProviderDAO().getPlatformaDAO().create(platforma);
+                providerDAO.getPlatformaDAO().create(platforma);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit platformu.");
                 e.printStackTrace();
@@ -137,7 +136,7 @@ public class ApplicationKlient {
             Vydavatel vydavatel = new Vydavatel(vydavateleNazev);
 
             try {
-                provider.getProviderDAO().getVydavatelDAO().create(vydavatel);
+                providerDAO.getVydavatelDAO().create(vydavatel);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit vydavatele.");
                 e.printStackTrace();
@@ -148,8 +147,8 @@ public class ApplicationKlient {
     void generujExemplare(int pocetExemplaruOdDanePlatformy) {
         Pattern gamePattern = Pattern.compile("([^\\(]+)\\s*\\((\\d+),\\s*([^\\)]+)\\)\\s*\\(([^\\)]+)");
 
-        List<Police> policeList = provider.getProviderDAO().getPoliceDAO().getList();
-        List<Zanr> zanryList = provider.getProviderDAO().getZanrDAO().getList();
+        List<Police> policeList = providerDAO.getPoliceDAO().getList();
+        List<Zanr> zanryList = providerDAO.getZanrDAO().getList();
 
         if(policeList.size() == 0 || zanryList.size() == 0) {
             System.err.println("V databazi nejsou zadne polize nebo zanry.");
@@ -160,7 +159,7 @@ public class ApplicationKlient {
             Matcher gameMatcher = gamePattern.matcher(game);
 
             while (gameMatcher.find()) {
-                Vydavatel vydavatel = provider.getProviderDAO().getVydavatelDAO().getByNazev(gameMatcher.group(3).trim());
+                Vydavatel vydavatel = providerDAO.getVydavatelDAO().getByNazev(gameMatcher.group(3).trim());
 
                 if (vydavatel == null) {
                     System.err.println("Neexistujici vydavatel.");
@@ -172,7 +171,7 @@ public class ApplicationKlient {
                 hra.setZanry(Util.getSubList(zanryList, random.nextInt(2) + 1, random));
 
                 try {
-                    provider.getProviderDAO().getHraDAO().create(hra);
+                    providerDAO.getHraDAO().create(hra);
                 } catch (Exception e) {
                     System.err.println("Nepodarilo se vytvorit hru.");
                     e.printStackTrace();
@@ -205,7 +204,7 @@ public class ApplicationKlient {
 
                         exemplar.setRokVydani(new Date(date.getTime()));
 
-                        Platforma platforma = provider.getProviderDAO().getPlatformaDAO().getByNazev(platformaNazev);
+                        Platforma platforma = providerDAO.getPlatformaDAO().getByNazev(platformaNazev);
 
                         if (platforma == null) {
                             System.err.println("Neexistujici platforma.");
@@ -214,7 +213,7 @@ public class ApplicationKlient {
                         exemplar.setPlatforma(platforma);
 
                         try {
-                            provider.getProviderDAO().getExemplarDAO().create(exemplar);
+                            providerDAO.getExemplarDAO().create(exemplar);
                         } catch (Exception e) {
                             System.err.println("Nepodarilo se vytvorit exemplar.");
                             e.printStackTrace();
@@ -230,7 +229,7 @@ public class ApplicationKlient {
             Zanr zanr = new Zanr(zanry[i]);
 
             try {
-                provider.getProviderDAO().getZanrDAO().create(zanr);
+                providerDAO.getZanrDAO().create(zanr);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit zanr.");
                 e.printStackTrace();
@@ -243,7 +242,7 @@ public class ApplicationKlient {
             Police police = new Police("P" + i, "Police číslo: " + i);
 
             try {
-                provider.getProviderDAO().getPoliceDAO().create(police);
+                providerDAO.getPoliceDAO().create(police);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit polici.");
                 e.printStackTrace();
@@ -256,7 +255,7 @@ public class ApplicationKlient {
             Pozice poz = new Pozice(pozice[i]);
 
             try {
-                provider.getProviderDAO().getPoziceDAO().create(poz);
+                providerDAO.getPoziceDAO().create(poz);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit pozici.");
                 e.printStackTrace();
@@ -269,7 +268,7 @@ public class ApplicationKlient {
             Osoba osoba = generujOsobu();
             Zakaznik zakaznik = new Zakaznik(osoba.getJmeno(), osoba.getPrijmeni(), osoba.getMesto(), osoba.getUlice(), osoba.getCisloPopisne(), Integer.toString(osoba.getTelefon()), osoba.getEmail(), osoba.getUsername(), osoba.getPassword());
             try {
-                provider.getProviderDAO().getZakaznikDAO().create(zakaznik);
+                providerDAO.getZakaznikDAO().create(zakaznik);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit zakaznika.");
                 e.printStackTrace();
@@ -278,7 +277,7 @@ public class ApplicationKlient {
     }
 
     void generujZamestnance(int count) {
-        List<Pozice> poziceList = provider.getProviderDAO().getPoziceDAO().getList();
+        List<Pozice> poziceList = providerDAO.getPoziceDAO().getList();
 
         if(poziceList.size() == 0) {
             System.err.println("V databazi nejsou zadne pozice.");
@@ -289,7 +288,7 @@ public class ApplicationKlient {
             Osoba osoba = generujOsobu();
             Zamestnanec zamestnanec = new Zamestnanec(osoba.getJmeno(), osoba.getPrijmeni(), osoba.getMesto(), osoba.getUlice(), osoba.getCisloPopisne(), Integer.toString(osoba.getTelefon()), osoba.getEmail(), osoba.getUsername(), osoba.getPassword(), (random.nextInt(10) + 8) * 10000, poziceList.get(random.nextInt(poziceList.size())));
             try {
-                provider.getProviderDAO().getZamestnanecDAO().create(zamestnanec);
+                providerDAO.getZamestnanecDAO().create(zamestnanec);
             } catch (Exception e) {
                 System.err.println("Nepodarilo se vytvořit zamestnance.");
                 e.printStackTrace();
@@ -307,18 +306,11 @@ public class ApplicationKlient {
         return osoba;
     }
 
-    public static void main(String[] args) {
-        new ApplicationKlient().start();
+    public GeneratorDat(ProviderDAO providerDAO) {
+        this.providerDAO = providerDAO;
     }
 
     public void start() {
-        provider = new Provider();
-        try {
-            md = MessageDigest.getInstance("SHA-256");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return;
-        }
         initGameList();
 
         System.out.println("Generuji provozni data.");

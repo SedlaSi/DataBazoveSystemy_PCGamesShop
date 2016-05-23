@@ -30,7 +30,8 @@ public class HlavniNabidka extends JFrame implements ActionListener {
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
         ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
         ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
-        ProviderController providerController = new ProviderController(zpphC, zpvC, zkpC, admSC, zvC, zvzC, admC, zkC, zlC);
+        HlavniNabidkaController hnC = new HlavniNabidkaController(provider);
+        ProviderController providerController = new ProviderController(zpphC, zpvC, zkpC, admSC, zvC, zvzC, admC, zkC, zlC, hnC);
 
         final src.view.HlavniNabidka zkl = new src.view.HlavniNabidka(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -88,9 +89,12 @@ public class HlavniNabidka extends JFrame implements ActionListener {
             ZamestnanecLogin zamestnanecLogin = new ZamestnanecLogin(providerController);
             zamestnanecLogin.startFrame();
         } else if (source == sestavy) {
-
+            providerController.getHlavniNabidkaController().getnerujSestavy();
+            JOptionPane.showMessageDialog(this, "Sestavy byly vygenerovány do csv souborů.", "Sestavy", JOptionPane.INFORMATION_MESSAGE);
         } else if (source == generovani) {
-
+            JOptionPane.showMessageDialog(this, "Po odkliknutí tohoto okna započne generování dat. Může to trvat několik sekund.", "Generování dat", JOptionPane.INFORMATION_MESSAGE);
+            providerController.getHlavniNabidkaController().getnerujProvozniData();
+            JOptionPane.showMessageDialog(this, "Provozní data byla vygenerována.", "Generování dat", JOptionPane.INFORMATION_MESSAGE);
         } else if (source == anomalie) {
 
         }

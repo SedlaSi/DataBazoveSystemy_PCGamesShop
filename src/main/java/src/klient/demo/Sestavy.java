@@ -1,6 +1,4 @@
-package src;
-
-import src.util.Resources;
+package src.klient.demo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -11,15 +9,14 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplicationSestava {
+public class Sestavy {
     private EntityManager entityManager;
 
-    public static void main(String[] args) {
-        new ApplicationSestava().start();
+    public Sestavy(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     public void start() {
-        entityManager = new Resources().getEntityManager();
         zakazniciPodleUtraty();
         zakazniciCoSiNejvicePujcuji();
         nejpujcovanejsiHry();
