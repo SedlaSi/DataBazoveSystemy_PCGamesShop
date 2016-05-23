@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c51d1c3a-cd12-4c3d-b2af-4a91333472e8" name="Default" comment="jeste nehotova procedura">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure" />
+    <list default="true" id="c51d1c3a-cd12-4c3d-b2af-4a91333472e8" name="Default" comment="hotova procedura na vytvareni prodejce">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild$1.class" afterPath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild$2.class" afterPath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild.class" afterPath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/data/ZamestnanecDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/data/ZamestnanecDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java" afterPath="$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
     </list>
     <ignored path="GameShop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,8 +49,8 @@
       <file leaf-file-name="ApplicationAdminBuild.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="243">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,8 +59,8 @@
       <file leaf-file-name="AdminVytvoritZamestnanceController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1458">
-              <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
+            <state relative-caret-position="532">
+              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
               <folding>
                 <element signature="method#validData#0;class#AdminVytvoritZamestnanceController#0" expanded="false" />
               </folding>
@@ -113,11 +115,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateProdejceProcedure" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateProdejceProcedure" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state relative-caret-position="216">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminVytvoritProdejce.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -138,16 +150,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="774">
               <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminVytvoritZamestnance.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2520">
-              <caret line="154" column="93" selection-start-line="154" selection-start-column="93" selection-end-line="154" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -177,8 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Kasa.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/ApplicationZakaznikBuild.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/ApplicationZamestnanecBuild.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledaniHry.java" />
@@ -223,11 +223,13 @@
         <option value="$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Zanr.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Hra.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
         <option value="$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java" />
       </list>
     </option>
   </component>
@@ -606,12 +608,13 @@
     <property name="JPA.DatabaseSchemaImportDialog" value="ee25576f-964f-405d-a876-4dba7ccf0b81" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="src.controller" />
-    </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="src.model" />
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="src.view.admin" />
+      <recent name="src.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -1189,14 +1192,7 @@
       <workItem from="1463914014929" duration="4352000" />
       <workItem from="1463924893769" duration="503000" />
       <workItem from="1463926250069" duration="10981000" />
-      <workItem from="1463990873307" duration="3487000" />
-    </task>
-    <task id="LOCAL-00004" summary="TemplateController, zkousky s GUI">
-      <created>1460672652264</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1460672652264</updated>
+      <workItem from="1463990873307" duration="3946000" />
     </task>
     <task id="LOCAL-00005" summary="Opravy, nazvy tabulek">
       <created>1460672965817</created>
@@ -1534,15 +1530,22 @@
       <option name="project" value="LOCAL" />
       <updated>1463953690346</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="hotova procedura na vytvareni prodejce">
+      <created>1463994380096</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1463994380096</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165463000" />
+    <option name="totallyTimeSpent" value="165922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1368" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1554,12 +1557,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.086119555" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25846153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16923077" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29010418" sideWeight="0.15343915" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43704244" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31112736" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06661786" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1589,7 +1592,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="uz funguje pujcovani a hledani her" />
     <MESSAGE value="Vsechny zaklady fungujou az na vyhledavani her, to zobrazuje i hry ktere si uz uzivatel pujcil - musi se opravit" />
     <MESSAGE value="Vsechny zaklady fungujou az na vyhledavani her, to zobrazuje i hry ktere si uz uzivatel pujcil - musi se opravit...a jeste nefungujou zanry ale platformy uz jo" />
     <MESSAGE value="jeste ty zanry a scrollbary, u scrollbaru je problem s JPanelem kterej ty listy proste necha podtect pod jeho plochu" />
@@ -1614,7 +1616,8 @@
     <MESSAGE value="transakce opraveny" />
     <MESSAGE value="triggry v Platforme" />
     <MESSAGE value="jeste nehotova procedura" />
-    <option name="LAST_COMMIT_MESSAGE" value="jeste nehotova procedura" />
+    <MESSAGE value="hotova procedura na vytvareni prodejce" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotova procedura na vytvareni prodejce" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1628,14 +1631,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/Provider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationZakaznikBuild.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1719,6 +1714,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1726,6 +1722,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1756,6 +1753,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1796,6 +1794,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+          <folding>
+            <element signature="e#7223#7224#0" expanded="false" />
+            <element signature="e#7256#7257#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1977,28 +1979,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="108" column="35" selection-start-line="108" selection-start-column="35" selection-end-line="108" selection-end-column="35" />
-          <folding>
-            <element signature="method#validData#0;class#AdminVytvoritZamestnanceController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="774">
           <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2052,8 +2036,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="216">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <element signature="method#validData#0;class#AdminVytvoritZamestnanceController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding />
         </state>
       </provider>

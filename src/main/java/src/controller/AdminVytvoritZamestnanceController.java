@@ -106,7 +106,29 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         z.setPlat(pt);
         z.setPozice(pozice);
 
-        //zamestnanecDAO.create(z);
+        zamestnanecDAO.create(z);
+        zamestnanecDAO.createProdejce(z);
+    }
+
+    public void createProjdejce() throws Exception{
+        int cp = Integer.parseInt(cisloPopisne);
+        int pt = Integer.parseInt(plat);
+        byte [] hash = Decoder.hashPassword(password);
+        if(hash == null) {
+            return;
+        }
+        Zamestnanec z = new Zamestnanec();
+        z.setUsername(username);
+        z.setPassword(hash);
+        z.setJmeno(jmeno);
+        z.setMesto(mesto);
+        z.setPrijmeni(prijmeni);
+        z.setUlice(ulice);
+        z.setCisloPopisne(cp);
+        z.setTelefon(telefon);
+        z.setEmail(email);
+        z.setPlat(pt);
+
         zamestnanecDAO.createProdejce(z);
     }
 
