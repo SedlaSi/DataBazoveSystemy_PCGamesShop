@@ -23,6 +23,28 @@ public class ApplicationSestava {
         zakazniciPodleUtraty();
         zakazniciCoSiNejvicePujcuji();
         nejpujcovanejsiHry();
+        nejdelePujceneHry();
+        hryNejvicekratPujceneOpakovane();
+    }
+
+    private void hryNejvicekratPujceneOpakovane() {
+        Sestava sestava = new Sestava(new String[]{"id_hra", "hra_nazev", "vydavatel_nazev", "maximalni_pocet_opakovanych_pujceni"});
+
+        Query q = entityManager.createNativeQuery("SELECT tabulka.id_hra, tabulka.hra_nazev, tabulka.vydavatel_nazev, MAX(pocet) as max_pujceno FROM (SELECT hra.id_hra, hra.nazev as hra_nazev, vydavatel.nazev as vydavatel_nazev, COUNT(*) as pocet FROM byl_propujcen INNER JOIN exemplar ON ( byl_propujcen.id_exemplar = exemplar.id_exemplar) INNER JOIN hra ON (exemplar.id_hra = hra.id_hra) INNER JOIN vydavatel ON (hra.id_vydavatel = vydavatel.id_vydavatel) GROUP BY hra.id_hra, byl_propujcen.id_zakaznik, vydavatel.id_vydavatel) as tabulka group by tabulka.id_hra, tabulka.hra_nazev, tabulka.vydavatel_nazev ORDER BY max_pujceno DESC");
+        List<Object[]> hry = q.getResultList();
+
+        sestava.addAll(hry);
+        sestava.prinToFile("hry_nejvicekrat_pujcene_opakovane.csv");
+    }
+
+    private void nejdelePujceneHry() {
+        Sestava sestava = new Sestava(new String[]{"id_hra", "hra_nazev", "vydavatel_nazev", "pujceno_celkem_hodin"});
+
+        Query q = entityManager.createNativeQuery("SELECT hra.id_hra, hra.nazev, vydavatel.nazev, EXTRACT(EPOCH FROM SUM(vraceno-pujceno))/86400 as pujceno_celkem FROM byl_propujcen INNER JOIN exemplar ON ( byl_propujcen.id_exemplar = exemplar.id_exemplar) INNER JOIN hra ON (exemplar.id_hra = hra.id_hra) INNER JOIN vydavatel ON (hra.id_vydavatel = vydavatel.id_vydavatel) group by hra.id_hra, vydavatel.id_vydavatel order by pujceno_celkem DESC");
+        List<Object[]> hry = q.getResultList();
+
+        sestava.addAll(hry);
+        sestava.prinToFile("nejdele_pujcene_hry.csv");
     }
 
     private void nejpujcovanejsiHry() {
