@@ -1,4 +1,4 @@
-package src.view.zakaznik;
+package src.view.zamestnanec;
 
 import src.controller.*;
 import src.model.*;
@@ -6,7 +6,6 @@ import src.provider.Provider;
 import src.provider.ProviderController;
 import src.renderer.ExemplarRenderer;
 import src.renderer.ZakaznikRenderer;
-import src.view.refresher.Refresher;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -15,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListener  {
+public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionListener  {
     private ProviderController providerController;
 
     private JTextField nazev;
@@ -26,6 +25,8 @@ public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListe
 
     private JButton vyhledat;
     private JButton pujcit;
+
+    private JCheckBox all;
 
     private JPanel zanrPanel;
     private JPanel platformaPanel;
@@ -48,7 +49,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListe
         ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC);
 
 
-        final ZakaznikPrihlasenVyhledatHru zkl =  new ZakaznikPrihlasenVyhledatHru(providerController);
+        final ZamestnanecPrihlasenVyhledatHru zkl =  new ZamestnanecPrihlasenVyhledatHru(providerController);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 zkl.createFrame();
@@ -57,7 +58,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListe
 
     }
 
-    public ZakaznikPrihlasenVyhledatHru(ProviderController providerController){
+    public ZamestnanecPrihlasenVyhledatHru(ProviderController providerController){
         this.providerController = providerController;
     }
 
@@ -126,6 +127,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListe
         kodExemplare = new JTextField();
         zakaznik = new JComboBox();
         zakaznik.setRenderer(new ZakaznikRenderer());
+        all = new JCheckBox("Zobrazit i půjčené hry");
 
         vysledkyHledani = new JList(new String[]{null});
         vysledkyHledani.setCellRenderer(new ExemplarRenderer());
@@ -158,6 +160,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListe
         vyhledatPanel.add(scrollvyhledavaniPane);
 
         zapujcitButtonPanel.add(pujcit, BorderLayout.EAST);
+        vyhledatButtonPanel.add(all, BorderLayout.WEST);
         vyhledatButtonPanel.add(vyhledat, BorderLayout.EAST);
 
         zakaznikInfoPanel.add(zakaznikLabel);
@@ -250,8 +253,7 @@ public class ZakaznikPrihlasenVyhledatHru extends JDialog implements ActionListe
 
         String selectedVydavatel = (String)vydavatel.getSelectedItem();
 
-        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy);
-
+        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy, all.isSelected());
         if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
             vysledkyHledani.setListData(vyhledaneHry.toArray());
         } else {

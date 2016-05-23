@@ -24,7 +24,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         this.providerDAO = providerDAO;
     }
 
-    public List<Exemplar> getConcreteList(String nazev, String vydavatel, Date rokVydani, long kodExemplare, List<String> zanry, List<String> platformy){
+    public List<Exemplar> getConcreteList(String nazev, String vydavatel, Date rokVydani, long kodExemplare, List<String> zanry, List<String> platformy, boolean showAllResults){
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Exemplar> criteriaQuery = criteriaBuilder.createQuery(Exemplar.class);
         Root<Exemplar> exemplarRoot = criteriaQuery.from(Exemplar.class);
@@ -47,8 +47,9 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         Join<Pujcka, Exemplar> joinEx = fromProject.join("exemplar");
         subquery.select(joinEx.get("id"));
         subquery.where(criteriaBuilder.and(criteriaBuilder.isNotNull(fromProject.get("pujceno")), criteriaBuilder.isNull(fromProject.get("vraceno"))));
-
-        predicates.add(criteriaBuilder.not(criteriaBuilder.in(exemplarRoot.get("id")).value(subquery)));
+        if(!showAllResults){
+            predicates.add(criteriaBuilder.not(criteriaBuilder.in(exemplarRoot.get("id")).value(subquery)));
+        }
         predicates.add(criteriaBuilder.equal(exemplarRoot.get("aktivni"), true));
 
         if(nazev != null && !nazev.isEmpty()){
@@ -92,7 +93,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         }
 
         if(rokVydani != null){
-           query.setParameter(exemplarRokVydani, rokVydani);
+            query.setParameter(exemplarRokVydani, rokVydani);
         }
 
         if(kodExemplare != -1){

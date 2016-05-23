@@ -37,7 +37,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
     }
 
     public List<Exemplar> getHryDleParametru(String nazev, String vydavatel, String rokVydani,
-                                             String kodExemplare, List<String> zanry, List<String> platformy){
+                                             String kodExemplare, List<String> zanry, List<String> platformy, boolean showAllResults){
 
         try{
             java.sql.Date date = null;
@@ -57,7 +57,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             }
             return providerDAO
                     .getExemplarDAO()
-                    .getConcreteList(nazev, vydavatel, date, id, zanry, platformy);
+                    .getConcreteList(nazev, vydavatel, date, id, zanry, platformy, showAllResults);
         } catch (Exception e){
             e.printStackTrace();
             System.out.println("exeption in ZakaznikPrihlasenVyhledatHruController.getHryDleParametru()");
@@ -106,7 +106,7 @@ public class ZakaznikPrihlasenVyhledatHruController extends TemplateController {
             }
             return providerDAO
                     .getExemplarDAO()
-                    .getConcreteList(nazev, vydavatel, date, id, zanry, platformy);
+                    .getConcreteList(nazev, vydavatel, date, id, zanry, platformy,false);
         } catch (Exception e){
             e.printStackTrace();
             System.out.println("exeption in ZakaznikPrihlasenVyhledatHruController.getHryDleParametru()");
