@@ -55,9 +55,6 @@ public class Pujcka {
 
     @PrePersist
     void correctValidity(){
-        if(getVraceno() != null) {
-            setVraceno(null);
-        }
         if(getPujceno() == null){
             setPujceno(new Date());
         }
