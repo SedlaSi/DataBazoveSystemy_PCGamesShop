@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 
-public class AdminVytvoritProdejce extends JFrame implements ActionListener {
+public class AdminVytvoritProdejce extends JDialog implements ActionListener {
     private ProviderController providerController;
     private List<Pozice> poziceList;
 
@@ -35,9 +35,8 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
     }
 
     public void startFrame() {
+        setModalityType(ModalityType.APPLICATION_MODAL);
         setLayout(new FlowLayout());
-        setLocationRelativeTo(null);
-        setResizable(false);
         setTitle("Přidat Prodejce");
 
         JPanel jPanel = new JPanel();
@@ -123,10 +122,9 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
 
         add(jPanel);
 
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         pack();
+        setResizable(false);
+        setVisible(true);
     }
 
     @Override
