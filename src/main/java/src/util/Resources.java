@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import java.util.Map;
+
 public class Resources {
 
     private final String createFunction = "CREATE OR REPLACE FUNCTION create_active_prodejce(IN username VARCHAR(128),IN  password BYTEA, IN jmeno VARCHAR(128),IN prijmeni VARCHAR(128),IN mesto VARCHAR(128), IN ulice VARCHAR(128), IN cislo_popisne INTEGER, IN telefon VARCHAR(16), IN email VARCHAR(256), IN plat INTEGER)\n" +
@@ -43,7 +45,18 @@ public class Resources {
     private void init(){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("sedlasi_db");
         em = emf.createEntityManager();
-        createProcedures();
+
+        boolean postgresql = false;
+
+        for (Map.Entry<String,Object> stringObjectEntry : emf.getProperties().entrySet()) {
+                if(stringObjectEntry.getKey().equals("javax.persistence.jdbc.url") && stringObjectEntry.getValue().toString().contains("postgresql")){
+                    postgresql = true;
+                }
+        }
+
+        if(postgresql){
+            createProcedures();
+        }
     }
 
     private void createProcedures(){

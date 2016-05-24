@@ -1,6 +1,7 @@
 package src.provider;
 
 import src.controller.*;
+import src.view.refresher.Refresher;
 
 /**
  * Created by root on 15.4.16.
@@ -16,10 +17,12 @@ public class ProviderController {
     private ZakaznikPrihlasenController zakaznikPrihlasenController;
     private ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController;
     private ZamestnanecPotrvditPrevzetiHryController zamestnanecPotrvditPrevzetiHryController;
+    private HlavniNabidkaController hlavniNabidkaController;
+    private Refresher refresher;
 
     public ProviderController(ZamestnanecPotrvditPrevzetiHryController zamestnanecPotrvditPrevzetiHryController,ZakaznikPrihlasenVyhledatHruController zakaznikPrihlasenVyhledatHruController, ZakaznikPrihlasenController zakaznikPrihlasenController, AdminSmazatZamestnanceController adminSmazatZamestnanceController,ZamestnanecVydavatelController zamestnanecVydavatelController,ZamestnanecVytvoritZakaznikaController zamestnanecVytvoritZakaznikaController, AdminVytvoritZamestnanceController adminVytvoritZamestnanceController,
                               ZakaznikLoginController zakaznikLoginController,
-                              ZamestnanecLoginController zamestnanecLoginController){
+                              ZamestnanecLoginController zamestnanecLoginController, HlavniNabidkaController hlavniNabidkaController){
         this.adminSmazatZamestnanceController = adminSmazatZamestnanceController;
         this.adminVytvoritZamestnanceController = adminVytvoritZamestnanceController;
         this.zakaznikLoginController = zakaznikLoginController;
@@ -29,6 +32,8 @@ public class ProviderController {
         this.zakaznikPrihlasenController = zakaznikPrihlasenController;
         this.zakaznikPrihlasenVyhledatHruController = zakaznikPrihlasenVyhledatHruController;
         this.zamestnanecPotrvditPrevzetiHryController = zamestnanecPotrvditPrevzetiHryController;
+        this.hlavniNabidkaController = hlavniNabidkaController;
+        refresher = new Refresher();
     }
 
     public ZamestnanecLoginController getZamestnanecLoginController() {
@@ -67,4 +72,11 @@ public class ProviderController {
         return zamestnanecPotrvditPrevzetiHryController;
     }
 
+    public HlavniNabidkaController getHlavniNabidkaController() {
+        return hlavniNabidkaController;
+    }
+
+    public Refresher getRefresher() {
+        return refresher;
+    }
 }

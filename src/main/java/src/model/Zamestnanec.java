@@ -51,8 +51,7 @@ public class Zamestnanec {
     }
 
     @Id
-    @GeneratedValue(generator="id_zamestnanec_seq")
-    @SequenceGenerator(name="id_zamestnanec_seq",sequenceName="id_zamestnanec_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_zamestnanec")
     private long id;
 
