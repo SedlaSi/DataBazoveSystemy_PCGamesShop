@@ -1,4 +1,4 @@
-package src;
+package src.klient.demo;
 
 
 import java.sql.*;
@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Anomalie {
-    private static Connection connection1;
-    private static Connection connection2;
-    private static final long FIRST_ID = Long.MAX_VALUE - 64;
-    //private static String url = "jdbc:postgresql://127.0.0.1:5432/pokus?user=lukas&password=lukas";
-    private static String url = "jdbc:mysql://127.0.0.1:3306/pokus?user=root&password=";
+    private Connection connection1;
+    private Connection connection2;
+    private final long FIRST_ID = Long.MAX_VALUE - 64;
+    private String url = "jdbc:postgresql://127.0.0.1:5432/sedlasi_db?user=postgres&password=postgres";
+    //private String url = "jdbc:mysql://127.0.0.1:3306/pokus?user=root&password=";
 
     /*
      * http://www.postgresql.org/docs/current/static/transaction-iso.html
@@ -28,11 +28,7 @@ public class Anomalie {
      *
      * */
 
-    public static void main(String[] args) throws SQLException {
-        otestujAnomalie();
-    }
-
-    public static Map<String, List<String>> otestujAnomalie() throws SQLException {
+    public Map<String, List<String>> otestujAnomalie() throws SQLException {
         connection1 = DriverManager.getConnection(url);
         connection2 = DriverManager.getConnection(url);
 
@@ -78,7 +74,7 @@ public class Anomalie {
         return result;
     }
 
-    public static boolean dirty_read() throws SQLException {
+    public boolean dirty_read() throws SQLException {
         boolean result = false;
         String change = "Zmeneny popis";
 
@@ -111,7 +107,7 @@ public class Anomalie {
         return result;
     }
 
-    public static boolean nonrepeatable_read() throws SQLException {
+    public boolean nonrepeatable_read() throws SQLException {
         boolean result = false;
 
         PreparedStatement statement1 = connection2.prepareStatement("SELECT popis FROM police WHERE id_police = ?");
@@ -148,7 +144,7 @@ public class Anomalie {
         return result;
     }
 
-    public static boolean phantom_read() throws SQLException {
+    public boolean phantom_read() throws SQLException {
         boolean result = false;
         long firstRowCount = 0;
         long secondRowCount = 0;
@@ -193,7 +189,7 @@ public class Anomalie {
         return firstRowCount != secondRowCount;
     }
 
-    public static List<String> demonstrujAnomalie() throws SQLException {
+    public List<String> demonstrujAnomalie() throws SQLException {
         List<String> result = new ArrayList<>();
 
         if(dirty_read()) {

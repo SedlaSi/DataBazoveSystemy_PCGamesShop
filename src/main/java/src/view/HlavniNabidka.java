@@ -1,6 +1,7 @@
 package src.view;
 
 import src.controller.*;
+import src.klient.demo.Anomalie;
 import src.provider.Provider;
 import src.provider.ProviderController;
 import src.view.zakaznik.ZakaznikLogin;
@@ -10,6 +11,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class HlavniNabidka extends JFrame implements ActionListener {
     private JButton zakaznik;
@@ -96,7 +100,32 @@ public class HlavniNabidka extends JFrame implements ActionListener {
             providerController.getHlavniNabidkaController().getnerujProvozniData();
             JOptionPane.showMessageDialog(this, "Provozní data byla vygenerována.", "Generování dat", JOptionPane.INFORMATION_MESSAGE);
         } else if (source == anomalie) {
+            Anomalie anomalie = new Anomalie();
+            try {
+                Map<String, java.util.List<String>> result = anomalie.otestujAnomalie();
+                StringBuilder sb = new StringBuilder();
 
+                for (Map.Entry<String, List<String>> entry : result.entrySet()) {
+                    sb.append("Demonstrovaný stupeň izolovanosti: ");
+                    sb.append(entry.getKey());
+                    sb.append("\n");
+
+                    sb.append("Na Vaší databázi a výše zmíněném stupni izolovanosti se povedlo demonstrovat tyto typy anomálií: \n");
+
+                    for (String string : entry.getValue()) {
+                        sb.append("\t- ");
+                        sb.append(string);
+                        sb.append("\n");
+                    }
+
+                    sb.append("\n\n");
+                }
+
+                JOptionPane.showMessageDialog(this, sb.toString(), "Anomálie", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Během demonstrace anomálií nastala chyba.", "Anomálie", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }
