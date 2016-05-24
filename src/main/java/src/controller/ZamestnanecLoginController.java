@@ -42,7 +42,7 @@ public class ZamestnanecLoginController extends TemplateController {
         }
         //if(password.equals(zamestnanec.getPassword())){
 
-        if(zamestnanec == null) {
+        if(zamestnanec == null || !zamestnanec.isAktivni()) {
             return false;
         }
 
