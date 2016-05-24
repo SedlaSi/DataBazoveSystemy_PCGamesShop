@@ -41,6 +41,11 @@ public class ZamestnanecLoginController extends TemplateController {
             return false;
         }
         //if(password.equals(zamestnanec.getPassword())){
+
+        if(zamestnanec == null || !zamestnanec.isAktivni()) {
+            return false;
+        }
+
         if(Decoder.isValid(password,zamestnanec.getPassword())){
             providerSession.initSession(userName, Role.ZAMESTNANEC);
             return true;
