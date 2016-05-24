@@ -15,7 +15,6 @@ public class ZakaznikLoginController extends TemplateController {
 
     private String username;
     private String password;
-
     private ZakaznikDAO zakaznikDAO;
     private ProviderSession providerSession;
 
@@ -33,15 +32,14 @@ public class ZakaznikLoginController extends TemplateController {
         this.username = username;
     }
 
-    public boolean performLogin(){
+    public boolean performLogin() {
         Zakaznik z;
-        try{
+        try {
             z = zakaznikDAO.getByUserName(username);
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
-        if(Decoder.isValid(password,z.getPassword())){
-        //if(password.equals(z.getPassword())){
+        if (Decoder.isValid(password, z.getPassword())) {
             providerSession.initSession(username, Role.ZAKAZNIK);
             return true;
         }
@@ -49,7 +47,7 @@ public class ZakaznikLoginController extends TemplateController {
         return false;
     }
 
-    public Session getCurrentSession(){
+    public Session getCurrentSession() {
         return providerSession.getSession();
     }
 

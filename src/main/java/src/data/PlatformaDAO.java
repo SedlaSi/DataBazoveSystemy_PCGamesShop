@@ -14,7 +14,7 @@ public class PlatformaDAO extends TemplateDAO<Platforma> {
     }
 
     public List<Platforma> getList() {
-        return (List<Platforma>)em.createNamedQuery("Platforma.getList").getResultList();
+        return (List<Platforma>) em.createNamedQuery("Platforma.getList").getResultList();
     }
 
     public Platforma getByNazev(String nazev) {

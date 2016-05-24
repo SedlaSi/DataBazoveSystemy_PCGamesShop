@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 20.4.16.
  */
-public class ZakaznikPrihlasen extends JDialog{
+public class ZakaznikPrihlasen extends JDialog {
 
     private ProviderController providerController;
     private Session session;
@@ -24,64 +24,46 @@ public class ZakaznikPrihlasen extends JDialog{
     private JList pujceneVraceneHry;
     private JButton refresh;
 
-    public static void main(String [] args){
-
-        final ZakaznikPrihlasen zkl =  new ZakaznikPrihlasen(null);
-        //zkl.session = new Session("B", Role.ZAKAZNIK);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-
-    }
-
-    public ZakaznikPrihlasen(ProviderController providerController){
+    ZakaznikPrihlasen(ProviderController providerController) {
         this.providerController = providerController;
-        //session = new Session("username", Role.ZAKAZNIK);
         session = providerController.getZakaznikLoginController().getCurrentSession();
-        if(session == null){
+        if (session == null) {
             System.out.println("Uživatel nepřihlášen!");
-            return;
         }
     }
 
-    public void startFrame(){
+    void startFrame() {
         setModalityType(ModalityType.APPLICATION_MODAL);
-        this.setSize(500,450);
+        this.setSize(500, 450);
         this.setLocationRelativeTo(null);
-        //this.setResizable(false);
         this.setTitle("Přihlášen jako: " + session.getUserName());
-        //this.setLayout(new GridLayout(2,1,3,3));
-        //Box boxLayout = Box.createVerticalBox();
         this.setLayout(new BorderLayout());
 
-        JPanel upper = new JPanel(new BorderLayout());  //new GridLayout(3,1,2,2)
+        JPanel upper = new JPanel(new BorderLayout());
         JPanel downer = new JPanel(new BorderLayout());
 
         JPanel upperUp = new JPanel(new BorderLayout());
         upperForNevraceneHry = new JPanel();
         JPanel upperDowner = new JPanel(new FlowLayout());
-        upper.add(upperUp,BorderLayout.NORTH);
-        upper.add(upperForNevraceneHry,BorderLayout.CENTER);
-        upper.add(upperDowner,BorderLayout.SOUTH);
+        upper.add(upperUp, BorderLayout.NORTH);
+        upper.add(upperForNevraceneHry, BorderLayout.CENTER);
+        upper.add(upperDowner, BorderLayout.SOUTH);
 
         JPanel downerUp = new JPanel(new FlowLayout());
         downerForVraceneHry = new JPanel();
         JPanel downerDowner = new JPanel(new FlowLayout());
 
-        // Plneni seznamu
         fillPujceneHry();
 
-        downer.add(downerUp,BorderLayout.NORTH);
-        downer.add(downerForVraceneHry,BorderLayout.CENTER);
-        downer.add(downerDowner,BorderLayout.SOUTH);
+        downer.add(downerUp, BorderLayout.NORTH);
+        downer.add(downerForVraceneHry, BorderLayout.CENTER);
+        downer.add(downerDowner, BorderLayout.SOUTH);
 
         JLabel pujceneHryLabel = new JLabel("Půjčené hry:");
         refresh = new JButton();
         try {
             Image img = ImageIO.read(getClass().getResource("/refresh.png"));
-            Image newimg = img.getScaledInstance( 30, 30,  java.awt.Image.SCALE_SMOOTH ) ;
+            Image newimg = img.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);
             refresh.setIcon(new ImageIcon(newimg));
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -90,7 +72,7 @@ public class ZakaznikPrihlasen extends JDialog{
         refresh.addActionListener(new RefreshButtonListener());
         JButton vyhledatNovouHru = new JButton("Vyhledat Novou Hru");
         vyhledatNovouHru.addActionListener(new ButtonClickedListener());
-        upperUp.add(pujceneHryLabel,BorderLayout.CENTER);
+        upperUp.add(pujceneHryLabel, BorderLayout.CENTER);
         upperUp.add(refresh, BorderLayout.EAST);
 
         upperDowner.add(vyhledatNovouHru);
@@ -103,67 +85,63 @@ public class ZakaznikPrihlasen extends JDialog{
 
         downerDowner.add(odhlasitSeButton);
 
-
-        //this.add(upper);
-        //this.add(downer);
-        this.add(upper,BorderLayout.NORTH);
-        this.add(downer,BorderLayout.SOUTH);
+        this.add(upper, BorderLayout.NORTH);
+        this.add(downer, BorderLayout.SOUTH);
         this.setVisible(true);
     }
 
     private void fillPujceneHry() {
-        java.util.List<Exemplar> pujceneVraceneHryList = null;
-        java.util.List<Exemplar> pujceneNevraceneHryList = null;
+        java.util.List<Exemplar> pujceneVraceneHryList;
+        java.util.List<Exemplar> pujceneNevraceneHryList;
         pujceneVraceneHryList = providerController
                 .getZakaznikPrihlasenController()
                 .getVraceneHry();
         pujceneNevraceneHryList = providerController
                 .getZakaznikPrihlasenController()
                 .getNevraceneHry();
-        if(pujceneVraceneHryList == null || pujceneVraceneHryList.isEmpty()){
+        if (pujceneVraceneHryList == null || pujceneVraceneHryList.isEmpty()) {
             // Show empty list message
-            try{
+            try {
                 downerForVraceneHry.remove(0);
-            } catch (Exception e){
+            } catch (Exception e) {
 
             }
             downerForVraceneHry.add(new JLabel("Neproběhli žádné půjčky."));
         } else {
-            try{
+            try {
                 downerForVraceneHry.remove(0);
-            } catch (Exception e){
+            } catch (Exception e) {
 
             }
-            String [] list = new String[pujceneVraceneHryList.size()];
-            for(int i = 0; i < pujceneVraceneHryList.size() ; i++){
+            String[] list = new String[pujceneVraceneHryList.size()];
+            for (int i = 0; i < pujceneVraceneHryList.size(); i++) {
                 Exemplar e = pujceneVraceneHryList.get(i);
                 list[i] = e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", produkt číslo: " + e.getId();
             }
             pujceneVraceneHry = new JList(list);
             JScrollPane scrollPane = new JScrollPane(pujceneVraceneHry);
-            scrollPane.setSize(150,10);
+            scrollPane.setSize(150, 10);
             scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            downerForVraceneHry.add(scrollPane,BorderLayout.CENTER);
-            //downerForVraceneHry.add(pujceneVraceneHry);
+            downerForVraceneHry.add(scrollPane, BorderLayout.CENTER);
         }
 
-        if(pujceneNevraceneHryList == null || pujceneNevraceneHryList.isEmpty()){
+        if (pujceneNevraceneHryList == null || pujceneNevraceneHryList.isEmpty()) {
             // Show empty list message
-            try{
+            try {
                 upperForNevraceneHry.remove(0);
-            } catch (Exception e){
+            } catch (Exception e) {
 
             }
             upperForNevraceneHry.add(new JLabel("Žádné nevrácené hry."));
         } else {
-            try{
+            try {
                 upperForNevraceneHry.remove(0);
-            } catch (Exception e){
+            } catch (Exception e) {
 
             }
 
-            String [] list = new String[pujceneNevraceneHryList.size()];
-            for(int i = 0; i < pujceneNevraceneHryList.size() ; i++){
+            String[] list = new String[pujceneNevraceneHryList.size()];
+            for (int i = 0; i < pujceneNevraceneHryList.size(); i++) {
                 Exemplar e = pujceneNevraceneHryList.get(i);
                 list[i] = e.getHra().getNazev() + " " + e.getPlatforma().getNazev() + ", produkt číslo: " + e.getId();
             }
@@ -171,16 +149,15 @@ public class ZakaznikPrihlasen extends JDialog{
             pujceneNevraceneHry = new JList(list);
             JScrollPane scrollPane2 = new JScrollPane(pujceneNevraceneHry);
             scrollPane2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-            upperForNevraceneHry.add(scrollPane2,BorderLayout.CENTER);
-            //upperForNevraceneHry.add(pujceneNevraceneHry);
+            upperForNevraceneHry.add(scrollPane2, BorderLayout.CENTER);
         }
     }
 
     private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            if(((JButton)e.getSource()).getText().equals("Vyhledat Novou Hru")){ // Vyhledani hry
-                ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
+            if (((JButton) e.getSource()).getText().equals("Vyhledat Novou Hru")) { // Vyhledani hry
+                ZakaznikVyhledatHru zkl = new ZakaznikVyhledatHru(providerController);
                 zkl.createFrame();
             } else { // Odhlaseni
                 dispose();

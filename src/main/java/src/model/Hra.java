@@ -28,7 +28,7 @@ public class Hra {
     @Column(name = "id_hra")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128,name = "nazev", updatable = false)
+    @Column(nullable = false, unique = true, length = 128, name = "nazev", updatable = false)
     private String nazev;
 
     @Column(name = "popis")
@@ -46,28 +46,28 @@ public class Hra {
     private List<Exemplar> exemplare;
 
     @ManyToMany
-    @JoinTable(name="je_zanru",
-            joinColumns=@JoinColumn(name="id_hra"),
-            inverseJoinColumns=@JoinColumn(name="id_zanr"))
+    @JoinTable(name = "je_zanru",
+            joinColumns = @JoinColumn(name = "id_hra"),
+            inverseJoinColumns = @JoinColumn(name = "id_zanr"))
     private List<Zanr> zanry;
 
-    public long getId(){
+    public long getId() {
         return id;
     }
 
-    public void setNazev(String nazev){
+    public void setNazev(String nazev) {
         this.nazev = nazev;
     }
 
-    public String getNazev(){
+    public String getNazev() {
         return nazev;
     }
 
-    public void setPopis(String popis){
+    public void setPopis(String popis) {
         this.popis = popis;
     }
 
-    public String getPopis(){
+    public String getPopis() {
         return popis;
     }
 

@@ -10,7 +10,7 @@ public class TemplateController {
 
     protected ProviderDAO providerDAO;
 
-    public TemplateController(Provider provider){
+    public TemplateController(Provider provider) {
         this.providerDAO = provider.getProviderDAO();
     }
 }

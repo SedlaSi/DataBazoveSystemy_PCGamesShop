@@ -15,38 +15,27 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
     }
 
     Pujcka getByExemplarId(long idExemplare) {
-        Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
-        q.setParameter("id",idExemplare);
+        Query q = em.createNamedQuery("Pujcka.getByExemplarId");
+        q.setParameter("id", idExemplare);
 
-        List<Pujcka> pujckaList =(List<Pujcka>) q.getResultList();
+        List<Pujcka> pujckaList = (List<Pujcka>) q.getResultList();
 
-        if(pujckaList == null || pujckaList.size() == 0) {
+        if (pujckaList == null || pujckaList.size() == 0) {
             return null;
         }
 
         return pujckaList.get(0);
     }
 
-    public String getUserNameOfPujckaByExemplarId(int idExemplare){
-        Query q =  em.createNamedQuery("Pujcka.getByExemplarId");
-        q.setParameter("id",idExemplare);
-        List<Pujcka> pujckaList =(List<Pujcka>) q.getResultList();
-        if(pujckaList == null || pujckaList.size() == 0) {
-            return null;
-        }
-        Pujcka pujcka = pujckaList.get(0);
-        return pujcka.getZakaznik().getUsername();
-    }
-
     @Override
-    public Pujcka update(Pujcka p){
+    public Pujcka update(Pujcka p) {
         em.getTransaction().begin();
         p = em.merge(p);
         em.getTransaction().commit();
         return p;
     }
 
-    void createTransactionFree(Pujcka p){
+    void createTransactionFree(Pujcka p) {
         em.persist(p);
     }
 
@@ -54,12 +43,12 @@ public class PujckaDAO extends TemplateDAO<Pujcka> {
         em.getTransaction().begin();
         Pujcka pujcka = this.getByExemplarId(idExemplar);
 
-        if(pujcka == null) {
+        if (pujcka == null) {
             em.getTransaction().rollback();
             throw new Exception("Invalid exemplar id.");
         }
 
-        if(date.before(pujcka.getPujceno())){
+        if (date.before(pujcka.getPujceno())) {
             System.out.println("date compare fail");
             em.getTransaction().rollback();
             throw new Exception("Inserted date smaller than previous date.");

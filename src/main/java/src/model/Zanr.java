@@ -24,7 +24,7 @@ public class Zanr {
     @Column(name = "id_zanr")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128)
+    @Column(nullable = false, unique = true, length = 128)
     private String nazev;
 
     @ManyToMany(mappedBy = "zanry")

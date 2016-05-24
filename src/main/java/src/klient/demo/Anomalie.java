@@ -12,7 +12,6 @@ public class Anomalie {
     private Connection connection2;
     private final long FIRST_ID = Long.MAX_VALUE - 64;
     private String url = "jdbc:postgresql://127.0.0.1:5432/sedlasi_db?user=postgres&password=postgres";
-    //private String url = "jdbc:mysql://127.0.0.1:3306/pokus?user=root&password=";
 
     /*
      * http://www.postgresql.org/docs/current/static/transaction-iso.html
@@ -58,11 +57,6 @@ public class Anomalie {
         iResult = demonstrujAnomalie();
         result.put("TRANSACTION_REPEATABLE_READ", iResult);
 
-        /*connection1.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-        connection2.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-        iResult = demonstrujAnomalie();
-        result.put("TRANSACTION_SERIALIZABLE", iResult);*/
-
         statement = connection1.prepareStatement("DELETE FROM police WHERE id_police = ?");
         statement.setLong(1, FIRST_ID);
         statement.executeUpdate();
@@ -74,7 +68,7 @@ public class Anomalie {
         return result;
     }
 
-    public boolean dirty_read() throws SQLException {
+    public boolean dirtyRead() throws SQLException {
         boolean result = false;
         String change = "Zmeneny popis";
 
@@ -90,7 +84,7 @@ public class Anomalie {
         connection2.commit();
 
 
-        if(resultSet.next() && change.equals(resultSet.getString("popis"))) {
+        if (resultSet.next() && change.equals(resultSet.getString("popis"))) {
             result = true;
         }
 
@@ -128,7 +122,7 @@ public class Anomalie {
 
         connection2.commit();
 
-        if(set1.next() && set2.next() && !set1.getString("popis").equals(set2.getString("popis"))) {
+        if (set1.next() && set2.next() && !set1.getString("popis").equals(set2.getString("popis"))) {
             result = true;
         }
 
@@ -192,15 +186,15 @@ public class Anomalie {
     public List<String> demonstrujAnomalie() throws SQLException {
         List<String> result = new ArrayList<>();
 
-        if(dirty_read()) {
+        if (dirtyRead()) {
             result.add("Dirty read");
         }
 
-        if(nonrepeatable_read()) {
+        if (nonrepeatable_read()) {
             result.add("Nonrepeatable read");
         }
 
-        if(phantom_read()) {
+        if (phantom_read()) {
             result.add("Phantom read");
         }
 

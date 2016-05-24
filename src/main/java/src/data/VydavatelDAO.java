@@ -14,9 +14,9 @@ public class VydavatelDAO extends TemplateDAO<Vydavatel> {
         super(res);
     }
 
-    public List<Vydavatel> getVydavatelList(){
+    public List<Vydavatel> getVydavatelList() {
         Query q = em.createNamedQuery("Vydavatel.getVydavatelList");
-        return (List<Vydavatel>)q.getResultList();
+        return (List<Vydavatel>) q.getResultList();
     }
 
     public Vydavatel getByNazev(String nazev) {

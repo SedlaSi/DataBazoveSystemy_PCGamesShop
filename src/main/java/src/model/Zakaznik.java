@@ -19,7 +19,7 @@ public class Zakaznik {
     public Zakaznik() {
     }
 
-    public Zakaznik(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, char [] password) {
+    public Zakaznik(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, char[] password) {
         this.username = username;
         this.password = password;
         this.jmeno = jmeno;
@@ -40,7 +40,7 @@ public class Zakaznik {
     private String username;
 
     @Column(nullable = false, length = 64, name = "password")
-    private char [] password;
+    private char[] password;
 
     @Column(nullable = false, length = 128, name = "jmeno")
     private String jmeno;
@@ -54,7 +54,7 @@ public class Zakaznik {
     @Column(nullable = false, length = 128, name = "ulice")
     private String ulice;
 
-    @Column(nullable = false,name = "cislo_popisne")
+    @Column(nullable = false, name = "cislo_popisne")
     private int cisloPopisne;
 
     @Column(nullable = false, length = 16, name = "telefon")

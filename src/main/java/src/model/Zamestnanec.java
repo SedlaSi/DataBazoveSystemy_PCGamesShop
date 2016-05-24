@@ -19,7 +19,7 @@ import java.util.List;
         procedureName = "create_active_prodejce",
         parameters = {
                 @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "username"),
-                @StoredProcedureParameter(mode = ParameterMode.IN, type = byte [].class, name = "password"),
+                @StoredProcedureParameter(mode = ParameterMode.IN, type = byte[].class, name = "password"),
                 @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "jmeno"),
                 @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "prijmeni"),
                 @StoredProcedureParameter(mode = ParameterMode.IN, type = String.class, name = "mesto"),
@@ -36,7 +36,7 @@ public class Zamestnanec {
     public Zamestnanec() {
     }
 
-    public Zamestnanec(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, char [] password, int plat, Pozice pozice) {
+    public Zamestnanec(String jmeno, String prijmeni, String mesto, String ulice, int cisloPopisne, String telefon, String email, String username, char[] password, int plat, Pozice pozice) {
         this.username = username;
         this.password = password;
         this.jmeno = jmeno;
@@ -59,7 +59,7 @@ public class Zamestnanec {
     private String username;
 
     @Column(nullable = false, length = 64, name = "password")
-    private char [] password;
+    private char[] password;
 
     @Column(nullable = false, length = 128, name = "jmeno")
     private String jmeno;
@@ -73,7 +73,7 @@ public class Zamestnanec {
     @Column(nullable = false, length = 128, name = "ulice")
     private String ulice;
 
-    @Column(nullable = false,name = "cislo_popisne")
+    @Column(nullable = false, name = "cislo_popisne")
     private int cisloPopisne;
 
     @Column(nullable = false, length = 16, name = "telefon")

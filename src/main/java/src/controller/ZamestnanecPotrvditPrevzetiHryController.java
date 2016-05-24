@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * Created by root on 22.4.16.
  */
-public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController{
+public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController {
 
     private PujckaDAO pujckaDAO;
 
@@ -21,30 +21,20 @@ public class ZamestnanecPotrvditPrevzetiHryController extends TemplateController
     }
 
     public boolean potvrdit(String kodExemplare, String datum) {
-        try{
+        try {
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
             java.util.Date date = null;
 
             date = format.parse(datum);
 
-            pujckaDAO.updateDate(Integer.parseInt(kodExemplare),date);
-        }  catch (ParseException e) {
+            pujckaDAO.updateDate(Integer.parseInt(kodExemplare), date);
+        } catch (ParseException e) {
             System.err.println("Nepodarilo se naparsovat datum.");
             e.printStackTrace();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
         return true;
-    }
-
-    public String usernameZakaznikaPujckyExemplare(String idExemplare){
-        try {
-            int id = Integer.parseInt(idExemplare);
-            return pujckaDAO.getUserNameOfPujckaByExemplarId(id);
-        } catch (Exception e){
-            return null;
-        }
     }
 }

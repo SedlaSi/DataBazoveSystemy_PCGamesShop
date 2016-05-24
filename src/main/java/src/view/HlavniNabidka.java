@@ -2,8 +2,10 @@ package src.view;
 
 import src.controller.*;
 import src.klient.demo.Anomalie;
+import src.model.Pozice;
 import src.provider.Provider;
 import src.provider.ProviderController;
+import src.view.admin.AdminVytvoritProdejce;
 import src.view.zakaznik.ZakaznikLogin;
 import src.view.zamestnanec.ZamestnanecLogin;
 
@@ -21,58 +23,57 @@ public class HlavniNabidka extends JFrame implements ActionListener {
     private JButton sestavy;
     private JButton generovani;
     private JButton anomalie;
+    private JButton vytvoritProdejce;
     private ProviderController providerController;
+    private Provider provider;
 
     public static void main(String[] args) {
         Provider provider = new Provider();
-        AdminSmazatZamestnanceController admSC = new AdminSmazatZamestnanceController(provider);
         AdminVytvoritZamestnanceController admC = new AdminVytvoritZamestnanceController(provider);
-        ZamestnanecVytvoritZakaznikaController zvzC = new ZamestnanecVytvoritZakaznikaController(provider);
         ZakaznikLoginController zkC = new ZakaznikLoginController(provider);
         ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
-        ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
         ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
         ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
         HlavniNabidkaController hnC = new HlavniNabidkaController(provider);
-        ProviderController providerController = new ProviderController(zpphC, zpvC, zkpC, admSC, zvC, zvzC, admC, zkC, zlC, hnC);
+        ProviderController providerController = new ProviderController(zpphC, zpvC, zkpC, admC, zkC, zlC, hnC);
 
-        final src.view.HlavniNabidka zkl = new src.view.HlavniNabidka(providerController);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
+        final src.view.HlavniNabidka zkl = new src.view.HlavniNabidka(providerController, provider);
+        javax.swing.SwingUtilities.invokeLater(() -> zkl.startFrame());
 
     }
 
-    public HlavniNabidka(ProviderController providerController) {
+    public HlavniNabidka(ProviderController providerController, Provider provider) {
         this.providerController = providerController;
+        this.provider = provider;
     }
 
     public void startFrame() {
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("Hlavní nabídka");
-        setLayout(new GridLayout(5, 1));
+        setLayout(new GridLayout(6, 1));
 
         zakaznik = new JButton("Zákazník");
         zamestnanec = new JButton("Zaměstnanec");
         sestavy = new JButton("Sestavy");
         generovani = new JButton("Generování dat");
         anomalie = new JButton("Anomálie");
+        vytvoritProdejce = new JButton("Vytvořit prodejce - procedura");
 
         zakaznik.addActionListener(this);
         zamestnanec.addActionListener(this);
         sestavy.addActionListener(this);
         generovani.addActionListener(this);
         anomalie.addActionListener(this);
+        vytvoritProdejce.addActionListener(this);
 
         add(zakaznik);
         add(zamestnanec);
         add(sestavy);
         add(generovani);
         add(anomalie);
+        add(vytvoritProdejce);
 
         pack();
 
@@ -126,6 +127,10 @@ public class HlavniNabidka extends JFrame implements ActionListener {
                 e1.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Během demonstrace anomálií nastala chyba.", "Anomálie", JOptionPane.ERROR_MESSAGE);
             }
+        } else if (source == vytvoritProdejce) {
+            List<Pozice> pozice = provider.getProviderDAO().getPoziceDAO().getList();
+            AdminVytvoritProdejce adminVytvoritProdejce = new AdminVytvoritProdejce(providerController, pozice);
+            adminVytvoritProdejce.startFrame();
         }
     }
 }

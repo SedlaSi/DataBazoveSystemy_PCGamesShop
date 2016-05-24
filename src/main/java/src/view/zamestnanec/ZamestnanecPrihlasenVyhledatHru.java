@@ -1,8 +1,6 @@
 package src.view.zamestnanec;
 
-import src.controller.*;
 import src.model.*;
-import src.provider.Provider;
 import src.provider.ProviderController;
 import src.renderer.ExemplarRenderer;
 import src.renderer.ZakaznikRenderer;
@@ -14,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionListener  {
+public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionListener {
     private ProviderController providerController;
 
     private JTextField nazev;
@@ -35,35 +33,11 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
     private java.util.List<JCheckBox> platformaListCheckBox;
     private java.util.List<JCheckBox> zanrListCheckBox;
 
-    public static void main(String [] args){
-        Provider provider = new Provider();
-        AdminSmazatZamestnanceController admSC = new AdminSmazatZamestnanceController(provider);
-        AdminVytvoritZamestnanceController admC = new AdminVytvoritZamestnanceController(provider);
-        ZamestnanecVytvoritZakaznikaController zvzC = new ZamestnanecVytvoritZakaznikaController(provider);
-        ZakaznikLoginController zkC = new ZakaznikLoginController(provider);
-        ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
-        ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
-        ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
-        ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
-        ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
-        HlavniNabidkaController hnC = new HlavniNabidkaController(provider);
-        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC,hnC);
-
-
-        final ZamestnanecPrihlasenVyhledatHru zkl =  new ZamestnanecPrihlasenVyhledatHru(providerController);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.createFrame();
-            }
-        });
-
-    }
-
-    public ZamestnanecPrihlasenVyhledatHru(ProviderController providerController){
+    public ZamestnanecPrihlasenVyhledatHru(ProviderController providerController) {
         this.providerController = providerController;
     }
 
-    public void createFrame(){
+    public void createFrame() {
         setModalityType(ModalityType.APPLICATION_MODAL);
         setLayout(new FlowLayout());
 
@@ -200,18 +174,18 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
 
     private void fillZakaznik() {
         java.util.List<Zakaznik> zakaznikList = providerController.getZakaznikPrihlasenVyhledatHruController().getZakaznikList();
-        if(zakaznikList == null || zakaznikList.isEmpty()){
+        if (zakaznikList == null || zakaznikList.isEmpty()) {
             System.err.println("Nenalezeni žádní zákazníci.");
             return;
         }
 
-        try{
+        try {
             zakaznik.removeAllItems();
 
-            for(Zakaznik z : zakaznikList){
+            for (Zakaznik z : zakaznikList) {
                 zakaznik.addItem(z);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Nenalezeni žádní zákazníci.");
         }
@@ -219,18 +193,18 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
 
     private void fillPlatformaCheckBoxPanel() {
         java.util.List<Platforma> platformy = providerController.getZakaznikPrihlasenVyhledatHruController().getPlatformaList();
-        if(platformy == null || platformy.isEmpty()){
+        if (platformy == null || platformy.isEmpty()) {
             System.err.println("Nenalezeny žádné platformy.");
             return;
         }
 
-        try{
-            for(Platforma p : platformy){
-                JCheckBox pBox = new JCheckBox(p.getNazev(),false);
+        try {
+            for (Platforma p : platformy) {
+                JCheckBox pBox = new JCheckBox(p.getNazev(), false);
                 platformaPanel.add(pBox);
                 platformaListCheckBox.add(pBox);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Nenalezeny žádné platformy.");
         }
@@ -240,25 +214,25 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
         java.util.List<String> platformy = new ArrayList<>();
         java.util.List<String> zanry = new ArrayList<>();
 
-        for(JCheckBox c : platformaListCheckBox){
-            if(c.isSelected()){
+        for (JCheckBox c : platformaListCheckBox) {
+            if (c.isSelected()) {
                 platformy.add(c.getText());
             }
         }
 
-        for(JCheckBox c : zanrListCheckBox){
-            if(c.isSelected()){
+        for (JCheckBox c : zanrListCheckBox) {
+            if (c.isSelected()) {
                 zanry.add(c.getText());
             }
         }
 
-        String selectedVydavatel = (String)vydavatel.getSelectedItem();
+        String selectedVydavatel = (String) vydavatel.getSelectedItem();
 
-        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(),selectedVydavatel,rokVydani.getText(),kodExemplare.getText(), zanry, platformy, all.isSelected());
-        if(vyhledaneHry != null && !vyhledaneHry.isEmpty()){
+        java.util.List<Exemplar> vyhledaneHry = providerController.getZakaznikPrihlasenVyhledatHruController().getHryDleParametru(nazev.getText(), selectedVydavatel, rokVydani.getText(), kodExemplare.getText(), zanry, platformy, all.isSelected());
+        if (vyhledaneHry != null && !vyhledaneHry.isEmpty()) {
             vysledkyHledani.setListData(vyhledaneHry.toArray());
         } else {
-            vysledkyHledani.setListData(new Exemplar[] {null});
+            vysledkyHledani.setListData(new Exemplar[]{null});
         }
 
         this.invalidate();
@@ -269,25 +243,25 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
     private void fillZanrCheckBoxPanel() {
         java.util.List<Zanr> zanry = providerController.getZakaznikPrihlasenVyhledatHruController().getZanrList();
 
-        if(zanry == null || zanry.isEmpty()){
+        if (zanry == null || zanry.isEmpty()) {
             System.err.println("Nenalezeny žádné žánry.");
             return;
         }
 
-        try{
-            for(Zanr z : zanry){
-                JCheckBox zBox = new JCheckBox(z.getNazev(),false);
+        try {
+            for (Zanr z : zanry) {
+                JCheckBox zBox = new JCheckBox(z.getNazev(), false);
                 zanrPanel.add(zBox);
                 zanrListCheckBox.add(zBox);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Nenalezeny žádné žánry.");
         }
     }
 
     private void fillVydavatel() {
         java.util.List<Vydavatel> vyd = providerController.getZakaznikPrihlasenVyhledatHruController().getVydavatelList();
-        if(vyd == null || vyd.isEmpty()){
+        if (vyd == null || vyd.isEmpty()) {
             System.err.println("Nenalezeni žádní vydavatelé.");
             return;
         } else {
@@ -304,8 +278,8 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
         Object source = e.getSource();
         if (source == vyhledat) {
             fillVysledkyHledani();
-        } else if(source == pujcit) {
-            if(providerController.getZamestnanecLoginController().getCurrentSession() == null){
+        } else if (source == pujcit) {
+            if (providerController.getZamestnanecLoginController().getCurrentSession() == null) {
                 quitFrame();
             }
             zapujcitHru();
@@ -317,19 +291,19 @@ public class ZamestnanecPrihlasenVyhledatHru extends JDialog implements ActionLi
     }
 
     private void zapujcitHru() {
-        Exemplar ex = (Exemplar)vysledkyHledani.getSelectedValue();
+        Exemplar ex = (Exemplar) vysledkyHledani.getSelectedValue();
 
-        if(ex == null){
+        if (ex == null) {
             JOptionPane.showMessageDialog(this, "Nevybral jste si hru, nebo vámi vybraná hra již není dostupná.", "Hra", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        try{
-            if(!providerController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(ex.getId(), (Zakaznik) zakaznik.getSelectedItem())){
+        try {
+            if (!providerController.getZakaznikPrihlasenVyhledatHruController().zapujcitHru(ex.getId(), (Zakaznik) zakaznik.getSelectedItem())) {
                 throw new Exception();
             }
             JOptionPane.showMessageDialog(this, "Hra zapůjčena!", "Hra", JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Hru se nepovedlo zapůjčit.", "Hra", JOptionPane.ERROR_MESSAGE);
             return;
         }

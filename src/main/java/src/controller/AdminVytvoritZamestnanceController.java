@@ -10,7 +10,7 @@ import src.provider.Provider;
 /**
  * Created by root on 15.4.16.
  */
-public class AdminVytvoritZamestnanceController extends TemplateController{
+public class AdminVytvoritZamestnanceController extends TemplateController {
 
     private ZamestnanecDAO zamestnanecDAO;
 
@@ -89,8 +89,8 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
     public void createZamestnanec() throws Exception {
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
-        char [] hash = Decoder.hashPassword(password);
-        if(hash == null) {
+        char[] hash = Decoder.hashPassword(password);
+        if (hash == null) {
             return;
         }
         Zamestnanec z = new Zamestnanec();
@@ -109,11 +109,11 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         zamestnanecDAO.create(z);
     }
 
-    public void createProjdejce() throws Exception{
+    public void createProjdejce() throws Exception {
         int cp = Integer.parseInt(cisloPopisne);
         int pt = Integer.parseInt(plat);
-        char [] hash = Decoder.hashPassword(password);
-        if(hash == null) {
+        char[] hash = Decoder.hashPassword(password);
+        if (hash == null) {
             return;
         }
         Zamestnanec z = new Zamestnanec();
@@ -134,100 +134,100 @@ public class AdminVytvoritZamestnanceController extends TemplateController{
         boolean valid = true;
         int ascii;
         // Jmeno
-        if(jmeno.isEmpty()){
+        if (jmeno.isEmpty()) {
             return false;
         }
-        for(char c : jmeno.toCharArray()){
-            ascii = (int)c;
-            if(ascii < 65 || (ascii > 90 && ascii < 97) || ascii > 122){
+        for (char c : jmeno.toCharArray()) {
+            ascii = (int) c;
+            if (ascii < 65 || (ascii > 90 && ascii < 97) || ascii > 122) {
                 return false;
             }
         }
         // Prijmeni
-        if(prijmeni.isEmpty()){
+        if (prijmeni.isEmpty()) {
             return false;
         }
-        for(char c : prijmeni.toCharArray()){
-            ascii = (int)c;
-            if(ascii < 65 || (ascii > 90 && ascii < 97) || ascii > 122){
+        for (char c : prijmeni.toCharArray()) {
+            ascii = (int) c;
+            if (ascii < 65 || (ascii > 90 && ascii < 97) || ascii > 122) {
                 return false;
             }
         }
         // Username
-        if(username.isEmpty()){
+        if (username.isEmpty()) {
             return false;
         }
-        for(char c : username.toCharArray()){
-            if(c == ' '){
+        for (char c : username.toCharArray()) {
+            if (c == ' ') {
                 return false;
             }
         }
         // Password
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             return false;
         }
-        for(char c : password.toCharArray()){
-            if(c == ' '){
+        for (char c : password.toCharArray()) {
+            if (c == ' ') {
                 return false;
             }
         }
         // Mesto
-        if(mesto.isEmpty()){
+        if (mesto.isEmpty()) {
             return false;
         }
-        for(char c : mesto.toCharArray()){
-            if(c == ' '){
+        for (char c : mesto.toCharArray()) {
+            if (c == ' ') {
                 return false;
             }
         }
         // Ulice
-        if(ulice.isEmpty()){
+        if (ulice.isEmpty()) {
             return false;
         }
-        for(char c : ulice.toCharArray()){
-            if(c == ' '){
+        for (char c : ulice.toCharArray()) {
+            if (c == ' ') {
                 return false;
             }
         }
         // Telefon
-        if(telefon.isEmpty()){
+        if (telefon.isEmpty()) {
             return false;
         }
-        for(char c : telefon.toCharArray()){
-            ascii = (int)c;
-            if(!(ascii > 47 && ascii < 58) && c != ' ' && c != '+'){
+        for (char c : telefon.toCharArray()) {
+            ascii = (int) c;
+            if (!(ascii > 47 && ascii < 58) && c != ' ' && c != '+') {
                 System.out.println("Telefon validation failed");
                 return false;
             }
         }
         // Email
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             return false;
         }
         EmailValidator emailValidator = EmailValidator.getInstance();
-        if(!emailValidator.isValid(email)){
+        if (!emailValidator.isValid(email)) {
             System.out.println("Email validation failed");
-         return false;
-        }
-        // Plat
-        if(plat.isEmpty()){
             return false;
         }
-        try{
+        // Plat
+        if (plat.isEmpty()) {
+            return false;
+        }
+        try {
             Double.parseDouble(plat);
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
 
         // Cislo Popisne
-        if(cisloPopisne.isEmpty()){
+        if (cisloPopisne.isEmpty()) {
             return false;
         }
-        try{
-            if(Integer.parseInt(cisloPopisne) < 1){
+        try {
+            if (Integer.parseInt(cisloPopisne) < 1) {
                 return false;
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
 

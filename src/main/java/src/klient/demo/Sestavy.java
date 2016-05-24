@@ -83,8 +83,8 @@ public class Sestavy {
         }
 
         public void prinToFile(String path) {
-            try(BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "Windows-1250"))) {
-                if(headers != null) {
+            try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "Windows-1250"))) {
+                if (headers != null) {
                     for (String header : headers) {
                         bw.write(header);
                         bw.write(";");
@@ -99,14 +99,13 @@ public class Sestavy {
                     }
                     bw.newLine();
                 }
-            }
-            catch (IOException ex) {
+            } catch (IOException ex) {
                 System.err.println("Soubor se nepodarilo ulozit.");
                 ex.printStackTrace();
             }
         }
 
-        public void addAll(List<Object[]> list){
+        public void addAll(List<Object[]> list) {
             data.addAll(list);
         }
     }

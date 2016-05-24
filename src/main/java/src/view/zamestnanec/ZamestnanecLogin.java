@@ -1,6 +1,5 @@
 package src.view.zamestnanec;
 
-import src.login.Session;
 import src.provider.ProviderController;
 
 import javax.swing.*;
@@ -11,40 +10,24 @@ import java.awt.event.ActionListener;
 /**
  * Created by root on 14.4.16.
  */
-public class ZamestnanecLogin extends JDialog{
+public class ZamestnanecLogin extends JDialog {
 
     private ProviderController providerController;
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JLabel hint;
 
-    public static void main(String [] args){
-
-        final ZamestnanecLogin zkl =  new ZamestnanecLogin(null);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-
-    }
-
-    public ZamestnanecLogin(ProviderController providerController){
+    public ZamestnanecLogin(ProviderController providerController) {
         this.providerController = providerController;
     }
 
-    public void startFrame(){
+    public void startFrame() {
         setModalityType(ModalityType.APPLICATION_MODAL);
-//        if(providerController.getZamestnanecLoginController().someoneIsLoggedInKasa()){
-//            invokeZamestnanecCrashRecovery();
-//            return;
-//        }
-
         this.setSize(400, 200);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Login Screen");
-        this.setLayout(new GridLayout(5,1,3,3));
+        this.setLayout(new GridLayout(5, 1, 3, 3));
 
         JPanel subTitle = new JPanel();
         JPanel userNamePanel = new JPanel();
@@ -53,8 +36,8 @@ public class ZamestnanecLogin extends JDialog{
         JPanel hintPanel = new JPanel();
 
         subTitle.setLayout(new FlowLayout());
-        userNamePanel.setLayout(new GridLayout(1,3,3,3));
-        passwordPanel.setLayout(new GridLayout(1,3,3,3));
+        userNamePanel.setLayout(new GridLayout(1, 3, 3, 3));
+        passwordPanel.setLayout(new GridLayout(1, 3, 3, 3));
         loginButtonPanel.setLayout(new FlowLayout());
         hintPanel.setLayout(new FlowLayout());
 
@@ -95,39 +78,31 @@ public class ZamestnanecLogin extends JDialog{
         usernameField.requestFocus();
     }
 
-    public synchronized Session getLogged() {
-        Session session = providerController.getZamestnanecLoginController().getCurrentSession();
-
-        return session;
-    }
-
     private class ButtonClickedListener implements ActionListener {
 
         public synchronized void actionPerformed(ActionEvent e) {
 
-           System.out.println(usernameField.getText());
-           System.out.println(new String(passwordField.getPassword()));
-           try{
-               providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
-               providerController.getZamestnanecLoginController().setPassWord(new String(passwordField.getPassword()));
-               if(providerController.getZamestnanecLoginController().performLogin()){
+            System.out.println(usernameField.getText());
+            System.out.println(new String(passwordField.getPassword()));
+            try {
+                providerController.getZamestnanecLoginController().setUserName(usernameField.getText());
+                providerController.getZamestnanecLoginController().setPassWord(new String(passwordField.getPassword()));
+                if (providerController.getZamestnanecLoginController().performLogin()) {
 
-                   dispose();
-                   ZamestnanecPotvrditPrevzetiHry zkl =  new ZamestnanecPotvrditPrevzetiHry(providerController);
-                   zkl.startFrame();
-                   usernameField.setText("");
-                   passwordField.setText("");
-                   setVisible(true);
-                   repaint();
-               } else {
-                   showHint();
-               }
-           } catch (Exception exc){
-               exc.printStackTrace();
-               showHint();
-           }
-
-
+                    dispose();
+                    ZamestnanecPotvrditPrevzetiHry zkl = new ZamestnanecPotvrditPrevzetiHry(providerController);
+                    zkl.startFrame();
+                    usernameField.setText("");
+                    passwordField.setText("");
+                    setVisible(true);
+                    repaint();
+                } else {
+                    showHint();
+                }
+            } catch (Exception exc) {
+                exc.printStackTrace();
+                showHint();
+            }
         }
     }
 

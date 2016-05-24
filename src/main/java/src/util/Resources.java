@@ -42,31 +42,31 @@ public class Resources {
     @PersistenceContext
     private EntityManager em;
 
-    private void init(){
+    private void init() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("sedlasi_db");
         em = emf.createEntityManager();
 
         boolean postgresql = false;
 
-        for (Map.Entry<String,Object> stringObjectEntry : emf.getProperties().entrySet()) {
-                if(stringObjectEntry.getKey().equals("javax.persistence.jdbc.url") && stringObjectEntry.getValue().toString().contains("postgresql")){
-                    postgresql = true;
-                }
+        for (Map.Entry<String, Object> stringObjectEntry : emf.getProperties().entrySet()) {
+            if (stringObjectEntry.getKey().equals("javax.persistence.jdbc.url") && stringObjectEntry.getValue().toString().contains("postgresql")) {
+                postgresql = true;
+            }
         }
 
-        if(postgresql){
+        if (postgresql) {
             createProcedures();
         }
     }
 
-    private void createProcedures(){
+    private void createProcedures() {
         em.getTransaction().begin();
         em.createNativeQuery(createFunction + createTrigger).executeUpdate();
         em.getTransaction().commit();
     }
 
-    public EntityManager getEntityManager(){
-        if(em != null){
+    public EntityManager getEntityManager() {
+        if (em != null) {
             return em;
         } else {
             init();

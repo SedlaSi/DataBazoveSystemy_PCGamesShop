@@ -24,7 +24,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         this.providerDAO = providerDAO;
     }
 
-    public List<Exemplar> getConcreteList(String nazev, String vydavatel, Date rokVydani, long kodExemplare, List<String> zanry, List<String> platformy, boolean showAllResults){
+    public List<Exemplar> getConcreteList(String nazev, String vydavatel, Date rokVydani, long kodExemplare, List<String> zanry, List<String> platformy, boolean showAllResults) {
         CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
         CriteriaQuery<Exemplar> criteriaQuery = criteriaBuilder.createQuery(Exemplar.class);
         Root<Exemplar> exemplarRoot = criteriaQuery.from(Exemplar.class);
@@ -47,36 +47,36 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
         Join<Pujcka, Exemplar> joinEx = fromProject.join("exemplar");
         subquery.select(joinEx.get("id"));
         subquery.where(criteriaBuilder.and(criteriaBuilder.isNotNull(fromProject.get("pujceno")), criteriaBuilder.isNull(fromProject.get("vraceno"))));
-        if(!showAllResults){
+        if (!showAllResults) {
             predicates.add(criteriaBuilder.not(criteriaBuilder.in(exemplarRoot.get("id")).value(subquery)));
         }
         predicates.add(criteriaBuilder.equal(exemplarRoot.get("aktivni"), true));
 
-        if(nazev != null && !nazev.isEmpty()){
+        if (nazev != null && !nazev.isEmpty()) {
             hraNazev = criteriaBuilder.parameter(String.class);
             predicates.add(criteriaBuilder.equal(hraJoin.get("nazev"), hraNazev));
         }
 
-        if(vydavatel != null && !vydavatel.isEmpty()){
+        if (vydavatel != null && !vydavatel.isEmpty()) {
             hraVydavatel = criteriaBuilder.parameter(String.class);
             predicates.add(criteriaBuilder.equal(vydavatelJoin.get("nazev"), hraVydavatel));
         }
 
-        if(rokVydani != null){
+        if (rokVydani != null) {
             exemplarRokVydani = criteriaBuilder.parameter(Date.class);
             predicates.add(criteriaBuilder.equal(exemplarRoot.get("rokVydani"), exemplarRokVydani));
         }
 
-        if(kodExemplare != -1){
+        if (kodExemplare != -1) {
             exemplarKod = criteriaBuilder.parameter(Long.class);
             predicates.add(criteriaBuilder.equal(exemplarRoot.get("id"), exemplarKod));
         }
 
-        if(zanry != null && !zanry.isEmpty()) {
+        if (zanry != null && !zanry.isEmpty()) {
             predicates.add(zanrJoin.get("nazev").in(zanry));
         }
 
-        if(platformy != null && !platformy.isEmpty()) {
+        if (platformy != null && !platformy.isEmpty()) {
             predicates.add(platformaJoin.get("nazev").in(platformy));
         }
 
@@ -84,66 +84,49 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
 
         TypedQuery<Exemplar> query = em.createQuery(criteriaQuery);
 
-        if(nazev != null && !nazev.isEmpty()){
+        if (nazev != null && !nazev.isEmpty()) {
             query.setParameter(hraNazev, nazev);
         }
 
-        if(vydavatel != null && !vydavatel.isEmpty()){
+        if (vydavatel != null && !vydavatel.isEmpty()) {
             query.setParameter(hraVydavatel, vydavatel);
         }
 
-        if(rokVydani != null){
+        if (rokVydani != null) {
             query.setParameter(exemplarRokVydani, rokVydani);
         }
 
-        if(kodExemplare != -1){
+        if (kodExemplare != -1) {
             query.setParameter(exemplarKod, kodExemplare);
         }
 
         return query.getResultList();
     }
 
-    @Override
-    public Exemplar getById(int id){
+    private Exemplar getByIdTransactionFree(long id) {
         Exemplar t = null;
         Query q = em.createNamedQuery("Exemplar.getById");
-        q.setParameter("id",id);
-        List<Exemplar> list =(List<Exemplar>) q.getResultList();
-        if(list != null && list.size() == 1){
+        q.setParameter("id", id);
+        List<Exemplar> list = (List<Exemplar>) q.getResultList();
+        if (list != null && list.size() == 1) {
             t = list.get(0);
         }
         return t;
     }
 
-    private Exemplar getByIdTransactionFree(long id){
-        Exemplar t = null;
-        Query q = em.createNamedQuery("Exemplar.getById");
-        q.setParameter("id",id);
-        List<Exemplar> list =(List<Exemplar>) q.getResultList();
-        if( list != null && list.size() == 1){
-            t = list.get(0);
-        }
-        return t;
-    }
-
-    public void zapujcitHru(long idExemplar, String zakaznikUserName, String zamestnanecUserName) throws Exception{
+    public void zapujcitHru(long idExemplar, String zakaznikUserName, String zamestnanecUserName) throws Exception {
         Zakaznik zakaznik;
         Zamestnanec zamestnanec;
         Exemplar exemplar;
         Pujcka pujcka = new Pujcka();
         em.getTransaction().begin();
-        try{
-            if(providerDAO.getPujckaDAO().getByExemplarId(idExemplar) != null) {
-                //em.getTransaction().rollback();
+        try {
+            if (providerDAO.getPujckaDAO().getByExemplarId(idExemplar) != null) {
                 throw new Exception("rollback invoked, exemplar has been loaned");
             }
 
             exemplar = getByIdTransactionFree(idExemplar);
             zakaznik = providerDAO.getZakaznikDAO().getByUserName(zakaznikUserName);
-//            zamestnanec = providerDAO.getKasaDAO().getLoggedZamestnanec();
-//            if(zamestnanec == null){
-//                throw new Exception("noone logged in");
-//            }
             zamestnanec = providerDAO.getZamestnanecDAO().getByUserName(zamestnanecUserName);
             pujcka.setZakaznik(zakaznik);
             pujcka.setZamestnanec(zamestnanec);
@@ -152,7 +135,7 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
             pujcka.setCena(exemplar.getCena());
             providerDAO.getPujckaDAO().createTransactionFree(pujcka);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             em.getTransaction().rollback();
             e.printStackTrace();
             throw new Exception("rollback invoked");
@@ -161,6 +144,6 @@ public class ExemplarDAO extends TemplateDAO<Exemplar> {
     }
 
     public List<Exemplar> getList() {
-        return (List<Exemplar>)em.createNamedQuery("Exemplar.getList").getResultList();
+        return (List<Exemplar>) em.createNamedQuery("Exemplar.getList").getResultList();
     }
 }

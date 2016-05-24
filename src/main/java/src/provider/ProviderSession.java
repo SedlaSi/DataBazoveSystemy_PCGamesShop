@@ -10,15 +10,15 @@ public class ProviderSession {
 
     private Session session;
 
-    public void initSession(String userName,Role role){
-        session = new Session(userName,role);
+    public void initSession(String userName, Role role) {
+        session = new Session(userName, role);
     }
 
-    public void endSession(){
+    public void endSession() {
         session = null;
     }
 
-    public Session getSession(){
+    public Session getSession() {
         return session;
     }
 

@@ -15,6 +15,6 @@ public class ZanrDAO extends TemplateDAO<Zanr> {
     }
 
     public List<Zanr> getList() {
-        return (List<Zanr>)em.createNamedQuery("Zanr.getList").getResultList();
+        return (List<Zanr>) em.createNamedQuery("Zanr.getList").getResultList();
     }
 }

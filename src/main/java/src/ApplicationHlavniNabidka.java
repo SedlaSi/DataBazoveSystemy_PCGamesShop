@@ -9,21 +9,16 @@ public class ApplicationHlavniNabidka {
     public static void main(String[] args) {
 
         Provider provider = new Provider();
-        AdminSmazatZamestnanceController admSC = new AdminSmazatZamestnanceController(provider);
         AdminVytvoritZamestnanceController admC = new AdminVytvoritZamestnanceController(provider);
-        ZamestnanecVytvoritZakaznikaController zvzC = new ZamestnanecVytvoritZakaznikaController(provider);
         ZakaznikLoginController zkC = new ZakaznikLoginController(provider);
         ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
-        ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
         ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
         ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
         ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
         HlavniNabidkaController hnC = new HlavniNabidkaController(provider);
-        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC,hnC);
+        ProviderController providerController = new ProviderController(zpphC, zpvC, zkpC, admC, zkC, zlC, hnC);
 
-
-        HlavniNabidka hlavniNabidka = new HlavniNabidka(providerController);
+        HlavniNabidka hlavniNabidka = new HlavniNabidka(providerController, provider);
         hlavniNabidka.startFrame();
     }
-
 }

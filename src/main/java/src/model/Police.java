@@ -26,7 +26,7 @@ public class Police {
     @Column(name = "id_police")
     private long id;
 
-    @Column(nullable = false,unique = true,length = 128, name = "nazev")
+    @Column(nullable = false, unique = true, length = 128, name = "nazev")
     private String nazev;
 
     @Column(length = 255, name = "popis")
@@ -55,11 +55,11 @@ public class Police {
         this.nazev = nazev;
     }
 
-    public void setHry(List<Hra> hry){
+    public void setHry(List<Hra> hry) {
         this.hry = hry;
     }
 
-    public List<Hra> getHry(){
+    public List<Hra> getHry() {
         return hry;
     }
 

@@ -14,6 +14,6 @@ public class PoliceDAO extends TemplateDAO<Police> {
     }
 
     public List<Police> getList() {
-        return (List<Police>)em.createNamedQuery("Police.getList").getResultList();
+        return (List<Police>) em.createNamedQuery("Police.getList").getResultList();
     }
 }

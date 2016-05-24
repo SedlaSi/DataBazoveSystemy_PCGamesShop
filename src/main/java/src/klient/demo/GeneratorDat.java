@@ -59,7 +59,7 @@ public class GeneratorDat {
         List<Zakaznik> zakazniciList = providerDAO.getZakaznikDAO().getList();
         List<Exemplar> exemplareList = providerDAO.getExemplarDAO().getList();
 
-        if(zamestnanciList.size() == 0 || zakazniciList.size() == 0 || exemplareList.size() == 0) {
+        if (zamestnanciList.size() == 0 || zakazniciList.size() == 0 || exemplareList.size() == 0) {
             System.err.println("V databazi nejsou zadni zamestnanci nebo zakaznici nabo exemplare.");
             return;
         }
@@ -150,7 +150,7 @@ public class GeneratorDat {
         List<Police> policeList = providerDAO.getPoliceDAO().getList();
         List<Zanr> zanryList = providerDAO.getZanrDAO().getList();
 
-        if(policeList.size() == 0 || zanryList.size() == 0) {
+        if (policeList.size() == 0 || zanryList.size() == 0) {
             System.err.println("V databazi nejsou zadne polize nebo zanry.");
             return;
         }
@@ -279,7 +279,7 @@ public class GeneratorDat {
     void generujZamestnance(int count) {
         List<Pozice> poziceList = providerDAO.getPoziceDAO().getList();
 
-        if(poziceList.size() == 0) {
+        if (poziceList.size() == 0) {
             System.err.println("V databazi nejsou zadne pozice.");
             return;
         }
@@ -335,7 +335,7 @@ public class GeneratorDat {
         private String ulice;
         private int telefon;
         private String username;
-        private char [] password;
+        private char[] password;
         private String email;
         private int cisloPopisne;
 
@@ -372,7 +372,7 @@ public class GeneratorDat {
             return username;
         }
 
-        public char [] getPassword() {
+        public char[] getPassword() {
             return password;
         }
 
@@ -384,40 +384,16 @@ public class GeneratorDat {
             return cisloPopisne;
         }
 
-        public void setJmeno(String jmeno) {
-            this.jmeno = jmeno;
-        }
-
-        public void setPrijmeni(String prijmeni) {
-            this.prijmeni = prijmeni;
-        }
-
-        public void setMesto(String mesto) {
-            this.mesto = mesto;
-        }
-
-        public void setUlice(String ulice) {
-            this.ulice = ulice;
-        }
-
-        public void setTelefon(int telefon) {
-            this.telefon = telefon;
-        }
-
         public void setUsername(String username) {
             this.username = username;
         }
 
-        public void setPassword(char [] password) {
+        public void setPassword(char[] password) {
             this.password = password;
         }
 
         public void setEmail(String email) {
             this.email = email;
-        }
-
-        public void setCisloPopisne(int cisloPopisne) {
-            this.cisloPopisne = cisloPopisne;
         }
     }
 

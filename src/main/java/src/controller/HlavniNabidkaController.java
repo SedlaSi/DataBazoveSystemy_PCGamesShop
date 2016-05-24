@@ -10,12 +10,12 @@ public class HlavniNabidkaController extends TemplateController {
         super(provider);
     }
 
-    public void getnerujSestavy(){
+    public void getnerujSestavy() {
         Sestavy sestavy = new Sestavy(providerDAO.getRes().getEntityManager());
         sestavy.start();
     }
 
-    public void getnerujProvozniData(){
+    public void getnerujProvozniData() {
         GeneratorDat generatorDat = new GeneratorDat(providerDAO);
         generatorDat.start();
     }

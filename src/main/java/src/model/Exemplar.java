@@ -36,10 +36,10 @@ public class Exemplar {
     @Column(name = "stav")
     private String stav;
 
-    @Column(nullable = false,name = "cena")
+    @Column(nullable = false, name = "cena")
     private int cena;
 
-    @Column(nullable = false,name = "rok_vydani", updatable = false)
+    @Column(nullable = false, name = "rok_vydani", updatable = false)
     private Date rokVydani;
 
     @Column(nullable = false, name = "aktivni")

@@ -1,7 +1,5 @@
 package src.view.zamestnanec;
 
-import src.controller.*;
-import src.provider.Provider;
 import src.provider.ProviderController;
 
 import javax.swing.*;
@@ -16,7 +14,7 @@ import java.util.Locale;
 /**
  * Created by root on 22.4.16.
  */
-public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionListener{
+public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionListener {
     private ProviderController providerController;
     private JTextField kodExemplare;
     private JTextField datum;
@@ -25,35 +23,11 @@ public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionLis
     private JButton pujcit;
     private JLabel hint;
 
-    public static void main(String [] args){
-
-        Provider provider = new Provider();
-        AdminSmazatZamestnanceController admSC = new AdminSmazatZamestnanceController(provider);
-        AdminVytvoritZamestnanceController admC = new AdminVytvoritZamestnanceController(provider);
-        ZamestnanecVytvoritZakaznikaController zvzC = new ZamestnanecVytvoritZakaznikaController(provider);
-        ZakaznikLoginController zkC = new ZakaznikLoginController(provider);
-        ZamestnanecLoginController zlC = new ZamestnanecLoginController(provider);
-        ZamestnanecVydavatelController zvC = new ZamestnanecVydavatelController(provider);
-        ZakaznikPrihlasenController zkpC = new ZakaznikPrihlasenController(provider);
-        ZakaznikPrihlasenVyhledatHruController zpvC = new ZakaznikPrihlasenVyhledatHruController(provider);
-        ZamestnanecPotrvditPrevzetiHryController zpphC = new ZamestnanecPotrvditPrevzetiHryController(provider);
-        HlavniNabidkaController hnC = new HlavniNabidkaController(provider);
-        ProviderController providerController = new ProviderController(zpphC,zpvC,zkpC,admSC,zvC,zvzC,admC,zkC,zlC,hnC);
-
-        final ZamestnanecPotvrditPrevzetiHry zkl =  new ZamestnanecPotvrditPrevzetiHry(providerController);
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-
-    }
-
-    public ZamestnanecPotvrditPrevzetiHry(ProviderController providerController){
+    public ZamestnanecPotvrditPrevzetiHry(ProviderController providerController) {
         this.providerController = providerController;
     }
 
-    public void startFrame(){
+    public void startFrame() {
         setModalityType(ModalityType.APPLICATION_MODAL);
 
         setLayout(new FlowLayout());
@@ -135,20 +109,20 @@ public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionLis
 
         if (source == odhlasit) {
             dispose();
-        } else if(source == potvrdit) {
-            if(!providerController.getZamestnanecPotrvditPrevzetiHryController().potvrdit(kodExemplare.getText(),datum.getText())){
+        } else if (source == potvrdit) {
+            if (!providerController.getZamestnanecPotrvditPrevzetiHryController().potvrdit(kodExemplare.getText(), datum.getText())) {
                 showHint();
             } else {
                 showSuccess();
             }
-        } else if(source == pujcit) {
-            ZamestnanecPrihlasenVyhledatHru zkl =  new ZamestnanecPrihlasenVyhledatHru(providerController);
+        } else if (source == pujcit) {
+            ZamestnanecPrihlasenVyhledatHru zkl = new ZamestnanecPrihlasenVyhledatHru(providerController);
             zkl.createFrame();
             datum.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH).format(new Date()));
         }
     }
 
-    private void showSuccess(){
+    private void showSuccess() {
         kodExemplare.setText("");
         datum.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH).format(new Date()));
         hint.setText("Produkt byl úspěšně přijat.");
@@ -157,7 +131,7 @@ public class ZamestnanecPotvrditPrevzetiHry extends JDialog implements ActionLis
         this.repaint();
     }
 
-    private void showHint(){
+    private void showHint() {
         hint.setText("Chybně zadané informace.");
         this.invalidate();
         this.validate();

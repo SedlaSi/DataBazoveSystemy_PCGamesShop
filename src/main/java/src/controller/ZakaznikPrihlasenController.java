@@ -22,8 +22,8 @@ public class ZakaznikPrihlasenController extends TemplateController {
     }
 
 
-    public List<Exemplar> getVraceneHry(){
-        if(session == null){
+    public List<Exemplar> getVraceneHry() {
+        if (session == null) {
             session = providerSession.getSession();
         }
         List<Exemplar> ret = null;
@@ -31,30 +31,30 @@ public class ZakaznikPrihlasenController extends TemplateController {
                 .getZakaznikDAO()
                 .getByUserName(session
                         .getUserName());
-        if(zakaznik == null){
+        if (zakaznik == null) {
             return ret;
         }
-        try{
+        try {
             ret = providerDAO.getZakaznikDAO().getVraceneHry(zakaznik);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Exeption in ZakaznikPrihlasenController.getVraceneHry");
         }
         return ret;
     }
 
-    public List<Exemplar> getNevraceneHry(){
-        if(session == null){
+    public List<Exemplar> getNevraceneHry() {
+        if (session == null) {
             session = providerSession.getSession();
         }
         List<Exemplar> ret = null;
         Zakaznik zakaznik = providerDAO.getZakaznikDAO().getByUserName(session.getUserName());
-        if(zakaznik == null){
+        if (zakaznik == null) {
             return ret;
         }
-        try{
+        try {
             ret = providerDAO.getZakaznikDAO().getNevraceneHry(zakaznik);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Exeption in ZakaznikPrihlasenController.getNevraceneHry");
         }
         return ret;

@@ -2,13 +2,129 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51d1c3a-cd12-4c3d-b2af-4a91333472e8" name="Default" comment="check button u zamestnance pro zobrazovani vsech exemplaru">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/data/KasaDAO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/model/Kasa.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/view/Refreshable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/view/refresher/Refresher.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationZakaznikBuild.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationZamestnanecBuild.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/controller/AdminSmazatZamestnanceController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVydavatelController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/view/admin/AdminSmazatZamestnance.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecCrashRecovery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPridatHru.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecVytvoritZakaznika.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationAdminBuild.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationMainBuild$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationMainBuild$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationMainBuild.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationZakaznikBuild$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationZakaznikBuild$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationZakaznikBuild.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationZamestnanecBuild$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/ApplicationZamestnanecBuild.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/controller/AdminSmazatZamestnanceController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecVydavatelController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecVytvoritZakaznikaController.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/data/KasaDAO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/model/Kasa.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/admin/AdminSmazatZamestnance$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/admin/AdminSmazatZamestnance$BoxSelectedListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/admin/AdminSmazatZamestnance$ButtonClickedListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/admin/AdminSmazatZamestnance.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/admin/AdminVytvoritZamestnance$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikVyhledatHru$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecCrashRecovery$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecCrashRecovery$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecCrashRecovery$ButtonClickedListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecCrashRecovery.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPridatHru$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPridatHru$ButtonClickedListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPridatHru$ComboBoxItemListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPridatHru.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecVytvoritZakaznika$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecVytvoritZakaznika$ButtonClickedListener.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecVytvoritZakaznika.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/AdminVytvoritZamestnanceController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZakaznikLoginController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/ZakaznikLoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecLoginController.class" afterPath="$PROJECT_DIR$/target/classes/src/controller/ZamestnanecLoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/data/TemplateDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/data/TemplateDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/data/ZamestnanecDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/data/ZamestnanecDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/login/Session.class" afterPath="$PROJECT_DIR$/target/classes/src/login/Session.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Exemplar.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Exemplar.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zakaznik.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zakaznik.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" afterPath="$PROJECT_DIR$/target/classes/src/model/Zamestnanec.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/provider/ProviderController.class" afterPath="$PROJECT_DIR$/target/classes/src/provider/ProviderController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/provider/ProviderDAO.class" afterPath="$PROJECT_DIR$/target/classes/src/provider/ProviderDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/util/Resources.class" afterPath="$PROJECT_DIR$/target/classes/src/util/Resources.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/admin/AdminVytvoritZamestnance.class" afterPath="$PROJECT_DIR$/target/classes/src/view/admin/AdminVytvoritZamestnance.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin$1.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin$ButtonClickedListener.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin$ButtonClickedListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikLogin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$1.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$ButtonClickedListener.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen$ButtonClickedListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikPrihlasen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikVyhledatHru.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zakaznik/ZakaznikVyhledatHru.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecLogin$1.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecLogin$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecLogin$ButtonClickedListener.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecLogin$ButtonClickedListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecLogin.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecLogin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.class" afterPath="$PROJECT_DIR$/target/classes/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameShop.iml" afterPath="$PROJECT_DIR$/GameShop.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/ApplicationHlavniNabidka.java" afterPath="$PROJECT_DIR$/src/main/java/src/ApplicationHlavniNabidka.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/HlavniNabidkaController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/HlavniNabidkaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/TemplateController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/TemplateController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java" afterPath="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/ExemplarDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/ExemplarDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/HraDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/HraDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/PlatformaDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/PlatformaDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/PoliceDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/PoliceDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/PoziceDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/PoziceDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/PujckaDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/PujckaDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/TemplateDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/TemplateDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/VydavatelDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/VydavatelDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/ZakaznikDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/ZakaznikDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/data/ZanrDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/data/ZanrDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/klient/demo/Anomalie.java" afterPath="$PROJECT_DIR$/src/main/java/src/klient/demo/Anomalie.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/klient/demo/GeneratorDat.java" afterPath="$PROJECT_DIR$/src/main/java/src/klient/demo/GeneratorDat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/klient/demo/Sestavy.java" afterPath="$PROJECT_DIR$/src/main/java/src/klient/demo/Sestavy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/login/Decoder.java" afterPath="$PROJECT_DIR$/src/main/java/src/login/Decoder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/login/Session.java" afterPath="$PROJECT_DIR$/src/main/java/src/login/Session.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Exemplar.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Exemplar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Hra.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Hra.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Platforma.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Platforma.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Police.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Police.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Pozice.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Pozice.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Pujcka.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Pujcka.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/model/Zanr.java" afterPath="$PROJECT_DIR$/src/main/java/src/model/Zanr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/provider/Provider.java" afterPath="$PROJECT_DIR$/src/main/java/src/provider/Provider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/provider/ProviderController.java" afterPath="$PROJECT_DIR$/src/main/java/src/provider/ProviderController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/provider/ProviderDAO.java" afterPath="$PROJECT_DIR$/src/main/java/src/provider/ProviderDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/provider/ProviderSession.java" afterPath="$PROJECT_DIR$/src/main/java/src/provider/ProviderSession.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/util/Resources.java" afterPath="$PROJECT_DIR$/src/main/java/src/util/Resources.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/src/util/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/HlavniNabidka.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/HlavniNabidka.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikLogin.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledatHru.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledatHru.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecLogin.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecLogin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPrihlasenVyhledatHru.java" afterPath="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPrihlasenVyhledatHru.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
     </list>
     <ignored path="GameShop.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,11 +161,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ZakaznikPrihlasenVyhledatHruController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java">
+      <file leaf-file-name="ZamestnanecPotrvditPrevzetiHryController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="209">
+              <caret line="29" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,89 +174,109 @@
       <file leaf-file-name="ZamestnanecLoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="227">
+              <caret line="40" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding>
+                <element signature="e#1475#1476#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZamestnanecPotrvditPrevzetiHryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java">
+      <file leaf-file-name="ZakaznikPrihlasenVyhledatHruController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="231">
+              <caret line="78" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <folding>
+                <element signature="e#653#654#0" expanded="true" />
+                <element signature="e#763#764#0" expanded="true" />
+                <element signature="e#869#870#0" expanded="true" />
+                <element signature="e#978#979#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZamestnanecVydavatelController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVydavatelController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZamestnanecVytvoritZakaznikaController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExemplarRenderer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ExemplarRenderer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/src/renderer/ExemplarRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="324">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Decoder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Decoder.java">
+      <file leaf-file-name="ZakaznikPrihlasenController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="25" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZakaznikLoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="16" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding>
+                <element signature="e#1308#1309#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TemplateController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/TemplateController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="11" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#252#253#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HlavniNabidkaController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/HlavniNabidkaController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="13" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminVytvoritZamestnanceController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="16" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sestavy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/src/klient/demo/Sestavy.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Role.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Role.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Session.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Session.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminSmazatZamestnance.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminSmazatZamestnance.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+              <folding>
+                <element signature="e#390#391#0" expanded="true" />
+                <element signature="e#440#441#0" expanded="true" />
+                <marker date="1464114561275" expanded="true" signature="886:1469" placeholder="SELECT tabul... id_hra" />
+                <marker date="1464114561275" expanded="true" signature="985:1363" placeholder="SELECT hra.i... byl_propujcen" />
+                <marker date="1464114561275" expanded="true" signature="1837:2232" placeholder="SELECT hra.i... byl_propujcen" />
+                <marker date="1464114561275" expanded="true" signature="2599:3116" placeholder="SELECT hra.i... hra" />
+                <marker date="1464114561275" expanded="true" signature="3538:3875" placeholder="SELECT zakaz... zakaznik" />
+                <marker date="1464114561275" expanded="true" signature="4319:4628" placeholder="SELECT zakaz... zakaznik" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -169,57 +305,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVydavatelController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/ApplicationHlavniNabidka.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/HlavniNabidka.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPrihlasenVyhledatHru.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecLogin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/HraDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Police.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/PoliceDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Pozice.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/PoziceDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/ZanrDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/Refreshable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderRefresher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/provider/Provider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasenVyhledatHru.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/refresher/Refresher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/src/login/Decoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledatHru.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/PlatformaDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/VydavatelDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikLogin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/util/Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/util/Resources.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderSession.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/provider/Provider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Zanr.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Pozice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Pujcka.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Police.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Platforma.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Hra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/model/Exemplar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/login/Session.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/login/Decoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/klient/demo/Sestavy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/klient/demo/GeneratorDat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/klient/demo/Anomalie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/ZanrDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/ZakaznikDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/VydavatelDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/TemplateDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/PujckaDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Exemplar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Platforma.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Zanr.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Hra.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/CreateProdejceProcedure" />
-        <option value="$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/create_active_prodejce" />
-        <option value="$PROJECT_DIR$/src/main/resources/pujcka_trigger" />
-        <option value="$PROJECT_DIR$/src/main/java/src/util/Resources.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZamestnanecPrihlasenVyhledatHru.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledatHru.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPrihlasenVyhledatHru.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/model/Pujcka.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/PoziceDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/PoliceDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/PlatformaDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/data/HraDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/src/data/ExemplarDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/util/PostgresJpaDialect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/provider/ProviderController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/src/login/Session.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/TemplateController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/HlavniNabidkaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java" />
       </list>
     </option>
   </component>
@@ -236,10 +372,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="25" />
-    <option name="width" value="1368" />
-    <option name="height" value="744" />
+    <option name="width" value="1366" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -266,7 +401,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -657,6 +791,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameShop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -707,6 +901,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -716,7 +911,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ASS/Semestralka" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="JPA.DatabaseSchemaImportDialog" value="ee25576f-964f-405d-a876-4dba7ccf0b81" />
@@ -1308,6 +1503,8 @@
       <workItem from="1463926250069" duration="10981000" />
       <workItem from="1463990873307" duration="10721000" />
       <workItem from="1464025093560" duration="4654000" />
+      <workItem from="1464106544833" duration="1466000" />
+      <workItem from="1464111537917" duration="3058000" />
     </task>
     <task id="LOCAL-00010" summary="upraveno persistence.xml 2">
       <created>1460747713684</created>
@@ -1656,10 +1853,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177351000" />
+    <option name="totallyTimeSpent" value="181875000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="25" width="1368" height="744" extended-state="6" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1672,12 +1869,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.086119555" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2923077" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16615385" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29010418" sideWeight="0.15343915" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4114202" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33089313" sideWeight="0.84656084" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06661786" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769231" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1746,420 +1943,472 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Police.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+        <state relative-caret-position="537">
+          <caret line="105" column="13" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
+          <folding>
+            <element signature="e#525#526#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledatHru.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="234" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
+          <folding>
+            <element signature="e#1096#1097#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikPrihlasen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="165" column="5" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Pozice.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zanr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Hra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Exemplar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="52" column="74" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
-          <folding />
+        <state relative-caret-position="191">
+          <caret line="118" column="26" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="26" />
+          <folding>
+            <element signature="e#496#497#0" expanded="true" />
+            <element signature="e#4329#4330#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritZamestnance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="154" column="93" selection-start-line="154" selection-start-column="93" selection-end-line="154" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        <state relative-caret-position="279">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminVytvoritProdejce.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1882">
-          <caret line="164" column="13" selection-start-line="164" selection-start-column="13" selection-end-line="164" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationSestava.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <marker date="1463856113681" expanded="true" signature="880:1397" placeholder="SELECT hra.i... hra" />
-            <marker date="1463856113681" expanded="true" signature="1819:2156" placeholder="SELECT zakaz... zakaznik" />
-            <marker date="1463856113681" expanded="true" signature="2600:2909" placeholder="SELECT zakaz... zakaznik" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/create_active_prodejce">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/pujcka_trigger">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/util/Resources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Platforma.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPridatHru.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/HlavniNabidka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="84" column="51" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPotvrditPrevzetiHry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="143" column="67" selection-start-line="143" selection-start-column="67" selection-end-line="143" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zakaznik/ZakaznikVyhledatHru.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/zamestnanec/ZamestnanecPrihlasenVyhledatHru.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="255" column="122" selection-start-line="255" selection-start-column="122" selection-end-line="255" selection-end-column="122" />
-          <folding>
-            <marker date="1464028053688" expanded="false" signature="38:404" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Pujcka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/util/PostgresJpaDialect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/refresh.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ExemplarDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/refresher/Refresher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/Refreshable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationMainBuild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationHlavniNabidka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationAdminBuild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationKlient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Osoba#0;class#ApplicationKlient#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationZakaznikBuild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/ApplicationZamestnanecBuild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/ProviderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state relative-caret-position="263">
+          <caret line="181" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/util/Util.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="306">
+          <caret line="20" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminSmazatZamestnanceController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/util/Resources.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="216">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/util/MySessionCustomizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="111" column="24" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="31" />
+        <state relative-caret-position="198">
+          <caret line="13" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/renderer/ZamestnanecPoziceRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="21" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/renderer/ZakaznikRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="19" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/ProviderSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="25" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#validData#0;class#AdminVytvoritZamestnanceController#0" expanded="false" />
+            <element signature="e#230#231#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/TemplateController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/ProviderDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="299">
+          <caret line="31" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/ProviderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="288">
+          <caret line="16" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/provider/Provider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="306">
+          <caret line="17" column="42" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zanr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="297">
+          <caret line="22" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zamestnanec.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="297">
+          <caret line="40" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Zakaznik.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="261">
+          <caret line="21" column="36" selection-start-line="0" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVydavatelController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Vydavatel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="315">
+          <caret line="24" column="41" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecVytvoritZakaznikaController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Pozice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="171">
+          <caret line="13" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/renderer/ExemplarRenderer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Pujcka.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="333">
+          <caret line="22" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Decoder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Police.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="333">
+          <caret line="22" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding>
+            <element signature="e#1115#1116#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Platforma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Role.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Hra.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="279">
+          <caret line="19" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding>
+            <element signature="e#1276#1277#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+            <element signature="e#1409#1410#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1545#1546#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/model/Exemplar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="47" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Session.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="288">
+          <caret line="16" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/src/view/admin/AdminSmazatZamestnance.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/login/Decoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="23" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/klient/demo/GeneratorDat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="383" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="400" selection-end-column="0" />
+          <folding>
+            <element signature="e#15540#15541#0" expanded="true" />
+            <element signature="e#15583#15584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/klient/demo/Anomalie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="70" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
+          <folding>
+            <marker date="1464114561523" expanded="true" signature="1317:1407" placeholder="INSERT INTO police... " />
+            <marker date="1464114561523" expanded="true" signature="2527:2565" placeholder="DELETE FROM " />
+            <marker date="1464114561523" expanded="true" signature="2960:3007" placeholder="UPDATE polic... " />
+            <marker date="1464114561523" expanded="true" signature="3199:3243" placeholder="SELECT popis... police" />
+            <marker date="1464114561523" expanded="true" signature="3625:3689" placeholder="UPDATE polic... " />
+            <marker date="1464114561523" expanded="true" signature="3996:4040" placeholder="SELECT popis... police" />
+            <marker date="1464114561523" expanded="true" signature="4208:4269" placeholder="UPDATE polic... " />
+            <marker date="1464114561523" expanded="true" signature="4451:4495" placeholder="SELECT popis... police" />
+            <marker date="1464114561523" expanded="true" signature="4879:4943" placeholder="UPDATE polic... " />
+            <marker date="1464114561523" expanded="true" signature="5309:5354" placeholder="SELECT popis... police" />
+            <marker date="1464114561523" expanded="true" signature="5615:5707" placeholder="INSERT INTO police... " />
+            <marker date="1464114561523" expanded="true" signature="5893:5938" placeholder="SELECT popis... police" />
+            <marker date="1464114561523" expanded="true" signature="6231:6269" placeholder="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ZanrDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="20" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ZamestnanecDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="42" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ZakaznikDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="30" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/VydavatelDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="24" column="24" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/TemplateDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="44" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/PujckaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="45" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#864#865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/PoziceDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/PoliceDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="19" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/PlatformaDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="17" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/HraDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="21" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/data/ExemplarDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="104" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecPotrvditPrevzetiHryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="29" column="31" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZamestnanecLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="40" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#1475#1476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenVyhledatHruController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="78" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding>
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#763#764#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikPrihlasenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="25" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/ZakaznikLoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#1308#1309#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/TemplateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="11" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#252#253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/klient/demo/Sestavy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding>
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <marker date="1464114561275" expanded="true" signature="886:1469" placeholder="SELECT tabul... id_hra" />
+            <marker date="1464114561275" expanded="true" signature="985:1363" placeholder="SELECT hra.i... byl_propujcen" />
+            <marker date="1464114561275" expanded="true" signature="1837:2232" placeholder="SELECT hra.i... byl_propujcen" />
+            <marker date="1464114561275" expanded="true" signature="2599:3116" placeholder="SELECT hra.i... hra" />
+            <marker date="1464114561275" expanded="true" signature="3538:3875" placeholder="SELECT zakaz... zakaznik" />
+            <marker date="1464114561275" expanded="true" signature="4319:4628" placeholder="SELECT zakaz... zakaznik" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/HlavniNabidkaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/controller/AdminVytvoritZamestnanceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="16" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/src/renderer/ExemplarRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>

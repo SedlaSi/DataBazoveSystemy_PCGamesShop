@@ -15,7 +15,7 @@ public class HraDAO extends TemplateDAO<Hra> {
     }
 
     public List<Hra> getList() {
-        return (List<Hra>)em.createNamedQuery("Hra.getList").getResultList();
+        return (List<Hra>) em.createNamedQuery("Hra.getList").getResultList();
     }
 
 }

@@ -42,33 +42,33 @@ public class Pujcka {
     private int cena = -1; // Initial value
 
     @ManyToOne
-    @JoinColumn(name = "id_exemplar",nullable = false, updatable = false)
+    @JoinColumn(name = "id_exemplar", nullable = false, updatable = false)
     private Exemplar exemplar;
 
     @ManyToOne
-    @JoinColumn(name = "id_zakaznik",nullable = false, updatable = false)
+    @JoinColumn(name = "id_zakaznik", nullable = false, updatable = false)
     private Zakaznik zakaznik;
 
     @ManyToOne
-    @JoinColumn(name = "id_zamestnanec",nullable = false, updatable = false)
+    @JoinColumn(name = "id_zamestnanec", nullable = false, updatable = false)
     private Zamestnanec zamestnanec;
 
     @PrePersist
-    void correctValidity(){
+    void correctValidity() {
         /*if(getVraceno() != null) {
             setVraceno(null);
         }*/
-        if(getPujceno() == null){
+        if (getPujceno() == null) {
             setPujceno(new Date());
         }
-        if(getCena() == -1){
+        if (getCena() == -1) {
             setCena(getExemplar().getCena());
         }
     }
 
     @PreUpdate
-    void correctUpdate(){
-        if(getVraceno() == null) {
+    void correctUpdate() {
+        if (getVraceno() == null) {
             setVraceno(new Date());
         }
     }

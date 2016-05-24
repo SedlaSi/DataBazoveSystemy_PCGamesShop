@@ -15,8 +15,8 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
         super(res);
     }
 
-    public Zakaznik getByUserName(String userName){
-        Query q =  em.createNamedQuery("Zakaznik.getByUserName");
+    public Zakaznik getByUserName(String userName) {
+        Query q = em.createNamedQuery("Zakaznik.getByUserName");
         q.setParameter("us", userName);
         return (Zakaznik) q.getSingleResult();
     }
@@ -24,21 +24,21 @@ public class ZakaznikDAO extends TemplateDAO<Zakaznik> {
     public List<Exemplar> getNevraceneHry(Zakaznik zakaznik) throws Exception {
         Zakaznik z = this.update(zakaznik);
         Query q = em.createNamedQuery("Zakaznik.getNevraceneHry");
-        q.setParameter("z",z);
-        return (List<Exemplar>)q.getResultList();
+        q.setParameter("z", z);
+        return (List<Exemplar>) q.getResultList();
 
     }
 
     public List<Exemplar> getVraceneHry(Zakaznik zakaznik) throws Exception {
         Zakaznik z = this.update(zakaznik);
         Query q = em.createNamedQuery("Zakaznik.getVraceneHry");
-        q.setParameter("z",z);
-        return (List<Exemplar>)q.getResultList();
+        q.setParameter("z", z);
+        return (List<Exemplar>) q.getResultList();
 
     }
 
     public List<Zakaznik> getList() {
-        return (List<Zakaznik>)em.createNamedQuery("Zakaznik.getList").getResultList();
+        return (List<Zakaznik>) em.createNamedQuery("Zakaznik.getList").getResultList();
     }
 
 }

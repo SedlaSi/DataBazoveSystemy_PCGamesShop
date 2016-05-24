@@ -11,35 +11,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ZakaznikLogin extends JDialog{
+public class ZakaznikLogin extends JDialog {
 
     private ProviderController providerController;
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JLabel loginHint;
 
-    public static void main(String [] args){
-
-       final ZakaznikLogin zkl =  new ZakaznikLogin(null);
-       javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.startFrame();
-            }
-        });
-
-    }
-
-    public ZakaznikLogin(ProviderController providerController){
+    public ZakaznikLogin(ProviderController providerController) {
         this.providerController = providerController;
     }
 
-    public void startFrame(){
+    public void startFrame() {
         setModalityType(ModalityType.APPLICATION_MODAL);
         this.setSize(400, 300);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setTitle("Login Screen");
-        this.setLayout(new GridLayout(8,1,3,3));
+        this.setLayout(new GridLayout(8, 1, 3, 3));
 
         JPanel title = new JPanel();
         JPanel search = new JPanel();
@@ -52,9 +41,9 @@ public class ZakaznikLogin extends JDialog{
 
         title.setLayout(new FlowLayout());
         search.setLayout(new FlowLayout());
-        subTitle.setLayout(new GridLayout(2,1,3,3));
-        userNamePanel.setLayout(new GridLayout(1,3,3,3));
-        passwordPanel.setLayout(new GridLayout(1,3,3,3));
+        subTitle.setLayout(new GridLayout(2, 1, 3, 3));
+        userNamePanel.setLayout(new GridLayout(1, 3, 3, 3));
+        passwordPanel.setLayout(new GridLayout(1, 3, 3, 3));
         loginButtonPanel.setLayout(new FlowLayout());
         loginHintPanel.setLayout(new FlowLayout());
 
@@ -66,12 +55,11 @@ public class ZakaznikLogin extends JDialog{
         this.add(passwordPanel);
         this.add(loginButtonPanel);
         this.add(loginHintPanel);
-        //JPanel mainPanel = new JPanel();
 
         JLabel titleLabel = new JLabel("Vítejte v GameShop půjčovně");
         title.add(titleLabel);
 
-        JLabel  searchTitle = new JLabel("Pro vyhledání hry klikněte zde:");
+        JLabel searchTitle = new JLabel("Pro vyhledání hry klikněte zde:");
         JButton searchButton = new JButton("Vyhledat hru");
         searchButton.addActionListener(new ButtonClickedListener());
         search.add(searchTitle);
@@ -112,19 +100,19 @@ public class ZakaznikLogin extends JDialog{
         usernameField.requestFocus();
     }
 
-    private class ButtonClickedListener implements ActionListener{
+    private class ButtonClickedListener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            if(((JButton)e.getSource()).getText().equals("Vyhledat hru")){ // Vyhledani hry
-                ZakaznikVyhledatHru zkl =  new ZakaznikVyhledatHru(providerController);
+            if (((JButton) e.getSource()).getText().equals("Vyhledat hru")) { // Vyhledani hry
+                ZakaznikVyhledatHru zkl = new ZakaznikVyhledatHru(providerController);
                 zkl.createFrame();
             } else { // Prihlaseni
                 providerController.getZakaznikLoginController().setUsername(usernameField.getText());
                 providerController.getZakaznikLoginController().setPassWord(new String(passwordField.getPassword()));
 
-                if(providerController.getZakaznikLoginController().performLogin()){
+                if (providerController.getZakaznikLoginController().performLogin()) {
                     dispose();
-                    ZakaznikPrihlasen zkl =  new ZakaznikPrihlasen(providerController);
+                    ZakaznikPrihlasen zkl = new ZakaznikPrihlasen(providerController);
                     zkl.startFrame();
                     usernameField.setText("");
                     passwordField.setText("");
@@ -137,7 +125,7 @@ public class ZakaznikLogin extends JDialog{
         }
     }
 
-    private void showHint(){
+    private void showHint() {
         loginHint.setText("Uživatelské jméno nebo heslo není správně.");
     }
 

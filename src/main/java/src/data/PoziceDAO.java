@@ -15,7 +15,7 @@ public class PoziceDAO extends TemplateDAO<Pozice> {
     }
 
     public List<Pozice> getList() {
-        return (List<Pozice>)em.createNamedQuery("Pozice.getList").getResultList();
+        return (List<Pozice>) em.createNamedQuery("Pozice.getList").getResultList();
     }
 
 }

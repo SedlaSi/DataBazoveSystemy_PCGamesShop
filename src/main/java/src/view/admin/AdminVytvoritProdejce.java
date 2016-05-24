@@ -10,7 +10,6 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -30,23 +29,12 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
     private JSpinner cisloPopisne;
     private JSpinner plat;
 
-    public static void main(String [] args){
-
-        final AdminVytvoritProdejce zkl =  new AdminVytvoritProdejce(null, Collections.EMPTY_LIST);
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                zkl.createFrame();
-            }
-        });
-
-    }
-
-    public AdminVytvoritProdejce(ProviderController providerController, List<Pozice> poziceList){
+    public AdminVytvoritProdejce(ProviderController providerController, List<Pozice> poziceList) {
         this.providerController = providerController;
         this.poziceList = poziceList;
     }
 
-    public void createFrame(){
+    public void startFrame() {
         setLayout(new FlowLayout());
         setLocationRelativeTo(null);
         setResizable(false);
@@ -143,7 +131,7 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(validation()){
+        if (validation()) {
             AdminVytvoritZamestnanceController adminCntrl = providerController.getAdminVytvoritZamestnanceController();
             adminCntrl.setEmail(email.getText());
             adminCntrl.setTelefon(telefon.getText());
@@ -156,11 +144,10 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
             adminCntrl.setPlat((plat.getValue()).toString());
             adminCntrl.setUlice(ulice.getText());
 
-            try{
+            try {
                 adminCntrl.createProjdejce();
                 JOptionPane.showMessageDialog(this, "Prodejce úspěšně vytvořen", "Zaměstnanec", JOptionPane.INFORMATION_MESSAGE);
-            } catch (Exception ex){
-                //ex.printStackTrace();
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Prodejce se nepodařilo vytvořit, chyba databáze, nebo už je použité stejné uživatelské jméno nebo email", "Zaměstnanec", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -170,7 +157,7 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
         boolean valid = true;
         EmailValidator emailValidator = EmailValidator.getInstance();
 
-        if(jmeno.getText().equals("") || jmeno.getText().length() > 128) {
+        if (jmeno.getText().equals("") || jmeno.getText().length() > 128) {
             valid = false;
             JOptionPane.showMessageDialog(this, "Jméno nemůže být prázdné nebo delší než 128 znaků", "Jméno", JOptionPane.ERROR_MESSAGE);
         } else if (prijmeni.getText().equals("") || prijmeni.getText().length() > 128) {
@@ -188,10 +175,10 @@ public class AdminVytvoritProdejce extends JFrame implements ActionListener {
         } else if (password.getText().length() < 6 || password.getText().length() > 128) {
             valid = false;
             JOptionPane.showMessageDialog(this, "Heslo musí obsahovat minimálně 6 znaků a nesmí být delší než 128 znaků", "Heslo", JOptionPane.ERROR_MESSAGE);
-        } else if(!emailValidator.isValid(email.getText())) {
+        } else if (!emailValidator.isValid(email.getText())) {
             valid = false;
             JOptionPane.showMessageDialog(this, "Nevalidní email", "email", JOptionPane.ERROR_MESSAGE);
-        } else if(telefon.getText().length() < 9 || telefon.getText().length() > 16 || !telefon.getText().matches("[0-9+]*")) {
+        } else if (telefon.getText().length() < 9 || telefon.getText().length() > 16 || !telefon.getText().matches("[0-9+]*")) {
             valid = false;
             JOptionPane.showMessageDialog(this, "Nevalidní telefonní číslo", "Telefon", JOptionPane.ERROR_MESSAGE);
         }

@@ -15,33 +15,22 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
         super(res);
     }
 
-    public Zamestnanec getByUserName(String userName){
-        Query q =  em.createNamedQuery("Zamestnanec.getByUserName");
+    public Zamestnanec getByUserName(String userName) {
+        Query q = em.createNamedQuery("Zamestnanec.getByUserName");
         q.setParameter("us", userName);
         List<Zamestnanec> list = q.getResultList();
-        if(list != null && list.size() == 1){
-            return list.get(0);
-        }
-        return null;
-    }
-
-    public Zamestnanec getByJmenoPrijmeni(String jmeno, String prijmeni){
-        Query q = em.createNamedQuery("Zamestnanec.getByJmenoPrijmeni", Zamestnanec.class);
-        q.setParameter("j",jmeno);
-        q.setParameter("p",prijmeni);
-        List<Zamestnanec> list = q.getResultList();
-        if(list != null && list.size() == 1){
+        if (list != null && list.size() == 1) {
             return list.get(0);
         }
         return null;
     }
 
     public List<Zamestnanec> getList() {
-        Query q = em.createNamedQuery("Zamestnanec.getList",Zamestnanec.class);
+        Query q = em.createNamedQuery("Zamestnanec.getList", Zamestnanec.class);
         return (List<Zamestnanec>) q.getResultList();
     }
 
-    public void createProdejce(Zamestnanec zamestnanec){
+    public void createProdejce(Zamestnanec zamestnanec) {
         em.getTransaction().begin();
         try {
             StoredProcedureQuery query = em.createNamedStoredProcedureQuery("create_active_prodejce");
@@ -56,7 +45,7 @@ public class ZamestnanecDAO extends TemplateDAO<Zamestnanec> {
             query.setParameter("email", zamestnanec.getEmail());
             query.setParameter("telefon", zamestnanec.getTelefon());
             query.execute();
-        } catch (Exception e){
+        } catch (Exception e) {
             em.getTransaction().rollback();
             throw e;
         }

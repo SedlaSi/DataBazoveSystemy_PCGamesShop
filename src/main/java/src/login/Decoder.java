@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public final class Decoder {
 
-    public static boolean isValid(String pass, char [] original){
+    public static boolean isValid(String pass, char[] original) {
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-256");
@@ -18,12 +18,12 @@ public final class Decoder {
             e.printStackTrace();
             return false;
         }
-        char [] password = new HexBinaryAdapter().marshal(md.digest(pass.getBytes())).toCharArray();
+        char[] password = new HexBinaryAdapter().marshal(md.digest(pass.getBytes())).toCharArray();
         return Arrays.equals(password, original);
     }
 
 
-    public static char [] hashPassword(String password){
+    public static char[] hashPassword(String password) {
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("SHA-256");

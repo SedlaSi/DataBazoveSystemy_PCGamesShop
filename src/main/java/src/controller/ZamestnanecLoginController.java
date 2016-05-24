@@ -35,18 +35,16 @@ public class ZamestnanecLoginController extends TemplateController {
 
     public boolean performLogin() {
         Zamestnanec zamestnanec;
-        try{
+        try {
             zamestnanec = zamestnanecDAO.getByUserName(userName);
-        } catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
-        //if(password.equals(zamestnanec.getPassword())){
-
-        if(zamestnanec == null || !zamestnanec.isAktivni()) {
+        if (zamestnanec == null || !zamestnanec.isAktivni()) {
             return false;
         }
 
-        if(Decoder.isValid(password,zamestnanec.getPassword())){
+        if (Decoder.isValid(password, zamestnanec.getPassword())) {
             providerSession.initSession(userName, Role.ZAMESTNANEC);
             return true;
         }
@@ -54,82 +52,7 @@ public class ZamestnanecLoginController extends TemplateController {
         return false;
     }
 
-//    public boolean performLogin(){
-//        try{
-//            providerDAO.getKasaDAO().loginKasa(userName,password);
-//        } catch (Exception e){
-//            //e.printStackTrace();
-//            return false;
-//        }
-//        return true;
-//        /*Zamestnanec z;
-//        try{
-//            z = zamestnanecDAO.getByUserName(userName);
-//        } catch (Exception e){
-//            return false;
-//        }
-//        if(password.equals(z.getPassword())){
-//
-//            providerZamestnanecSession.initSession(userName, Role.ZAMESTNANEC);
-//            return true;
-//        }
-//        providerZamestnanecSession.endSession();
-//        return false;*/
-//    }
-
-    public void performLogout() {
-        providerSession.endSession();
-    }
-
-    /*public void performLogout(){
-        try{
-            providerDAO.getKasaDAO().logoutKasa();
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-        //providerZamestnanecSession.endSession();
-    }*/
-
-    public String getUserNameOfLoggedZamestnanec(){
-        String username = "";
-
-        if(providerSession != null && providerSession.getSession() != null) {
-            username = providerSession.getSession().getUserName();
-        }
-
-//        try{
-//            username = providerDAO.getKasaDAO().getLoggedZamestnanec().getUsername();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//            username = "";
-//        }
-
-        return username;
-    }
-
-//    public boolean someoneIsLoggedInKasa(){
-//        if(providerDAO.getKasaDAO().getLoggedZamestnanec() != null){
-//            return true;
-//        }
-//        return false;
-//    }
-
-    public Session getCurrentSession(){
+    public Session getCurrentSession() {
         return providerSession.getSession();
-    }
-
-    public boolean performCrashRecoveryLogout(String password){
-//        try {
-//            Zamestnanec z = providerDAO.getKasaDAO().getLoggedZamestnanec();
-//            if(z.getPassword().equals(password)){
-//                this.performLogout();
-//            } else {
-//                return false;
-//            }
-//        } catch (Exception e){
-//            e.printStackTrace();
-//            return false;
-//        }
-        return true;
     }
 }
